@@ -1,0 +1,181 @@
+"use client";
+
+import { TMSHeader, TMSSidebar, useTMSUIViewportTier } from "@conitdev/tms-ui-kit";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+
+import { getPortalSurfaceByRoute } from "@/src/portal/chrome/portal-chrom-surface-registry.config";
+import { logger } from "@/src/logger";
+import { portalChromLocalUIOverrides } from "@/src/portal/chrome/portal-chrom.local-ui-overrides";
+import { buildPortalChromHeaderProps } from "@/src/portal/chrome/portal-chrom-header.kit-props";
+import { buildPortalChromSidebarProps } from "@/src/portal/chrome/portal-chrom-sidebar.kit-props";
+import { PortalPage } from "@/src/portal/chrome/portal-page";
+
+type PortalShellProps = {
+  children: ReactNode;
+  currentEntityTitle?: string;
+  currentUserName?: string;
+  currentUserInitials?: string;
+};
+
+export function PortalShell({
+  children,
+  currentEntityTitle,
+  currentUserName,
+  currentUserInitials,
+}: PortalShellProps) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const viewportTier = useTMSUIViewportTier();
+  const shellRef = useRef<HTMLDivElement>(null);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const currentSurface = getPortalSurfaceByRoute(pathname);
+  const currentHref = currentSurface?.route ?? pathname;
+  const isMobile = viewportTier === "mobile";
+
+  const closeMobileSidebar = () => {
+    const sidebarElement = shellRef.current?.querySelector<HTMLElement>("#sidebar-navbar-s");
+
+    if (!sidebarElement) {
+      logger.debug("Skip close mobile sidebar", { reason: "missing_sidebar_element" });
+      return;
+    }
+
+    logger.debug("Close mobile sidebar", { pathname, isMobile });
+    sidebarElement.classList.add("-translate-x-96");
+    setIsMobileSidebarOpen(false);
+  };
+
+  const headerProps = useMemo(
+    () =>
+      buildPortalChromHeaderProps({
+        isMobile,
+        currentEntityTitle,
+        currentUserName,
+        currentUserInitials,
+      }),
+    [currentEntityTitle, currentUserInitials, currentUserName, isMobile],
+  );
+
+  const sidebarProps = useMemo(
+    () =>
+      buildPortalChromSidebarProps({
+        pathname,
+        viewportTier,
+        onClickMenuItem: (menuItem) => {
+          if ("href" in menuItem && menuItem.href) {
+            logger.debug("Portal sidebar navigate", {
+              href: menuItem.href,
+              pathname,
+            });
+            router.push(menuItem.href);
+          }
+        },
+      }),
+    [pathname, router, viewportTier],
+  );
+
+  useEffect(() => {
+    const sidebarElement = shellRef.current?.querySelector<HTMLElement>("#sidebar-navbar-s");
+
+    if (!sidebarElement) {
+      logger.debug("Skip mobile sidebar sync", { reason: "missing_sidebar_element" });
+      return undefined;
+    }
+
+    const syncMobileSidebarState = () => {
+      setIsMobileSidebarOpen(!sidebarElement.classList.contains("-translate-x-96"));
+    };
+
+    if (!isMobile) {
+      logger.debug("Portal sidebar desktop mode sync", { viewportTier });
+      sidebarElement.classList.remove("-translate-x-96");
+      return undefined;
+    }
+
+    logger.debug("Portal sidebar mobile mode sync", { pathname, viewportTier });
+    sidebarElement.classList.add("-translate-x-96");
+    queueMicrotask(() => {
+      setIsMobileSidebarOpen(false);
+    });
+
+    const observer = new MutationObserver(() => {
+      syncMobileSidebarState();
+    });
+
+    observer.observe(sidebarElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isMobile, pathname, viewportTier]);
+
+  const sidebarModeKey = `${viewportTier}-${sidebarProps.collapsed ? "collapsed" : "expanded"}`;
+  const sidebar = <TMSSidebar key={sidebarModeKey} {...sidebarProps} />;
+
+  return (
+    <div ref={shellRef} className={portalChromLocalUIOverrides.shellClassName}>
+      <style>{`
+        @media (min-width: 768px) {
+          [data-tsid="header-container"] > div:last-child {
+            height: 100% !important;
+            justify-content: center !important;
+          }
+
+          [data-tsid="portal-chrome-sidebar-host"] [data-tsid="sidebar-navbar-s"] {
+            position: static !important;
+            inset: auto !important;
+            left: auto !important;
+            top: auto !important;
+            translate: 0 !important;
+            transform: none !important;
+            height: 100% !important;
+            display: flex !important;
+            flex: 0 0 auto !important;
+            z-index: auto !important;
+          }
+        }
+      `}</style>
+      <div className={portalChromLocalUIOverrides.headerHostClassName}>
+        <TMSHeader
+          {...headerProps}
+          onClickHelp={() => {
+            router.push("/info/help");
+          }}
+          onClickMenuItem={(menuItem) => {
+            if (menuItem.href) {
+              logger.debug("Portal header navigate", {
+                href: menuItem.href,
+                pathname,
+              });
+              router.push(menuItem.href);
+              closeMobileSidebar();
+            }
+          }}
+          onClickSeeAllNotif={() => {
+            router.push("/inbox/notifications");
+          }}
+        />
+      </div>
+      <div data-tsid="portal-shell-body" className={portalChromLocalUIOverrides.bodyClassName}>
+        <aside data-tsid="portal-chrome-sidebar-host" className={portalChromLocalUIOverrides.sidebarHostClassName}>{sidebar}</aside>
+        {isMobile && isMobileSidebarOpen ? (
+          <button
+            type="button"
+            aria-label="Close navigation menu"
+            className={portalChromLocalUIOverrides.mobileSidebarBackdropClassName}
+            onClick={closeMobileSidebar}
+          />
+        ) : null}
+        <main className={portalChromLocalUIOverrides.mainColumnClassName}>
+          <PortalPage currentHref={currentHref} title={currentSurface?.title}>
+            {children}
+          </PortalPage>
+        </main>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,39 @@
+{
+  "name": "tms-static-portal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "predev": "npm run sync:palette",
+    "dev": "next dev",
+    "prebuild": "npm run sync:palette",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "sync:palette": "node scripts/sync-palette.mjs"
+  },
+  "dependencies": {
+    "@conitdev/tms-ui-kit": "2.3.4-next",
+    "@react-google-maps/api": "^2.19.3",
+    "@reduxjs/toolkit": "^2.11.2",
+    "axios": "^1.7.2",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "libphonenumber-js": "^1.10.55",
+    "next": "^16.2.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-redux": "^9.2.0",
+    "tailwind-merge": "^3.5.0",
+    "universal-cookie": "^7.1.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^16.2.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
