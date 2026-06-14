@@ -1,0 +1,5902 @@
+{
+  "H_AAA_AppClients": {
+    "name": "H_AAA_AppClients",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "ClientId",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`ClientId` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "ClientSecret",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`ClientSecret` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "AppTypeId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`AppTypeId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "IsInactive",
+        "rawType": "tinyint",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`IsInactive` tinyint NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 9,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_1827405acb205be6a3ce66d25810972f",
+        "columns": [
+          "AppTypeId"
+        ],
+        "referencesTable": "H_AAA_AppTypes",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ClientId",
+        "columns": [
+          "ClientId"
+        ],
+        "unique": true
+      },
+      {
+        "name": "idx_1a7a587ecc0d5597b346ed7a276adc56",
+        "columns": [
+          "AppTypeId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_AppPermissions": {
+    "name": "H_AAA_AppPermissions",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(256)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "CodeUri",
+        "rawType": "varchar(256)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`CodeUri` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 6,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_AppTypePermissions": {
+    "name": "H_AAA_AppTypePermissions",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "AppTypeId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`AppTypeId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "AppPermissionId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`AppPermissionId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Signature",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`Signature` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 7,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_87f3ca6afb7d5c9789a936b11c7b04e8",
+        "columns": [
+          "AppTypeId"
+        ],
+        "referencesTable": "H_AAA_AppTypes",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      },
+      {
+        "name": "fk_b56c7a1056d85043b43d37bf24130421",
+        "columns": [
+          "AppPermissionId"
+        ],
+        "referencesTable": "H_AAA_AppPermissions",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_22e410e836875a66b482ca0fd94fcf54",
+        "columns": [
+          "AppPermissionId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_b9ba5fb6caec5aeca348230a2bed78b8",
+        "columns": [
+          "AppTypeId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_AppTypes": {
+    "name": "H_AAA_AppTypes",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "Code",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Code` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`Title` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 6,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_EntityRolePermissions": {
+    "name": "H_AAA_EntityRolePermissions",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "RoleId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`RoleId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "PermissionId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`PermissionId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Signature",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`Signature` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 7,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_0b8c184a32f353a9bc14170f4f8e811a",
+        "columns": [
+          "PermissionId"
+        ],
+        "referencesTable": "H_AAA_Permissions",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      },
+      {
+        "name": "fk_80cefff5d47957b783c90f6159750346",
+        "columns": [
+          "RoleId"
+        ],
+        "referencesTable": "H_AAA_EntityRoles",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_d34e86ed23f5563d99921392400705b6",
+        "columns": [
+          "PermissionId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_f47b158ccaf354198ee75769a2c85336",
+        "columns": [
+          "RoleId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_EntityRoles": {
+    "name": "H_AAA_EntityRoles",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(256)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "EntityId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`EntityId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "ActENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`ActENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "IsDefault",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`IsDefault` tinyint(1) DEFAULT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 8,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_516314666c0b5b79b5e3a92b1f7987fe",
+        "columns": [
+          "ActENUM"
+        ],
+        "referencesTable": "H_AAA_EntityScenarios",
+        "referencesColumns": [
+          "PermittedActENUM"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      },
+      {
+        "name": "fk_7d5eb43373e7529a899d0f5f64f0f0b7",
+        "columns": [
+          "EntityId",
+          "ActENUM"
+        ],
+        "referencesTable": "H_AAA_EntityScenarios",
+        "referencesColumns": [
+          "EntityId",
+          "PermittedActENUM"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      },
+      {
+        "name": "fk_820741232917505e9eaf61cff911d85a",
+        "columns": [
+          "EntityId"
+        ],
+        "referencesTable": "H_AAA_EntityScenarios",
+        "referencesColumns": [
+          "EntityId"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_cf754bf622395e7e9b68d1c10a975635",
+        "columns": [
+          "ActENUM"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_de5c092884f152cbaf5bbfadbd0fb67e",
+        "columns": [
+          "EntityId",
+          "ActENUM"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_EntityScenarios": {
+    "name": "H_AAA_EntityScenarios",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "EntityId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`EntityId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "PermittedActENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`PermittedActENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "ScenarioId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`ScenarioId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 7,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_34532e3c334f527487d3f59493f89962",
+        "columns": [
+          "ScenarioId"
+        ],
+        "referencesTable": "H_AAA_Scenarios",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      },
+      {
+        "name": "fk_7baae7efd65c5c52ae2f0fd55cca9637",
+        "columns": [
+          "EntityId"
+        ],
+        "referencesTable": "H_AAA_Synced_EntityProfile",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_54e3697a0c625ced9311863212b1711d",
+        "columns": [
+          "PermittedActENUM"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_74d1cc3c33805e3eb68245b088504ef4",
+        "columns": [
+          "EntityId",
+          "PermittedActENUM",
+          "ScenarioId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_98413c401e3f5fb9af31949039ff2db3",
+        "columns": [
+          "EntityId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_b4f8c5ec590054c4a88a6ca6a5bac48d",
+        "columns": [
+          "ScenarioId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_Permissions": {
+    "name": "H_AAA_Permissions",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(256)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "CodeUri",
+        "rawType": "varchar(256)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`CodeUri` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 6,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_ScenarioDataMap": {
+    "name": "H_AAA_ScenarioDataMap",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "ScenarioId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`ScenarioId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "TargetActENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`TargetActENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "PermitTableName",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`PermitTableName` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "PermitEntityFieldName",
+        "rawType": "varchar(64)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`PermitEntityFieldName` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "SourceDataType",
+        "rawType": "enum('EntityId','BaseTable','Join')",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`SourceDataType` enum('EntityId','BaseTable','Join') COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "EntityId",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`EntityId` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "BaseTableName",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`BaseTableName` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "JoinerActENUM",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`JoinerActENUM` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "JoinerFieldName",
+        "rawType": "varchar(64)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`JoinerFieldName` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "JoiningTableName",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`JoiningTableName` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "TargetFieldName",
+        "rawType": "varchar(64)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`TargetFieldName` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "CachedQuerySQL",
+        "rawType": "mediumtext",
+        "nullable": true,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 13,
+        "raw": "`CachedQuerySQL` mediumtext COLLATE utf8mb4_unicode_ci"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 14,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 15,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 16,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 17,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 18,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_3181e5806c8950a2a5ec8141ccb7f788",
+        "columns": [
+          "ScenarioId"
+        ],
+        "referencesTable": "H_AAA_Scenarios",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_75b8d33fa3295c04b9bc0a8497435b18",
+        "columns": [
+          "TargetActENUM"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_3e967e16ee1c5d79a53ef4995f33badc",
+        "columns": [
+          "JoinerActENUM"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_df4f2f80fc765155b60c8c2a309c4f8f",
+        "columns": [
+          "ScenarioId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_Scenarios": {
+    "name": "H_AAA_Scenarios",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "Description",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Description` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "ActivityClassENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`ActivityClassENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "ClientEntityId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`ClientEntityId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 7,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_96c9ad1b994f5260a0a5612fee99c796",
+        "columns": [
+          "ClientEntityId"
+        ],
+        "referencesTable": "H_AAA_Synced_EntityProfile",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "unq_fb712219ad0957f680a41fb1b4961d25",
+        "columns": [
+          "ActivityClassENUM",
+          "ClientEntityId"
+        ],
+        "unique": true
+      },
+      {
+        "name": "idx_8a499dbca8665b80b87db70962a54b4e",
+        "columns": [
+          "ClientEntityId",
+          "ActivityClassENUM"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_Synced_EntityProfile": {
+    "name": "H_AAA_Synced_EntityProfile",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "PartyCode",
+        "rawType": "varchar(48)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`PartyCode` varchar(48) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(256)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`Title` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "Address_fsx",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`Address_fsx` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "City",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`City` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Province",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`Province` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Country",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`Country` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "PostalCode_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`PostalCode_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Phone_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`Phone_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "FaxNumber_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`FaxNumber_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Email_fsx",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`Email_fsx` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Discriminator",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`Discriminator` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "RecordKey",
+        "rawType": "varchar(36)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 13,
+        "raw": "`RecordKey` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 14,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 15,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 16,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 17,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 18,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "PartyCode",
+        "columns": [
+          "PartyCode"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_Synced_UserInfo": {
+    "name": "H_AAA_Synced_UserInfo",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "Firstname_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Firstname_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Lastname_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`Lastname_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Username",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`Username` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Email_fsx",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`Email_fsx` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "EmailConfirmed",
+        "rawType": "tinyint",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`EmailConfirmed` tinyint DEFAULT NULL"
+      },
+      {
+        "name": "CellPhone_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CellPhone_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "CellPhoneConfirmed",
+        "rawType": "tinyint",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`CellPhoneConfirmed` tinyint DEFAULT NULL"
+      },
+      {
+        "name": "IssuedBy",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`IssuedBy` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "RecordKey",
+        "rawType": "varchar(36)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`RecordKey` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 13,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 14,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 15,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "RecordKey",
+        "columns": [
+          "RecordKey"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_Synced_UserProfile": {
+    "name": "H_AAA_Synced_UserProfile",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "UserId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`UserId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Address_fsx",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`Address_fsx` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "City",
+        "rawType": "varchar(32)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`City` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Province",
+        "rawType": "varchar(32)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`Province` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Country",
+        "rawType": "varchar(32)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`Country` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Language",
+        "rawType": "varchar(32)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`Language` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "TimeZone",
+        "rawType": "varchar(32)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`TimeZone` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Currency",
+        "rawType": "varchar(32)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`Currency` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "SignatureUri",
+        "rawType": "longtext",
+        "nullable": true,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`SignatureUri` longtext COLLATE utf8mb4_unicode_ci"
+      },
+      {
+        "name": "PhotoUri",
+        "rawType": "longtext",
+        "nullable": true,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`PhotoUri` longtext COLLATE utf8mb4_unicode_ci"
+      },
+      {
+        "name": "PostalCode_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`PostalCode_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "BirthDate_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 13,
+        "raw": "`BirthDate_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Notification_SMS_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 14,
+        "raw": "`Notification_SMS_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Notification_Phone_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 15,
+        "raw": "`Notification_Phone_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Notification_Email_fsx",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 16,
+        "raw": "`Notification_Email_fsx` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Notification_WhatsApp_fsx",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 17,
+        "raw": "`Notification_WhatsApp_fsx` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "RecordKey",
+        "rawType": "varchar(36)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 18,
+        "raw": "`RecordKey` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 19,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 20,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 21,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 22,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 23,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_ea76a6ff530c5f1cb115f1d1a04870c6",
+        "columns": [
+          "UserId"
+        ],
+        "referencesTable": "H_AAA_Synced_UserInfo",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "UserId",
+        "columns": [
+          "UserId"
+        ],
+        "unique": true
+      },
+      {
+        "name": "RecordKey",
+        "columns": [
+          "RecordKey"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_TableAuditConfigs": {
+    "name": "H_AAA_TableAuditConfigs",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "TableName",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`TableName` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "IsActive",
+        "rawType": "tinyint",
+        "nullable": false,
+        "default": "'1'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`IsActive` tinyint NOT NULL DEFAULT '1'"
+      },
+      {
+        "name": "IsIndividualManaged",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`IsIndividualManaged` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "Signature",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`Signature` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 8,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_TableAudits": {
+    "name": "H_AAA_TableAudits",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "TableName",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`TableName` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "TableRowId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`TableRowId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Actor",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`Actor` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Action",
+        "rawType": "enum('Create','Update','Delete')",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`Action` enum('Create','Update','Delete') COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "PreviousData",
+        "rawType": "json",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`PreviousData` json DEFAULT NULL"
+      },
+      {
+        "name": "CurrentData",
+        "rawType": "json",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CurrentData` json DEFAULT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_UserAppSettings": {
+    "name": "H_AAA_UserAppSettings",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "UserId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`UserId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "AppClientId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`AppClientId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Setting_fsx",
+        "rawType": "text",
+        "nullable": true,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`Setting_fsx` text COLLATE utf8mb4_unicode_ci"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 7,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_user_app_settings_app_client",
+        "columns": [
+          "AppClientId"
+        ],
+        "referencesTable": "H_AAA_AppClients",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      },
+      {
+        "name": "fk_user_app_settings_user_info",
+        "columns": [
+          "UserId"
+        ],
+        "referencesTable": "H_AAA_Synced_UserInfo",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "unq_user_app_settings_user_app_record_deleted",
+        "columns": [
+          "UserId",
+          "AppClientId",
+          "RecordDeleted"
+        ],
+        "unique": true
+      },
+      {
+        "name": "idx_user_app_settings_user_id",
+        "columns": [
+          "UserId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_user_app_settings_app_client_id",
+        "columns": [
+          "AppClientId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_AAA_UserEntityRoles": {
+    "name": "H_AAA_UserEntityRoles",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "UserId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`UserId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "EntityRoleId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`EntityRoleId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 6,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_15dfb14c346d55bda757506cbf287f8f",
+        "columns": [
+          "EntityRoleId"
+        ],
+        "referencesTable": "H_AAA_EntityRoles",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      },
+      {
+        "name": "fk_411d58565d2552e19e469c59d78b7385",
+        "columns": [
+          "UserId"
+        ],
+        "referencesTable": "H_AAA_Synced_UserInfo",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_f818fe0ab9f5539b8c048cbe5ad88279",
+        "columns": [
+          "EntityRoleId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_4228c2a99f1050f49ad2ca13cd8b20fc",
+        "columns": [
+          "UserId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_APIs": {
+    "name": "H_APIs",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "APIId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`APIId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Protocol",
+        "rawType": "varchar(32)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`Protocol` varchar(32) DEFAULT NULL"
+      },
+      {
+        "name": "Host",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`Host` varchar(256) DEFAULT NULL"
+      },
+      {
+        "name": "Port",
+        "rawType": "mediumint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`Port` mediumint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "Version",
+        "rawType": "varchar(32)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`Version` varchar(32) DEFAULT NULL"
+      },
+      {
+        "name": "ModuleId",
+        "rawType": "varchar(32)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`ModuleId` varchar(32) DEFAULT NULL"
+      },
+      {
+        "name": "Path",
+        "rawType": "varchar(256)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`Path` varchar(256) NOT NULL"
+      },
+      {
+        "name": "Name",
+        "rawType": "varchar(256)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`Name` varchar(256) NOT NULL"
+      },
+      {
+        "name": "Signature",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`Signature` varchar(256) DEFAULT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 13,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 14,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 15,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "APIId",
+        "columns": [
+          "APIId"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_DP_ActorVersions": {
+    "name": "H_DP_ActorVersions",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "ScenarioId",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`ScenarioId` int unsigned NOT NULL"
+      },
+      {
+        "name": "EntityId",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`EntityId` int unsigned NOT NULL"
+      },
+      {
+        "name": "ComponentType",
+        "rawType": "enum('breadcrumb','built-page','button','form','grid','header','footer','input-field','lookup-field','menu','modal','page','wizard','search-bar','label','select','radio-group','upload-files','take-photo','multiselect','signature','select-day','calendar','checkbox','select-color','report','container','chart','list','dpgv','date-picker','time-picker','role-builder','ui-config','blue-print','list-report','widget','autocomplete','country-select')",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`ComponentType` enum('breadcrumb','built-page','button','form','grid','header','footer','input-field','lookup-field','menu','modal','page','wizard','search-bar','label','select','radio-group','upload-files','take-photo','multiselect','signature','select-day','calendar','checkbox','select-color','report','container','chart','list','dpgv','date-picker','time-picker','role-builder','ui-config','blue-print','list-report','widget','autocomplete','country-select') COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "ComponentCodeName",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`ComponentCodeName` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Version",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`Version` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Comments",
+        "rawType": "tinytext",
+        "nullable": true,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`Comments` tinytext COLLATE utf8mb4_unicode_ci"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "idx_9d8c610b7aea58c8aa960e62761e71f0",
+        "columns": [
+          "ComponentCodeName",
+          "Version",
+          "ComponentType"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_DP_ComponentChildren": {
+    "name": "H_DP_ComponentChildren",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "ParentComponentBaseId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`ParentComponentBaseId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "DP_ChildComponentType",
+        "rawType": "enum('breadcrumb','built-page','button','form','grid','header','footer','input-field','lookup-field','menu','modal','page','wizard','search-bar','label','select','radio-group','upload-files','take-photo','multiselect','signature','select-day','calendar','checkbox','select-color','report','container','chart','list','dpgv','date-picker','time-picker','role-builder','ui-config','blue-print','list-report','widget','autocomplete','country-select')",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`DP_ChildComponentType` enum('breadcrumb','built-page','button','form','grid','header','footer','input-field','lookup-field','menu','modal','page','wizard','search-bar','label','select','radio-group','upload-files','take-photo','multiselect','signature','select-day','calendar','checkbox','select-color','report','container','chart','list','dpgv','date-picker','time-picker','role-builder','ui-config','blue-print','list-report','widget','autocomplete','country-select') COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "DP_ChildComponentCodeName",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`DP_ChildComponentCodeName` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_4d3d2121b4aa5dcca0d5a5d97f09a6a4",
+        "columns": [
+          "DP_ChildComponentType",
+          "DP_ChildComponentCodeName"
+        ],
+        "referencesTable": "H_DP_ComponentsBases",
+        "referencesColumns": [
+          "Type",
+          "CodeName"
+        ],
+        "onDelete": "RESTRICT",
+        "onUpdate": "RESTRICT"
+      },
+      {
+        "name": "fk_86031748e1aa573e969de51ce74b578a",
+        "columns": [
+          "ParentComponentBaseId"
+        ],
+        "referencesTable": "H_DP_ComponentsBases",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": "RESTRICT",
+        "onUpdate": "RESTRICT"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_0157d40cb78a54bb89475e9ec3704fa8",
+        "columns": [
+          "ParentComponentBaseId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_671433b76fb358218bc46b81fcf73aa0",
+        "columns": [
+          "DP_ChildComponentType",
+          "DP_ChildComponentCodeName"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_DP_ComponentsBases": {
+    "name": "H_DP_ComponentsBases",
+    "source": "ntf",
+    "primaryKey": [
+      "Id",
+      "CodeName",
+      "Version"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "Type",
+        "rawType": "enum('breadcrumb','built-page','button','form','grid','header','footer','input-field','lookup-field','menu','modal','page','wizard','search-bar','label','select','radio-group','upload-files','take-photo','multiselect','signature','select-day','calendar','checkbox','select-color','report','container','chart','list','dpgv','date-picker','time-picker','role-builder','ui-config','blue-print','list-report','widget','autocomplete','country-select')",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Type` enum('breadcrumb','built-page','button','form','grid','header','footer','input-field','lookup-field','menu','modal','page','wizard','search-bar','label','select','radio-group','upload-files','take-photo','multiselect','signature','select-day','calendar','checkbox','select-color','report','container','chart','list','dpgv','date-picker','time-picker','role-builder','ui-config','blue-print','list-report','widget','autocomplete','country-select') COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "CodeName",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`CodeName` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Version",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`Version` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Description",
+        "rawType": "mediumtext",
+        "nullable": true,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`Description` mediumtext COLLATE utf8mb4_unicode_ci"
+      },
+      {
+        "name": "Data",
+        "rawType": "json",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`Data` json NOT NULL"
+      },
+      {
+        "name": "DataExtra",
+        "rawType": "json",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`DataExtra` json DEFAULT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "unq_274bcffeacd7590c8debc2b510fe25ce",
+        "columns": [
+          "Type",
+          "CodeName",
+          "Version"
+        ],
+        "unique": true
+      },
+      {
+        "name": "idx_3215abd1124b5f1dae5532558239939d",
+        "columns": [
+          "Type",
+          "CodeName"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_DP_ENUM_EventTypes": {
+    "name": "H_DP_ENUM_EventTypes",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_DP_EventOutbox": {
+    "name": "H_DP_EventOutbox",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "EventTypeENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`EventTypeENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "Payload",
+        "rawType": "json",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`Payload` json NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_ENUM_ActivityClasses": {
+    "name": "H_ENUM_ActivityClasses",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_ENUM_Actors": {
+    "name": "H_ENUM_Actors",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_ENUM_ActorsSorts": {
+    "name": "H_ENUM_ActorsSorts",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_ENUM_DataSourceTypes": {
+    "name": "H_ENUM_DataSourceTypes",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_ENUM_EventTypes": {
+    "name": "H_ENUM_EventTypes",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_ENUM_NotificationChannelTypes": {
+    "name": "H_ENUM_NotificationChannelTypes",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_ENUM_NotificationPlatforms": {
+    "name": "H_ENUM_NotificationPlatforms",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_ENUM_NotificationStatuses": {
+    "name": "H_ENUM_NotificationStatuses",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_ENUM_NotificationTemplates": {
+    "name": "H_ENUM_NotificationTemplates",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_ENUM_ScenarioDataMapCheckingTypes": {
+    "name": "H_ENUM_ScenarioDataMapCheckingTypes",
+    "source": "ntf",
+    "primaryKey": [
+      "ENUM"
+    ],
+    "columns": [
+      {
+        "name": "ENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`ENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "Title",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Title` varchar(128) NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "Title",
+        "columns": [
+          "Title"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_EntityNotificationSettings": {
+    "name": "H_EntityNotificationSettings",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "EntityId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`EntityId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "IsEnabledInApp",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'1'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`IsEnabledInApp` tinyint(1) NOT NULL DEFAULT '1'"
+      },
+      {
+        "name": "IsEnabledEmail",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`IsEnabledEmail` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 7,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_ec93a1a45f865a3caa8f4ee2926903fc",
+        "columns": [
+          "EntityId"
+        ],
+        "referencesTable": "H_AAA_Synced_EntityProfile",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_09ce4f31cf7758cfa34147888f7f2ea9",
+        "columns": [
+          "EntityId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_EntityNotificationSettingsLog": {
+    "name": "H_EntityNotificationSettingsLog",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "EntityNotificationSettingId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`EntityNotificationSettingId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "EntityId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`EntityId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "IsEnabledInApp",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'1'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`IsEnabledInApp` tinyint(1) NOT NULL DEFAULT '1'"
+      },
+      {
+        "name": "IsEnabledEmail",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`IsEnabledEmail` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 8,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_573a21ea0b7b5b00859597f662d14c18",
+        "columns": [
+          "EntityNotificationSettingId"
+        ],
+        "referencesTable": "H_EntityNotificationSettings",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      },
+      {
+        "name": "fk_b514b2be469752a58ce62628c1ca8c61",
+        "columns": [
+          "EntityId"
+        ],
+        "referencesTable": "H_AAA_Synced_EntityProfile",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_3eb97bae21175daa9191f9a6136022a2",
+        "columns": [
+          "EntityId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_eb4c65a18ed051ffa27edb333e20ba90",
+        "columns": [
+          "EntityNotificationSettingId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_EventHandlerListenersMap": {
+    "name": "H_EventHandlerListenersMap",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "BoxTypeENUM",
+        "rawType": "tinyint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`BoxTypeENUM` tinyint unsigned NOT NULL"
+      },
+      {
+        "name": "EventTypeENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`EventTypeENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "ServiceENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`ServiceENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "HandlingStructure",
+        "rawType": "json",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`HandlingStructure` json DEFAULT NULL"
+      },
+      {
+        "name": "IsActive",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'1'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`IsActive` tinyint(1) NOT NULL DEFAULT '1'"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 9,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_EventHandlerProcessingQueue": {
+    "name": "H_EventHandlerProcessingQueue",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "EventHandlerListenersMapId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`EventHandlerListenersMapId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "EventTypeENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`EventTypeENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "ServiceENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`ServiceENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "Message",
+        "rawType": "json",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`Message` json DEFAULT NULL"
+      },
+      {
+        "name": "RetryCount",
+        "rawType": "tinyint unsigned",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`RetryCount` tinyint unsigned NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "Status",
+        "rawType": "tinyint unsigned",
+        "nullable": false,
+        "default": "'1'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`Status` tinyint unsigned NOT NULL DEFAULT '1'"
+      },
+      {
+        "name": "StatusReason",
+        "rawType": "tinytext",
+        "nullable": true,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`StatusReason` tinytext"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 11,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "H_EventHandlerProcessingQueue_ibfk_1",
+        "columns": [
+          "EventHandlerListenersMapId"
+        ],
+        "referencesTable": "H_EventHandlerListenersMap",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "EventHandlerListenersMapId",
+        "columns": [
+          "EventHandlerListenersMapId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_EventInbox": {
+    "name": "H_EventInbox",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "AppId",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`AppId` int unsigned NOT NULL"
+      },
+      {
+        "name": "EventTypeENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`EventTypeENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "EventTypeScope",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`EventTypeScope` varchar(128) DEFAULT NULL"
+      },
+      {
+        "name": "EventInitiatorUserGUId",
+        "rawType": "varchar(36)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`EventInitiatorUserGUId` varchar(36) DEFAULT NULL"
+      },
+      {
+        "name": "EventInitiatorEntityGUId",
+        "rawType": "varchar(36)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`EventInitiatorEntityGUId` varchar(36) DEFAULT NULL"
+      },
+      {
+        "name": "ActorActENUM",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`ActorActENUM` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ActivityClassENUM",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`ActivityClassENUM` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "Message",
+        "rawType": "json",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`Message` json NOT NULL"
+      },
+      {
+        "name": "Audiences",
+        "rawType": "json",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`Audiences` json NOT NULL"
+      },
+      {
+        "name": "Status",
+        "rawType": "tinyint unsigned",
+        "nullable": false,
+        "default": "'1'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`Status` tinyint unsigned NOT NULL DEFAULT '1'"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 13,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 14,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_EventOutbox": {
+    "name": "H_EventOutbox",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "EventTypeENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`EventTypeENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "EventTypeScope",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`EventTypeScope` varchar(128) DEFAULT NULL"
+      },
+      {
+        "name": "EventInitiatorUserGUId",
+        "rawType": "varchar(36)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`EventInitiatorUserGUId` varchar(36) DEFAULT NULL"
+      },
+      {
+        "name": "EventInitiatorEntityGUId",
+        "rawType": "varchar(36)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`EventInitiatorEntityGUId` varchar(36) DEFAULT NULL"
+      },
+      {
+        "name": "ActorActENUM",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`ActorActENUM` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ActivityClassENUM",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`ActivityClassENUM` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "Message",
+        "rawType": "json",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`Message` json NOT NULL"
+      },
+      {
+        "name": "Audiences",
+        "rawType": "json",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`Audiences` json NOT NULL"
+      },
+      {
+        "name": "Status",
+        "rawType": "tinyint unsigned",
+        "nullable": false,
+        "default": "'1'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`Status` tinyint unsigned NOT NULL DEFAULT '1'"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 13,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci"
+  },
+  "H_NotificationQueue": {
+    "name": "H_NotificationQueue",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "NotificationRequestId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`NotificationRequestId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "UserId",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`UserId` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "EntityId",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`EntityId` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ChannelType",
+        "rawType": "tinyint",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`ChannelType` tinyint NOT NULL"
+      },
+      {
+        "name": "Destination_fsx",
+        "rawType": "varchar(256)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`Destination_fsx` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Status",
+        "rawType": "tinyint",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`Status` tinyint NOT NULL"
+      },
+      {
+        "name": "Reason",
+        "rawType": "mediumtext",
+        "nullable": true,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`Reason` mediumtext COLLATE utf8mb4_unicode_ci"
+      },
+      {
+        "name": "RetryCount",
+        "rawType": "int",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`RetryCount` int NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "BroadcastedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`BroadcastedAt_UTC` datetime DEFAULT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 13,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 14,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 15,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_59005d7006775de2a0bcef6e71370151",
+        "columns": [
+          "UserId"
+        ],
+        "referencesTable": "H_AAA_Synced_UserInfo",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": "RESTRICT",
+        "onUpdate": "RESTRICT"
+      },
+      {
+        "name": "fk_60405a6357d65b3d8efe24733c693b6a",
+        "columns": [
+          "NotificationRequestId"
+        ],
+        "referencesTable": "H_NotificationRequests",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      },
+      {
+        "name": "fk_ffb79923bd25550a816c134ba0606181",
+        "columns": [
+          "EntityId"
+        ],
+        "referencesTable": "H_AAA_Synced_EntityProfile",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": "RESTRICT",
+        "onUpdate": "RESTRICT"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_8275069dcbea58ccb5a6a50191252a16",
+        "columns": [
+          "UserId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_4bc9211edc385338bdaeff49a4955cc0",
+        "columns": [
+          "EntityId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_94ba4c99d58f5fc3aaaccb675c67005e",
+        "columns": [
+          "NotificationRequestId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_NotificationRequests": {
+    "name": "H_NotificationRequests",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "HasRule",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`HasRule` tinyint(1) NOT NULL"
+      },
+      {
+        "name": "UserRecordKey",
+        "rawType": "varchar(36)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`UserRecordKey` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "EntityRecordKey",
+        "rawType": "varchar(36)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`EntityRecordKey` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "RuleRecordKey",
+        "rawType": "varchar(36)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`RuleRecordKey` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Body",
+        "rawType": "json",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`Body` json NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 9,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_NotificationRetryLog": {
+    "name": "H_NotificationRetryLog",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "NotificationQueueId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`NotificationQueueId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "Status",
+        "rawType": "tinyint",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`Status` tinyint NOT NULL"
+      },
+      {
+        "name": "Reason",
+        "rawType": "mediumtext",
+        "nullable": true,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`Reason` mediumtext COLLATE utf8mb4_unicode_ci"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 7,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_6e923694f22653129f039f207adb2f9d",
+        "columns": [
+          "NotificationQueueId"
+        ],
+        "referencesTable": "H_NotificationQueue",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_cade9c7bc52453df9bc54e4193948e9e",
+        "columns": [
+          "NotificationQueueId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_NotificationTemplateSettings": {
+    "name": "H_NotificationTemplateSettings",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "NotificationTypeENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`NotificationTypeENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "NotificationTemplateENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`NotificationTemplateENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "NotificationPlatformENUM",
+        "rawType": "int unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`NotificationPlatformENUM` int unsigned NOT NULL"
+      },
+      {
+        "name": "Settings",
+        "rawType": "json",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`Settings` json NOT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 8,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_SYNC_DataSyncSessionDetail": {
+    "name": "H_SYNC_DataSyncSessionDetail",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "SessionId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`SessionId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "StartedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`StartedAt_UTC` datetime DEFAULT NULL"
+      },
+      {
+        "name": "FinishedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`FinishedAt_UTC` datetime DEFAULT NULL"
+      },
+      {
+        "name": "Source",
+        "rawType": "varchar(128)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`Source` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "Destination",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`Destination` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "CheckModificationSince_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`CheckModificationSince_UTC` datetime DEFAULT NULL"
+      },
+      {
+        "name": "CheckModificationTill_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`CheckModificationTill_UTC` datetime DEFAULT NULL"
+      },
+      {
+        "name": "SourceLastModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`SourceLastModifiedAt_UTC` datetime NOT NULL"
+      },
+      {
+        "name": "DestModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`DestModifiedAt_UTC` datetime DEFAULT NULL"
+      },
+      {
+        "name": "DestUpdateStartedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`DestUpdateStartedAt_UTC` datetime NOT NULL"
+      },
+      {
+        "name": "TotalSyncRequiredRecords",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`TotalSyncRequiredRecords` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ProcessedRecords",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 13,
+        "raw": "`ProcessedRecords` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "SyncSucceeded",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 14,
+        "raw": "`SyncSucceeded` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "SyncFailed",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 15,
+        "raw": "`SyncFailed` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "LastError",
+        "rawType": "longtext",
+        "nullable": true,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 16,
+        "raw": "`LastError` longtext COLLATE utf8mb4_unicode_ci"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 17,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 18,
+        "raw": "`CreatedBy` bigint DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 19,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 20,
+        "raw": "`ModifiedBy` bigint DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 21,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_6c37e5e86e455ba891fa82505b92e6f7",
+        "columns": [
+          "SessionId"
+        ],
+        "referencesTable": "H_SYNC_DataSyncSessions",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": "RESTRICT",
+        "onUpdate": "RESTRICT"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_eb0f203c6b905ac18fcfffc9c1f1cbbf",
+        "columns": [
+          "SessionId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_SYNC_DataSyncSessions": {
+    "name": "H_SYNC_DataSyncSessions",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "Actor",
+        "rawType": "varchar(128)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`Actor` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL"
+      },
+      {
+        "name": "Status",
+        "rawType": "tinyint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`Status` tinyint unsigned NOT NULL"
+      },
+      {
+        "name": "Summary",
+        "rawType": "varchar(1024)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`Summary` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL"
+      },
+      {
+        "name": "TotalVerifiedSources",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`TotalVerifiedSources` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "SyncRequiredSources",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`SyncRequiredSources` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ProcessedSource",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`ProcessedSource` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "SyncSucceeded",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`SyncSucceeded` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "SyncFailed",
+        "rawType": "int unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`SyncFailed` int unsigned DEFAULT NULL"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`CreatedBy` bigint DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 12,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 13,
+        "raw": "`ModifiedBy` bigint DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 14,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_UserNotificationSettings": {
+    "name": "H_UserNotificationSettings",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "UserId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`UserId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "IsEnabledInApp",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'1'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`IsEnabledInApp` tinyint(1) NOT NULL DEFAULT '1'"
+      },
+      {
+        "name": "IsEnabledEmail",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`IsEnabledEmail` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "IsEnabledSMS",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`IsEnabledSMS` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "IsEnabledPhone",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`IsEnabledPhone` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "IsEnabledWhatsApp",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`IsEnabledWhatsApp` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 10,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 11,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_1f6e6724cfb75c2c9326be6cb0a23a5c",
+        "columns": [
+          "UserId"
+        ],
+        "referencesTable": "H_AAA_Synced_UserInfo",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_3e261e7beed656dc8b28b6e70c1e551d",
+        "columns": [
+          "UserId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "H_UserNotificationSettingsLog": {
+    "name": "H_UserNotificationSettingsLog",
+    "source": "ntf",
+    "primaryKey": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "name": "Id",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": true,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`Id` bigint unsigned NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "UserNotificationSettingId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 2,
+        "raw": "`UserNotificationSettingId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "UserId",
+        "rawType": "bigint unsigned",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 3,
+        "raw": "`UserId` bigint unsigned NOT NULL"
+      },
+      {
+        "name": "IsEnabledInApp",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'1'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 4,
+        "raw": "`IsEnabledInApp` tinyint(1) NOT NULL DEFAULT '1'"
+      },
+      {
+        "name": "IsEnabledEmail",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 5,
+        "raw": "`IsEnabledEmail` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "IsEnabledSMS",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 6,
+        "raw": "`IsEnabledSMS` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "IsEnabledPhone",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 7,
+        "raw": "`IsEnabledPhone` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "IsEnabledWhatsApp",
+        "rawType": "tinyint(1)",
+        "nullable": false,
+        "default": "'0'",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 8,
+        "raw": "`IsEnabledWhatsApp` tinyint(1) NOT NULL DEFAULT '0'"
+      },
+      {
+        "name": "CreatedAt_UTC",
+        "rawType": "datetime",
+        "nullable": false,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 9,
+        "raw": "`CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "CreatedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 10,
+        "raw": "`CreatedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "ModifiedAt_UTC",
+        "rawType": "datetime",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP",
+        "autoIncrement": false,
+        "onUpdate": "CURRENT_TIMESTAMP",
+        "ordinal": 11,
+        "raw": "`ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "ModifiedBy",
+        "rawType": "bigint unsigned",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 12,
+        "raw": "`ModifiedBy` bigint unsigned DEFAULT NULL"
+      },
+      {
+        "name": "RecordDeleted",
+        "rawType": "tinyint(1)",
+        "nullable": true,
+        "default": "NULL",
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 13,
+        "raw": "`RecordDeleted` tinyint(1) DEFAULT NULL"
+      }
+    ],
+    "foreignKeys": [
+      {
+        "name": "fk_08b82498802c5cce8fa90a7c3499a364",
+        "columns": [
+          "UserNotificationSettingId"
+        ],
+        "referencesTable": "H_UserNotificationSettings",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      },
+      {
+        "name": "fk_af0e730f7cb25c8c92fac5ae406fe277",
+        "columns": [
+          "UserId"
+        ],
+        "referencesTable": "H_AAA_Synced_UserInfo",
+        "referencesColumns": [
+          "Id"
+        ],
+        "onDelete": null,
+        "onUpdate": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_b4751a041303591b9148e4050257a274",
+        "columns": [
+          "UserId"
+        ],
+        "unique": false
+      },
+      {
+        "name": "idx_a337a4e374d9580cad5a953af27a4047",
+        "columns": [
+          "UserNotificationSettingId"
+        ],
+        "unique": false
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb4",
+    "collation": "utf8mb4_unicode_ci"
+  },
+  "SequelizeMeta": {
+    "name": "SequelizeMeta",
+    "source": "ntf",
+    "primaryKey": [
+      "name"
+    ],
+    "columns": [
+      {
+        "name": "name",
+        "rawType": "varchar(255)",
+        "nullable": false,
+        "default": null,
+        "autoIncrement": false,
+        "onUpdate": null,
+        "ordinal": 1,
+        "raw": "`name` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL"
+      }
+    ],
+    "foreignKeys": [],
+    "indexes": [
+      {
+        "name": "name",
+        "columns": [
+          "name"
+        ],
+        "unique": true
+      }
+    ],
+    "engine": "InnoDB",
+    "charset": "utf8mb3",
+    "collation": "utf8mb3_unicode_ci"
+  }
+}

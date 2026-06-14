@@ -1,0 +1,699 @@
+{
+  "H_AAA_EntityProfile": {
+    "name": "H_AAA_EntityProfile",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "PartyCode",
+      "Title",
+      "Address_fsx",
+      "City",
+      "Province",
+      "Country",
+      "PostalCode_fsx",
+      "Phone_fsx",
+      "FaxNumber_fsx",
+      "Email_fsx",
+      "Discriminator",
+      "RecordKey",
+      "CreatedAt_UTC",
+      "CreatedBy",
+      "ModifiedAt_UTC",
+      "ModifiedBy",
+      "RecordDeleted"
+    ],
+    "definition": "select `H_AAA_Synced_EntityProfile`.`Id` AS `Id`,`H_AAA_Synced_EntityProfile`.`PartyCode` AS `PartyCode`,`H_AAA_Synced_EntityProfile`.`Title` AS `Title`,`H_AAA_Synced_EntityProfile`.`Address_fsx` AS `Address_fsx`,`H_AAA_Synced_EntityProfile`.`City` AS `City`,`H_AAA_Synced_EntityProfile`.`Province` AS `Province`,`H_AAA_Synced_EntityProfile`.`Country` AS `Country`,`H_AAA_Synced_EntityProfile`.`PostalCode_fsx` AS `PostalCode_fsx`,`H_AAA_Synced_EntityProfile`.`Phone_fsx` AS `Phone_fsx`,`H_AAA_Synced_EntityProfile`.`FaxNumber_fsx` AS `FaxNumber_fsx`,`H_AAA_Synced_EntityProfile`.`Email_fsx` AS `Email_fsx`,`H_AAA_Synced_EntityProfile`.`Discriminator` AS `Discriminator`,`H_AAA_Synced_EntityProfile`.`RecordKey` AS `RecordKey`,`H_AAA_Synced_EntityProfile`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`H_AAA_Synced_EntityProfile`.`CreatedBy` AS `CreatedBy`,`H_AAA_Synced_EntityProfile`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`H_AAA_Synced_EntityProfile`.`ModifiedBy` AS `ModifiedBy`,`H_AAA_Synced_EntityProfile`.`RecordDeleted` AS `RecordDeleted` from `H_AAA_Synced_EntityProfile`"
+  },
+  "Test_Hamid": {
+    "name": "Test_Hamid",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Firstname_fsx",
+      "Lastname_fsx",
+      "Username",
+      "Email_fsx",
+      "EmailConfirmed",
+      "CellPhone_fsx",
+      "CellPhoneConfirmed",
+      "IssuedBy",
+      "RecordKey",
+      "CreatedAt_UTC",
+      "CreatedBy",
+      "ModifiedAt_UTC",
+      "ModifiedBy",
+      "RecordDeleted"
+    ],
+    "definition": "select `H_AAA_Synced_UserInfo`.`Id` AS `Id`,`H_AAA_Synced_UserInfo`.`Firstname_fsx` AS `Firstname_fsx`,`H_AAA_Synced_UserInfo`.`Lastname_fsx` AS `Lastname_fsx`,`H_AAA_Synced_UserInfo`.`Username` AS `Username`,`H_AAA_Synced_UserInfo`.`Email_fsx` AS `Email_fsx`,`H_AAA_Synced_UserInfo`.`EmailConfirmed` AS `EmailConfirmed`,`H_AAA_Synced_UserInfo`.`CellPhone_fsx` AS `CellPhone_fsx`,`H_AAA_Synced_UserInfo`.`CellPhoneConfirmed` AS `CellPhoneConfirmed`,`H_AAA_Synced_UserInfo`.`IssuedBy` AS `IssuedBy`,`H_AAA_Synced_UserInfo`.`RecordKey` AS `RecordKey`,`H_AAA_Synced_UserInfo`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`H_AAA_Synced_UserInfo`.`CreatedBy` AS `CreatedBy`,`H_AAA_Synced_UserInfo`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`H_AAA_Synced_UserInfo`.`ModifiedBy` AS `ModifiedBy`,`H_AAA_Synced_UserInfo`.`RecordDeleted` AS `RecordDeleted` from `H_AAA_Synced_UserInfo`"
+  },
+  "Vi_BK_AAA_AllowedActPermissions": {
+    "name": "Vi_BK_AAA_AllowedActPermissions",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "ActENUM",
+      "PermissionId",
+      "Title"
+    ],
+    "definition": "select `ERP`.`Id` AS `Id`,`ER`.`ActENUM` AS `ActENUM`,`ERP`.`PermissionId` AS `PermissionId`,`P`.`Title` AS `Title` from ((`H_AAA_EntityRoles` `ER` join `H_AAA_EntityRolePermissions` `ERP` on(((`ERP`.`RoleId` = `ER`.`Id`) and (`ER`.`IsDefault` = 0)))) join `H_AAA_Permissions` `P` on((`P`.`Id` = `ERP`.`PermissionId`))) where (((0 <> `ER`.`RecordDeleted`) is not true) and ((0 <> `ERP`.`RecordDeleted`) is not true) and ((0 <> `P`.`RecordDeleted`) is not true))"
+  },
+  "Vi_BK_AAA_AppPermissionCheck": {
+    "name": "Vi_BK_AAA_AppPermissionCheck",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "AppTypeId",
+      "AppPermissionId",
+      "CodeUri",
+      "Signature"
+    ],
+    "definition": "select `ATP`.`Id` AS `Id`,`AT`.`Id` AS `AppTypeId`,`AP`.`Id` AS `AppPermissionId`,`AP`.`CodeUri` AS `CodeUri`,`ATP`.`Signature` AS `Signature` from ((`H_AAA_AppTypePermissions` `ATP` join `H_AAA_AppTypes` `AT` on((`ATP`.`AppTypeId` = `AT`.`Id`))) join `H_AAA_AppPermissions` `AP` on((`ATP`.`AppPermissionId` = `AP`.`Id`))) where (((0 <> `AT`.`RecordDeleted`) is not true) and ((0 <> `AP`.`RecordDeleted`) is not true) and ((0 <> `ATP`.`RecordDeleted`) is not true))"
+  },
+  "Vi_BK_AAA_ScenarioDetails": {
+    "name": "Vi_BK_AAA_ScenarioDetails",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "ScenarioId",
+      "EntityId",
+      "AuthorityEntityId",
+      "ActENUM",
+      "ActivityClassENUM",
+      "Description"
+    ],
+    "definition": "select distinct `_ES`.`ScenarioId` AS `Id`,`_ES`.`ScenarioId` AS `ScenarioId`,`_ES`.`EntityId` AS `EntityId`,`S`.`ClientEntityId` AS `AuthorityEntityId`,`_ES`.`PermittedActENUM` AS `ActENUM`,`S`.`ActivityClassENUM` AS `ActivityClassENUM`,`S`.`Description` AS `Description` from (`H_AAA_EntityScenarios` `_ES` join `H_AAA_Scenarios` `S` on((`_ES`.`ScenarioId` = `S`.`Id`))) where (((0 <> `_ES`.`RecordDeleted`) is not true) and ((0 <> `S`.`RecordDeleted`) is not true))"
+  },
+  "Vi_BK_AAA_UserEntityProfileCheck": {
+    "name": "Vi_BK_AAA_UserEntityProfileCheck",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "EntityId",
+      "EntityTitle",
+      "UserId"
+    ],
+    "definition": "select distinct `EP`.`Id` AS `Id`,`EP`.`Id` AS `EntityId`,`EP`.`Title` AS `EntityTitle`,`UER`.`UserId` AS `UserId` from ((`H_AAA_UserEntityRoles` `UER` join `H_AAA_EntityRoles` `ER` on((`UER`.`EntityRoleId` = `ER`.`Id`))) join `H_AAA_Synced_EntityProfile` `EP` on((`ER`.`EntityId` = `EP`.`Id`))) where (((0 <> `UER`.`RecordDeleted`) is not true) and ((0 <> `ER`.`RecordDeleted`) is not true))"
+  },
+  "Vi_BK_AAA_UserEntityRoleCheck": {
+    "name": "Vi_BK_AAA_UserEntityRoleCheck",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "UserId",
+      "RoleId",
+      "EntityId",
+      "ActEnum"
+    ],
+    "definition": "select distinct `UER`.`UserId` AS `Id`,`UER`.`UserId` AS `UserId`,`ER`.`Id` AS `RoleId`,`ER`.`EntityId` AS `EntityId`,`ER`.`ActENUM` AS `ActEnum` from ((`H_AAA_EntityRolePermissions` `ERP` join `H_AAA_EntityRoles` `ER` on((`ERP`.`RoleId` = `ER`.`Id`))) join `H_AAA_UserEntityRoles` `UER` on((`ERP`.`RoleId` = `UER`.`EntityRoleId`))) where (((0 <> `ERP`.`RecordDeleted`) is not true) and ((0 <> `ER`.`RecordDeleted`) is not true) and ((0 <> `UER`.`RecordDeleted`) is not true))"
+  },
+  "Vi_BK_AAA_UserPermissionCheck": {
+    "name": "Vi_BK_AAA_UserPermissionCheck",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "UserId",
+      "RoleId",
+      "EntityId",
+      "PermittedAct",
+      "PermissionId",
+      "CodeUri",
+      "Signature"
+    ],
+    "definition": "select `ERP`.`Id` AS `Id`,`UER`.`UserId` AS `UserId`,`ERP`.`RoleId` AS `RoleId`,`ER`.`EntityId` AS `EntityId`,`ER`.`ActENUM` AS `PermittedAct`,`P`.`Id` AS `PermissionId`,`P`.`CodeUri` AS `CodeUri`,`ERP`.`Signature` AS `Signature` from (((`H_AAA_EntityRolePermissions` `ERP` join `H_AAA_EntityRoles` `ER` on((`ERP`.`RoleId` = `ER`.`Id`))) join `H_AAA_Permissions` `P` on((`ERP`.`PermissionId` = `P`.`Id`))) join `H_AAA_UserEntityRoles` `UER` on((`ERP`.`RoleId` = `UER`.`EntityRoleId`))) where (((0 <> `ERP`.`RecordDeleted`) is not true) and ((0 <> `ER`.`RecordDeleted`) is not true) and ((0 <> `P`.`RecordDeleted`) is not true) and ((0 <> `UER`.`RecordDeleted`) is not true) and (`ER`.`IsDefault` = 0))"
+  },
+  "Vi_DPA_AppClient": {
+    "name": "Vi_DPA_AppClient",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Title",
+      "ClientId",
+      "ClientSecret",
+      "AppTypeId",
+      "IsInactive"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Title` AS `Title`,`BaseTable`.`ClientId` AS `ClientId`,`BaseTable`.`ClientSecret` AS `ClientSecret`,`BaseTable`.`AppTypeId` AS `AppTypeId`,`BaseTable`.`IsInactive` AS `IsInactive` from `H_AAA_AppClients` `BaseTable` where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_AppClientSummary": {
+    "name": "Vi_DPA_AppClientSummary",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Title",
+      "ClientId",
+      "ClientSecret",
+      "AppTypeId",
+      "IsInactive",
+      "UserAppSettingsCount",
+      "AppClientId",
+      "RelatedEntityCount"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Title` AS `Title`,`BaseTable`.`ClientId` AS `ClientId`,`BaseTable`.`ClientSecret` AS `ClientSecret`,`BaseTable`.`AppTypeId` AS `AppTypeId`,`BaseTable`.`IsInactive` AS `IsInactive`,`TempQuery0`.`RelatedEntityCount` AS `UserAppSettingsCount` from (`H_AAA_AppClients` `BaseTable` left join (select `RT0`.`AppClientId` AS `AppClientId`,count(`RT0`.`AppClientId`) AS `RelatedEntityCount` from `H_AAA_UserAppSettings` `RT0` where ((0 <> `RT0`.`RecordDeleted`) is not true) group by `RT0`.`AppClientId`) `TempQuery0` on((`TempQuery0`.`AppClientId` = `BaseTable`.`Id`))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_AppClientsDetail": {
+    "name": "Vi_DPA_AppClientsDetail",
+    "source": "ntf",
+    "columns": [
+      "AppTypeId",
+      "AppTypeCode",
+      "AppTypeTitle",
+      "Title",
+      "ClientId",
+      "ClientSecret",
+      "IsInactive"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `AppTypeId`,`BaseTable`.`Code` AS `AppTypeCode`,`BaseTable`.`Title` AS `AppTypeTitle`,`RJT`.`Title` AS `Title`,`RJT`.`ClientId` AS `ClientId`,`RJT`.`ClientSecret` AS `ClientSecret`,`RJT`.`IsInactive` AS `IsInactive` from (`H_AAA_AppTypes` `BaseTable` join `H_AAA_AppClients` `RJT` on(((`RJT`.`AppTypeId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_AppPermission": {
+    "name": "Vi_DPA_AppPermission",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Title",
+      "CodeUri"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Title` AS `Title`,`BaseTable`.`CodeUri` AS `CodeUri` from `H_AAA_AppPermissions` `BaseTable` where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_AppPermissionSummary": {
+    "name": "Vi_DPA_AppPermissionSummary",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Title",
+      "CodeUri",
+      "AppTypePermissionsCount",
+      "AppPermissionId",
+      "RelatedEntityCount"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Title` AS `Title`,`BaseTable`.`CodeUri` AS `CodeUri`,`TempQuery0`.`RelatedEntityCount` AS `AppTypePermissionsCount` from (`H_AAA_AppPermissions` `BaseTable` left join (select `RT0`.`AppPermissionId` AS `AppPermissionId`,count(`RT0`.`AppPermissionId`) AS `RelatedEntityCount` from `H_AAA_AppTypePermissions` `RT0` where ((0 <> `RT0`.`RecordDeleted`) is not true) group by `RT0`.`AppPermissionId`) `TempQuery0` on((`TempQuery0`.`AppPermissionId` = `BaseTable`.`Id`))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_AppType": {
+    "name": "Vi_DPA_AppType",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Code",
+      "Title"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Code` AS `Code`,`BaseTable`.`Title` AS `Title` from `H_AAA_AppTypes` `BaseTable` where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_AppTypePermissionsSuperDetail": {
+    "name": "Vi_DPA_AppTypePermissionsSuperDetail",
+    "source": "ntf",
+    "columns": [
+      "AppPermissionId",
+      "AppPermissionTitle",
+      "AppPermissionCodeUri",
+      "AppTypeId",
+      "AppTypeCode",
+      "AppTypeTitle"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `AppPermissionId`,`BaseTable`.`Title` AS `AppPermissionTitle`,`BaseTable`.`CodeUri` AS `AppPermissionCodeUri`,`RJT`.`AppTypeId` AS `AppTypeId`,`PJT0`.`Code` AS `AppTypeCode`,`PJT0`.`Title` AS `AppTypeTitle` from ((`H_AAA_AppPermissions` `BaseTable` join `H_AAA_AppTypePermissions` `RJT` on(((`RJT`.`AppPermissionId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_AppTypes` `PJT0` on(((`RJT`.`AppTypeId` = `PJT0`.`Id`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_AppTypeSummary": {
+    "name": "Vi_DPA_AppTypeSummary",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Code",
+      "Title",
+      "AppClientsCount",
+      "PermissionsCount",
+      "AppTypeId",
+      "RelatedEntityCount",
+      "AppTypeId",
+      "RelatedEntityCount"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Code` AS `Code`,`BaseTable`.`Title` AS `Title`,`TempQuery0`.`RelatedEntityCount` AS `AppClientsCount`,`TempQuery1`.`RelatedEntityCount` AS `PermissionsCount` from ((`H_AAA_AppTypes` `BaseTable` left join (select `RT0`.`AppTypeId` AS `AppTypeId`,count(`RT0`.`AppTypeId`) AS `RelatedEntityCount` from `H_AAA_AppClients` `RT0` where ((0 <> `RT0`.`RecordDeleted`) is not true) group by `RT0`.`AppTypeId`) `TempQuery0` on((`TempQuery0`.`AppTypeId` = `BaseTable`.`Id`))) left join (select `RT1`.`AppTypeId` AS `AppTypeId`,count(`RT1`.`AppTypeId`) AS `RelatedEntityCount` from `H_AAA_AppTypePermissions` `RT1` where ((0 <> `RT1`.`RecordDeleted`) is not true) group by `RT1`.`AppTypeId`) `TempQuery1` on((`TempQuery1`.`AppTypeId` = `BaseTable`.`Id`))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_EntityRole": {
+    "name": "Vi_DPA_EntityRole",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Title",
+      "EntityId",
+      "ActENUM",
+      "IsDefault",
+      "EntityTitle",
+      "EntityAddress_fsx",
+      "EntityCity",
+      "EntityProvince",
+      "EntityCountry",
+      "EntityPostalCode_fsx",
+      "EntityPhone_fsx",
+      "EntityFaxNumber_fsx",
+      "EntityEmail_fsx",
+      "EntityDiscriminator"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Title` AS `Title`,`BaseTable`.`EntityId` AS `EntityId`,`BaseTable`.`ActENUM` AS `ActENUM`,`BaseTable`.`IsDefault` AS `IsDefault`,`AP`.`Title` AS `EntityTitle`,`AP`.`Address_fsx` AS `EntityAddress_fsx`,`AP`.`City` AS `EntityCity`,`AP`.`Province` AS `EntityProvince`,`AP`.`Country` AS `EntityCountry`,`AP`.`PostalCode_fsx` AS `EntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `EntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `EntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `EntityEmail_fsx`,`AP`.`Discriminator` AS `EntityDiscriminator` from (`H_AAA_EntityRoles` `BaseTable` join `H_AAA_Synced_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) where (((0 <> `BaseTable`.`RecordDeleted`) is not true) and ((0 <> `BaseTable`.`IsDefault`) is not true))"
+  },
+  "Vi_DPA_EntityRolePermissionsSuperDetail": {
+    "name": "Vi_DPA_EntityRolePermissionsSuperDetail",
+    "source": "ntf",
+    "columns": [
+      "EntityRoleId",
+      "EntityRoleTitle",
+      "EntityRoleEntityId",
+      "EntityRoleActENUM",
+      "EntityRoleIsDefault",
+      "EntityRoleEntityTitle",
+      "EntityRoleEntityAddress_fsx",
+      "EntityRoleEntityCity",
+      "EntityRoleEntityProvince",
+      "EntityRoleEntityCountry",
+      "EntityRoleEntityPostalCode_fsx",
+      "EntityRoleEntityPhone_fsx",
+      "EntityRoleEntityFaxNumber_fsx",
+      "EntityRoleEntityEmail_fsx",
+      "EntityRoleEntityDiscriminator",
+      "PermissionId",
+      "PermissionTitle",
+      "PermissionCodeUri"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `EntityRoleId`,`BaseTable`.`Title` AS `EntityRoleTitle`,`BaseTable`.`EntityId` AS `EntityRoleEntityId`,`BaseTable`.`ActENUM` AS `EntityRoleActENUM`,`BaseTable`.`IsDefault` AS `EntityRoleIsDefault`,`AP`.`Title` AS `EntityRoleEntityTitle`,`AP`.`Address_fsx` AS `EntityRoleEntityAddress_fsx`,`AP`.`City` AS `EntityRoleEntityCity`,`AP`.`Province` AS `EntityRoleEntityProvince`,`AP`.`Country` AS `EntityRoleEntityCountry`,`AP`.`PostalCode_fsx` AS `EntityRoleEntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `EntityRoleEntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `EntityRoleEntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `EntityRoleEntityEmail_fsx`,`AP`.`Discriminator` AS `EntityRoleEntityDiscriminator`,`RJT`.`PermissionId` AS `PermissionId`,`PJT0`.`Title` AS `PermissionTitle`,`PJT0`.`CodeUri` AS `PermissionCodeUri` from (((`H_AAA_EntityRoles` `BaseTable` join `H_AAA_Synced_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) join `H_AAA_EntityRolePermissions` `RJT` on(((`RJT`.`RoleId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_Permissions` `PJT0` on(((`RJT`.`PermissionId` = `PJT0`.`Id`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) where (((0 <> `BaseTable`.`RecordDeleted`) is not true) and ((0 <> `BaseTable`.`IsDefault`) is not true))"
+  },
+  "Vi_DPA_EntityRoleSummary": {
+    "name": "Vi_DPA_EntityRoleSummary",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Title",
+      "EntityId",
+      "ActENUM",
+      "IsDefault",
+      "EntityTitle",
+      "EntityAddress_fsx",
+      "EntityCity",
+      "EntityProvince",
+      "EntityCountry",
+      "EntityPostalCode_fsx",
+      "EntityPhone_fsx",
+      "EntityFaxNumber_fsx",
+      "EntityEmail_fsx",
+      "EntityDiscriminator",
+      "PermissionsCount",
+      "UsersCount",
+      "RoleId",
+      "RelatedEntityCount",
+      "EntityRoleId",
+      "RelatedEntityCount"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Title` AS `Title`,`BaseTable`.`EntityId` AS `EntityId`,`BaseTable`.`ActENUM` AS `ActENUM`,`BaseTable`.`IsDefault` AS `IsDefault`,`AP`.`Title` AS `EntityTitle`,`AP`.`Address_fsx` AS `EntityAddress_fsx`,`AP`.`City` AS `EntityCity`,`AP`.`Province` AS `EntityProvince`,`AP`.`Country` AS `EntityCountry`,`AP`.`PostalCode_fsx` AS `EntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `EntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `EntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `EntityEmail_fsx`,`AP`.`Discriminator` AS `EntityDiscriminator`,`TempQuery0`.`RelatedEntityCount` AS `PermissionsCount`,`TempQuery2`.`RelatedEntityCount` AS `UsersCount` from (((`H_AAA_EntityRoles` `BaseTable` join `H_AAA_Synced_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) left join (select `RT0`.`RoleId` AS `RoleId`,count(`RT0`.`RoleId`) AS `RelatedEntityCount` from `H_AAA_EntityRolePermissions` `RT0` where ((0 <> `RT0`.`RecordDeleted`) is not true) group by `RT0`.`RoleId`) `TempQuery0` on((`TempQuery0`.`RoleId` = `BaseTable`.`Id`))) left join (select `RT2`.`EntityRoleId` AS `EntityRoleId`,count(`RT2`.`EntityRoleId`) AS `RelatedEntityCount` from `H_AAA_UserEntityRoles` `RT2` where ((0 <> `RT2`.`RecordDeleted`) is not true) group by `RT2`.`EntityRoleId`) `TempQuery2` on((`TempQuery2`.`EntityRoleId` = `BaseTable`.`Id`))) where (((0 <> `BaseTable`.`RecordDeleted`) is not true) and ((0 <> `BaseTable`.`IsDefault`) is not true))"
+  },
+  "Vi_DPA_EntityRolesDetail": {
+    "name": "Vi_DPA_EntityRolesDetail",
+    "source": "ntf",
+    "columns": [
+      "EntityScenarioId",
+      "EntityScenarioEntityId",
+      "EntityScenarioPermittedActENUM",
+      "EntityScenarioScenarioId",
+      "EntityScenarioEntityTitle",
+      "EntityScenarioEntityAddress_fsx",
+      "EntityScenarioEntityCity",
+      "EntityScenarioEntityProvince",
+      "EntityScenarioEntityCountry",
+      "EntityScenarioEntityPostalCode_fsx",
+      "EntityScenarioEntityPhone_fsx",
+      "EntityScenarioEntityFaxNumber_fsx",
+      "EntityScenarioEntityEmail_fsx",
+      "EntityScenarioEntityDiscriminator",
+      "Title",
+      "EntityId",
+      "IsDefault"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `EntityScenarioId`,`BaseTable`.`EntityId` AS `EntityScenarioEntityId`,`BaseTable`.`PermittedActENUM` AS `EntityScenarioPermittedActENUM`,`BaseTable`.`ScenarioId` AS `EntityScenarioScenarioId`,`AP`.`Title` AS `EntityScenarioEntityTitle`,`AP`.`Address_fsx` AS `EntityScenarioEntityAddress_fsx`,`AP`.`City` AS `EntityScenarioEntityCity`,`AP`.`Province` AS `EntityScenarioEntityProvince`,`AP`.`Country` AS `EntityScenarioEntityCountry`,`AP`.`PostalCode_fsx` AS `EntityScenarioEntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `EntityScenarioEntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `EntityScenarioEntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `EntityScenarioEntityEmail_fsx`,`AP`.`Discriminator` AS `EntityScenarioEntityDiscriminator`,`RJT`.`Title` AS `Title`,`RJT`.`EntityId` AS `EntityId`,`RJT`.`IsDefault` AS `IsDefault` from ((`H_AAA_EntityScenarios` `BaseTable` join `H_AAA_Synced_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) join `H_AAA_EntityRoles` `RJT` on(((`RJT`.`ActENUM` = `BaseTable`.`PermittedActENUM`) and ((0 <> `RJT`.`RecordDeleted`) is not true) and ((0 <> `RJT`.`IsDefault`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_EntityScenario": {
+    "name": "Vi_DPA_EntityScenario",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "EntityId",
+      "PermittedActENUM",
+      "ScenarioId",
+      "EntityTitle",
+      "EntityAddress_fsx",
+      "EntityCity",
+      "EntityProvince",
+      "EntityCountry",
+      "EntityPostalCode_fsx",
+      "EntityPhone_fsx",
+      "EntityFaxNumber_fsx",
+      "EntityEmail_fsx",
+      "EntityDiscriminator"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`EntityId` AS `EntityId`,`BaseTable`.`PermittedActENUM` AS `PermittedActENUM`,`BaseTable`.`ScenarioId` AS `ScenarioId`,`AP`.`Title` AS `EntityTitle`,`AP`.`Address_fsx` AS `EntityAddress_fsx`,`AP`.`City` AS `EntityCity`,`AP`.`Province` AS `EntityProvince`,`AP`.`Country` AS `EntityCountry`,`AP`.`PostalCode_fsx` AS `EntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `EntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `EntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `EntityEmail_fsx`,`AP`.`Discriminator` AS `EntityDiscriminator` from (`H_AAA_EntityScenarios` `BaseTable` join `H_AAA_Synced_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_EntityScenarioSummary": {
+    "name": "Vi_DPA_EntityScenarioSummary",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "EntityId",
+      "PermittedActENUM",
+      "ScenarioId",
+      "EntityTitle",
+      "EntityAddress_fsx",
+      "EntityCity",
+      "EntityProvince",
+      "EntityCountry",
+      "EntityPostalCode_fsx",
+      "EntityPhone_fsx",
+      "EntityFaxNumber_fsx",
+      "EntityEmail_fsx",
+      "EntityDiscriminator",
+      "EntityRolesCount",
+      "ActENUM",
+      "RelatedEntityCount"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`EntityId` AS `EntityId`,`BaseTable`.`PermittedActENUM` AS `PermittedActENUM`,`BaseTable`.`ScenarioId` AS `ScenarioId`,`AP`.`Title` AS `EntityTitle`,`AP`.`Address_fsx` AS `EntityAddress_fsx`,`AP`.`City` AS `EntityCity`,`AP`.`Province` AS `EntityProvince`,`AP`.`Country` AS `EntityCountry`,`AP`.`PostalCode_fsx` AS `EntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `EntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `EntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `EntityEmail_fsx`,`AP`.`Discriminator` AS `EntityDiscriminator`,`TempQuery0`.`RelatedEntityCount` AS `EntityRolesCount` from ((`H_AAA_EntityScenarios` `BaseTable` join `H_AAA_Synced_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) left join (select `RT0`.`ActENUM` AS `ActENUM`,count(`RT0`.`ActENUM`) AS `RelatedEntityCount` from `H_AAA_EntityRoles` `RT0` where ((0 <> `RT0`.`RecordDeleted`) is not true) group by `RT0`.`ActENUM`) `TempQuery0` on((`TempQuery0`.`ActENUM` = `BaseTable`.`PermittedActENUM`))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_EntityScenariosSuperDetail": {
+    "name": "Vi_DPA_EntityScenariosSuperDetail",
+    "source": "ntf",
+    "columns": [
+      "ScenarioId",
+      "ScenarioDescription",
+      "ScenarioActivityClassENUM",
+      "ScenarioClientEntityId",
+      "ScenarioEntityTitle",
+      "ScenarioEntityAddress_fsx",
+      "ScenarioEntityCity",
+      "ScenarioEntityProvince",
+      "ScenarioEntityCountry",
+      "ScenarioEntityPostalCode_fsx",
+      "ScenarioEntityPhone_fsx",
+      "ScenarioEntityFaxNumber_fsx",
+      "ScenarioEntityEmail_fsx",
+      "ScenarioEntityDiscriminator",
+      "EntityId",
+      "PermittedActENUM",
+      "EntityProfileTitle",
+      "EntityProfileAddress_fsx",
+      "EntityProfileCity",
+      "EntityProfileProvince",
+      "EntityProfileCountry",
+      "EntityProfilePostalCode_fsx",
+      "EntityProfilePhone_fsx",
+      "EntityProfileFaxNumber_fsx",
+      "EntityProfileEmail_fsx",
+      "EntityProfileDiscriminator"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `ScenarioId`,`BaseTable`.`Description` AS `ScenarioDescription`,`BaseTable`.`ActivityClassENUM` AS `ScenarioActivityClassENUM`,`BaseTable`.`ClientEntityId` AS `ScenarioClientEntityId`,`AP`.`Title` AS `ScenarioEntityTitle`,`AP`.`Address_fsx` AS `ScenarioEntityAddress_fsx`,`AP`.`City` AS `ScenarioEntityCity`,`AP`.`Province` AS `ScenarioEntityProvince`,`AP`.`Country` AS `ScenarioEntityCountry`,`AP`.`PostalCode_fsx` AS `ScenarioEntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `ScenarioEntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `ScenarioEntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `ScenarioEntityEmail_fsx`,`AP`.`Discriminator` AS `ScenarioEntityDiscriminator`,`RJT`.`EntityId` AS `EntityId`,`RJT`.`PermittedActENUM` AS `PermittedActENUM`,`PJT0`.`Title` AS `EntityProfileTitle`,`PJT0`.`Address_fsx` AS `EntityProfileAddress_fsx`,`PJT0`.`City` AS `EntityProfileCity`,`PJT0`.`Province` AS `EntityProfileProvince`,`PJT0`.`Country` AS `EntityProfileCountry`,`PJT0`.`PostalCode_fsx` AS `EntityProfilePostalCode_fsx`,`PJT0`.`Phone_fsx` AS `EntityProfilePhone_fsx`,`PJT0`.`FaxNumber_fsx` AS `EntityProfileFaxNumber_fsx`,`PJT0`.`Email_fsx` AS `EntityProfileEmail_fsx`,`PJT0`.`Discriminator` AS `EntityProfileDiscriminator` from (((`H_AAA_Scenarios` `BaseTable` join `H_AAA_Synced_EntityProfile` `AP` on(((`BaseTable`.`ClientEntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) join `H_AAA_EntityScenarios` `RJT` on(((`RJT`.`ScenarioId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_Synced_EntityProfile` `PJT0` on(((`RJT`.`EntityId` = `PJT0`.`Id`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_NotificationQueuesSuperDetail": {
+    "name": "Vi_DPA_NotificationQueuesSuperDetail",
+    "source": "ntf",
+    "columns": [
+      "NotificationRequestId",
+      "NotificationRequestHasRule",
+      "NotificationRequestUserRecordKey",
+      "NotificationRequestEntityRecordKey",
+      "NotificationRequestRuleRecordKey",
+      "NotificationRequestBody",
+      "UserId",
+      "EntityId",
+      "ChannelType",
+      "Destination_fsx",
+      "Status",
+      "Reason",
+      "RetryCount",
+      "BroadcastedAt_UTC",
+      "UserInfoFirstname_fsx",
+      "UserInfoLastname_fsx",
+      "UserInfoUsername",
+      "UserInfoEmail_fsx",
+      "UserInfoEmailConfirmed",
+      "UserInfoCellPhone_fsx",
+      "UserInfoCellPhoneConfirmed",
+      "UserInfoIssuedBy"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `NotificationRequestId`,`BaseTable`.`HasRule` AS `NotificationRequestHasRule`,`BaseTable`.`UserRecordKey` AS `NotificationRequestUserRecordKey`,`BaseTable`.`EntityRecordKey` AS `NotificationRequestEntityRecordKey`,`BaseTable`.`RuleRecordKey` AS `NotificationRequestRuleRecordKey`,`BaseTable`.`Body` AS `NotificationRequestBody`,`RJT`.`UserId` AS `UserId`,`RJT`.`EntityId` AS `EntityId`,`RJT`.`ChannelType` AS `ChannelType`,`RJT`.`Destination_fsx` AS `Destination_fsx`,`RJT`.`Status` AS `Status`,`RJT`.`Reason` AS `Reason`,`RJT`.`RetryCount` AS `RetryCount`,`RJT`.`BroadcastedAt_UTC` AS `BroadcastedAt_UTC`,`PJT0`.`Firstname_fsx` AS `UserInfoFirstname_fsx`,`PJT0`.`Lastname_fsx` AS `UserInfoLastname_fsx`,`PJT0`.`Username` AS `UserInfoUsername`,`PJT0`.`Email_fsx` AS `UserInfoEmail_fsx`,`PJT0`.`EmailConfirmed` AS `UserInfoEmailConfirmed`,`PJT0`.`CellPhone_fsx` AS `UserInfoCellPhone_fsx`,`PJT0`.`CellPhoneConfirmed` AS `UserInfoCellPhoneConfirmed`,`PJT0`.`IssuedBy` AS `UserInfoIssuedBy` from ((`H_NotificationRequests` `BaseTable` join `H_NotificationQueue` `RJT` on(((`RJT`.`NotificationRequestId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_Synced_UserInfo` `PJT0` on(((`RJT`.`UserId` = `PJT0`.`Id`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_NotificationRequest": {
+    "name": "Vi_DPA_NotificationRequest",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "HasRule",
+      "UserRecordKey",
+      "EntityRecordKey",
+      "RuleRecordKey",
+      "Body"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`HasRule` AS `HasRule`,`BaseTable`.`UserRecordKey` AS `UserRecordKey`,`BaseTable`.`EntityRecordKey` AS `EntityRecordKey`,`BaseTable`.`RuleRecordKey` AS `RuleRecordKey`,`BaseTable`.`Body` AS `Body` from `H_NotificationRequests` `BaseTable` where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_NotificationRequestSummary": {
+    "name": "Vi_DPA_NotificationRequestSummary",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "HasRule",
+      "UserRecordKey",
+      "EntityRecordKey",
+      "RuleRecordKey",
+      "Body",
+      "NotificationQueueCount",
+      "NotificationRequestId",
+      "RelatedEntityCount"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`HasRule` AS `HasRule`,`BaseTable`.`UserRecordKey` AS `UserRecordKey`,`BaseTable`.`EntityRecordKey` AS `EntityRecordKey`,`BaseTable`.`RuleRecordKey` AS `RuleRecordKey`,`BaseTable`.`Body` AS `Body`,`TempQuery0`.`RelatedEntityCount` AS `NotificationQueueCount` from (`H_NotificationRequests` `BaseTable` left join (select `RT0`.`NotificationRequestId` AS `NotificationRequestId`,count(`RT0`.`NotificationRequestId`) AS `RelatedEntityCount` from `H_NotificationQueue` `RT0` where ((0 <> `RT0`.`RecordDeleted`) is not true) group by `RT0`.`NotificationRequestId`) `TempQuery0` on((`TempQuery0`.`NotificationRequestId` = `BaseTable`.`Id`))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_Permission": {
+    "name": "Vi_DPA_Permission",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Title",
+      "CodeUri"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Title` AS `Title`,`BaseTable`.`CodeUri` AS `CodeUri` from `H_AAA_Permissions` `BaseTable` where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_PermissionSummary": {
+    "name": "Vi_DPA_PermissionSummary",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Title",
+      "CodeUri",
+      "EntityRolesCount",
+      "PermissionId",
+      "RelatedEntityCount"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Title` AS `Title`,`BaseTable`.`CodeUri` AS `CodeUri`,`TempQuery0`.`RelatedEntityCount` AS `EntityRolesCount` from (`H_AAA_Permissions` `BaseTable` left join (select `RT0`.`PermissionId` AS `PermissionId`,count(`RT0`.`PermissionId`) AS `RelatedEntityCount` from `H_AAA_EntityRolePermissions` `RT0` where ((0 <> `RT0`.`RecordDeleted`) is not true) group by `RT0`.`PermissionId`) `TempQuery0` on((`TempQuery0`.`PermissionId` = `BaseTable`.`Id`))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_Scenario": {
+    "name": "Vi_DPA_Scenario",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Description",
+      "ActivityClassENUM",
+      "ClientEntityId",
+      "EntityTitle",
+      "EntityAddress_fsx",
+      "EntityCity",
+      "EntityProvince",
+      "EntityCountry",
+      "EntityPostalCode_fsx",
+      "EntityPhone_fsx",
+      "EntityFaxNumber_fsx",
+      "EntityEmail_fsx",
+      "EntityDiscriminator"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Description` AS `Description`,`BaseTable`.`ActivityClassENUM` AS `ActivityClassENUM`,`BaseTable`.`ClientEntityId` AS `ClientEntityId`,`AP`.`Title` AS `EntityTitle`,`AP`.`Address_fsx` AS `EntityAddress_fsx`,`AP`.`City` AS `EntityCity`,`AP`.`Province` AS `EntityProvince`,`AP`.`Country` AS `EntityCountry`,`AP`.`PostalCode_fsx` AS `EntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `EntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `EntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `EntityEmail_fsx`,`AP`.`Discriminator` AS `EntityDiscriminator` from (`H_AAA_Scenarios` `BaseTable` join `H_AAA_Synced_EntityProfile` `AP` on(((`BaseTable`.`ClientEntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_ScenarioSummary": {
+    "name": "Vi_DPA_ScenarioSummary",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "Description",
+      "ActivityClassENUM",
+      "ClientEntityId",
+      "EntityTitle",
+      "EntityAddress_fsx",
+      "EntityCity",
+      "EntityProvince",
+      "EntityCountry",
+      "EntityPostalCode_fsx",
+      "EntityPhone_fsx",
+      "EntityFaxNumber_fsx",
+      "EntityEmail_fsx",
+      "EntityDiscriminator",
+      "EntitysCount",
+      "DataMapCount",
+      "ScenarioId",
+      "RelatedEntityCount",
+      "ScenarioId",
+      "RelatedEntityCount"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `Id`,`BaseTable`.`Description` AS `Description`,`BaseTable`.`ActivityClassENUM` AS `ActivityClassENUM`,`BaseTable`.`ClientEntityId` AS `ClientEntityId`,`AP`.`Title` AS `EntityTitle`,`AP`.`Address_fsx` AS `EntityAddress_fsx`,`AP`.`City` AS `EntityCity`,`AP`.`Province` AS `EntityProvince`,`AP`.`Country` AS `EntityCountry`,`AP`.`PostalCode_fsx` AS `EntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `EntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `EntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `EntityEmail_fsx`,`AP`.`Discriminator` AS `EntityDiscriminator`,`TempQuery0`.`RelatedEntityCount` AS `EntitysCount`,`TempQuery1`.`RelatedEntityCount` AS `DataMapCount` from (((`H_AAA_Scenarios` `BaseTable` join `H_AAA_Synced_EntityProfile` `AP` on(((`BaseTable`.`ClientEntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) left join (select `RT0`.`ScenarioId` AS `ScenarioId`,count(`RT0`.`ScenarioId`) AS `RelatedEntityCount` from `H_AAA_EntityScenarios` `RT0` where ((0 <> `RT0`.`RecordDeleted`) is not true) group by `RT0`.`ScenarioId`) `TempQuery0` on((`TempQuery0`.`ScenarioId` = `BaseTable`.`Id`))) left join (select `RT1`.`ScenarioId` AS `ScenarioId`,count(`RT1`.`ScenarioId`) AS `RelatedEntityCount` from `H_AAA_ScenarioDataMap` `RT1` where ((0 <> `RT1`.`RecordDeleted`) is not true) group by `RT1`.`ScenarioId`) `TempQuery1` on((`TempQuery1`.`ScenarioId` = `BaseTable`.`Id`))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_UserAppSettingsSuperDetail": {
+    "name": "Vi_DPA_UserAppSettingsSuperDetail",
+    "source": "ntf",
+    "columns": [
+      "AppClientId",
+      "AppClientTitle",
+      "AppClientClientId",
+      "AppClientClientSecret",
+      "AppClientAppTypeId",
+      "AppClientIsInactive",
+      "UserId",
+      "Setting_fsx",
+      "UserInfoFirstname_fsx",
+      "UserInfoLastname_fsx",
+      "UserInfoUsername",
+      "UserInfoEmail_fsx",
+      "UserInfoEmailConfirmed",
+      "UserInfoCellPhone_fsx",
+      "UserInfoCellPhoneConfirmed",
+      "UserInfoIssuedBy"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `AppClientId`,`BaseTable`.`Title` AS `AppClientTitle`,`BaseTable`.`ClientId` AS `AppClientClientId`,`BaseTable`.`ClientSecret` AS `AppClientClientSecret`,`BaseTable`.`AppTypeId` AS `AppClientAppTypeId`,`BaseTable`.`IsInactive` AS `AppClientIsInactive`,`RJT`.`UserId` AS `UserId`,`RJT`.`Setting_fsx` AS `Setting_fsx`,`PJT0`.`Firstname_fsx` AS `UserInfoFirstname_fsx`,`PJT0`.`Lastname_fsx` AS `UserInfoLastname_fsx`,`PJT0`.`Username` AS `UserInfoUsername`,`PJT0`.`Email_fsx` AS `UserInfoEmail_fsx`,`PJT0`.`EmailConfirmed` AS `UserInfoEmailConfirmed`,`PJT0`.`CellPhone_fsx` AS `UserInfoCellPhone_fsx`,`PJT0`.`CellPhoneConfirmed` AS `UserInfoCellPhoneConfirmed`,`PJT0`.`IssuedBy` AS `UserInfoIssuedBy` from ((`H_AAA_AppClients` `BaseTable` join `H_AAA_UserAppSettings` `RJT` on(((`RJT`.`AppClientId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_Synced_UserInfo` `PJT0` on(((`RJT`.`UserId` = `PJT0`.`Id`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true)"
+  },
+  "Vi_DPA_UserEntityRolesSuperDetail": {
+    "name": "Vi_DPA_UserEntityRolesSuperDetail",
+    "source": "ntf",
+    "columns": [
+      "EntityRoleId",
+      "EntityRoleTitle",
+      "EntityRoleEntityId",
+      "EntityRoleActENUM",
+      "EntityRoleIsDefault",
+      "EntityRoleEntityTitle",
+      "EntityRoleEntityAddress_fsx",
+      "EntityRoleEntityCity",
+      "EntityRoleEntityProvince",
+      "EntityRoleEntityCountry",
+      "EntityRoleEntityPostalCode_fsx",
+      "EntityRoleEntityPhone_fsx",
+      "EntityRoleEntityFaxNumber_fsx",
+      "EntityRoleEntityEmail_fsx",
+      "EntityRoleEntityDiscriminator",
+      "UserId",
+      "UserInfoFirstname_fsx",
+      "UserInfoLastname_fsx",
+      "UserInfoUsername",
+      "UserInfoEmail_fsx",
+      "UserInfoEmailConfirmed",
+      "UserInfoCellPhone_fsx",
+      "UserInfoCellPhoneConfirmed",
+      "UserInfoIssuedBy"
+    ],
+    "definition": "select `BaseTable`.`Id` AS `EntityRoleId`,`BaseTable`.`Title` AS `EntityRoleTitle`,`BaseTable`.`EntityId` AS `EntityRoleEntityId`,`BaseTable`.`ActENUM` AS `EntityRoleActENUM`,`BaseTable`.`IsDefault` AS `EntityRoleIsDefault`,`AP`.`Title` AS `EntityRoleEntityTitle`,`AP`.`Address_fsx` AS `EntityRoleEntityAddress_fsx`,`AP`.`City` AS `EntityRoleEntityCity`,`AP`.`Province` AS `EntityRoleEntityProvince`,`AP`.`Country` AS `EntityRoleEntityCountry`,`AP`.`PostalCode_fsx` AS `EntityRoleEntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `EntityRoleEntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `EntityRoleEntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `EntityRoleEntityEmail_fsx`,`AP`.`Discriminator` AS `EntityRoleEntityDiscriminator`,`RJT`.`UserId` AS `UserId`,`PJT0`.`Firstname_fsx` AS `UserInfoFirstname_fsx`,`PJT0`.`Lastname_fsx` AS `UserInfoLastname_fsx`,`PJT0`.`Username` AS `UserInfoUsername`,`PJT0`.`Email_fsx` AS `UserInfoEmail_fsx`,`PJT0`.`EmailConfirmed` AS `UserInfoEmailConfirmed`,`PJT0`.`CellPhone_fsx` AS `UserInfoCellPhone_fsx`,`PJT0`.`CellPhoneConfirmed` AS `UserInfoCellPhoneConfirmed`,`PJT0`.`IssuedBy` AS `UserInfoIssuedBy` from (((`H_AAA_EntityRoles` `BaseTable` join `H_AAA_Synced_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) join `H_AAA_UserEntityRoles` `RJT` on(((`RJT`.`EntityRoleId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_Synced_UserInfo` `PJT0` on(((`RJT`.`UserId` = `PJT0`.`Id`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) where (((0 <> `BaseTable`.`RecordDeleted`) is not true) and ((0 <> `BaseTable`.`IsDefault`) is not true))"
+  },
+  "Vi_DPC_AAA_RolePermissionDetail": {
+    "name": "Vi_DPC_AAA_RolePermissionDetail",
+    "source": "ntf",
+    "columns": [
+      "RoleId",
+      "HasPermission",
+      "ActENUM",
+      "PermissionId",
+      "Title"
+    ],
+    "definition": "select `ER`.`Id` AS `RoleId`,(case when ((`ERP`.`PermissionId` is null) or ((0 <> `ERP`.`RecordDeleted`) is true)) then 'No' else 'Yes' end) AS `HasPermission`,`AllP`.`ActENUM` AS `ActENUM`,`AllP`.`PermissionId` AS `PermissionId`,`AllP`.`Title` AS `Title` from ((`Vi_BK_AAA_AllowedActPermissions` `AllP` left join `H_AAA_EntityRoles` `ER` on((`AllP`.`ActENUM` = `ER`.`ActENUM`))) left join `H_AAA_EntityRolePermissions` `ERP` on(((`ERP`.`RoleId` = `ER`.`Id`) and (`ERP`.`PermissionId` = `AllP`.`PermissionId`)))) where (((0 <> `ER`.`IsDefault`) is not true) and ((0 <> `ER`.`RecordDeleted`) is not true))"
+  },
+  "Vi_DPC_ENUM_ComponentType": {
+    "name": "Vi_DPC_ENUM_ComponentType",
+    "source": "ntf",
+    "columns": [
+      "id",
+      "title",
+      "Sequence",
+      "t",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "u",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "definition": "select lpad((`Upto100`.`Sequence` - 1),2,'0') AS `id`,replace(substring_index(substring_index(substring_index(trim(trailing ')' from `information_schema`.`columns`.`COLUMN_TYPE`),'(',-(1)),',',`Upto100`.`Sequence`),',',-(1)),'\\'','') AS `title` from (`information_schema`.`COLUMNS` `columns` join (select (((`A`.`t` * 10) + `B`.`u`) + 1) AS `Sequence` from ((select 0 AS `t` union select 1 AS `1` union select 2 AS `2` union select 3 AS `3` union select 4 AS `4` union select 5 AS `5` union select 6 AS `6` union select 7 AS `7` union select 8 AS `8` union select 9 AS `9`) `A` join (select 0 AS `u` union select 1 AS `1` union select 2 AS `2` union select 3 AS `3` union select 4 AS `4` union select 5 AS `5` union select 6 AS `6` union select 7 AS `7` union select 8 AS `8` union select 9 AS `9`) `B`) order by `Sequence`) `Upto100` on(((char_length(`information_schema`.`columns`.`COLUMN_TYPE`) - char_length(replace(`information_schema`.`columns`.`COLUMN_TYPE`,',',''))) >= (`Upto100`.`Sequence` - 1)))) where ((`information_schema`.`columns`.`TABLE_NAME` = 'H_DP_ComponentsBases') and (`information_schema`.`columns`.`COLUMN_NAME` = 'Type') and (`information_schema`.`columns`.`TABLE_SCHEMA` = 'HBloxNTF_DEV01')) order by `Upto100`.`Sequence`"
+  },
+  "Vi_DPC_InAppNotifications": {
+    "name": "Vi_DPC_InAppNotifications",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "UserId",
+      "EntityId",
+      "UserRecordKey",
+      "EntityRecordKey",
+      "Status",
+      "Body",
+      "Text",
+      "Subject",
+      "BroadcastedAt_UTC",
+      "CreatedAt_UTC"
+    ],
+    "definition": "select `NQ`.`Id` AS `Id`,`NQ`.`UserId` AS `UserId`,`NQ`.`EntityId` AS `EntityId`,`UI`.`RecordKey` AS `UserRecordKey`,`EP`.`RecordKey` AS `EntityRecordKey`,`NQ`.`Status` AS `Status`,`NR`.`Body` AS `Body`,json_unquote(json_extract(`NR`.`Body`,'$.text')) AS `Text`,json_unquote(json_extract(`NR`.`Body`,'$.subject')) AS `Subject`,`NQ`.`BroadcastedAt_UTC` AS `BroadcastedAt_UTC`,`NQ`.`CreatedAt_UTC` AS `CreatedAt_UTC` from (((`H_NotificationQueue` `NQ` join `H_NotificationRequests` `NR` on(((`NQ`.`NotificationRequestId` = `NR`.`Id`) and ((0 <> `NR`.`RecordDeleted`) is not true)))) left join `H_AAA_Synced_UserInfo` `UI` on(((`NQ`.`UserId` = `UI`.`Id`) and ((0 <> `UI`.`RecordDeleted`) is not true)))) left join `H_AAA_Synced_EntityProfile` `EP` on(((`NQ`.`EntityId` = `EP`.`Id`) and ((0 <> `EP`.`RecordDeleted`) is not true)))) where ((`NQ`.`ChannelType` = 1) and (`NQ`.`Status` in (3,5)) and ((0 <> `NQ`.`RecordDeleted`) is not true))"
+  },
+  "Vi_DPC_UserNotificationSettingsWithUserRecordKey": {
+    "name": "Vi_DPC_UserNotificationSettingsWithUserRecordKey",
+    "source": "ntf",
+    "columns": [
+      "Id",
+      "UserId",
+      "IsEnabledInApp",
+      "IsEnabledEmail",
+      "IsEnabledSMS",
+      "IsEnabledPhone",
+      "IsEnabledWhatsApp",
+      "CreatedAt_UTC",
+      "CreatedBy",
+      "ModifiedAt_UTC",
+      "ModifiedBy",
+      "RecordDeleted",
+      "UserRecordKey"
+    ],
+    "definition": "select `UNS`.`Id` AS `Id`,`UNS`.`UserId` AS `UserId`,`UNS`.`IsEnabledInApp` AS `IsEnabledInApp`,`UNS`.`IsEnabledEmail` AS `IsEnabledEmail`,`UNS`.`IsEnabledSMS` AS `IsEnabledSMS`,`UNS`.`IsEnabledPhone` AS `IsEnabledPhone`,`UNS`.`IsEnabledWhatsApp` AS `IsEnabledWhatsApp`,`UNS`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`UNS`.`CreatedBy` AS `CreatedBy`,`UNS`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`UNS`.`ModifiedBy` AS `ModifiedBy`,`UNS`.`RecordDeleted` AS `RecordDeleted`,`UI`.`RecordKey` AS `UserRecordKey` from (`H_UserNotificationSettings` `UNS` join `H_AAA_Synced_UserInfo` `UI` on((`UI`.`Id` = `UNS`.`UserId`))) where (((0 <> `UNS`.`RecordDeleted`) is not true) and ((0 <> `UI`.`RecordDeleted`) is not true))"
+  },
+  "Vi_DP_ENUM_ComponentType": {
+    "name": "Vi_DP_ENUM_ComponentType",
+    "source": "ntf",
+    "columns": [
+      "id",
+      "title",
+      "Sequence",
+      "t",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "u",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "definition": "select lpad((`Upto100`.`Sequence` - 1),2,'0') AS `id`,replace(substring_index(substring_index(substring_index(trim(trailing ')' from `information_schema`.`columns`.`COLUMN_TYPE`),'(',-(1)),',',`Upto100`.`Sequence`),',',-(1)),'\\'','') AS `title` from (`information_schema`.`COLUMNS` `columns` join (select (((`A`.`t` * 10) + `B`.`u`) + 1) AS `Sequence` from ((select 0 AS `t` union select 1 AS `1` union select 2 AS `2` union select 3 AS `3` union select 4 AS `4` union select 5 AS `5` union select 6 AS `6` union select 7 AS `7` union select 8 AS `8` union select 9 AS `9`) `A` join (select 0 AS `u` union select 1 AS `1` union select 2 AS `2` union select 3 AS `3` union select 4 AS `4` union select 5 AS `5` union select 6 AS `6` union select 7 AS `7` union select 8 AS `8` union select 9 AS `9`) `B`) order by `Sequence`) `Upto100` on(((char_length(`information_schema`.`columns`.`COLUMN_TYPE`) - char_length(replace(`information_schema`.`columns`.`COLUMN_TYPE`,',',''))) >= (`Upto100`.`Sequence` - 1)))) where ((`information_schema`.`columns`.`TABLE_NAME` = 'H_DP_ComponentsBases') and (`information_schema`.`columns`.`COLUMN_NAME` = 'Type') and (`information_schema`.`columns`.`TABLE_SCHEMA` = 'HBloxNTF_DEV01')) order by `Upto100`.`Sequence`"
+  }
+}
