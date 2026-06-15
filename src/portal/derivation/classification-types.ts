@@ -8,6 +8,7 @@ export interface ClassificationRecord {
   sources: string[];
   master: string | null;
   replicas: string[];
+  references: string[];
   evidence: EvidenceCitation[];
   domain: string;
   layer: string | null;
