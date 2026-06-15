@@ -534,12 +534,12 @@ export const surfaceCatalog: Record<string, SurfaceRecord> = {
     "displayName": "Reports",
     "domainFamily": "Info",
     "layerScope": "cross-layer",
-    "shellRegion": "bottom",
-    "menuGroup": "Reports",
+    "shellRegion": "upper-sidebar",
+    "menuGroup": "Production",
     "menuNodeType": "direct",
     "route": "/reports",
     "archetype": "reports",
-    "pageWorthinessBasis": "global reporting"
+    "pageWorthinessBasis": "global reporting (last item of the top menu)"
   },
   "system.app-registration.app-clients": {
     "exceptionStatus": "default",

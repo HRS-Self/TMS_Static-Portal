@@ -60,6 +60,12 @@ export const navigationTree = {
       "route": "/production/rides",
       "node": "direct",
       "key": "production.rides"
+    },
+    {
+      "name": "Reports",
+      "route": "/reports",
+      "node": "direct",
+      "key": "reports"
     }
   ],
   "lowerSidebar": {
@@ -275,14 +281,6 @@ export const navigationTree = {
     {
       "name": "Knowledge",
       "route": "/info/knowledge"
-    }
-  ],
-  "bottom": [
-    {
-      "name": "Reports",
-      "route": "/reports",
-      "node": "direct",
-      "key": "reports"
     }
   ]
 } as const;
