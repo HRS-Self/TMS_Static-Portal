@@ -21,45 +21,45 @@ export const navigationTree = {
     },
     {
       "name": "Tracking",
-      "route": "/production/tracking",
+      "route": "/transport/tracking",
       "node": "end",
-      "key": "production.tracking"
+      "key": "transport.tracking"
     },
     {
       "name": "MapView",
-      "route": "/production/mapview",
+      "route": "/transport/mapview",
       "node": "end",
-      "key": "production.mapview"
+      "key": "transport.mapview"
     },
     {
       "name": "Reservation",
-      "route": "/production/reservation",
+      "route": "/transport/reservation",
       "node": "end",
-      "key": "production.reservation"
+      "key": "transport.reservation"
     },
     {
       "name": "Batches",
-      "route": "/production/batches",
+      "route": "/transport/batches",
       "node": "direct",
-      "key": "production.batches"
+      "key": "transport.batches"
     },
     {
       "name": "Deliveries",
-      "route": "/production/deliveries",
+      "route": "/transport/deliveries",
       "node": "direct",
-      "key": "production.deliveries"
+      "key": "transport.deliveries"
     },
     {
       "name": "Dispatch",
-      "route": "/production/dispatch",
+      "route": "/transport/dispatch",
       "node": "direct",
-      "key": "production.dispatch"
+      "key": "transport.dispatch"
     },
     {
       "name": "Rides",
-      "route": "/production/rides",
+      "route": "/transport/rides",
       "node": "direct",
-      "key": "production.rides"
+      "key": "transport.rides"
     },
     {
       "name": "Reports",
@@ -142,55 +142,55 @@ export const navigationTree = {
         }
       ]
     },
-    "Production": {
-      "Transport Setup": [
+    "Transport": {
+      "Setup": [
         {
           "name": "Contact Locations",
-          "route": "/production/setup/contact-locations",
+          "route": "/transport/setup/contact-locations",
           "node": "end",
-          "key": "production.setup.contact-locations",
+          "key": "transport.setup.contact-locations",
           "origin": "derived"
         },
         {
           "name": "Fare Base Inclutions",
-          "route": "/production/setup/fare-base-inclutions",
+          "route": "/transport/setup/fare-base-inclutions",
           "node": "end",
-          "key": "production.setup.fare-base-inclutions",
+          "key": "transport.setup.fare-base-inclutions",
           "origin": "derived"
         },
         {
           "name": "Fare By Geo Fence",
-          "route": "/production/setup/fare-by-geo-fence",
+          "route": "/transport/setup/fare-by-geo-fence",
           "node": "end",
-          "key": "production.setup.fare-by-geo-fence",
+          "key": "transport.setup.fare-by-geo-fence",
           "origin": "derived"
         },
         {
           "name": "Fare By Zone",
-          "route": "/production/setup/fare-by-zone",
+          "route": "/transport/setup/fare-by-zone",
           "node": "end",
-          "key": "production.setup.fare-by-zone",
+          "key": "transport.setup.fare-by-zone",
           "origin": "derived"
         },
         {
           "name": "Fare Calculations",
-          "route": "/production/setup/fare-calculations",
+          "route": "/transport/setup/fare-calculations",
           "node": "end",
-          "key": "production.setup.fare-calculations",
+          "key": "transport.setup.fare-calculations",
           "origin": "derived"
         },
         {
           "name": "Geo Fence Bases",
-          "route": "/production/setup/geo-fence-bases",
+          "route": "/transport/setup/geo-fence-bases",
           "node": "end",
-          "key": "production.setup.geo-fence-bases",
+          "key": "transport.setup.geo-fence-bases",
           "origin": "derived"
         },
         {
           "name": "Locations",
-          "route": "/production/setup/locations",
+          "route": "/transport/setup/locations",
           "node": "end",
-          "key": "production.setup.locations",
+          "key": "transport.setup.locations",
           "origin": "derived"
         }
       ]
