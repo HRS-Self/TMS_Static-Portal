@@ -58,3 +58,20 @@ export interface SourceManifest {
   tableCount: number;
   viewCount: number;
 }
+
+export interface ApiEndpointEvidence {
+  id: number;
+  url: string;
+  resource: string;
+  action: string;
+  kind: 'read' | 'write';
+}
+
+export interface ApiSourceManifest {
+  source: string;
+  baseUrl: string;
+  sha256: string | null;
+  capturedAt: string;
+  endpointCount: number;
+  status: string;
+}

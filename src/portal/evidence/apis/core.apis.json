@@ -1,0 +1,1017 @@
+[
+  {
+    "id": 401100040501,
+    "url": "/api/v5-m1/aaa.app-type-permissions/Set",
+    "resource": "aaa.app-type-permissions",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200070001,
+    "url": "/api/v5-m1/aaa.entity-profile/Create",
+    "resource": "aaa.entity-profile",
+    "action": "Create",
+    "kind": "write"
+  },
+  {
+    "id": 401100050101,
+    "url": "/api/v5-m1/aaa.entity-profile/Get",
+    "resource": "aaa.entity-profile",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401200020001,
+    "url": "/api/v5-m1/aaa.entity-role-permissions/Assign",
+    "resource": "aaa.entity-role-permissions",
+    "action": "Assign",
+    "kind": "write"
+  },
+  {
+    "id": 401200080001,
+    "url": "/api/v5-m1/aaa.entity-role-permissions/Assign-unassign",
+    "resource": "aaa.entity-role-permissions",
+    "action": "Assign-unassign",
+    "kind": "write"
+  },
+  {
+    "id": 401100100501,
+    "url": "/api/v5-m1/aaa.entity-role-permissions/Set",
+    "resource": "aaa.entity-role-permissions",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200030001,
+    "url": "/api/v5-m1/aaa.entity-role-permissions/Unassign",
+    "resource": "aaa.entity-role-permissions",
+    "action": "Unassign",
+    "kind": "write"
+  },
+  {
+    "id": 401100090101,
+    "url": "/api/v5-m1/aaa.entity-roles/Get",
+    "resource": "aaa.entity-roles",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401200090001,
+    "url": "/api/v5-m1/aaa.entity-roles/Set",
+    "resource": "aaa.entity-roles",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200060001,
+    "url": "/api/v5-m1/aaa.entity-scenarios/Assign",
+    "resource": "aaa.entity-scenarios",
+    "action": "Assign",
+    "kind": "write"
+  },
+  {
+    "id": 401200050001,
+    "url": "/api/v5-m1/aaa.scenarios/Set",
+    "resource": "aaa.scenarios",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100155101,
+    "url": "/api/v5-m1/aaa.user-app-settings/Get",
+    "resource": "aaa.user-app-settings",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100155501,
+    "url": "/api/v5-m1/aaa.user-app-settings/Set",
+    "resource": "aaa.user-app-settings",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401300010101,
+    "url": "/api/v5-m1/aaa.user-entity-profile-check/Get",
+    "resource": "aaa.user-entity-profile-check",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401200010001,
+    "url": "/api/v5-m1/aaa.user-entity-roles/Create",
+    "resource": "aaa.user-entity-roles",
+    "action": "Create",
+    "kind": "write"
+  },
+  {
+    "id": 401200040001,
+    "url": "/api/v5-m1/aaa.user-entity-roles/Delete",
+    "resource": "aaa.user-entity-roles",
+    "action": "Delete",
+    "kind": "write"
+  },
+  {
+    "id": 401100150101,
+    "url": "/api/v5-m1/aaa.user-entity-roles/Get",
+    "resource": "aaa.user-entity-roles",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100150501,
+    "url": "/api/v5-m1/aaa.user-entity-roles/Set",
+    "resource": "aaa.user-entity-roles",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100140101,
+    "url": "/api/v5-m1/aaa.user-info/Get",
+    "resource": "aaa.user-info",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 400100130101,
+    "url": "/api/v5-m1/aaa.user-permission-check/Get",
+    "resource": "aaa.user-permission-check",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100160101,
+    "url": "/api/v5-m1/aaa.user-profile/Get",
+    "resource": "aaa.user-profile",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 400100010101,
+    "url": "/api/v5-m1/actor-versions/Get",
+    "resource": "actor-versions",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 400100010501,
+    "url": "/api/v5-m1/actor-versions/Set",
+    "resource": "actor-versions",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200390001,
+    "url": "/api/v5-m1/add-on-fare-amount/Get",
+    "resource": "add-on-fare-amount",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100170101,
+    "url": "/api/v5-m1/app-configs/Get",
+    "resource": "app-configs",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100170501,
+    "url": "/api/v5-m1/app-configs/Set",
+    "resource": "app-configs",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100180101,
+    "url": "/api/v5-m1/cfg.action-config-bases/Get",
+    "resource": "cfg.action-config-bases",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100180501,
+    "url": "/api/v5-m1/cfg.action-config-bases/Set",
+    "resource": "cfg.action-config-bases",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100200101,
+    "url": "/api/v5-m1/cfg.actor-configs/Get",
+    "resource": "cfg.actor-configs",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100200501,
+    "url": "/api/v5-m1/cfg.actor-configs/Set",
+    "resource": "cfg.actor-configs",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100210101,
+    "url": "/api/v5-m1/cfg.global-configs/Get",
+    "resource": "cfg.global-configs",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100210501,
+    "url": "/api/v5-m1/cfg.global-configs/Set",
+    "resource": "cfg.global-configs",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 400100030101,
+    "url": "/api/v5-m1/component-children/Get",
+    "resource": "component-children",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 400100030501,
+    "url": "/api/v5-m1/component-children/Set",
+    "resource": "component-children",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 400100020101,
+    "url": "/api/v5-m1/components-bases/Get",
+    "resource": "components-bases",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 400100020501,
+    "url": "/api/v5-m1/components-bases/Set",
+    "resource": "components-bases",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100240101,
+    "url": "/api/v5-m1/cvodrivers/Get",
+    "resource": "cvodrivers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100220101,
+    "url": "/api/v5-m1/cvos/Get",
+    "resource": "cvos",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100260101,
+    "url": "/api/v5-m1/cvoservices/Get",
+    "resource": "cvoservices",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100270101,
+    "url": "/api/v5-m1/cvovehicles/Get",
+    "resource": "cvovehicles",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401300030101,
+    "url": "/api/v5-m1/distributor-cvos-detail/Get",
+    "resource": "distributor-cvos-detail",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100290101,
+    "url": "/api/v5-m1/distributor-cvos/Get",
+    "resource": "distributor-cvos",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100300101,
+    "url": "/api/v5-m1/distributor-drivers/Get",
+    "resource": "distributor-drivers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100280101,
+    "url": "/api/v5-m1/distributors/Get",
+    "resource": "distributors",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401200360001,
+    "url": "/api/v5-m1/driver-activity-sessions/Start",
+    "resource": "driver-activity-sessions",
+    "action": "Start",
+    "kind": "write"
+  },
+  {
+    "id": 401100340101,
+    "url": "/api/v5-m1/driver-permit-vehicle-types/Get",
+    "resource": "driver-permit-vehicle-types",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100230101,
+    "url": "/api/v5-m1/drivers/Get",
+    "resource": "drivers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 400200030101,
+    "url": "/api/v5-m1/dynamic-pages/FetchData",
+    "resource": "dynamic-pages",
+    "action": "FetchData",
+    "kind": "write"
+  },
+  {
+    "id": 400200060101,
+    "url": "/api/v5-m1/dynamic-pages/GetComponentHierarchy",
+    "resource": "dynamic-pages",
+    "action": "GetComponentHierarchy",
+    "kind": "read"
+  },
+  {
+    "id": 400200040101,
+    "url": "/api/v5-m1/dynamic-pages/GetComponentTypes",
+    "resource": "dynamic-pages",
+    "action": "GetComponentTypes",
+    "kind": "read"
+  },
+  {
+    "id": 400200010001,
+    "url": "/api/v5-m1/dynamic-pages/GetSourceAPIs",
+    "resource": "dynamic-pages",
+    "action": "GetSourceAPIs",
+    "kind": "read"
+  },
+  {
+    "id": 400200020101,
+    "url": "/api/v5-m1/dynamic-pages/GetUIComponent",
+    "resource": "dynamic-pages",
+    "action": "GetUIComponent",
+    "kind": "read"
+  },
+  {
+    "id": 400200050101,
+    "url": "/api/v5-m1/dynamic-pages/ResolveKey",
+    "resource": "dynamic-pages",
+    "action": "ResolveKey",
+    "kind": "write"
+  },
+  {
+    "id": 401100350101,
+    "url": "/api/v5-m1/features/Get",
+    "resource": "features",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100360101,
+    "url": "/api/v5-m1/fin-accounts/Get",
+    "resource": "fin-accounts",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100360501,
+    "url": "/api/v5-m1/fin-accounts/Set",
+    "resource": "fin-accounts",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100460101,
+    "url": "/api/v5-m1/fin-transactions/Get",
+    "resource": "fin-transactions",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100460501,
+    "url": "/api/v5-m1/fin-transactions/Set",
+    "resource": "fin-transactions",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200370001,
+    "url": "/api/v5-m1/hub-tokens/Get",
+    "resource": "hub-tokens",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100470101,
+    "url": "/api/v5-m1/hubdistributors/Get",
+    "resource": "hubdistributors",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100310101,
+    "url": "/api/v5-m1/hubs/Get",
+    "resource": "hubs",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100480101,
+    "url": "/api/v5-m1/master-services/Get",
+    "resource": "master-services",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100320101,
+    "url": "/api/v5-m1/permit-issuers/Get",
+    "resource": "permit-issuers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100500101,
+    "url": "/api/v5-m1/permit-status-verifications/Get",
+    "resource": "permit-status-verifications",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100490101,
+    "url": "/api/v5-m1/permit-statuses/Get",
+    "resource": "permit-statuses",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100330101,
+    "url": "/api/v5-m1/permits/Get",
+    "resource": "permits",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100510101,
+    "url": "/api/v5-m1/r0.activity-sessions/Get",
+    "resource": "r0.activity-sessions",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100510501,
+    "url": "/api/v5-m1/r0.activity-sessions/Set",
+    "resource": "r0.activity-sessions",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100520101,
+    "url": "/api/v5-m1/r0.aliveness-sessions/Get",
+    "resource": "r0.aliveness-sessions",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100520501,
+    "url": "/api/v5-m1/r0.aliveness-sessions/Set",
+    "resource": "r0.aliveness-sessions",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100530101,
+    "url": "/api/v5-m1/r0.driver-activity-status/Get",
+    "resource": "r0.driver-activity-status",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100530501,
+    "url": "/api/v5-m1/r0.driver-activity-status/Set",
+    "resource": "r0.driver-activity-status",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100540101,
+    "url": "/api/v5-m1/r0.queue-lines/Get",
+    "resource": "r0.queue-lines",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100540501,
+    "url": "/api/v5-m1/r0.queue-lines/Set",
+    "resource": "r0.queue-lines",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100560101,
+    "url": "/api/v5-m1/r0.vehicle-aliveness-status/Get",
+    "resource": "r0.vehicle-aliveness-status",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100560501,
+    "url": "/api/v5-m1/r0.vehicle-aliveness-status/Set",
+    "resource": "r0.vehicle-aliveness-status",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200420001,
+    "url": "/api/v5-m1/req-fare-quote/Calculate",
+    "resource": "req-fare-quote",
+    "action": "Calculate",
+    "kind": "write"
+  },
+  {
+    "id": 401100250101,
+    "url": "/api/v5-m1/service-bases/Get",
+    "resource": "service-bases",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401300020101,
+    "url": "/api/v5-m1/transport-batch-items-detail/Get",
+    "resource": "transport-batch-items-detail",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100440101,
+    "url": "/api/v5-m1/transport-batch-items/Get",
+    "resource": "transport-batch-items",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100440501,
+    "url": "/api/v5-m1/transport-batch-items/Set",
+    "resource": "transport-batch-items",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200540001,
+    "url": "/api/v5-m1/transport-batches/Finalize",
+    "resource": "transport-batches",
+    "action": "Finalize",
+    "kind": "write"
+  },
+  {
+    "id": 401100430101,
+    "url": "/api/v5-m1/transport-batches/Get",
+    "resource": "transport-batches",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100430501,
+    "url": "/api/v5-m1/transport-batches/Set",
+    "resource": "transport-batches",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200580001,
+    "url": "/api/v5-m1/transport-batches/Upsert",
+    "resource": "transport-batches",
+    "action": "Upsert",
+    "kind": "write"
+  },
+  {
+    "id": 401200450001,
+    "url": "/api/v5-m1/transport-contact-locations/Assign",
+    "resource": "transport-contact-locations",
+    "action": "Assign",
+    "kind": "write"
+  },
+  {
+    "id": 401100390101,
+    "url": "/api/v5-m1/transport-contact-locations/Get",
+    "resource": "transport-contact-locations",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100390501,
+    "url": "/api/v5-m1/transport-contact-locations/Set",
+    "resource": "transport-contact-locations",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100380101,
+    "url": "/api/v5-m1/transport-contact-registry/Get",
+    "resource": "transport-contact-registry",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401200570001,
+    "url": "/api/v5-m1/transport-contact-registry/Register",
+    "resource": "transport-contact-registry",
+    "action": "Register",
+    "kind": "write"
+  },
+  {
+    "id": 401100380501,
+    "url": "/api/v5-m1/transport-contact-registry/Set",
+    "resource": "transport-contact-registry",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200490001,
+    "url": "/api/v5-m1/transport-customer-contacts/Assign",
+    "resource": "transport-customer-contacts",
+    "action": "Assign",
+    "kind": "write"
+  },
+  {
+    "id": 401100570101,
+    "url": "/api/v5-m1/transport-customer-contacts/Get",
+    "resource": "transport-customer-contacts",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100570501,
+    "url": "/api/v5-m1/transport-customer-contacts/Set",
+    "resource": "transport-customer-contacts",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100580101,
+    "url": "/api/v5-m1/transport-customer-master-goods/Get",
+    "resource": "transport-customer-master-goods",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100580501,
+    "url": "/api/v5-m1/transport-customer-master-goods/Set",
+    "resource": "transport-customer-master-goods",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200430001,
+    "url": "/api/v5-m1/transport-customers/Create",
+    "resource": "transport-customers",
+    "action": "Create",
+    "kind": "write"
+  },
+  {
+    "id": 401100400101,
+    "url": "/api/v5-m1/transport-customers/Get",
+    "resource": "transport-customers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100400501,
+    "url": "/api/v5-m1/transport-customers/Set",
+    "resource": "transport-customers",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100590101,
+    "url": "/api/v5-m1/transport-distributor-customers/Get",
+    "resource": "transport-distributor-customers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100590501,
+    "url": "/api/v5-m1/transport-distributor-customers/Set",
+    "resource": "transport-distributor-customers",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100600101,
+    "url": "/api/v5-m1/transport-fare-base-inclutions/Get",
+    "resource": "transport-fare-base-inclutions",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100600501,
+    "url": "/api/v5-m1/transport-fare-base-inclutions/Set",
+    "resource": "transport-fare-base-inclutions",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100620101,
+    "url": "/api/v5-m1/transport-fare-by-geo-fence/Get",
+    "resource": "transport-fare-by-geo-fence",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100620501,
+    "url": "/api/v5-m1/transport-fare-by-geo-fence/Set",
+    "resource": "transport-fare-by-geo-fence",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200410001,
+    "url": "/api/v5-m1/transport-fare-calculate/Calculation",
+    "resource": "transport-fare-calculate",
+    "action": "Calculation",
+    "kind": "write"
+  },
+  {
+    "id": 401100610101,
+    "url": "/api/v5-m1/transport-fare-calculations/Get",
+    "resource": "transport-fare-calculations",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100610501,
+    "url": "/api/v5-m1/transport-fare-calculations/Set",
+    "resource": "transport-fare-calculations",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200400001,
+    "url": "/api/v5-m1/transport-fare-zone/Resolve",
+    "resource": "transport-fare-zone",
+    "action": "Resolve",
+    "kind": "write"
+  },
+  {
+    "id": 401100550101,
+    "url": "/api/v5-m1/transport-geo-fence-bases/Get",
+    "resource": "transport-geo-fence-bases",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100550501,
+    "url": "/api/v5-m1/transport-geo-fence-bases/Set",
+    "resource": "transport-geo-fence-bases",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200480001,
+    "url": "/api/v5-m1/transport-locations/FindOrCreate",
+    "resource": "transport-locations",
+    "action": "FindOrCreate",
+    "kind": "write"
+  },
+  {
+    "id": 401100370101,
+    "url": "/api/v5-m1/transport-locations/Get",
+    "resource": "transport-locations",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401200520001,
+    "url": "/api/v5-m1/transport-locations/Register",
+    "resource": "transport-locations",
+    "action": "Register",
+    "kind": "write"
+  },
+  {
+    "id": 401100370501,
+    "url": "/api/v5-m1/transport-locations/Set",
+    "resource": "transport-locations",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100420101,
+    "url": "/api/v5-m1/transport-req-deliveries/Get",
+    "resource": "transport-req-deliveries",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100420501,
+    "url": "/api/v5-m1/transport-req-deliveries/Set",
+    "resource": "transport-req-deliveries",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100640101,
+    "url": "/api/v5-m1/transport-req-delivery-addons/Get",
+    "resource": "transport-req-delivery-addons",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100640501,
+    "url": "/api/v5-m1/transport-req-delivery-addons/Set",
+    "resource": "transport-req-delivery-addons",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100650101,
+    "url": "/api/v5-m1/transport-req-delivery-goods/Get",
+    "resource": "transport-req-delivery-goods",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100650501,
+    "url": "/api/v5-m1/transport-req-delivery-goods/Set",
+    "resource": "transport-req-delivery-goods",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200530001,
+    "url": "/api/v5-m1/transport-req-ride-addons/Assign",
+    "resource": "transport-req-ride-addons",
+    "action": "Assign",
+    "kind": "write"
+  },
+  {
+    "id": 401100660101,
+    "url": "/api/v5-m1/transport-req-ride-addons/Get",
+    "resource": "transport-req-ride-addons",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100660501,
+    "url": "/api/v5-m1/transport-req-ride-addons/Set",
+    "resource": "transport-req-ride-addons",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200510001,
+    "url": "/api/v5-m1/transport-req-ride-base-fare/Calculate",
+    "resource": "transport-req-ride-base-fare",
+    "action": "Calculate",
+    "kind": "write"
+  },
+  {
+    "id": 401200560001,
+    "url": "/api/v5-m1/transport-req-ride-batch/Create",
+    "resource": "transport-req-ride-batch",
+    "action": "Create",
+    "kind": "write"
+  },
+  {
+    "id": 401200470001,
+    "url": "/api/v5-m1/transport-req-ride-batch/Upsert",
+    "resource": "transport-req-ride-batch",
+    "action": "Upsert",
+    "kind": "write"
+  },
+  {
+    "id": 401200460001,
+    "url": "/api/v5-m1/transport-req-ride-passengers/Assign",
+    "resource": "transport-req-ride-passengers",
+    "action": "Assign",
+    "kind": "write"
+  },
+  {
+    "id": 401100670101,
+    "url": "/api/v5-m1/transport-req-ride-passengers/Get",
+    "resource": "transport-req-ride-passengers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100670501,
+    "url": "/api/v5-m1/transport-req-ride-passengers/Set",
+    "resource": "transport-req-ride-passengers",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200500001,
+    "url": "/api/v5-m1/transport-req-ride-passengers/Unassign",
+    "resource": "transport-req-ride-passengers",
+    "action": "Unassign",
+    "kind": "write"
+  },
+  {
+    "id": 401100410101,
+    "url": "/api/v5-m1/transport-req-rides/Get",
+    "resource": "transport-req-rides",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100410501,
+    "url": "/api/v5-m1/transport-req-rides/Set",
+    "resource": "transport-req-rides",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100700101,
+    "url": "/api/v5-m1/transport-transact-item-stages/Get",
+    "resource": "transport-transact-item-stages",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100700501,
+    "url": "/api/v5-m1/transport-transact-item-stages/Set",
+    "resource": "transport-transact-item-stages",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100690101,
+    "url": "/api/v5-m1/transport-transact-items/Get",
+    "resource": "transport-transact-items",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100690501,
+    "url": "/api/v5-m1/transport-transact-items/Set",
+    "resource": "transport-transact-items",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100710101,
+    "url": "/api/v5-m1/transport-transact-stages/Get",
+    "resource": "transport-transact-stages",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100710501,
+    "url": "/api/v5-m1/transport-transact-stages/Set",
+    "resource": "transport-transact-stages",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401100450101,
+    "url": "/api/v5-m1/transport-transacts/Get",
+    "resource": "transport-transacts",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100450501,
+    "url": "/api/v5-m1/transport-transacts/Set",
+    "resource": "transport-transacts",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 401200550001,
+    "url": "/api/v5-m1/user-customer/Register",
+    "resource": "user-customer",
+    "action": "Register",
+    "kind": "write"
+  },
+  {
+    "id": 401100720101,
+    "url": "/api/v5-m1/vehicle-drivers/Get",
+    "resource": "vehicle-drivers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100730101,
+    "url": "/api/v5-m1/vehicle-features/Get",
+    "resource": "vehicle-features",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 401100190101,
+    "url": "/api/v5-m1/vehicle-profile/Get",
+    "resource": "vehicle-profile",
+    "action": "Get",
+    "kind": "read"
+  }
+]

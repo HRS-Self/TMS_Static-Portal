@@ -1,0 +1,688 @@
+[
+  {
+    "id": 101100370501,
+    "url": "/api/v5-m1/aaa.app-type-permissions/Set",
+    "resource": "aaa.app-type-permissions",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101200070001,
+    "url": "/api/v5-m1/aaa.entity-profile/Create",
+    "resource": "aaa.entity-profile",
+    "action": "Create",
+    "kind": "write"
+  },
+  {
+    "id": 101100020101,
+    "url": "/api/v5-m1/aaa.entity-profile/Get",
+    "resource": "aaa.entity-profile",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100020501,
+    "url": "/api/v5-m1/aaa.entity-profile/Set",
+    "resource": "aaa.entity-profile",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101200020001,
+    "url": "/api/v5-m1/aaa.entity-role-permissions/Assign",
+    "resource": "aaa.entity-role-permissions",
+    "action": "Assign",
+    "kind": "write"
+  },
+  {
+    "id": 101200080001,
+    "url": "/api/v5-m1/aaa.entity-role-permissions/Assign-unassign",
+    "resource": "aaa.entity-role-permissions",
+    "action": "Assign-unassign",
+    "kind": "write"
+  },
+  {
+    "id": 101100410501,
+    "url": "/api/v5-m1/aaa.entity-role-permissions/Set",
+    "resource": "aaa.entity-role-permissions",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101200030001,
+    "url": "/api/v5-m1/aaa.entity-role-permissions/Unassign",
+    "resource": "aaa.entity-role-permissions",
+    "action": "Unassign",
+    "kind": "write"
+  },
+  {
+    "id": 101100390101,
+    "url": "/api/v5-m1/aaa.entity-roles/Get",
+    "resource": "aaa.entity-roles",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101200090001,
+    "url": "/api/v5-m1/aaa.entity-roles/Set",
+    "resource": "aaa.entity-roles",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101200060001,
+    "url": "/api/v5-m1/aaa.entity-scenarios/Assign",
+    "resource": "aaa.entity-scenarios",
+    "action": "Assign",
+    "kind": "write"
+  },
+  {
+    "id": 101200050001,
+    "url": "/api/v5-m1/aaa.scenarios/Set",
+    "resource": "aaa.scenarios",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100510101,
+    "url": "/api/v5-m1/aaa.user-app-settings/Get",
+    "resource": "aaa.user-app-settings",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100510501,
+    "url": "/api/v5-m1/aaa.user-app-settings/Set",
+    "resource": "aaa.user-app-settings",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101300010101,
+    "url": "/api/v5-m1/aaa.user-entity-profile-check/Get",
+    "resource": "aaa.user-entity-profile-check",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101200010001,
+    "url": "/api/v5-m1/aaa.user-entity-roles/Create",
+    "resource": "aaa.user-entity-roles",
+    "action": "Create",
+    "kind": "write"
+  },
+  {
+    "id": 101200040001,
+    "url": "/api/v5-m1/aaa.user-entity-roles/Delete",
+    "resource": "aaa.user-entity-roles",
+    "action": "Delete",
+    "kind": "write"
+  },
+  {
+    "id": 101100450101,
+    "url": "/api/v5-m1/aaa.user-entity-roles/Get",
+    "resource": "aaa.user-entity-roles",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100450501,
+    "url": "/api/v5-m1/aaa.user-entity-roles/Set",
+    "resource": "aaa.user-entity-roles",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100040101,
+    "url": "/api/v5-m1/aaa.user-info/Get",
+    "resource": "aaa.user-info",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 100100130101,
+    "url": "/api/v5-m1/aaa.user-permission-check/Get",
+    "resource": "aaa.user-permission-check",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100460101,
+    "url": "/api/v5-m1/aaa.user-profile/Get",
+    "resource": "aaa.user-profile",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101200430001,
+    "url": "/api/v5-m1/aaa.user-profile/Set",
+    "resource": "aaa.user-profile",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 100100010101,
+    "url": "/api/v5-m1/actor-versions/Get",
+    "resource": "actor-versions",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 100100010501,
+    "url": "/api/v5-m1/actor-versions/Set",
+    "resource": "actor-versions",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100010101,
+    "url": "/api/v5-m1/app-configs/Get",
+    "resource": "app-configs",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100010501,
+    "url": "/api/v5-m1/app-configs/Set",
+    "resource": "app-configs",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100480101,
+    "url": "/api/v5-m1/cfg.action-config-bases/Get",
+    "resource": "cfg.action-config-bases",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100480501,
+    "url": "/api/v5-m1/cfg.action-config-bases/Set",
+    "resource": "cfg.action-config-bases",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100490101,
+    "url": "/api/v5-m1/cfg.entity-configs/Get",
+    "resource": "cfg.entity-configs",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100490501,
+    "url": "/api/v5-m1/cfg.entity-configs/Set",
+    "resource": "cfg.entity-configs",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100500101,
+    "url": "/api/v5-m1/cfg.global-configs/Get",
+    "resource": "cfg.global-configs",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100500501,
+    "url": "/api/v5-m1/cfg.global-configs/Set",
+    "resource": "cfg.global-configs",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 100100030101,
+    "url": "/api/v5-m1/component-children/Get",
+    "resource": "component-children",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 100100030501,
+    "url": "/api/v5-m1/component-children/Set",
+    "resource": "component-children",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 100100020101,
+    "url": "/api/v5-m1/components-bases/Get",
+    "resource": "components-bases",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 100100020501,
+    "url": "/api/v5-m1/components-bases/Set",
+    "resource": "components-bases",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100060101,
+    "url": "/api/v5-m1/cvodrivers/Get",
+    "resource": "cvodrivers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100060501,
+    "url": "/api/v5-m1/cvodrivers/Set",
+    "resource": "cvodrivers",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100030101,
+    "url": "/api/v5-m1/cvos/Get",
+    "resource": "cvos",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100030501,
+    "url": "/api/v5-m1/cvos/Set",
+    "resource": "cvos",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100080101,
+    "url": "/api/v5-m1/cvoservices/Get",
+    "resource": "cvoservices",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100080501,
+    "url": "/api/v5-m1/cvoservices/Set",
+    "resource": "cvoservices",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100100101,
+    "url": "/api/v5-m1/cvovehicles/Get",
+    "resource": "cvovehicles",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100100501,
+    "url": "/api/v5-m1/cvovehicles/Set",
+    "resource": "cvovehicles",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101200450001,
+    "url": "/api/v5-m1/cvovehicles/Unassign",
+    "resource": "cvovehicles",
+    "action": "Unassign",
+    "kind": "write"
+  },
+  {
+    "id": 101100120101,
+    "url": "/api/v5-m1/distributor-cvos/Get",
+    "resource": "distributor-cvos",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100120501,
+    "url": "/api/v5-m1/distributor-cvos/Set",
+    "resource": "distributor-cvos",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100130101,
+    "url": "/api/v5-m1/distributor-drivers/Get",
+    "resource": "distributor-drivers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100130501,
+    "url": "/api/v5-m1/distributor-drivers/Set",
+    "resource": "distributor-drivers",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100110101,
+    "url": "/api/v5-m1/distributors/Get",
+    "resource": "distributors",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100110501,
+    "url": "/api/v5-m1/distributors/Set",
+    "resource": "distributors",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100200101,
+    "url": "/api/v5-m1/driver-permit-vehicle-types/Get",
+    "resource": "driver-permit-vehicle-types",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100200501,
+    "url": "/api/v5-m1/driver-permit-vehicle-types/Set",
+    "resource": "driver-permit-vehicle-types",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100050101,
+    "url": "/api/v5-m1/drivers/Get",
+    "resource": "drivers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100050501,
+    "url": "/api/v5-m1/drivers/Set",
+    "resource": "drivers",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 100200030101,
+    "url": "/api/v5-m1/dynamic-pages/FetchData",
+    "resource": "dynamic-pages",
+    "action": "FetchData",
+    "kind": "write"
+  },
+  {
+    "id": 100200060101,
+    "url": "/api/v5-m1/dynamic-pages/GetComponentHierarchy",
+    "resource": "dynamic-pages",
+    "action": "GetComponentHierarchy",
+    "kind": "read"
+  },
+  {
+    "id": 100200040101,
+    "url": "/api/v5-m1/dynamic-pages/GetComponentTypes",
+    "resource": "dynamic-pages",
+    "action": "GetComponentTypes",
+    "kind": "read"
+  },
+  {
+    "id": 100200010001,
+    "url": "/api/v5-m1/dynamic-pages/GetSourceAPIs",
+    "resource": "dynamic-pages",
+    "action": "GetSourceAPIs",
+    "kind": "read"
+  },
+  {
+    "id": 100200020101,
+    "url": "/api/v5-m1/dynamic-pages/GetUIComponent",
+    "resource": "dynamic-pages",
+    "action": "GetUIComponent",
+    "kind": "read"
+  },
+  {
+    "id": 100200050101,
+    "url": "/api/v5-m1/dynamic-pages/ResolveKey",
+    "resource": "dynamic-pages",
+    "action": "ResolveKey",
+    "kind": "write"
+  },
+  {
+    "id": 101100210101,
+    "url": "/api/v5-m1/features/Get",
+    "resource": "features",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100210501,
+    "url": "/api/v5-m1/features/Set",
+    "resource": "features",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100220101,
+    "url": "/api/v5-m1/hubdistributors/Get",
+    "resource": "hubdistributors",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100220501,
+    "url": "/api/v5-m1/hubdistributors/Set",
+    "resource": "hubdistributors",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100140101,
+    "url": "/api/v5-m1/hubs/Get",
+    "resource": "hubs",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100140501,
+    "url": "/api/v5-m1/hubs/Set",
+    "resource": "hubs",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100230101,
+    "url": "/api/v5-m1/master-services/Get",
+    "resource": "master-services",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100230501,
+    "url": "/api/v5-m1/master-services/Set",
+    "resource": "master-services",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101300040101,
+    "url": "/api/v5-m1/permit-issuers-entity/Get",
+    "resource": "permit-issuers-entity",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100170101,
+    "url": "/api/v5-m1/permit-issuers/Get",
+    "resource": "permit-issuers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100170501,
+    "url": "/api/v5-m1/permit-issuers/Set",
+    "resource": "permit-issuers",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101300030101,
+    "url": "/api/v5-m1/permit-status-check/Get",
+    "resource": "permit-status-check",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100270101,
+    "url": "/api/v5-m1/permit-status-verifications/Get",
+    "resource": "permit-status-verifications",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100270501,
+    "url": "/api/v5-m1/permit-status-verifications/Set",
+    "resource": "permit-status-verifications",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100240101,
+    "url": "/api/v5-m1/permit-statuses/Get",
+    "resource": "permit-statuses",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100240501,
+    "url": "/api/v5-m1/permit-statuses/Set",
+    "resource": "permit-statuses",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100280101,
+    "url": "/api/v5-m1/permit-type-issuers/Get",
+    "resource": "permit-type-issuers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100280501,
+    "url": "/api/v5-m1/permit-type-issuers/Set",
+    "resource": "permit-type-issuers",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100180101,
+    "url": "/api/v5-m1/permit-types/Get",
+    "resource": "permit-types",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100180501,
+    "url": "/api/v5-m1/permit-types/Set",
+    "resource": "permit-types",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100190101,
+    "url": "/api/v5-m1/permits/Get",
+    "resource": "permits",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100190501,
+    "url": "/api/v5-m1/permits/Set",
+    "resource": "permits",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101200360001,
+    "url": "/api/v5-m1/register-app-id/",
+    "resource": "v5-m1",
+    "action": "register-app-id",
+    "kind": "write"
+  },
+  {
+    "id": 101100250101,
+    "url": "/api/v5-m1/request-bases/Get",
+    "resource": "request-bases",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100250501,
+    "url": "/api/v5-m1/request-bases/Set",
+    "resource": "request-bases",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101300020101,
+    "url": "/api/v5-m1/request-status-check/Get",
+    "resource": "request-status-check",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100260101,
+    "url": "/api/v5-m1/request-statuses/Get",
+    "resource": "request-statuses",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100260501,
+    "url": "/api/v5-m1/request-statuses/Set",
+    "resource": "request-statuses",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100070101,
+    "url": "/api/v5-m1/service-bases/Get",
+    "resource": "service-bases",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100070501,
+    "url": "/api/v5-m1/service-bases/Set",
+    "resource": "service-bases",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100310101,
+    "url": "/api/v5-m1/vehicle-drivers/Get",
+    "resource": "vehicle-drivers",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100310501,
+    "url": "/api/v5-m1/vehicle-drivers/Set",
+    "resource": "vehicle-drivers",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100320101,
+    "url": "/api/v5-m1/vehicle-features/Get",
+    "resource": "vehicle-features",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100320501,
+    "url": "/api/v5-m1/vehicle-features/Set",
+    "resource": "vehicle-features",
+    "action": "Set",
+    "kind": "write"
+  },
+  {
+    "id": 101100090101,
+    "url": "/api/v5-m1/vehicle-profile/Get",
+    "resource": "vehicle-profile",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
+    "id": 101100090501,
+    "url": "/api/v5-m1/vehicle-profile/Set",
+    "resource": "vehicle-profile",
+    "action": "Set",
+    "kind": "write"
+  }
+]
