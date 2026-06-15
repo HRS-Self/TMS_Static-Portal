@@ -7,17 +7,17 @@ export const classificationManifest = {
     {
       "source": "core",
       "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9",
-      "capturedAt": "2026-06-14"
+      "capturedAt": "2026-06-15"
     },
     {
       "source": "gd",
       "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde",
-      "capturedAt": "2026-06-14"
+      "capturedAt": "2026-06-15"
     },
     {
       "source": "ntf",
       "sha256": "148396b1ef1ccb188e1e4da5aa0b8b149c7b2b829b81b0b3c9634d888104ef60",
-      "capturedAt": "2026-06-14"
+      "capturedAt": "2026-06-15"
     }
   ],
   "gates": {
