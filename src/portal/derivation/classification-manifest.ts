@@ -51,7 +51,34 @@ export const classificationManifest = {
       "H_EventInbox",
       "H_EventOutbox",
       "H_MasterServices"
-    ]
+    ],
+    "productionPrefix": {
+      "used": "Transport",
+      "approved": "Transport",
+      "detected": "Transport",
+      "ranking": [
+        {
+          "prefix": "Transport",
+          "tables": 23
+        },
+        {
+          "prefix": "Vehicle",
+          "tables": 3
+        },
+        {
+          "prefix": "Distributor",
+          "tables": 2
+        },
+        {
+          "prefix": "Features",
+          "tables": 1
+        },
+        {
+          "prefix": "Service",
+          "tables": 1
+        }
+      ]
+    }
   },
   "counts": {
     "definition": 24,
