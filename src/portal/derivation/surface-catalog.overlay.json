@@ -1,0 +1,6 @@
+{
+  "_README": "Hand-edited S3 overlay (persists across regeneration). renames:{surfaceKey:newName}. placements:{surfaceKey:{shellRegion?,menuGroup?,menuSubgroup?,order?}} — route/href NOT changeable here. manualMenus:[{name, location:{region,group,subgroup?}, contractIntent:\"static|view:<Vi_SPC_*>|endpoint:<path>|none\", archetype?, order?}] — provide name+location+intent; S3 GENERATES the href.",
+  "renames": {},
+  "placements": {},
+  "manualMenus": []
+}

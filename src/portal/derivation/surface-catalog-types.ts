@@ -2,11 +2,13 @@
 export interface SurfaceRecord {
   surfaceKey: string; displayName: string;
   domainFamily: 'Definition' | 'Production' | 'System' | 'Inbox' | 'Info';
-  layerScope: string; shellRegion: 'upper-sidebar' | 'lower-sidebar' | 'header' | 'info';
+  layerScope: string; shellRegion: 'upper-sidebar' | 'lower-sidebar' | 'header' | 'info' | 'bottom';
   menuGroup: string; menuSubgroup: string | null;
   menuNodeType: 'direct' | 'grouped' | 'end' | 'header-entry' | 'modal';
   route: string | null; archetype: string;
-  primarySubject: string; pageWorthinessBasis: string;
+  primarySubject: string | null; pageWorthinessBasis: string;
   embeddedChildren: string[]; backendOwner: string | null;
-  sourceRecord: string; exceptionStatus: 'default' | 'justified-exception' | 'deferred';
+  sourceRecord: string | null; order: number;
+  origin: 'derived' | 'scaffold' | 'manual'; contractIntent?: string;
+  exceptionStatus: 'default' | 'justified-exception' | 'deferred';
 }
