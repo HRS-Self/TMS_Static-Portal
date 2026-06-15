@@ -20,6 +20,24 @@ export const navigationTree = {
       "key": "dashboard"
     },
     {
+      "name": "Tracking",
+      "route": "/production/tracking",
+      "node": "end",
+      "key": "production.tracking"
+    },
+    {
+      "name": "MapView",
+      "route": "/production/mapview",
+      "node": "end",
+      "key": "production.mapview"
+    },
+    {
+      "name": "Reservation",
+      "route": "/production/reservation",
+      "node": "end",
+      "key": "production.reservation"
+    },
+    {
       "name": "Batches",
       "route": "/production/batches",
       "node": "direct",
