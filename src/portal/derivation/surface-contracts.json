@@ -1,0 +1,3781 @@
+{
+  "definitions.access.entities": {
+    "surfaceKey": "definitions.access.entities",
+    "primarySubject": "H_AAA_EntityProfile",
+    "backendOwner": "gd",
+    "read": {
+      "backend": "gd",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_EntityListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "PartyCode",
+            "title": "Party Code"
+          },
+          {
+            "field": "Title",
+            "title": "Title"
+          },
+          {
+            "field": "Address_fsx",
+            "title": "Address"
+          },
+          {
+            "field": "City",
+            "title": "City"
+          },
+          {
+            "field": "Province",
+            "title": "Province"
+          },
+          {
+            "field": "Country",
+            "title": "Country"
+          },
+          {
+            "field": "PostalCode_fsx",
+            "title": "Postal Code"
+          },
+          {
+            "field": "Phone_fsx",
+            "title": "Phone"
+          },
+          {
+            "field": "FaxNumber_fsx",
+            "title": "Fax Number"
+          },
+          {
+            "field": "Email_fsx",
+            "title": "Email"
+          },
+          {
+            "field": "Discriminator",
+            "title": "Discriminator"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_EntityProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "gd",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/aaa.entity-profile/Set"
+      },
+      "actions": [
+        {
+          "action": "Create",
+          "method": "POST",
+          "path": "/api/v5-m1/aaa.entity-profile/Create"
+        }
+      ],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.AaaEntityProfile.Create",
+      "delete": "User.AaaEntityProfile.Delete",
+      "view": "User.AaaEntityProfile.Get",
+      "manage": "User.AaaEntityProfile.Update"
+    },
+    "citations": [
+      {
+        "source": "gd",
+        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+      }
+    ]
+  },
+  "definitions.access.users": {
+    "surfaceKey": "definitions.access.users",
+    "primarySubject": "H_AAA_UserInfo",
+    "backendOwner": null,
+    "read": {
+      "backend": null,
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_UserListSummary",
+        "columns": []
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_UserProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": null,
+      "base": null,
+      "actions": [],
+      "exception": "IDP-managed (users created/pushed via IDP)"
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [],
+      "rowActions": [
+        "View"
+      ]
+    },
+    "capability": {
+      "create": "User.AaaUserInfo.Create",
+      "view": "User.AaaUserInfo.Get",
+      "invite": "User.AaaUserInfo.Invite"
+    },
+    "citations": []
+  },
+  "definitions.customers": {
+    "surfaceKey": "definitions.customers",
+    "primarySubject": "H_TransportCustomers",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportCustomerListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "EntityId",
+            "title": "Entity Id"
+          },
+          {
+            "field": "UserId",
+            "title": "User Id"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportCustomerProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-customers/Set"
+      },
+      "actions": [
+        {
+          "action": "Create",
+          "method": "POST",
+          "path": "/api/v5-m1/transport-customers/Create"
+        }
+      ],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportCustomers.Create",
+      "delete": "User.TransportCustomers.Delete",
+      "view": "User.TransportCustomers.Get",
+      "manage": "User.TransportCustomers.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "definitions.cvos": {
+    "surfaceKey": "definitions.cvos",
+    "primarySubject": "H_CVOs",
+    "backendOwner": "gd",
+    "read": {
+      "backend": "gd",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_CVOListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "EntityId",
+            "title": "Entity Id"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_CVOProfile"
+      },
+      "familyTabs": [],
+      "permits": {
+        "area": "permits",
+        "view": "Vi_SPC_CVOPermits",
+        "binding": "aligned"
+      }
+    },
+    "write": {
+      "backend": "gd",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/cvos/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile",
+        "Permits"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.Cvos.Create",
+      "view": "User.Cvos.Get",
+      "delete": "User.Cvos.Delete",
+      "manage": "User.Cvos.Update"
+    },
+    "citations": [
+      {
+        "source": "gd",
+        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+      }
+    ]
+  },
+  "definitions.distributors": {
+    "surfaceKey": "definitions.distributors",
+    "primarySubject": "H_Distributors",
+    "backendOwner": "gd",
+    "read": {
+      "backend": "gd",
+      "list": {
+        "area": "list",
+        "view": "Vi_SPC_DistributorListSummary",
+        "binding": "aligned",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "EntityId",
+            "title": "Entity Id"
+          },
+          {
+            "field": "EntityTitle",
+            "title": "Entity Title"
+          },
+          {
+            "field": "City",
+            "title": "City"
+          },
+          {
+            "field": "Province",
+            "title": "Province"
+          },
+          {
+            "field": "Phone_fsx",
+            "title": "Phone"
+          },
+          {
+            "field": "Email_fsx",
+            "title": "Email"
+          },
+          {
+            "field": "CVOCount",
+            "title": "CVOCount"
+          },
+          {
+            "field": "DriverCount",
+            "title": "Driver Count"
+          },
+          {
+            "field": "HUBCount",
+            "title": "HUBCount"
+          },
+          {
+            "field": "TotalPermitCount",
+            "title": "Total Permit Count"
+          },
+          {
+            "field": "ExpiredPermitCount",
+            "title": "Expired Permit Count"
+          },
+          {
+            "field": "ValidPermitCount",
+            "title": "Valid Permit Count"
+          },
+          {
+            "field": "SuspendedPermitCount",
+            "title": "Suspended Permit Count"
+          },
+          {
+            "field": "RevokedPermitCount",
+            "title": "Revoked Permit Count"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_DistributorProfile"
+      },
+      "familyTabs": [],
+      "permits": {
+        "area": "permits",
+        "view": "Vi_SPC_DistributorPermits",
+        "binding": "aligned"
+      }
+    },
+    "write": {
+      "backend": "gd",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/distributors/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile",
+        "Permits"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.Distributors.Create",
+      "view": "User.Distributors.Get",
+      "delete": "User.Distributors.Delete",
+      "manage": "User.Distributors.Update"
+    },
+    "citations": [
+      {
+        "source": "gd",
+        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+      }
+    ]
+  },
+  "definitions.drivers": {
+    "surfaceKey": "definitions.drivers",
+    "primarySubject": "H_Drivers",
+    "backendOwner": "gd",
+    "read": {
+      "backend": "gd",
+      "list": {
+        "area": "list",
+        "view": "Vi_SPC_DriverListSummary",
+        "binding": "aligned",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "UserId",
+            "title": "User Id"
+          },
+          {
+            "field": "PersonCVOId",
+            "title": "Person CVOId"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          },
+          {
+            "field": "FullName",
+            "title": "Full Name"
+          },
+          {
+            "field": "Firstname",
+            "title": "Firstname"
+          },
+          {
+            "field": "Lastname",
+            "title": "Lastname"
+          },
+          {
+            "field": "Username",
+            "title": "Username"
+          },
+          {
+            "field": "Email",
+            "title": "Email"
+          },
+          {
+            "field": "CellPhone",
+            "title": "Cell Phone"
+          },
+          {
+            "field": "DriverLicense",
+            "title": "Driver License"
+          },
+          {
+            "field": "DriverLicenseExpiry",
+            "title": "Driver License Expiry"
+          },
+          {
+            "field": "DriverLicenseStatus",
+            "title": "Driver License Status"
+          },
+          {
+            "field": "DriverLicenseConditionENUM",
+            "title": "Driver License Condition ENUM"
+          },
+          {
+            "field": "UserFullName",
+            "title": "User Full Name"
+          },
+          {
+            "field": "UserEmail",
+            "title": "User Email"
+          },
+          {
+            "field": "UserUsername",
+            "title": "User Username"
+          },
+          {
+            "field": "PrimaryCVOTitle",
+            "title": "Primary CVOTitle"
+          },
+          {
+            "field": "PrimaryCVOCity",
+            "title": "Primary CVOCity"
+          },
+          {
+            "field": "TotalPermitCount",
+            "title": "Total Permit Count"
+          },
+          {
+            "field": "ValidPermitCount",
+            "title": "Valid Permit Count"
+          },
+          {
+            "field": "ExpiredPermitCount",
+            "title": "Expired Permit Count"
+          },
+          {
+            "field": "SuspendedPermitCount",
+            "title": "Suspended Permit Count"
+          },
+          {
+            "field": "RevokedPermitCount",
+            "title": "Revoked Permit Count"
+          },
+          {
+            "field": "NextValidPermitExpiry",
+            "title": "Next Valid Permit Expiry"
+          },
+          {
+            "field": "VehicleCount",
+            "title": "Vehicle Count"
+          },
+          {
+            "field": "DistributorCount",
+            "title": "Distributor Count"
+          },
+          {
+            "field": "CVOCount",
+            "title": "CVOCount"
+          },
+          {
+            "field": "LicensedVehicleTypeCount",
+            "title": "Licensed Vehicle Type Count"
+          },
+          {
+            "field": "VehicleTypeTitle",
+            "title": "Vehicle Type Title"
+          },
+          {
+            "field": "LicensedVehicleTypeBadges",
+            "title": "Licensed Vehicle Type Badges"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": "Vi_SPC_DriverProfile",
+        "binding": "aligned"
+      },
+      "familyTabs": [
+        {
+          "area": "CVOs",
+          "view": "Vi_SPC_DriverCVOs",
+          "binding": "aligned"
+        },
+        {
+          "area": "DLVC",
+          "view": "Vi_SPC_DriverDLVC",
+          "binding": "aligned"
+        },
+        {
+          "area": "Distributors",
+          "view": "Vi_SPC_DriverDistributors",
+          "binding": "aligned"
+        },
+        {
+          "area": "Vehicles",
+          "view": "Vi_SPC_DriverVehicles",
+          "binding": "aligned"
+        }
+      ],
+      "permits": {
+        "area": "permits",
+        "view": "Vi_SPC_DriverPermits",
+        "binding": "aligned"
+      }
+    },
+    "write": {
+      "backend": "gd",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/drivers/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile",
+        "CVOs",
+        "DLVC",
+        "Distributors",
+        "Vehicles",
+        "Permits"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.Drivers.Create",
+      "view": "User.Drivers.Get",
+      "delete": "User.Drivers.Delete",
+      "manage": "User.Drivers.Update"
+    },
+    "citations": [
+      {
+        "source": "gd",
+        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+      }
+    ]
+  },
+  "definitions.hubs": {
+    "surfaceKey": "definitions.hubs",
+    "primarySubject": "H_HUBs",
+    "backendOwner": "gd",
+    "read": {
+      "backend": "gd",
+      "list": {
+        "area": "list",
+        "view": "Vi_SPC_HUBListSummary",
+        "binding": "aligned",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "EntityId",
+            "title": "Entity Id"
+          },
+          {
+            "field": "PartyCode",
+            "title": "Party Code"
+          },
+          {
+            "field": "EntityTitle",
+            "title": "Entity Title"
+          },
+          {
+            "field": "Address_fsx",
+            "title": "Address"
+          },
+          {
+            "field": "City",
+            "title": "City"
+          },
+          {
+            "field": "Province",
+            "title": "Province"
+          },
+          {
+            "field": "Country",
+            "title": "Country"
+          },
+          {
+            "field": "PostalCode_fsx",
+            "title": "Postal Code"
+          },
+          {
+            "field": "Phone_fsx",
+            "title": "Phone"
+          },
+          {
+            "field": "FaxNumber_fsx",
+            "title": "Fax Number"
+          },
+          {
+            "field": "Email_fsx",
+            "title": "Email"
+          },
+          {
+            "field": "DistributorCount",
+            "title": "Distributor Count"
+          },
+          {
+            "field": "TotalPermitCount",
+            "title": "Total Permit Count"
+          },
+          {
+            "field": "ExpiredPermitCount",
+            "title": "Expired Permit Count"
+          },
+          {
+            "field": "ValidPermitCount",
+            "title": "Valid Permit Count"
+          },
+          {
+            "field": "SuspendedPermitCount",
+            "title": "Suspended Permit Count"
+          },
+          {
+            "field": "RevokedPermitCount",
+            "title": "Revoked Permit Count"
+          },
+          {
+            "field": "CVOLinkCount",
+            "title": "CVOLink Count"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": "Vi_SPC_HUBProfile",
+        "binding": "aligned"
+      },
+      "familyTabs": [
+        {
+          "area": "Distributors",
+          "view": "Vi_SPC_HUBDistributors",
+          "binding": "aligned"
+        }
+      ],
+      "permits": {
+        "area": "permits",
+        "view": "Vi_SPC_HUBPermits",
+        "binding": "aligned"
+      }
+    },
+    "write": {
+      "backend": "gd",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/hubs/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile",
+        "Distributors",
+        "Permits"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.Hubs.Create",
+      "view": "User.Hubs.Get",
+      "delete": "User.Hubs.Delete",
+      "manage": "User.Hubs.Update"
+    },
+    "citations": [
+      {
+        "source": "gd",
+        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+      }
+    ]
+  },
+  "definitions.requests": {
+    "surfaceKey": "definitions.requests",
+    "primarySubject": "H_RequestStatuses",
+    "backendOwner": "gd",
+    "read": {
+      "backend": "gd",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_RequestStatusListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "RequestId",
+            "title": "Request Id"
+          },
+          {
+            "field": "RequesteeUserId",
+            "title": "Requestee User Id"
+          },
+          {
+            "field": "RequesteeEntityId",
+            "title": "Requestee Entity Id"
+          },
+          {
+            "field": "RequesteeActENUM",
+            "title": "Requestee Act ENUM"
+          },
+          {
+            "field": "Status",
+            "title": "Status"
+          },
+          {
+            "field": "StatusReason",
+            "title": "Status Reason"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_RequestStatusProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "gd",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/request-statuses/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "requests-control-plane",
+      "tabs": [],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.RequestStatuses.Create",
+      "delete": "User.RequestStatuses.Delete",
+      "view": "User.RequestStatuses.Get",
+      "manage": "User.RequestStatuses.Update"
+    },
+    "citations": [
+      {
+        "source": "gd",
+        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+      }
+    ]
+  },
+  "definitions.vehicles": {
+    "surfaceKey": "definitions.vehicles",
+    "primarySubject": "H_VehicleProfile",
+    "backendOwner": "gd",
+    "read": {
+      "backend": "gd",
+      "list": {
+        "area": "list",
+        "view": "Vi_SPC_VehicleListSummary",
+        "binding": "aligned",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "Plate",
+            "title": "Plate"
+          },
+          {
+            "field": "VIN",
+            "title": "VIN"
+          },
+          {
+            "field": "Make",
+            "title": "Make"
+          },
+          {
+            "field": "Model",
+            "title": "Model"
+          },
+          {
+            "field": "Year",
+            "title": "Year"
+          },
+          {
+            "field": "VehicleType",
+            "title": "Vehicle Type"
+          },
+          {
+            "field": "Color",
+            "title": "Color"
+          },
+          {
+            "field": "Province",
+            "title": "Province"
+          },
+          {
+            "field": "Cargo_Height",
+            "title": "Cargo_Height"
+          },
+          {
+            "field": "Cargo_Weight",
+            "title": "Cargo_Weight"
+          },
+          {
+            "field": "Cargo_Length",
+            "title": "Cargo_Length"
+          },
+          {
+            "field": "Cargo_Width",
+            "title": "Cargo_Width"
+          },
+          {
+            "field": "Capacity_Passengers",
+            "title": "Capacity_Passengers"
+          },
+          {
+            "field": "Capacity_Luggage",
+            "title": "Capacity_Luggage"
+          },
+          {
+            "field": "CVOId",
+            "title": "CVOId"
+          },
+          {
+            "field": "CVOTitle",
+            "title": "CVOTitle"
+          },
+          {
+            "field": "CVOCity",
+            "title": "CVOCity"
+          },
+          {
+            "field": "CVOProvince",
+            "title": "CVOProvince"
+          },
+          {
+            "field": "DriverCount",
+            "title": "Driver Count"
+          },
+          {
+            "field": "ExpiredPermitCount",
+            "title": "Expired Permit Count"
+          },
+          {
+            "field": "ValidPermitCount",
+            "title": "Valid Permit Count"
+          },
+          {
+            "field": "TotalPermitCount",
+            "title": "Total Permit Count"
+          },
+          {
+            "field": "FeatureTitle",
+            "title": "Feature Title"
+          },
+          {
+            "field": "FeatureBadgesTop3",
+            "title": "Feature Badges Top3"
+          },
+          {
+            "field": "FeatureCount",
+            "title": "Feature Count"
+          },
+          {
+            "field": "InspectionStatus",
+            "title": "Inspection Status"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": "Vi_SPC_VehicleProfile",
+        "binding": "aligned"
+      },
+      "familyTabs": [
+        {
+          "area": "CVOs",
+          "view": "Vi_SPC_VehicleCVOs",
+          "binding": "aligned"
+        },
+        {
+          "area": "Drivers",
+          "view": "Vi_SPC_VehicleDrivers",
+          "binding": "aligned"
+        },
+        {
+          "area": "Features",
+          "view": "Vi_SPC_VehicleFeatures",
+          "binding": "aligned"
+        }
+      ],
+      "permits": {
+        "area": "permits",
+        "view": "Vi_SPC_VehiclePermits",
+        "binding": "aligned"
+      }
+    },
+    "write": {
+      "backend": "gd",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/vehicle-profile/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile",
+        "CVOs",
+        "Drivers",
+        "Features",
+        "Permits"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.VehicleProfile.Create",
+      "view": "User.VehicleProfile.Get",
+      "delete": "User.VehicleProfile.Delete",
+      "manage": "User.VehicleProfile.Update"
+    },
+    "citations": [
+      {
+        "source": "gd",
+        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+      }
+    ]
+  },
+  "header.notifications": {
+    "surfaceKey": "header.notifications",
+    "primarySubject": "H_NotificationQueue",
+    "backendOwner": "ntf",
+    "read": {
+      "backend": "ntf",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_NotificationQueueListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "NotificationRequestId",
+            "title": "Notification Request Id"
+          },
+          {
+            "field": "UserId",
+            "title": "User Id"
+          },
+          {
+            "field": "EntityId",
+            "title": "Entity Id"
+          },
+          {
+            "field": "ChannelType",
+            "title": "Channel Type"
+          },
+          {
+            "field": "Destination_fsx",
+            "title": "Destination"
+          },
+          {
+            "field": "Status",
+            "title": "Status"
+          },
+          {
+            "field": "Reason",
+            "title": "Reason"
+          },
+          {
+            "field": "RetryCount",
+            "title": "Retry Count"
+          },
+          {
+            "field": "BroadcastedAt_UTC",
+            "title": "Broadcasted At_UTC"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_NotificationQueueProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "ntf",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/notification-queue/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "notification-tray",
+      "tabs": [],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.NotificationQueue.Create",
+      "delete": "User.NotificationQueue.Delete",
+      "view": "User.NotificationQueue.Get",
+      "manage": "User.NotificationQueue.Update"
+    },
+    "citations": [
+      {
+        "source": "ntf",
+        "sha256": "148396b1ef1ccb188e1e4da5aa0b8b149c7b2b829b81b0b3c9634d888104ef60"
+      }
+    ]
+  },
+  "header.user-menu.notification-prefs": {
+    "surfaceKey": "header.user-menu.notification-prefs",
+    "primarySubject": "H_UserNotificationSettings",
+    "backendOwner": "ntf",
+    "read": {
+      "backend": "ntf",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_UserNotificationSettingListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "UserId",
+            "title": "User Id"
+          },
+          {
+            "field": "IsEnabledInApp",
+            "title": "Is Enabled In App"
+          },
+          {
+            "field": "IsEnabledEmail",
+            "title": "Is Enabled Email"
+          },
+          {
+            "field": "IsEnabledSMS",
+            "title": "Is Enabled SMS"
+          },
+          {
+            "field": "IsEnabledPhone",
+            "title": "Is Enabled Phone"
+          },
+          {
+            "field": "IsEnabledWhatsApp",
+            "title": "Is Enabled Whats App"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_UserNotificationSettingProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "ntf",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/user-notification-settings/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "user-pref-modal",
+      "tabs": [],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.UserNotificationSettings.Create",
+      "delete": "User.UserNotificationSettings.Delete",
+      "view": "User.UserNotificationSettings.Get",
+      "manage": "User.UserNotificationSettings.Update"
+    },
+    "citations": [
+      {
+        "source": "ntf",
+        "sha256": "148396b1ef1ccb188e1e4da5aa0b8b149c7b2b829b81b0b3c9634d888104ef60"
+      }
+    ]
+  },
+  "system.app-registration.app-clients": {
+    "surfaceKey": "system.app-registration.app-clients",
+    "primarySubject": "H_AAA_AppClients",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_AppClientListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "Title",
+            "title": "Title"
+          },
+          {
+            "field": "ClientId",
+            "title": "Client Id"
+          },
+          {
+            "field": "ClientSecret",
+            "title": "Client Secret"
+          },
+          {
+            "field": "AppTypeId",
+            "title": "App Type Id"
+          },
+          {
+            "field": "IsInactive",
+            "title": "Is Inactive"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_AppClientProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": null,
+      "actions": [],
+      "exception": "direct-DB (BASIC-auth bootstrap; no API)"
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [],
+      "rowActions": [
+        "View"
+      ]
+    },
+    "capability": {
+      "create": "User.AaaAppClients.Create",
+      "delete": "User.AaaAppClients.Delete",
+      "view": "User.AaaAppClients.Get",
+      "manage": "User.AaaAppClients.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "system.app-registration.app-types": {
+    "surfaceKey": "system.app-registration.app-types",
+    "primarySubject": "H_AAA_AppTypes",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_AppTypeListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "Code",
+            "title": "Code"
+          },
+          {
+            "field": "Title",
+            "title": "Title"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_AppTypeProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": null,
+      "actions": [],
+      "exception": "direct-DB (app authz role; no API)"
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [],
+      "rowActions": [
+        "View"
+      ]
+    },
+    "capability": {
+      "create": "User.AaaAppTypes.Create",
+      "delete": "User.AaaAppTypes.Delete",
+      "view": "User.AaaAppTypes.Get",
+      "manage": "User.AaaAppTypes.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "system.configurations.action-config-bases": {
+    "surfaceKey": "system.configurations.action-config-bases",
+    "primarySubject": "H_CFG_ActionConfigBases",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_CFG_ActionConfigBasListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "Code",
+            "title": "Code"
+          },
+          {
+            "field": "Description",
+            "title": "Description"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_CFG_ActionConfigBasProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/cfg.action-config-bases/Set"
+      },
+      "actions": [
+        {
+          "action": "Set",
+          "method": "POST",
+          "path": "/api/v5-m1/cfg.action-config-bases/Set"
+        }
+      ],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.CfgActionConfigBases.Create",
+      "delete": "User.CfgActionConfigBases.Delete",
+      "view": "User.CfgActionConfigBases.Get",
+      "manage": "User.CfgActionConfigBases.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "system.configurations.actor-configs": {
+    "surfaceKey": "system.configurations.actor-configs",
+    "primarySubject": "H_CFG_ActorConfigs",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_CFG_ActorConfigListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "EntityId",
+            "title": "Entity Id"
+          },
+          {
+            "field": "VehicleId",
+            "title": "Vehicle Id"
+          },
+          {
+            "field": "UserId",
+            "title": "User Id"
+          },
+          {
+            "field": "ActENUM",
+            "title": "Act ENUM"
+          },
+          {
+            "field": "ScenarioId",
+            "title": "Scenario Id"
+          },
+          {
+            "field": "ConfigBaseId",
+            "title": "Config Base Id"
+          },
+          {
+            "field": "Value",
+            "title": "Value"
+          },
+          {
+            "field": "IsOverridable",
+            "title": "Is Overridable"
+          },
+          {
+            "field": "Signature",
+            "title": "Signature"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_CFG_ActorConfigProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/cfg.actor-configs/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.CfgActorConfigs.Create",
+      "delete": "User.CfgActorConfigs.Delete",
+      "view": "User.CfgActorConfigs.Get",
+      "manage": "User.CfgActorConfigs.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "system.configurations.entity-configs": {
+    "surfaceKey": "system.configurations.entity-configs",
+    "primarySubject": "H_CFG_EntityConfigs",
+    "backendOwner": "gd",
+    "read": {
+      "backend": "gd",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_CFG_EntityConfigListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "PermitIssuerId",
+            "title": "Permit Issuer Id"
+          },
+          {
+            "field": "HUBId",
+            "title": "HUBId"
+          },
+          {
+            "field": "DistributorId",
+            "title": "Distributor Id"
+          },
+          {
+            "field": "CVOId",
+            "title": "CVOId"
+          },
+          {
+            "field": "VehicleId",
+            "title": "Vehicle Id"
+          },
+          {
+            "field": "DriverId",
+            "title": "Driver Id"
+          },
+          {
+            "field": "ActENUM",
+            "title": "Act ENUM"
+          },
+          {
+            "field": "ScenarioId",
+            "title": "Scenario Id"
+          },
+          {
+            "field": "ConfigBaseId",
+            "title": "Config Base Id"
+          },
+          {
+            "field": "Value",
+            "title": "Value"
+          },
+          {
+            "field": "IsOverridable",
+            "title": "Is Overridable"
+          },
+          {
+            "field": "Signature",
+            "title": "Signature"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_CFG_EntityConfigProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "gd",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/cfg.entity-configs/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.CfgEntityConfigs.Create",
+      "delete": "User.CfgEntityConfigs.Delete",
+      "view": "User.CfgEntityConfigs.Get",
+      "manage": "User.CfgEntityConfigs.Update"
+    },
+    "citations": [
+      {
+        "source": "gd",
+        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+      }
+    ]
+  },
+  "system.configurations.global-configs": {
+    "surfaceKey": "system.configurations.global-configs",
+    "primarySubject": "H_CFG_GlobalConfigs",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_CFG_GlobalConfigListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "ConfigBaseId",
+            "title": "Config Base Id"
+          },
+          {
+            "field": "Value",
+            "title": "Value"
+          },
+          {
+            "field": "IsOverridable",
+            "title": "Is Overridable"
+          },
+          {
+            "field": "Signature",
+            "title": "Signature"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_CFG_GlobalConfigProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/cfg.global-configs/Set"
+      },
+      "actions": [
+        {
+          "action": "Set",
+          "method": "POST",
+          "path": "/api/v5-m1/cfg.global-configs/Set"
+        }
+      ],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.CfgGlobalConfigs.Create",
+      "delete": "User.CfgGlobalConfigs.Delete",
+      "view": "User.CfgGlobalConfigs.Get",
+      "manage": "User.CfgGlobalConfigs.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "system.notification-definitions.templates": {
+    "surfaceKey": "system.notification-definitions.templates",
+    "primarySubject": "H_NotificationTemplateSettings",
+    "backendOwner": "ntf",
+    "read": {
+      "backend": "ntf",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_NotificationTemplateSettingListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "NotificationTypeENUM",
+            "title": "Notification Type ENUM"
+          },
+          {
+            "field": "NotificationTemplateENUM",
+            "title": "Notification Template ENUM"
+          },
+          {
+            "field": "NotificationPlatformENUM",
+            "title": "Notification Platform ENUM"
+          },
+          {
+            "field": "Settings",
+            "title": "Settings"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_NotificationTemplateSettingProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "ntf",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/notification-template-settings/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.NotificationTemplateSettings.Create",
+      "delete": "User.NotificationTemplateSettings.Delete",
+      "view": "User.NotificationTemplateSettings.Get",
+      "manage": "User.NotificationTemplateSettings.Update"
+    },
+    "citations": [
+      {
+        "source": "ntf",
+        "sha256": "148396b1ef1ccb188e1e4da5aa0b8b149c7b2b829b81b0b3c9634d888104ef60"
+      }
+    ]
+  },
+  "system.permit-management.permit-issuers": {
+    "surfaceKey": "system.permit-management.permit-issuers",
+    "primarySubject": "H_PermitIssuers",
+    "backendOwner": "gd",
+    "read": {
+      "backend": "gd",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_PermitIssuerListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "EntityId",
+            "title": "Entity Id"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_PermitIssuerProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "gd",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/permit-issuers/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.PermitIssuers.Create",
+      "view": "User.PermitIssuers.Get",
+      "delete": "User.PermitIssuers.Delete",
+      "manage": "User.PermitIssuers.Update"
+    },
+    "citations": [
+      {
+        "source": "gd",
+        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+      }
+    ]
+  },
+  "system.permit-management.permit-types": {
+    "surfaceKey": "system.permit-management.permit-types",
+    "primarySubject": "H_PermitTypes",
+    "backendOwner": "gd",
+    "read": {
+      "backend": "gd",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_PermitTypeListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "ActENUM",
+            "title": "Act ENUM"
+          },
+          {
+            "field": "ActivityClassENUM",
+            "title": "Activity Class ENUM"
+          },
+          {
+            "field": "Title",
+            "title": "Title"
+          },
+          {
+            "field": "AllowedServiceCategories",
+            "title": "Allowed Service Categories"
+          },
+          {
+            "field": "Extendable",
+            "title": "Extendable"
+          },
+          {
+            "field": "ProfileDependant",
+            "title": "Profile Dependant"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_PermitTypeProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "gd",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/permit-types/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "compact-catalog",
+      "tabs": [],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.PermitTypes.Create",
+      "delete": "User.PermitTypes.Delete",
+      "view": "User.PermitTypes.Get",
+      "manage": "User.PermitTypes.Update"
+    },
+    "citations": [
+      {
+        "source": "gd",
+        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+      }
+    ]
+  },
+  "transport.batches": {
+    "surfaceKey": "transport.batches",
+    "primarySubject": "H_TransportBatches",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportBatchListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "FMS_OId",
+            "title": "FMS_OId"
+          },
+          {
+            "field": "DistributorId",
+            "title": "Distributor Id"
+          },
+          {
+            "field": "TotalFareAtDispatch",
+            "title": "Total Fare At Dispatch"
+          },
+          {
+            "field": "FarePortionAmount_CVO",
+            "title": "Fare Portion Amount_CVO"
+          },
+          {
+            "field": "FarePortionAmount_Distributor",
+            "title": "Fare Portion Amount_Distributor"
+          },
+          {
+            "field": "FarePortionAmount_Driver",
+            "title": "Fare Portion Amount_Driver"
+          },
+          {
+            "field": "AllowedDiscountPercent",
+            "title": "Allowed Discount Percent"
+          },
+          {
+            "field": "IsEditable",
+            "title": "Is Editable"
+          },
+          {
+            "field": "IsChargePerItem",
+            "title": "Is Charge Per Item"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportBatchProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-batches/Set"
+      },
+      "actions": [
+        {
+          "action": "Finalize",
+          "method": "POST",
+          "path": "/api/v5-m1/transport-batches/Finalize"
+        },
+        {
+          "action": "Upsert",
+          "method": "POST",
+          "path": "/api/v5-m1/transport-batches/Upsert"
+        }
+      ],
+      "exception": null
+    },
+    "render": {
+      "archetype": "production-workbench",
+      "tabs": [],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportBatches.Create",
+      "delete": "User.TransportBatches.Delete",
+      "view": "User.TransportBatches.Get",
+      "manage": "User.TransportBatches.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "transport.deliveries": {
+    "surfaceKey": "transport.deliveries",
+    "primarySubject": "H_TransportReqDeliveries",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportReqDeliveryListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "IsEditable",
+            "title": "Is Editable"
+          },
+          {
+            "field": "CustomerId",
+            "title": "Customer Id"
+          },
+          {
+            "field": "DistributorId",
+            "title": "Distributor Id"
+          },
+          {
+            "field": "CVOId",
+            "title": "CVOId"
+          },
+          {
+            "field": "FromContactLocationId",
+            "title": "From Contact Location Id"
+          },
+          {
+            "field": "ToContactLocationId",
+            "title": "To Contact Location Id"
+          },
+          {
+            "field": "PickupAfterDateTime",
+            "title": "Pickup After Date Time"
+          },
+          {
+            "field": "PickupAfterDateTime_UTC",
+            "title": "Pickup After Date Time_UTC"
+          },
+          {
+            "field": "PickupBeforeDateTime",
+            "title": "Pickup Before Date Time"
+          },
+          {
+            "field": "PickupBeforeDateTime_UTC",
+            "title": "Pickup Before Date Time_UTC"
+          },
+          {
+            "field": "DropOffAfterDateTime",
+            "title": "Drop Off After Date Time"
+          },
+          {
+            "field": "DropOffAfterDateTime_UTC",
+            "title": "Drop Off After Date Time_UTC"
+          },
+          {
+            "field": "DropOffBeforeDateTime",
+            "title": "Drop Off Before Date Time"
+          },
+          {
+            "field": "DropOffBeforeDateTime_UTC",
+            "title": "Drop Off Before Date Time_UTC"
+          },
+          {
+            "field": "VehicleType",
+            "title": "Vehicle Type"
+          },
+          {
+            "field": "VehicleProfileSubType",
+            "title": "Vehicle Profile Sub Type"
+          },
+          {
+            "field": "ServiceClass",
+            "title": "Service Class"
+          },
+          {
+            "field": "ActionOnAbsentReceiver",
+            "title": "Action On Absent Receiver"
+          },
+          {
+            "field": "Comments",
+            "title": "Comments"
+          },
+          {
+            "field": "FareAtSubmission",
+            "title": "Fare At Submission"
+          },
+          {
+            "field": "PromoCode",
+            "title": "Promo Code"
+          },
+          {
+            "field": "PaymentCategory",
+            "title": "Payment Category"
+          },
+          {
+            "field": "PaymentMethod",
+            "title": "Payment Method"
+          },
+          {
+            "field": "PaidAt_UTC",
+            "title": "Paid At_UTC"
+          },
+          {
+            "field": "Status",
+            "title": "Status"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportReqDeliveryProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-req-deliveries/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "production-workbench",
+      "tabs": [],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportReqDeliveries.Create",
+      "delete": "User.TransportReqDeliveries.Delete",
+      "view": "User.TransportReqDeliveries.Get",
+      "manage": "User.TransportReqDeliveries.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "transport.dispatch": {
+    "surfaceKey": "transport.dispatch",
+    "primarySubject": "H_TransportTransacts",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportTransactListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "FMS_OvId",
+            "title": "FMS_Ov Id"
+          },
+          {
+            "field": "BatchId",
+            "title": "Batch Id"
+          },
+          {
+            "field": "PickupZoneId",
+            "title": "Pickup Zone Id"
+          },
+          {
+            "field": "CVOId",
+            "title": "CVOId"
+          },
+          {
+            "field": "VehicleId",
+            "title": "Vehicle Id"
+          },
+          {
+            "field": "DriverId",
+            "title": "Driver Id"
+          },
+          {
+            "field": "CurrentStatus",
+            "title": "Current Status"
+          },
+          {
+            "field": "OfferType",
+            "title": "Offer Type"
+          },
+          {
+            "field": "PaidTripFare",
+            "title": "Paid Trip Fare"
+          },
+          {
+            "field": "PaidAddonFee",
+            "title": "Paid Addon Fee"
+          },
+          {
+            "field": "AppliedDiscount",
+            "title": "Applied Discount"
+          },
+          {
+            "field": "PaidTip",
+            "title": "Paid Tip"
+          },
+          {
+            "field": "PaidToll",
+            "title": "Paid Toll"
+          },
+          {
+            "field": "ActualTotalFareAtTripEnd",
+            "title": "Actual Total Fare At Trip End"
+          },
+          {
+            "field": "DriverAgreedFareAmount",
+            "title": "Driver Agreed Fare Amount"
+          },
+          {
+            "field": "EnforceItemsCreationSequense",
+            "title": "Enforce Items Creation Sequense"
+          },
+          {
+            "field": "PaymentTransactionNumber",
+            "title": "Payment Transaction Number"
+          },
+          {
+            "field": "ExtraData",
+            "title": "Extra Data"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportTransactProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-transacts/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "production-workbench",
+      "tabs": [],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportTransacts.Create",
+      "delete": "User.TransportTransacts.Delete",
+      "view": "User.TransportTransacts.Get",
+      "manage": "User.TransportTransacts.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "transport.rides": {
+    "surfaceKey": "transport.rides",
+    "primarySubject": "H_TransportReqRides",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportReqRideListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "IsEditable",
+            "title": "Is Editable"
+          },
+          {
+            "field": "CustomerId",
+            "title": "Customer Id"
+          },
+          {
+            "field": "DistributorId",
+            "title": "Distributor Id"
+          },
+          {
+            "field": "CVOId",
+            "title": "CVOId"
+          },
+          {
+            "field": "FromContactLocationId",
+            "title": "From Contact Location Id"
+          },
+          {
+            "field": "ToContactLocationId",
+            "title": "To Contact Location Id"
+          },
+          {
+            "field": "PickupAfterDateTime",
+            "title": "Pickup After Date Time"
+          },
+          {
+            "field": "PickupAfterDateTime_UTC",
+            "title": "Pickup After Date Time_UTC"
+          },
+          {
+            "field": "PickupBeforeDateTime",
+            "title": "Pickup Before Date Time"
+          },
+          {
+            "field": "PickupBeforeDateTime_UTC",
+            "title": "Pickup Before Date Time_UTC"
+          },
+          {
+            "field": "DropOffAfterDateTime",
+            "title": "Drop Off After Date Time"
+          },
+          {
+            "field": "DropOffAfterDateTime_UTC",
+            "title": "Drop Off After Date Time_UTC"
+          },
+          {
+            "field": "DropOffBeforeDateTime",
+            "title": "Drop Off Before Date Time"
+          },
+          {
+            "field": "DropOffBeforeDateTime_UTC",
+            "title": "Drop Off Before Date Time_UTC"
+          },
+          {
+            "field": "VehicleType",
+            "title": "Vehicle Type"
+          },
+          {
+            "field": "VehicleProfileSubType",
+            "title": "Vehicle Profile Sub Type"
+          },
+          {
+            "field": "ServiceClass",
+            "title": "Service Class"
+          },
+          {
+            "field": "ServiceCategory",
+            "title": "Service Category"
+          },
+          {
+            "field": "TotalRequiredSeats",
+            "title": "Total Required Seats"
+          },
+          {
+            "field": "NumberOfLuggages",
+            "title": "Number Of Luggages"
+          },
+          {
+            "field": "FeaturesJSON",
+            "title": "Features JSON"
+          },
+          {
+            "field": "Comments",
+            "title": "Comments"
+          },
+          {
+            "field": "FareAtSubmission",
+            "title": "Fare At Submission"
+          },
+          {
+            "field": "PromoCode",
+            "title": "Promo Code"
+          },
+          {
+            "field": "PaymentCategory",
+            "title": "Payment Category"
+          },
+          {
+            "field": "PaymentMethod",
+            "title": "Payment Method"
+          },
+          {
+            "field": "PaidAt_UTC",
+            "title": "Paid At_UTC"
+          },
+          {
+            "field": "HubCarrierInfo",
+            "title": "Hub Carrier Info"
+          },
+          {
+            "field": "Status",
+            "title": "Status"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportReqRideProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-req-rides/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "production-workbench",
+      "tabs": [],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportReqRides.Create",
+      "delete": "User.TransportReqRides.Delete",
+      "view": "User.TransportReqRides.Get",
+      "manage": "User.TransportReqRides.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "transport.setup.contact-locations": {
+    "surfaceKey": "transport.setup.contact-locations",
+    "primarySubject": "H_TransportContactLocations",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportContactLocationListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "ContactId",
+            "title": "Contact Id"
+          },
+          {
+            "field": "FavAdrLabel",
+            "title": "Fav Adr Label"
+          },
+          {
+            "field": "LocationId",
+            "title": "Location Id"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportContactLocationProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-contact-locations/Set"
+      },
+      "actions": [
+        {
+          "action": "Assign",
+          "method": "POST",
+          "path": "/api/v5-m1/transport-contact-locations/Assign"
+        }
+      ],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportContactLocations.Create",
+      "delete": "User.TransportContactLocations.Delete",
+      "view": "User.TransportContactLocations.Get",
+      "manage": "User.TransportContactLocations.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "transport.setup.fare-base-inclutions": {
+    "surfaceKey": "transport.setup.fare-base-inclutions",
+    "primarySubject": "H_TransportFareBaseInclutions",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportFareBaseInclutionListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "DistributorId",
+            "title": "Distributor Id"
+          },
+          {
+            "field": "CVOId",
+            "title": "CVOId"
+          },
+          {
+            "field": "TransportCategory",
+            "title": "Transport Category"
+          },
+          {
+            "field": "ServiceCategory",
+            "title": "Service Category"
+          },
+          {
+            "field": "VehicleType",
+            "title": "Vehicle Type"
+          },
+          {
+            "field": "ServiceClass",
+            "title": "Service Class"
+          },
+          {
+            "field": "IncludedSeatCounts",
+            "title": "Included Seat Counts"
+          },
+          {
+            "field": "IncludedLuggageCounts",
+            "title": "Included Luggage Counts"
+          },
+          {
+            "field": "IncludedParcelCounts",
+            "title": "Included Parcel Counts"
+          },
+          {
+            "field": "IncludedWeightKg",
+            "title": "Included Weight Kg"
+          },
+          {
+            "field": "IncludedVolumeCubicM",
+            "title": "Included Volume Cubic M"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportFareBaseInclutionProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-fare-base-inclutions/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportFareBaseInclutions.Create",
+      "delete": "User.TransportFareBaseInclutions.Delete",
+      "view": "User.TransportFareBaseInclutions.Get",
+      "manage": "User.TransportFareBaseInclutions.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "transport.setup.fare-by-geo-fence": {
+    "surfaceKey": "transport.setup.fare-by-geo-fence",
+    "primarySubject": "H_TransportFareByGeoFence",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportFareByGeoFenceListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "TransportFareCalculationId",
+            "title": "Transport Fare Calculation Id"
+          },
+          {
+            "field": "SourceGeoFenceBaseId",
+            "title": "Source Geo Fence Base Id"
+          },
+          {
+            "field": "DestinationGeoFenceBaseId",
+            "title": "Destination Geo Fence Base Id"
+          },
+          {
+            "field": "BaseFare",
+            "title": "Base Fare"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportFareByGeoFenceProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-fare-by-geo-fence/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportFareByGeoFence.Create",
+      "delete": "User.TransportFareByGeoFence.Delete",
+      "view": "User.TransportFareByGeoFence.Get",
+      "manage": "User.TransportFareByGeoFence.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "transport.setup.fare-by-zone": {
+    "surfaceKey": "transport.setup.fare-by-zone",
+    "primarySubject": "H_TransportFareByZone",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportFareByZoneListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "TransportFareCalculationId",
+            "title": "Transport Fare Calculation Id"
+          },
+          {
+            "field": "SourceGeoFenceBaseId",
+            "title": "Source Geo Fence Base Id"
+          },
+          {
+            "field": "DestinationGeoFenceBaseId",
+            "title": "Destination Geo Fence Base Id"
+          },
+          {
+            "field": "BaseFare",
+            "title": "Base Fare"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportFareByZoneProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": null,
+      "actions": [],
+      "exception": "writes via transport-fare-by-geo-fence/Set (no own endpoint)"
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [],
+      "rowActions": [
+        "View"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportFareByZone.Create",
+      "delete": "User.TransportFareByZone.Delete",
+      "view": "User.TransportFareByZone.Get",
+      "manage": "User.TransportFareByZone.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "transport.setup.fare-calculations": {
+    "surfaceKey": "transport.setup.fare-calculations",
+    "primarySubject": "H_TransportFareCalculations",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportFareCalculationListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "DistributorId",
+            "title": "Distributor Id"
+          },
+          {
+            "field": "CVOId",
+            "title": "CVOId"
+          },
+          {
+            "field": "TransportCategory",
+            "title": "Transport Category"
+          },
+          {
+            "field": "ServiceCategory",
+            "title": "Service Category"
+          },
+          {
+            "field": "VehicleType",
+            "title": "Vehicle Type"
+          },
+          {
+            "field": "ServiceClass",
+            "title": "Service Class"
+          },
+          {
+            "field": "CalculationItem",
+            "title": "Calculation Item"
+          },
+          {
+            "field": "CalculationType",
+            "title": "Calculation Type"
+          },
+          {
+            "field": "CalculateMethod",
+            "title": "Calculate Method"
+          },
+          {
+            "field": "CalculationPriority",
+            "title": "Calculation Priority"
+          },
+          {
+            "field": "CalculationUnit",
+            "title": "Calculation Unit"
+          },
+          {
+            "field": "UnitAmount",
+            "title": "Unit Amount"
+          },
+          {
+            "field": "Price",
+            "title": "Price"
+          },
+          {
+            "field": "PriceTable",
+            "title": "Price Table"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportFareCalculationProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-fare-calculations/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportFareCalculations.Create",
+      "delete": "User.TransportFareCalculations.Delete",
+      "view": "User.TransportFareCalculations.Get",
+      "manage": "User.TransportFareCalculations.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "transport.setup.geo-fence-bases": {
+    "surfaceKey": "transport.setup.geo-fence-bases",
+    "primarySubject": "H_TransportGeoFenceBases",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportGeoFenceBasListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "Code",
+            "title": "Code"
+          },
+          {
+            "field": "Title",
+            "title": "Title"
+          },
+          {
+            "field": "Coordinates",
+            "title": "Coordinates"
+          },
+          {
+            "field": "Order",
+            "title": "Order"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportGeoFenceBasProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-geo-fence-bases/Set"
+      },
+      "actions": [],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportGeoFenceBases.Create",
+      "delete": "User.TransportGeoFenceBases.Delete",
+      "view": "User.TransportGeoFenceBases.Get",
+      "manage": "User.TransportGeoFenceBases.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  },
+  "transport.setup.locations": {
+    "surfaceKey": "transport.setup.locations",
+    "primarySubject": "H_TransportLocations",
+    "backendOwner": "core",
+    "read": {
+      "backend": "core",
+      "list": {
+        "area": "list",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportLocationListSummary",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "Title",
+            "title": "Title"
+          },
+          {
+            "field": "Latitude",
+            "title": "Latitude"
+          },
+          {
+            "field": "Longitude",
+            "title": "Longitude"
+          },
+          {
+            "field": "Address",
+            "title": "Address"
+          },
+          {
+            "field": "City",
+            "title": "City"
+          },
+          {
+            "field": "Province",
+            "title": "Province"
+          },
+          {
+            "field": "PostalCode",
+            "title": "Postal Code"
+          },
+          {
+            "field": "PlaceId",
+            "title": "Place Id"
+          },
+          {
+            "field": "GoogleFullAddress",
+            "title": "Google Full Address"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          }
+        ]
+      },
+      "profile": {
+        "area": "profile",
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_TransportLocationProfile"
+      },
+      "familyTabs": [],
+      "permits": null
+    },
+    "write": {
+      "backend": "core",
+      "base": {
+        "action": "Set",
+        "method": "POST",
+        "path": "/api/v5-m1/transport-locations/Set"
+      },
+      "actions": [
+        {
+          "action": "FindOrCreate",
+          "method": "POST",
+          "path": "/api/v5-m1/transport-locations/FindOrCreate"
+        },
+        {
+          "action": "Register",
+          "method": "POST",
+          "path": "/api/v5-m1/transport-locations/Register"
+        }
+      ],
+      "exception": null
+    },
+    "render": {
+      "archetype": "managed-list",
+      "tabs": [
+        "Profile"
+      ],
+      "headerActions": [
+        "New"
+      ],
+      "rowActions": [
+        "Manage",
+        "Delete"
+      ]
+    },
+    "capability": {
+      "create": "User.TransportLocations.Create",
+      "delete": "User.TransportLocations.Delete",
+      "view": "User.TransportLocations.Get",
+      "manage": "User.TransportLocations.Update"
+    },
+    "citations": [
+      {
+        "source": "core",
+        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+      }
+    ]
+  }
+}
