@@ -7,6 +7,6 @@ export type PortalSidebarTopItem = {
   icon: TMSNameIconsType;
 };
 
-// Agnostic baseline: no top-menu entries. A built portal instance populates
-// this from its derived surface catalog (S3).
-export const portalSidebarTopMenu: readonly PortalSidebarTopItem[] = [];
+// Populated by S5 from the derived surface catalog (generated projection).
+import { generatedSidebarTopMenu } from "./portal-chrom-sidebar-top-menu.generated";
+export const portalSidebarTopMenu: readonly PortalSidebarTopItem[] = generatedSidebarTopMenu;

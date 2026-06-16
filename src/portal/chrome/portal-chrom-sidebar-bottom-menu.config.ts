@@ -4,9 +4,9 @@ export type PortalSidebarMenuNode = {
   items?: readonly PortalSidebarMenuNode[];
 };
 
-// Agnostic baseline: no settings tree. A built portal instance populates this
-// from its derived surface catalog (S3).
-export const portalSidebarSettingsMenu: readonly PortalSidebarMenuNode[] = [];
+// Populated by S5 from the derived surface catalog (generated projection).
+import { generatedSidebarSettingsMenu } from "./portal-chrom-sidebar-settings-menu.generated";
+export const portalSidebarSettingsMenu: readonly PortalSidebarMenuNode[] = generatedSidebarSettingsMenu;
 
 // Minimal placeholder so the shell has a single navigable node.
 export const portalSidebarAboutMenu = {
