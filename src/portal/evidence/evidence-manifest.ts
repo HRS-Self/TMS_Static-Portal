@@ -11,7 +11,7 @@ export const evidenceManifest: SourceManifest[] = [
     "database": "HBloxTMSCore_DEV05",
     "dialect": "mysql",
     "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9",
-    "capturedAt": "2026-06-15",
+    "capturedAt": "2026-06-16",
     "tableCount": 146,
     "viewCount": 136
   },
@@ -21,7 +21,7 @@ export const evidenceManifest: SourceManifest[] = [
     "database": "HBloxTMSGD_DEV01",
     "dialect": "mysql",
     "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde",
-    "capturedAt": "2026-06-15",
+    "capturedAt": "2026-06-16",
     "tableCount": 83,
     "viewCount": 102
   },
@@ -31,7 +31,7 @@ export const evidenceManifest: SourceManifest[] = [
     "database": "HBloxNTF_DEV01",
     "dialect": "mysql",
     "sha256": "148396b1ef1ccb188e1e4da5aa0b8b149c7b2b829b81b0b3c9634d888104ef60",
-    "capturedAt": "2026-06-15",
+    "capturedAt": "2026-06-16",
     "tableCount": 48,
     "viewCount": 37
   }

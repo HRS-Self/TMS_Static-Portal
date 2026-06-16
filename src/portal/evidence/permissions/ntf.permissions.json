@@ -1,0 +1,686 @@
+[
+  {
+    "raw": "User.AaaAllowedActPermissions.Get",
+    "scope": "User",
+    "resource": "AaaAllowedActPermissions",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaAppClients.Create",
+    "scope": "User",
+    "resource": "AaaAppClients",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaAppClients.Delete",
+    "scope": "User",
+    "resource": "AaaAppClients",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaAppClients.Get",
+    "scope": "User",
+    "resource": "AaaAppClients",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaAppClients.Update",
+    "scope": "User",
+    "resource": "AaaAppClients",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaAppPermissionCheck.Get",
+    "scope": "User",
+    "resource": "AaaAppPermissionCheck",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaAppPermissions.Create",
+    "scope": "User",
+    "resource": "AaaAppPermissions",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaAppPermissions.Delete",
+    "scope": "User",
+    "resource": "AaaAppPermissions",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaAppPermissions.Get",
+    "scope": "User",
+    "resource": "AaaAppPermissions",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaAppPermissions.Update",
+    "scope": "User",
+    "resource": "AaaAppPermissions",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaAppTypePermissions.Create",
+    "scope": "User",
+    "resource": "AaaAppTypePermissions",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaAppTypePermissions.Delete",
+    "scope": "User",
+    "resource": "AaaAppTypePermissions",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaAppTypePermissions.Get",
+    "scope": "User",
+    "resource": "AaaAppTypePermissions",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaAppTypePermissions.Update",
+    "scope": "User",
+    "resource": "AaaAppTypePermissions",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaAppTypes.Create",
+    "scope": "User",
+    "resource": "AaaAppTypes",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaAppTypes.Delete",
+    "scope": "User",
+    "resource": "AaaAppTypes",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaAppTypes.Get",
+    "scope": "User",
+    "resource": "AaaAppTypes",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaAppTypes.Update",
+    "scope": "User",
+    "resource": "AaaAppTypes",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaEntityProfile.Create",
+    "scope": "User",
+    "resource": "AaaEntityProfile",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaEntityProfile.Delete",
+    "scope": "User",
+    "resource": "AaaEntityProfile",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaEntityProfile.Get",
+    "scope": "User",
+    "resource": "AaaEntityProfile",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaEntityProfile.Update",
+    "scope": "User",
+    "resource": "AaaEntityProfile",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaEntityRolePermissions.Create",
+    "scope": "User",
+    "resource": "AaaEntityRolePermissions",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaEntityRolePermissions.Delete",
+    "scope": "User",
+    "resource": "AaaEntityRolePermissions",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaEntityRolePermissions.Get",
+    "scope": "User",
+    "resource": "AaaEntityRolePermissions",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaEntityRolePermissions.Update",
+    "scope": "User",
+    "resource": "AaaEntityRolePermissions",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaEntityRoles.Create",
+    "scope": "User",
+    "resource": "AaaEntityRoles",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaEntityRoles.Delete",
+    "scope": "User",
+    "resource": "AaaEntityRoles",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaEntityRoles.Get",
+    "scope": "User",
+    "resource": "AaaEntityRoles",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaEntityRoles.Update",
+    "scope": "User",
+    "resource": "AaaEntityRoles",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaEntityScenarios.Create",
+    "scope": "User",
+    "resource": "AaaEntityScenarios",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaEntityScenarios.Delete",
+    "scope": "User",
+    "resource": "AaaEntityScenarios",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaEntityScenarios.Get",
+    "scope": "User",
+    "resource": "AaaEntityScenarios",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaEntityScenarios.Update",
+    "scope": "User",
+    "resource": "AaaEntityScenarios",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaPermissions.Create",
+    "scope": "User",
+    "resource": "AaaPermissions",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaPermissions.Delete",
+    "scope": "User",
+    "resource": "AaaPermissions",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaPermissions.Get",
+    "scope": "User",
+    "resource": "AaaPermissions",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaPermissions.Update",
+    "scope": "User",
+    "resource": "AaaPermissions",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaScenarioDataMap.Create",
+    "scope": "User",
+    "resource": "AaaScenarioDataMap",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaScenarioDataMap.Delete",
+    "scope": "User",
+    "resource": "AaaScenarioDataMap",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaScenarioDataMap.Get",
+    "scope": "User",
+    "resource": "AaaScenarioDataMap",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaScenarioDataMap.Update",
+    "scope": "User",
+    "resource": "AaaScenarioDataMap",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaScenarioDetails.Get",
+    "scope": "User",
+    "resource": "AaaScenarioDetails",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaScenarios.Create",
+    "scope": "User",
+    "resource": "AaaScenarios",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaScenarios.Delete",
+    "scope": "User",
+    "resource": "AaaScenarios",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaScenarios.Get",
+    "scope": "User",
+    "resource": "AaaScenarios",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaScenarios.Update",
+    "scope": "User",
+    "resource": "AaaScenarios",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaTableAuditConfigs.Create",
+    "scope": "User",
+    "resource": "AaaTableAuditConfigs",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaTableAuditConfigs.Delete",
+    "scope": "User",
+    "resource": "AaaTableAuditConfigs",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaTableAuditConfigs.Get",
+    "scope": "User",
+    "resource": "AaaTableAuditConfigs",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaTableAuditConfigs.Update",
+    "scope": "User",
+    "resource": "AaaTableAuditConfigs",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaTableAudits.Create",
+    "scope": "User",
+    "resource": "AaaTableAudits",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaTableAudits.Delete",
+    "scope": "User",
+    "resource": "AaaTableAudits",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaTableAudits.Get",
+    "scope": "User",
+    "resource": "AaaTableAudits",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaTableAudits.Update",
+    "scope": "User",
+    "resource": "AaaTableAudits",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaUserEntityProfileCheck.Get",
+    "scope": "User",
+    "resource": "AaaUserEntityProfileCheck",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaUserEntityRoleCheck.Get",
+    "scope": "User",
+    "resource": "AaaUserEntityRoleCheck",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaUserEntityRoles.Create",
+    "scope": "User",
+    "resource": "AaaUserEntityRoles",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaUserEntityRoles.Delete",
+    "scope": "User",
+    "resource": "AaaUserEntityRoles",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaUserEntityRoles.Get",
+    "scope": "User",
+    "resource": "AaaUserEntityRoles",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaUserEntityRoles.Update",
+    "scope": "User",
+    "resource": "AaaUserEntityRoles",
+    "action": "Update"
+  },
+  {
+    "raw": "User.AaaUserInfo.Get",
+    "scope": "User",
+    "resource": "AaaUserInfo",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaUserInfo.Invite",
+    "scope": "User",
+    "resource": "AaaUserInfo",
+    "action": "Invite"
+  },
+  {
+    "raw": "User.AaaUserPermissionCheck.Get",
+    "scope": "User",
+    "resource": "AaaUserPermissionCheck",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaUserProfile.Create",
+    "scope": "User",
+    "resource": "AaaUserProfile",
+    "action": "Create"
+  },
+  {
+    "raw": "User.AaaUserProfile.Delete",
+    "scope": "User",
+    "resource": "AaaUserProfile",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.AaaUserProfile.Get",
+    "scope": "User",
+    "resource": "AaaUserProfile",
+    "action": "Get"
+  },
+  {
+    "raw": "User.AaaUserProfile.Update",
+    "scope": "User",
+    "resource": "AaaUserProfile",
+    "action": "Update"
+  },
+  {
+    "raw": "User.ActorVersions.Create",
+    "scope": "User",
+    "resource": "ActorVersions",
+    "action": "Create"
+  },
+  {
+    "raw": "User.ActorVersions.Delete",
+    "scope": "User",
+    "resource": "ActorVersions",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.ActorVersions.Get",
+    "scope": "User",
+    "resource": "ActorVersions",
+    "action": "Get"
+  },
+  {
+    "raw": "User.ActorVersions.Update",
+    "scope": "User",
+    "resource": "ActorVersions",
+    "action": "Update"
+  },
+  {
+    "raw": "User.ComponentChildren.Create",
+    "scope": "User",
+    "resource": "ComponentChildren",
+    "action": "Create"
+  },
+  {
+    "raw": "User.ComponentChildren.Delete",
+    "scope": "User",
+    "resource": "ComponentChildren",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.ComponentChildren.Get",
+    "scope": "User",
+    "resource": "ComponentChildren",
+    "action": "Get"
+  },
+  {
+    "raw": "User.ComponentChildren.Update",
+    "scope": "User",
+    "resource": "ComponentChildren",
+    "action": "Update"
+  },
+  {
+    "raw": "User.Components.Get",
+    "scope": "User",
+    "resource": "Components",
+    "action": "Get"
+  },
+  {
+    "raw": "User.ComponentsBases.Create",
+    "scope": "User",
+    "resource": "ComponentsBases",
+    "action": "Create"
+  },
+  {
+    "raw": "User.ComponentsBases.Delete",
+    "scope": "User",
+    "resource": "ComponentsBases",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.ComponentsBases.Get",
+    "scope": "User",
+    "resource": "ComponentsBases",
+    "action": "Get"
+  },
+  {
+    "raw": "User.ComponentsBases.Update",
+    "scope": "User",
+    "resource": "ComponentsBases",
+    "action": "Update"
+  },
+  {
+    "raw": "User.DataGateway.Get",
+    "scope": "User",
+    "resource": "DataGateway",
+    "action": "Get"
+  },
+  {
+    "raw": "User.DynamicPages.Get",
+    "scope": "User",
+    "resource": "DynamicPages",
+    "action": "Get"
+  },
+  {
+    "raw": "User.EntityNotificationSettings.Create",
+    "scope": "User",
+    "resource": "EntityNotificationSettings",
+    "action": "Create"
+  },
+  {
+    "raw": "User.EntityNotificationSettings.Delete",
+    "scope": "User",
+    "resource": "EntityNotificationSettings",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.EntityNotificationSettings.Get",
+    "scope": "User",
+    "resource": "EntityNotificationSettings",
+    "action": "Get"
+  },
+  {
+    "raw": "User.EntityNotificationSettings.Update",
+    "scope": "User",
+    "resource": "EntityNotificationSettings",
+    "action": "Update"
+  },
+  {
+    "raw": "User.EnumActivityClasses.Get",
+    "scope": "User",
+    "resource": "EnumActivityClasses",
+    "action": "Get"
+  },
+  {
+    "raw": "User.EnumActors.Get",
+    "scope": "User",
+    "resource": "EnumActors",
+    "action": "Get"
+  },
+  {
+    "raw": "User.EnumActorsSorts.Get",
+    "scope": "User",
+    "resource": "EnumActorsSorts",
+    "action": "Get"
+  },
+  {
+    "raw": "User.EnumDataSourceTypes.Get",
+    "scope": "User",
+    "resource": "EnumDataSourceTypes",
+    "action": "Get"
+  },
+  {
+    "raw": "User.EnumNotificationChannelTypes.Get",
+    "scope": "User",
+    "resource": "EnumNotificationChannelTypes",
+    "action": "Get"
+  },
+  {
+    "raw": "User.EnumNotificationPlatforms.Get",
+    "scope": "User",
+    "resource": "EnumNotificationPlatforms",
+    "action": "Get"
+  },
+  {
+    "raw": "User.EnumNotificationStatuses.Get",
+    "scope": "User",
+    "resource": "EnumNotificationStatuses",
+    "action": "Get"
+  },
+  {
+    "raw": "User.EnumNotificationTemplates.Get",
+    "scope": "User",
+    "resource": "EnumNotificationTemplates",
+    "action": "Get"
+  },
+  {
+    "raw": "User.InAppNotifications.Get",
+    "scope": "User",
+    "resource": "InAppNotifications",
+    "action": "Get"
+  },
+  {
+    "raw": "User.KeyResolver.Get",
+    "scope": "User",
+    "resource": "KeyResolver",
+    "action": "Get"
+  },
+  {
+    "raw": "User.NotificationQueue.Create",
+    "scope": "User",
+    "resource": "NotificationQueue",
+    "action": "Create"
+  },
+  {
+    "raw": "User.NotificationQueue.Delete",
+    "scope": "User",
+    "resource": "NotificationQueue",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.NotificationQueue.Get",
+    "scope": "User",
+    "resource": "NotificationQueue",
+    "action": "Get"
+  },
+  {
+    "raw": "User.NotificationQueue.Update",
+    "scope": "User",
+    "resource": "NotificationQueue",
+    "action": "Update"
+  },
+  {
+    "raw": "User.NotificationRequests.Create",
+    "scope": "User",
+    "resource": "NotificationRequests",
+    "action": "Create"
+  },
+  {
+    "raw": "User.NotificationRequests.Delete",
+    "scope": "User",
+    "resource": "NotificationRequests",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.NotificationRequests.Get",
+    "scope": "User",
+    "resource": "NotificationRequests",
+    "action": "Get"
+  },
+  {
+    "raw": "User.NotificationRequests.Update",
+    "scope": "User",
+    "resource": "NotificationRequests",
+    "action": "Update"
+  },
+  {
+    "raw": "User.NotificationTemplateSettings.Create",
+    "scope": "User",
+    "resource": "NotificationTemplateSettings",
+    "action": "Create"
+  },
+  {
+    "raw": "User.NotificationTemplateSettings.Delete",
+    "scope": "User",
+    "resource": "NotificationTemplateSettings",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.NotificationTemplateSettings.Get",
+    "scope": "User",
+    "resource": "NotificationTemplateSettings",
+    "action": "Get"
+  },
+  {
+    "raw": "User.NotificationTemplateSettings.Update",
+    "scope": "User",
+    "resource": "NotificationTemplateSettings",
+    "action": "Update"
+  },
+  {
+    "raw": "User.UserNotificationSettings.Create",
+    "scope": "User",
+    "resource": "UserNotificationSettings",
+    "action": "Create"
+  },
+  {
+    "raw": "User.UserNotificationSettings.Delete",
+    "scope": "User",
+    "resource": "UserNotificationSettings",
+    "action": "Delete"
+  },
+  {
+    "raw": "User.UserNotificationSettings.Get",
+    "scope": "User",
+    "resource": "UserNotificationSettings",
+    "action": "Get"
+  },
+  {
+    "raw": "User.UserNotificationSettings.Update",
+    "scope": "User",
+    "resource": "UserNotificationSettings",
+    "action": "Update"
+  },
+  {
+    "raw": "User.UserNotificationSettingsWithUserRecordKey.Get",
+    "scope": "User",
+    "resource": "UserNotificationSettingsWithUserRecordKey",
+    "action": "Get"
+  }
+]

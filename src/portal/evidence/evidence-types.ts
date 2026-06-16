@@ -75,3 +75,18 @@ export interface ApiSourceManifest {
   endpointCount: number;
   status: string;
 }
+
+export interface PermissionEvidence {
+  raw: string;
+  scope: string;
+  resource: string;
+  action: string;
+}
+
+export interface PermissionSourceManifest {
+  source: string;
+  sourceFile: string;
+  sha256: string;
+  capturedAt: string;
+  permissionCount: number;
+}
