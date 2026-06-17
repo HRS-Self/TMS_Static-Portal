@@ -97,6 +97,7 @@ export async function GET(request: NextRequest) {
 
   const sessionWithEntity = {
     ...session,
+    entityId,
     backendEntityIds,
     entityTitle: entityTitleRaw,
     entityBackends: sources,
@@ -175,6 +176,7 @@ export async function POST(request: NextRequest) {
 
   const sessionWithEntity = {
     ...session,
+    entityId,
     backendEntityIds,
     entityTitle,
     entityBackends: sources,

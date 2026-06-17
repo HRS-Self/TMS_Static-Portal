@@ -238,6 +238,10 @@ export function unsealSession(sealed: string | undefined): AuthSession | null {
             lastName: typeof rest.lastName === 'string' ? rest.lastName : '',
             idpToken: rest.idpToken,
             expiry: rest.expiry,
+            entityId: (() => {
+                  const v = (rest as Record<string, unknown>)['entityId'];
+                  return typeof v === 'number' && v > 0 ? v : undefined;
+            })(),
             backendEntityIds: (() => {
                   const backendEntityIds = (rest as Record<string, unknown>)['backendEntityIds'];
                   logger.debug('Normalize backendEntityIds from sealed session', {
