@@ -1,0 +1,678 @@
+{
+  "definitions.access.entities": {
+    "new": {
+      "surfaceId": "definitions.access.entities",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/aaa.entity-profile/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "definitions.access.entities",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/aaa.entity-profile/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "definitions.access.entities",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/aaa.entity-profile/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "definitions.access.scenarios": {
+    "new": {
+      "surfaceId": "definitions.access.scenarios",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/aaa.scenarios/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "definitions.access.scenarios",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/aaa.scenarios/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "definitions.access.scenarios",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/aaa.scenarios/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "definitions.customers": {
+    "new": {
+      "surfaceId": "definitions.customers",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-customers/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "definitions.customers",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-customers/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "definitions.customers",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-customers/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "definitions.cvos": {
+    "new": {
+      "surfaceId": "definitions.cvos",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/cvos/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "definitions.cvos",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/cvos/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "definitions.cvos",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/cvos/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "definitions.distributors": {
+    "new": {
+      "surfaceId": "definitions.distributors",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/distributors/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "definitions.distributors",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/distributors/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "definitions.distributors",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/distributors/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "definitions.drivers": {
+    "new": {
+      "surfaceId": "definitions.drivers",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/drivers/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "definitions.drivers",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/drivers/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "definitions.drivers",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/drivers/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "definitions.hubs": {
+    "new": {
+      "surfaceId": "definitions.hubs",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/hubs/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "definitions.hubs",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/hubs/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "definitions.hubs",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/hubs/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "definitions.requests": {
+    "new": {
+      "surfaceId": "definitions.requests",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/request-statuses/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "definitions.requests",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/request-statuses/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "definitions.requests",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/request-statuses/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "definitions.vehicles": {
+    "new": {
+      "surfaceId": "definitions.vehicles",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/vehicle-profile/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "definitions.vehicles",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/vehicle-profile/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "definitions.vehicles",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/vehicle-profile/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "system.configurations.action-config-bases": {
+    "new": {
+      "surfaceId": "system.configurations.action-config-bases",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.action-config-bases/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "system.configurations.action-config-bases",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.action-config-bases/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "system.configurations.action-config-bases",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.action-config-bases/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "system.configurations.actor-configs": {
+    "new": {
+      "surfaceId": "system.configurations.actor-configs",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.actor-configs/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "system.configurations.actor-configs",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.actor-configs/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "system.configurations.actor-configs",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.actor-configs/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "system.configurations.entity-configs": {
+    "new": {
+      "surfaceId": "system.configurations.entity-configs",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.entity-configs/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "system.configurations.entity-configs",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.entity-configs/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "system.configurations.entity-configs",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.entity-configs/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "system.configurations.global-configs": {
+    "new": {
+      "surfaceId": "system.configurations.global-configs",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.global-configs/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "system.configurations.global-configs",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.global-configs/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "system.configurations.global-configs",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/cfg.global-configs/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "system.notification-definitions.templates": {
+    "new": {
+      "surfaceId": "system.notification-definitions.templates",
+      "backend": "notification",
+      "method": "POST",
+      "path": "/api/v5-m1/notification-template-settings/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "system.notification-definitions.templates",
+      "backend": "notification",
+      "method": "POST",
+      "path": "/api/v5-m1/notification-template-settings/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "system.notification-definitions.templates",
+      "backend": "notification",
+      "method": "POST",
+      "path": "/api/v5-m1/notification-template-settings/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "system.permit-management.permit-issuers": {
+    "new": {
+      "surfaceId": "system.permit-management.permit-issuers",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/permit-issuers/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "system.permit-management.permit-issuers",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/permit-issuers/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "system.permit-management.permit-issuers",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/permit-issuers/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "system.permit-management.permit-types": {
+    "new": {
+      "surfaceId": "system.permit-management.permit-types",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/permit-types/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "system.permit-management.permit-types",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/permit-types/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "system.permit-management.permit-types",
+      "backend": "gd",
+      "method": "POST",
+      "path": "/api/v5-m1/permit-types/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "transport.batches": {
+    "new": {
+      "surfaceId": "transport.batches",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-batches/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "transport.batches",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-batches/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "transport.batches",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-batches/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "transport.deliveries": {
+    "new": {
+      "surfaceId": "transport.deliveries",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-req-deliveries/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "transport.deliveries",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-req-deliveries/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "transport.deliveries",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-req-deliveries/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "transport.dispatch": {
+    "new": {
+      "surfaceId": "transport.dispatch",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-transacts/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "transport.dispatch",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-transacts/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "transport.dispatch",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-transacts/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "transport.rides": {
+    "new": {
+      "surfaceId": "transport.rides",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-req-rides/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "transport.rides",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-req-rides/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "transport.rides",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-req-rides/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "transport.setup.contact-locations": {
+    "new": {
+      "surfaceId": "transport.setup.contact-locations",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-contact-locations/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "transport.setup.contact-locations",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-contact-locations/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "transport.setup.contact-locations",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-contact-locations/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "transport.setup.fare-base-inclutions": {
+    "new": {
+      "surfaceId": "transport.setup.fare-base-inclutions",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-fare-base-inclutions/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "transport.setup.fare-base-inclutions",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-fare-base-inclutions/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "transport.setup.fare-base-inclutions",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-fare-base-inclutions/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "transport.setup.fare-by-geo-fence": {
+    "new": {
+      "surfaceId": "transport.setup.fare-by-geo-fence",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-fare-by-geo-fence/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "transport.setup.fare-by-geo-fence",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-fare-by-geo-fence/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "transport.setup.fare-by-geo-fence",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-fare-by-geo-fence/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "transport.setup.fare-calculations": {
+    "new": {
+      "surfaceId": "transport.setup.fare-calculations",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-fare-calculations/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "transport.setup.fare-calculations",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-fare-calculations/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "transport.setup.fare-calculations",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-fare-calculations/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "transport.setup.geo-fence-bases": {
+    "new": {
+      "surfaceId": "transport.setup.geo-fence-bases",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-geo-fence-bases/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "transport.setup.geo-fence-bases",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-geo-fence-bases/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "transport.setup.geo-fence-bases",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-geo-fence-bases/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  },
+  "transport.setup.locations": {
+    "new": {
+      "surfaceId": "transport.setup.locations",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-locations/Set",
+      "includeEntityId": true,
+      "buttonId": "new"
+    },
+    "manage": {
+      "surfaceId": "transport.setup.locations",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-locations/Set",
+      "includeEntityId": true,
+      "buttonId": "manage"
+    },
+    "delete": {
+      "surfaceId": "transport.setup.locations",
+      "backend": "core",
+      "method": "POST",
+      "path": "/api/v5-m1/transport-locations/Set",
+      "includeEntityId": true,
+      "buttonId": "delete"
+    }
+  }
+}

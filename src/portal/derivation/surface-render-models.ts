@@ -129,8 +129,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/aaa.entity-profile/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -245,8 +244,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/aaa.scenarios/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -488,8 +486,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-customers/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -612,8 +609,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/cvos/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -729,8 +725,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/distributors/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -917,8 +912,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/drivers/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -1020,8 +1014,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/hubs/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -1180,8 +1173,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/request-statuses/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -1366,8 +1358,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/vehicle-profile/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -1559,8 +1550,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/cfg.action-config-bases/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -1693,8 +1683,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/cfg.actor-configs/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -1823,8 +1812,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/cfg.entity-configs/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -1904,8 +1892,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/cfg.global-configs/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -1984,8 +1971,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/notification-template-settings/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -2087,8 +2073,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/permit-issuers/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -2182,8 +2167,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/permit-types/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -2300,8 +2284,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-batches/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -2533,8 +2516,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-req-deliveries/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -2703,8 +2685,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-transacts/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -2964,8 +2945,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-req-rides/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -3039,8 +3019,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-contact-locations/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -3170,8 +3149,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-fare-base-inclutions/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -3241,8 +3219,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-fare-by-geo-fence/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -3454,8 +3431,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-fare-calculations/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -3535,8 +3511,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-geo-fence-bases/Set"
+        "title": "New"
       }
     ],
     "capability": {
@@ -3642,8 +3617,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "headerActions": [
       {
         "id": "new",
-        "title": "New",
-        "endpoint": "/api/v5-m1/transport-locations/Set"
+        "title": "New"
       }
     ],
     "capability": {
