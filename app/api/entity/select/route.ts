@@ -7,7 +7,6 @@ import {
   getOptionalSession,
 } from '@/src/server/auth/session';
 import type { BackendEntityIds } from '@/src/server/auth/types';
-import { ensureBackendUserIds } from '@/src/server/backend/backend-user-ids';
 import { logger } from '@/src/server/logger';
 import { warmBackendPermissionCache } from '@/src/server/permissions/backend-permissions';
 import { hydrateSurfaceCapabilities } from '@/src/server/permissions/surface-capabilities';
@@ -103,18 +102,13 @@ export async function GET(request: NextRequest) {
     entityBackends: sources,
   };
 
-  const sessionWithBackendUserIds = await ensureBackendUserIds(
+  const backendPermissionIds = await warmBackendPermissionCache(
     sessionWithEntity,
     sources,
   );
 
-  const backendPermissionIds = await warmBackendPermissionCache(
-    sessionWithBackendUserIds,
-    sources,
-  );
-
   const sessionWithPermissions = {
-    ...sessionWithBackendUserIds,
+    ...sessionWithEntity,
     backendPermissionIds,
   };
 
@@ -182,18 +176,13 @@ export async function POST(request: NextRequest) {
     entityBackends: sources,
   };
 
-  const sessionWithBackendUserIds = await ensureBackendUserIds(
+  const backendPermissionIds = await warmBackendPermissionCache(
     sessionWithEntity,
     sources,
   );
 
-  const backendPermissionIds = await warmBackendPermissionCache(
-    sessionWithBackendUserIds,
-    sources,
-  );
-
   const sessionWithPermissions = {
-    ...sessionWithBackendUserIds,
+    ...sessionWithEntity,
     backendPermissionIds,
   };
 

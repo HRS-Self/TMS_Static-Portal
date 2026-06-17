@@ -3,10 +3,7 @@ import 'server-only';
 import { getEnv } from '@/src/config/env.server';
 import type { AuthSession, BackendName } from '@/src/server/auth/types';
 import { serverRequest } from '@/src/server/backend/http';
-import {
-  buildBackendRequestHeaders,
-  getBackendUserId,
-} from '@/src/server/backend/request-headers';
+import { buildBackendRequestHeaders } from '@/src/server/backend/request-headers';
 import { logger } from '@/src/server/logger';
 
 export type DataGatewayDataSourceType = 'table' | 'view';
@@ -255,8 +252,8 @@ export async function fetchBackendGatewayList<T extends Record<string, unknown>>
     dataSourceValue: resolved.dataSourceValue,
     page: resolved.page,
     size: resolved.size,
-    backendEntityIds: session.backendEntityIds ?? null,
-    backendUserId: getBackendUserId(session, backend) ?? null,
+    entityId: session.entityId ?? null,
+    userId: session.userId ?? null,
   });
 
   type RawEnvelope = {

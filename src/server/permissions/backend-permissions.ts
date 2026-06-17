@@ -9,8 +9,7 @@ import type {
 import { serverRequest } from '@/src/server/backend/http';
 import {
       buildBackendRequestHeaders,
-      getBackendEntityId,
-      getBackendUserId,
+      getEntityId,
 } from '@/src/server/backend/request-headers';
 import { logger } from '@/src/server/logger';
 import {
@@ -80,18 +79,11 @@ async function fetchBackendPermissionGrantFromGateway(
       session: AuthSession,
       backend: BackendName,
 ): Promise<BackendPermissionGrant> {
-      const backendUserId = getBackendUserId(session, backend);
-      const backendEntityId = getBackendEntityId(session, backend);
+      const entityId = getEntityId(session);
 
-      if (typeof backendEntityId !== 'number') {
+      if (typeof entityId !== 'number') {
             throw new Error(
                   `Cannot fetch ${backend} permissions without entity id`,
-            );
-      }
-
-      if (typeof backendUserId !== 'number') {
-            throw new Error(
-                  `Cannot fetch ${backend} permissions without backend user id`,
             );
       }
 
@@ -194,17 +186,12 @@ export async function getOrRefreshBackendPermissionCodeUris(
       session: AuthSession,
       backend: BackendName,
 ): Promise<Set<string>> {
-      const backendUserId = getBackendUserId(session, backend);
-      const backendEntityId = getBackendEntityId(session, backend);
+      const entityId = getEntityId(session);
 
-      if (
-            typeof backendEntityId !== 'number' ||
-            typeof backendUserId !== 'number'
-      ) {
+      if (typeof entityId !== 'number') {
             logger.debug('Skip backend permission cache lookup', {
                   backend,
-                  hasEntityId: typeof backendEntityId === 'number',
-                  hasBackendUserId: typeof backendUserId === 'number',
+                  hasEntityId: false,
             });
             return new Set<string>();
       }
@@ -223,8 +210,7 @@ export async function getOrRefreshBackendPermissionCodeUris(
             if (resolved) {
                   logger.debug('Resolved backend permission code URIs from session ids', {
                         backend,
-                        backendUserId,
-                        backendEntityIds: session.backendEntityIds ?? null,
+                        entityId,
                         permissionIdsCount: sessionPermissionIds.length,
                   });
                   return resolved;
@@ -232,8 +218,7 @@ export async function getOrRefreshBackendPermissionCodeUris(
 
             logger.debug('Backend permission registry missing session permission ids', {
                   backend,
-                  backendUserId,
-                  backendEntityIds: session.backendEntityIds ?? null,
+                  entityId,
                   permissionIdsCount: sessionPermissionIds.length,
             });
       }

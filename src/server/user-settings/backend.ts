@@ -2,7 +2,6 @@ import 'server-only';
 
 import { getEnv } from '@/src/config/env.server';
 import type { AuthSession, BackendName } from '@/src/server/auth/types';
-import { ensureBackendUserIds } from '@/src/server/backend/backend-user-ids';
 import { serverRequest } from '@/src/server/backend/http';
 import { buildBackendRequestHeaders } from '@/src/server/backend/request-headers';
 import { logger } from '@/src/server/logger';
@@ -84,23 +83,17 @@ async function resolveSettingsBackendContext(session: AuthSession): Promise<{
   backend: BackendName | null;
   session: AuthSession;
 }> {
-  const sessionWithBackendUserIds = await ensureBackendUserIds(session);
+  // Pick from the backends that revealed the active entity (x-access-key identifies the
+  // user; no per-backend user-id resolution needed).
+  const available = session.entityBackends?.length
+    ? session.entityBackends
+    : (['core', 'gd', 'notification'] as BackendName[]);
   const backendPreference: BackendName[] = ['core', 'gd', 'notification'];
-  const backend =
-    backendPreference.find(
-      (candidate) =>
-        typeof sessionWithBackendUserIds.backendUserIds?.[candidate] === 'number',
-    ) ?? null;
+  const backend = backendPreference.find((b) => available.includes(b)) ?? null;
 
-  logger.debug('Resolve user settings backend context', {
-    backend,
-    backendUserIds: sessionWithBackendUserIds.backendUserIds ?? null,
-  });
+  logger.debug('Resolve user settings backend context', { backend, available });
 
-  return {
-    backend,
-    session: sessionWithBackendUserIds,
-  };
+  return { backend, session };
 }
 
 export async function fetchPortalUserSettings(

@@ -55,22 +55,3 @@ export function buildBackendRequestHeaders({
   });
   return headers;
 }
-
-// ─── Transition shims (Rail B) ───────────────────────────────────────────────
-// Still consumed by data-gateway (logging) and backend-permissions (permission-check
-// calls) until those are migrated to x-access-key + single entity id. Do not use in
-// new code — the user's identity comes from x-access-key now.
-
-/** @deprecated legacy per-backend user id — retire with the resolvekey warmup. */
-export function getBackendUserId(session: AuthSession, backend: BackendName): number | undefined {
-  const backendUserId = session.backendUserIds?.[backend];
-  if (typeof backendUserId === 'number' && backendUserId > 0) return backendUserId;
-  return typeof session.userId === 'number' && session.userId > 0 ? session.userId : undefined;
-}
-
-/** @deprecated legacy per-backend entity id — use getEntityId (single session entity). */
-export function getBackendEntityId(session: AuthSession, backend: BackendName): number | undefined {
-  const backendEntityId = session.backendEntityIds?.[backend];
-  if (typeof backendEntityId === 'number' && backendEntityId > 0) return backendEntityId;
-  return getEntityId(session);
-}
