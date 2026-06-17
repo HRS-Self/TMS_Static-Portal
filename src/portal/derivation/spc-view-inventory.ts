@@ -56,12 +56,12 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_AAA_Scenarios"
       },
       {
-        "view": "Vi_SPC_ScenarioEntityScenario",
+        "view": "Vi_SPC_ScenarioEntityScenarios",
         "kind": "tab",
         "source": "H_AAA_EntityScenarios"
       },
       {
-        "view": "Vi_SPC_ScenarioScenarioDataMap",
+        "view": "Vi_SPC_ScenarioDataMap",
         "kind": "tab",
         "source": "H_AAA_ScenarioDataMap"
       }
@@ -87,7 +87,7 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_AAA_UserInfo"
       },
       {
-        "view": "Vi_SPC_UserUserEntityRole",
+        "view": "Vi_SPC_UserEntityRoles",
         "kind": "tab",
         "source": "H_AAA_UserEntityRoles"
       }
@@ -131,17 +131,17 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_TransportContactRegistry"
       },
       {
-        "view": "Vi_SPC_CustomerCustomerContact",
+        "view": "Vi_SPC_CustomerContacts",
         "kind": "tab",
         "source": "H_TransportCustomerContacts"
       },
       {
-        "view": "Vi_SPC_CustomerCustomerMasterGood",
+        "view": "Vi_SPC_CustomerMasterGoods",
         "kind": "tab",
         "source": "H_TransportCustomerMasterGoods"
       },
       {
-        "view": "Vi_SPC_CustomerDistributorCustomer",
+        "view": "Vi_SPC_CustomerDistributorCustomers",
         "kind": "tab",
         "source": "H_TransportDistributorCustomers"
       }
@@ -167,27 +167,27 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_CVOs"
       },
       {
-        "view": "Vi_SPC_CVODriver",
+        "view": "Vi_SPC_CVODrivers",
         "kind": "tab",
         "source": "H_CVODrivers"
       },
       {
-        "view": "Vi_SPC_CVOCVOService",
+        "view": "Vi_SPC_CVOServices",
         "kind": "tab",
         "source": "H_CVOServices"
       },
       {
-        "view": "Vi_SPC_CVOVehicle",
+        "view": "Vi_SPC_CVOVehicles",
         "kind": "tab",
         "source": "H_CVOVehicles"
       },
       {
-        "view": "Vi_SPC_CVODistributor",
+        "view": "Vi_SPC_CVODistributors",
         "kind": "tab",
         "source": "H_DistributorCVOs"
       },
       {
-        "view": "Vi_SPC_CVOPermit",
+        "view": "Vi_SPC_CVOPermits",
         "kind": "tab",
         "source": "H_Permits"
       }
@@ -213,27 +213,27 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_Distributors"
       },
       {
-        "view": "Vi_SPC_DistributorCVO",
+        "view": "Vi_SPC_DistributorCVOs",
         "kind": "tab",
         "source": "H_DistributorCVOs"
       },
       {
-        "view": "Vi_SPC_DistributorDriver",
+        "view": "Vi_SPC_DistributorDrivers",
         "kind": "tab",
         "source": "H_DistributorDrivers"
       },
       {
-        "view": "Vi_SPC_DistributorHUB",
+        "view": "Vi_SPC_DistributorHUBs",
         "kind": "tab",
         "source": "H_HUBDistributors"
       },
       {
-        "view": "Vi_SPC_DistributorPermit",
+        "view": "Vi_SPC_DistributorPermits",
         "kind": "tab",
         "source": "H_Permits"
       },
       {
-        "view": "Vi_SPC_DistributorDistributorCustomer",
+        "view": "Vi_SPC_DistributorCustomers",
         "kind": "tab",
         "source": "H_TransportDistributorCustomers"
       }
@@ -259,22 +259,22 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_Drivers"
       },
       {
-        "view": "Vi_SPC_DriverCVO",
+        "view": "Vi_SPC_DriverCVOs",
         "kind": "tab",
         "source": "H_CVODrivers"
       },
       {
-        "view": "Vi_SPC_DriverDistributor",
+        "view": "Vi_SPC_DriverDistributors",
         "kind": "tab",
         "source": "H_DistributorDrivers"
       },
       {
-        "view": "Vi_SPC_DriverPermit",
+        "view": "Vi_SPC_DriverPermits",
         "kind": "tab",
         "source": "H_Permits"
       },
       {
-        "view": "Vi_SPC_DriverVehicle",
+        "view": "Vi_SPC_DriverVehicles",
         "kind": "tab",
         "source": "H_VehicleDrivers"
       }
@@ -300,12 +300,12 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_HUBs"
       },
       {
-        "view": "Vi_SPC_HUBDistributor",
+        "view": "Vi_SPC_HUBDistributors",
         "kind": "tab",
         "source": "H_HUBDistributors"
       },
       {
-        "view": "Vi_SPC_HUBPermit",
+        "view": "Vi_SPC_HUBPermits",
         "kind": "tab",
         "source": "H_Permits"
       }
@@ -331,7 +331,7 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_RequestStatuses"
       },
       {
-        "view": "Vi_SPC_RequestsApprovalPermitStatusVerification",
+        "view": "Vi_SPC_RequestsApprovalPermitStatusVerifications",
         "kind": "tab",
         "source": "H_PermitStatusVerifications"
       }
@@ -357,22 +357,22 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_VehicleProfile"
       },
       {
-        "view": "Vi_SPC_VehicleCVO",
+        "view": "Vi_SPC_VehicleCVOs",
         "kind": "tab",
         "source": "H_CVOVehicles"
       },
       {
-        "view": "Vi_SPC_VehiclePermit",
+        "view": "Vi_SPC_VehiclePermits",
         "kind": "tab",
         "source": "H_Permits"
       },
       {
-        "view": "Vi_SPC_VehicleDriver",
+        "view": "Vi_SPC_VehicleDrivers",
         "kind": "tab",
         "source": "H_VehicleDrivers"
       },
       {
-        "view": "Vi_SPC_VehicleVehicleFeature",
+        "view": "Vi_SPC_VehicleFeatures",
         "kind": "tab",
         "source": "H_VehicleFeatures"
       }
@@ -440,7 +440,7 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_AAA_AppTypes"
       },
       {
-        "view": "Vi_SPC_AppTypeAppTypePermission",
+        "view": "Vi_SPC_AppTypePermissions",
         "kind": "tab",
         "source": "H_AAA_AppTypePermissions"
       }
@@ -456,12 +456,12 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
     "viewCount": 2,
     "views": [
       {
-        "view": "Vi_SPC_ActionConfigBasListSummary",
+        "view": "Vi_SPC_ActionConfigBaseListSummary",
         "kind": "list",
         "source": "H_CFG_ActionConfigBases"
       },
       {
-        "view": "Vi_SPC_ActionConfigBasProfile",
+        "view": "Vi_SPC_ActionConfigBaseProfile",
         "kind": "profile",
         "source": "H_CFG_ActionConfigBases"
       }
@@ -571,12 +571,12 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_PermitIssuers"
       },
       {
-        "view": "Vi_SPC_PermitIssuerPermitTypeIssuer",
+        "view": "Vi_SPC_PermitIssuerPermitTypeIssuers",
         "kind": "tab",
         "source": "H_PermitTypeIssuers"
       },
       {
-        "view": "Vi_SPC_PermitIssuerPermit",
+        "view": "Vi_SPC_PermitIssuerPermits",
         "kind": "tab",
         "source": "H_Permits"
       }
@@ -618,7 +618,7 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_TransportBatches"
       },
       {
-        "view": "Vi_SPC_BatchBatchItem",
+        "view": "Vi_SPC_BatchItems",
         "kind": "tab",
         "source": "H_TransportBatchItems"
       }
@@ -644,17 +644,17 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_TransportReqDeliveries"
       },
       {
-        "view": "Vi_SPC_DeliveryBatchItem",
+        "view": "Vi_SPC_DeliveryBatchItems",
         "kind": "tab",
         "source": "H_TransportBatchItems"
       },
       {
-        "view": "Vi_SPC_DeliveryReqDeliveryAddon",
+        "view": "Vi_SPC_DeliveryReqDeliveryAddons",
         "kind": "tab",
         "source": "H_TransportReqDeliveryAddons"
       },
       {
-        "view": "Vi_SPC_DeliveryReqDeliveryGood",
+        "view": "Vi_SPC_DeliveryReqDeliveryGoods",
         "kind": "tab",
         "source": "H_TransportReqDeliveryGoods"
       }
@@ -680,12 +680,12 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_TransportTransacts"
       },
       {
-        "view": "Vi_SPC_DispatchTransactItem",
+        "view": "Vi_SPC_DispatchTransactItems",
         "kind": "tab",
         "source": "H_TransportTransactItems"
       },
       {
-        "view": "Vi_SPC_DispatchTransactStage",
+        "view": "Vi_SPC_DispatchTransactStages",
         "kind": "tab",
         "source": "H_TransportTransactStages"
       }
@@ -711,22 +711,22 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
         "source": "H_TransportReqRides"
       },
       {
-        "view": "Vi_SPC_RideBatchItem",
+        "view": "Vi_SPC_RideBatchItems",
         "kind": "tab",
         "source": "H_TransportBatchItems"
       },
       {
-        "view": "Vi_SPC_RideReqRideAddon",
+        "view": "Vi_SPC_RideReqRideAddons",
         "kind": "tab",
         "source": "H_TransportReqRideAddons"
       },
       {
-        "view": "Vi_SPC_RideReqRidePassenger",
+        "view": "Vi_SPC_RideReqRidePassengers",
         "kind": "tab",
         "source": "H_TransportReqRidePassengers"
       },
       {
-        "view": "Vi_SPC_RideTransactItemStage",
+        "view": "Vi_SPC_RideTransactItemStages",
         "kind": "tab",
         "source": "H_TransportTransactItemStages"
       }
@@ -847,12 +847,12 @@ export const spcViewInventory: Record<string, SpcSurfaceInventory> = {
     "viewCount": 2,
     "views": [
       {
-        "view": "Vi_SPC_GeoFenceBasListSummary",
+        "view": "Vi_SPC_GeoFenceBaseListSummary",
         "kind": "list",
         "source": "H_TransportGeoFenceBases"
       },
       {
-        "view": "Vi_SPC_GeoFenceBasProfile",
+        "view": "Vi_SPC_GeoFenceBaseProfile",
         "kind": "profile",
         "source": "H_TransportGeoFenceBases"
       }
