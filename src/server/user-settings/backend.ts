@@ -128,7 +128,6 @@ export async function fetchPortalUserSettings(
       headers: buildBackendRequestHeaders({
         backend: resolved.backend,
         session: resolved.session,
-        includeAccessKey: false,
         includeEntityId: false,
       }),
     });
@@ -186,7 +185,6 @@ export async function setPortalUserSettings(
       ...buildBackendRequestHeaders({
         backend: resolved.backend,
         session: resolved.session,
-        includeAccessKey: false,
         includeEntityId: false,
       }),
       'Content-Type': 'application/json',

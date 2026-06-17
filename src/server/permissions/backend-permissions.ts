@@ -112,7 +112,6 @@ async function fetchBackendPermissionGrantFromGateway(
                   url,
                   headers: buildBackendRequestHeaders({
                         backend,
-                        includeAccessKey: false,
                         session,
                   }),
             });

@@ -38,7 +38,9 @@ export type AuthSession = {
       lastName: string;
       idpToken: string;
       expiry: string;
-      /** Per-backend entity IDs. Each backend may have different IDs for the same logical entity. */
+      /** Single session entity id — GD-master, replicated to Core/NTF with the SAME id; sent as x-entity-id to all backends. */
+      entityId?: number;
+      /** @deprecated Rail-B transition: per-backend entity IDs, superseded by `entityId`. */
       backendEntityIds?: BackendEntityIds;
       /** Display title for the active entity (from the primary backend). */
       entityTitle?: string;

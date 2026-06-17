@@ -269,7 +269,6 @@ export async function fetchBackendGatewayList<T extends Record<string, unknown>>
     backendName: `${backend}Gateway`,
     headers: buildBackendRequestHeaders({
       backend,
-      includeAccessKey: false,
       session,
     }),
     url: buildGatewayUrl(backend, resolved),

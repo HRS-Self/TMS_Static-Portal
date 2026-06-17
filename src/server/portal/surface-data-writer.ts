@@ -52,7 +52,6 @@ export async function executeSurfaceWriter<TResponse>(input: {
     ...buildBackendRequestHeaders({
       backend: input.writer.backend,
       session: input.session,
-      includeAccessKey: input.writer.includeAccessKey,
       includeEntityId: input.writer.includeEntityId,
     }),
     ...(input.contentType ? { 'Content-Type': input.contentType } : {}),

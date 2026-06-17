@@ -5,125 +5,72 @@ import type { AuthSession, BackendName } from '@/src/server/auth/types';
 import { logger } from '@/src/server/logger';
 
 function basicAuthorization(): string {
-      const env = getEnv();
-      return `Basic ${Buffer.from(
-            `${env.myClientId}:${env.myClientSecret}`,
-            'utf8',
-      ).toString('base64')}`;
+  const env = getEnv();
+  return `Basic ${Buffer.from(`${env.myClientId}:${env.myClientSecret}`, 'utf8').toString('base64')}`;
 }
 
 export function buildBasicAuthorizationHeaders(): Record<string, string> {
-      return {
-            Authorization: basicAuthorization(),
-      };
+  return { Authorization: basicAuthorization() };
 }
 
-function backendUsesXAccessKey(backend: BackendName): boolean {
-      const env = getEnv();
-      logger.debug('Resolve backend access-key mode', { backend });
-
-      switch (backend) {
-            case 'gd':
-                  return env.gdUseXAccessKey;
-            case 'core':
-                  return env.coreUseXAccessKey;
-            case 'notification':
-                  return env.notificationUseXAccessKey;
-      }
+/**
+ * The single session entity id. Entities are GD-master, replicated to Core/NTF with the
+ * SAME id, so one id is valid for every backend (no per-backend map). During the Rail-B
+ * transition we fall back to the legacy per-backend map until entity-selection sets
+ * `session.entityId` directly.
+ */
+export function getEntityId(session: AuthSession): number | undefined {
+  if (typeof session.entityId === 'number' && session.entityId > 0) return session.entityId;
+  const legacy = session.backendEntityIds
+    ? Object.values(session.backendEntityIds).find((v) => typeof v === 'number' && v > 0)
+    : undefined;
+  return typeof legacy === 'number' && legacy > 0 ? legacy : undefined;
 }
 
-export function getBackendUserId(
-      session: AuthSession,
-      backend: BackendName,
-): number | undefined {
-      const backendUserId = session.backendUserIds?.[backend];
-      logger.debug('Resolve backend user id from session', {
-            backend,
-            backendUserId: backendUserId ?? null,
-            fallbackUserId: session.userId ?? null,
-      });
-      if (typeof backendUserId === 'number' && backendUserId > 0) {
-            return backendUserId;
-      }
-
-      return typeof session.userId === 'number' && session.userId > 0
-            ? session.userId
-            : undefined;
-}
-
-export function getBackendEntityId(
-      session: AuthSession,
-      backend: BackendName,
-): number | undefined {
-      const backendEntityId = session.backendEntityIds?.[backend];
-      logger.debug('Resolve backend entity id from session', {
-            backend,
-            backendEntityId: backendEntityId ?? null,
-      });
-      if (typeof backendEntityId === 'number' && backendEntityId > 0) {
-            return backendEntityId;
-      }
-
-      // Fallback: try legacy entityId for backward compatibility during transition
-      const legacyEntityId = (session as AuthSession & { entityId?: number }).entityId;
-      if (typeof legacyEntityId === 'number' && legacyEntityId > 0) {
-            return legacyEntityId;
-      }
-
-      return undefined;
-}
-
+/**
+ * Headers for a backend/gateway call. Auth model (2026-06-17, see
+ * docs memory auth-entity-resolution-flow): always Basic client auth + `x-access-key`
+ * (the user's IDP token — the ONLY identity mode; legacy `x-user-id`/`x-user-guid` are
+ * retired). `x-entity-id` carries the single session entity id on every call unless the
+ * endpoint opts out (entity-agnostic APIs; IDP never needs it).
+ */
 export function buildBackendRequestHeaders({
-      backend,
-      session,
-      includeAccessKey,
-      includeEntityId,
-      forceUserGuid = false,
+  session,
+  includeEntityId = true,
 }: {
-      backend: BackendName;
-      session: AuthSession;
-      includeAccessKey?: boolean;
-      includeEntityId?: boolean;
-      forceUserGuid?: boolean;
+  backend?: BackendName;
+  session: AuthSession;
+  includeEntityId?: boolean;
 }): Record<string, string> {
-      const resolvedIncludeAccessKey =
-            includeAccessKey ?? backendUsesXAccessKey(backend);
-      const resolvedIncludeEntityId = includeEntityId ?? true;
-      const backendUserId = getBackendUserId(session, backend);
-      const backendEntityId = getBackendEntityId(session, backend);
+  const headers: Record<string, string> = { ...buildBasicAuthorizationHeaders() };
+  if (session.idpToken) headers['x-access-key'] = session.idpToken;
 
-      logger.debug('Build backend request headers', {
-            backend,
-            backendUserId: backendUserId ?? null,
-            backendEntityId: backendEntityId ?? null,
-            forceUserGuid,
-            includeAccessKey: resolvedIncludeAccessKey,
-            includeEntityId: resolvedIncludeEntityId,
-      });
+  const entityId = includeEntityId ? getEntityId(session) : undefined;
+  if (typeof entityId === 'number') headers['x-entity-id'] = String(entityId);
 
-      const headers: Record<string, string> = {
-            ...buildBasicAuthorizationHeaders(),
-      };
-
-      if (resolvedIncludeAccessKey && session.idpToken) {
-            headers['x-access-key'] = session.idpToken;
-      }
-
-      if (!resolvedIncludeAccessKey) {
-            if (!forceUserGuid && typeof backendUserId === 'number') {
-                  headers['x-user-id'] = String(backendUserId);
-            } else {
-                  headers['x-user-guid'] = session.userRecordKey;
-            }
-      }
-
-      if (resolvedIncludeEntityId && typeof backendEntityId === 'number') {
-            headers['x-entity-id'] = String(backendEntityId);
-      }
-
-      return headers;
+  logger.debug('Build backend request headers', {
+    hasAccessKey: Boolean(session.idpToken),
+    includeEntityId,
+    entityId: entityId ?? null,
+  });
+  return headers;
 }
 
-export function backendSupportsAccessKey(backend: BackendName): boolean {
-      return backendUsesXAccessKey(backend);
+// ─── Transition shims (Rail B) ───────────────────────────────────────────────
+// Still consumed by data-gateway (logging) and backend-permissions (permission-check
+// calls) until those are migrated to x-access-key + single entity id. Do not use in
+// new code — the user's identity comes from x-access-key now.
+
+/** @deprecated legacy per-backend user id — retire with the resolvekey warmup. */
+export function getBackendUserId(session: AuthSession, backend: BackendName): number | undefined {
+  const backendUserId = session.backendUserIds?.[backend];
+  if (typeof backendUserId === 'number' && backendUserId > 0) return backendUserId;
+  return typeof session.userId === 'number' && session.userId > 0 ? session.userId : undefined;
+}
+
+/** @deprecated legacy per-backend entity id — use getEntityId (single session entity). */
+export function getBackendEntityId(session: AuthSession, backend: BackendName): number | undefined {
+  const backendEntityId = session.backendEntityIds?.[backend];
+  if (typeof backendEntityId === 'number' && backendEntityId > 0) return backendEntityId;
+  return getEntityId(session);
 }

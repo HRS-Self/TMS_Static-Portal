@@ -22,21 +22,15 @@ export class BackendHttpAdapter implements BackendAdapter {
 
       private buildHeaders(
             context: BackendContext,
-            options?: { includeAccessKey?: boolean; includeEntityId?: boolean },
+            options?: { includeEntityId?: boolean },
       ): Record<string, string> {
-            const includeAccessKey = options?.includeAccessKey;
             const includeEntityId = options?.includeEntityId ?? true;
-            const hasBackendEntityIds = context.session.backendEntityIds &&
-                  Object.keys(context.session.backendEntityIds).length > 0;
             logger.debug('Build backend headers', {
                   backendName: this.options.backendName,
-                  includeAccessKey,
                   includeEntityId,
-                  hasBackendEntityIds: Boolean(hasBackendEntityIds),
             });
             return buildBackendRequestHeaders({
                   backend: this.options.backendName,
-                  includeAccessKey,
                   includeEntityId,
                   session: context.session,
             });
@@ -49,9 +43,7 @@ export class BackendHttpAdapter implements BackendAdapter {
             return serverRequest<BackendProfileDto>({
                   backendName: this.options.backendName,
                   url,
-                  headers: this.buildHeaders(context, {
-                        includeAccessKey: false,
-                  }),
+                  headers: this.buildHeaders(context),
             });
       }
 
@@ -71,10 +63,7 @@ export class BackendHttpAdapter implements BackendAdapter {
                                           entityTitle: undefined,
                                     },
                               },
-                              {
-                                    includeAccessKey: false,
-                                    includeEntityId: false,
-                              },
+                              { includeEntityId: false },
                         ),
                   },
             );
