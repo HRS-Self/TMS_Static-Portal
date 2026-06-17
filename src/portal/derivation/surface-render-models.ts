@@ -15,8 +15,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "gd",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_AAA_EntityProfile",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_EntityListSummary",
       "select": [
         "Id",
         "PartyCode",
@@ -29,7 +29,13 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "Phone_fsx",
         "FaxNumber_fsx",
         "Email_fsx",
-        "Discriminator"
+        "Discriminator",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -39,15 +45,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_EntityListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "PartyCode",
         "title": "Party Code",
@@ -145,13 +145,25 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_AAA_Scenarios",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_ScenarioListSummary",
       "select": [
         "Id",
         "Description",
         "ActivityClassENUM",
-        "ClientEntityId"
+        "ClientEntityId",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "Address_fsx",
+        "PostalCode_fsx",
+        "Phone_fsx",
+        "FaxNumber_fsx",
+        "Email_fsx",
+        "EntityScenariosCount",
+        "DataMapCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -161,15 +173,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_ScenarioListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "Description",
         "title": "Description",
@@ -183,9 +189,45 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "ClientEntityId",
-        "title": "Client Entity Id",
+        "field": "Address_fsx",
+        "title": "Address",
         "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "PostalCode_fsx",
+        "title": "Postal Code",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Phone_fsx",
+        "title": "Phone",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "FaxNumber_fsx",
+        "title": "Fax Number",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Email_fsx",
+        "title": "Email",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "EntityScenariosCount",
+        "title": "Entity Scenarios Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "DataMapCount",
+        "title": "Data Map Count",
+        "type": "number",
         "sortable": true
       }
     ],
@@ -219,9 +261,26 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": null,
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_AAA_UserInfo",
-      "select": [],
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_UserListSummary",
+      "select": [
+        "Id",
+        "Firstname_fsx",
+        "Lastname_fsx",
+        "Username",
+        "Email_fsx",
+        "EmailConfirmed",
+        "CellPhone_fsx",
+        "CellPhoneConfirmed",
+        "IssuedBy",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "EntityRolesCount"
+      ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
       "pageSizeOptions": [
@@ -230,9 +289,58 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_UserListSummary"
+      "pendingViewOrder": null
     },
-    "columns": [],
+    "columns": [
+      {
+        "field": "Firstname_fsx",
+        "title": "Firstname",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Lastname_fsx",
+        "title": "Lastname",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Username",
+        "title": "Username",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Email_fsx",
+        "title": "Email",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "EmailConfirmed",
+        "title": "Email Confirmed",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CellPhone_fsx",
+        "title": "Cell Phone",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CellPhoneConfirmed",
+        "title": "Cell Phone Confirmed",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "EntityRolesCount",
+        "title": "Entity Roles Count",
+        "type": "number",
+        "sortable": true
+      }
+    ],
     "rowActions": [
       {
         "id": "view",
@@ -251,12 +359,30 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportCustomers",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_CustomerListSummary",
       "select": [
         "Id",
         "EntityId",
-        "UserId"
+        "UserId",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "Firstname_fsx",
+        "Lastname_fsx",
+        "Username",
+        "Email_fsx",
+        "CellPhone_fsx",
+        "Address_fsx",
+        "PostalCode_fsx",
+        "Phone_fsx",
+        "FaxNumber_fsx",
+        "Email_fsx",
+        "ContactsCount",
+        "MasterGoodsCount",
+        "DistributorCustomersCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -266,25 +392,85 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportCustomerListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
       {
-        "field": "Id",
-        "title": "Id",
+        "field": "Firstname_fsx",
+        "title": "Firstname",
         "type": "text",
         "sortable": true
       },
       {
-        "field": "EntityId",
-        "title": "Entity Id",
+        "field": "Lastname_fsx",
+        "title": "Lastname",
         "type": "text",
         "sortable": true
       },
       {
-        "field": "UserId",
-        "title": "User Id",
+        "field": "Username",
+        "title": "Username",
         "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Email_fsx",
+        "title": "Email",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CellPhone_fsx",
+        "title": "Cell Phone",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Address_fsx",
+        "title": "Address",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "PostalCode_fsx",
+        "title": "Postal Code",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Phone_fsx",
+        "title": "Phone",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "FaxNumber_fsx",
+        "title": "Fax Number",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Email_fsx",
+        "title": "Email",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "ContactsCount",
+        "title": "Contacts Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "MasterGoodsCount",
+        "title": "Master Goods Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "DistributorCustomersCount",
+        "title": "Distributor Customers Count",
+        "type": "number",
         "sortable": true
       }
     ],
@@ -318,11 +504,27 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "gd",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_CVOs",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_CVOListSummary",
       "select": [
         "Id",
-        "EntityId"
+        "EntityId",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "Address_fsx",
+        "PostalCode_fsx",
+        "Phone_fsx",
+        "FaxNumber_fsx",
+        "Email_fsx",
+        "DriversCount",
+        "ServicesCount",
+        "VehiclesCount",
+        "DistributorsCount",
+        "PermitsCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -332,19 +534,67 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_CVOListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
       {
-        "field": "Id",
-        "title": "Id",
+        "field": "Address_fsx",
+        "title": "Address",
         "type": "text",
         "sortable": true
       },
       {
-        "field": "EntityId",
-        "title": "Entity Id",
+        "field": "PostalCode_fsx",
+        "title": "Postal Code",
         "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Phone_fsx",
+        "title": "Phone",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "FaxNumber_fsx",
+        "title": "Fax Number",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Email_fsx",
+        "title": "Email",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "DriversCount",
+        "title": "Drivers Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "ServicesCount",
+        "title": "Services Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "VehiclesCount",
+        "title": "Vehicles Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "DistributorsCount",
+        "title": "Distributors Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "PermitsCount",
+        "title": "Permits Count",
+        "type": "number",
         "sortable": true
       }
     ],
@@ -383,19 +633,21 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       "select": [
         "Id",
         "EntityId",
-        "EntityTitle",
-        "City",
-        "Province",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "Address_fsx",
+        "PostalCode_fsx",
         "Phone_fsx",
+        "FaxNumber_fsx",
         "Email_fsx",
-        "CVOCount",
-        "DriverCount",
-        "HUBCount",
-        "TotalPermitCount",
-        "ExpiredPermitCount",
-        "ValidPermitCount",
-        "SuspendedPermitCount",
-        "RevokedPermitCount"
+        "CVOsCount",
+        "DriversCount",
+        "HUBsCount",
+        "PermitsCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -409,32 +661,14 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     },
     "columns": [
       {
-        "field": "Id",
-        "title": "Id",
+        "field": "Address_fsx",
+        "title": "Address",
         "type": "text",
         "sortable": true
       },
       {
-        "field": "EntityId",
-        "title": "Entity Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "EntityTitle",
-        "title": "Entity Title",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "City",
-        "title": "City",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Province",
-        "title": "Province",
+        "field": "PostalCode_fsx",
+        "title": "Postal Code",
         "type": "text",
         "sortable": true
       },
@@ -445,56 +679,38 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
+        "field": "FaxNumber_fsx",
+        "title": "Fax Number",
+        "type": "text",
+        "sortable": true
+      },
+      {
         "field": "Email_fsx",
         "title": "Email",
         "type": "text",
         "sortable": true
       },
       {
-        "field": "CVOCount",
-        "title": "CVOCount",
+        "field": "CVOsCount",
+        "title": "CVOs Count",
         "type": "number",
         "sortable": true
       },
       {
-        "field": "DriverCount",
-        "title": "Driver Count",
+        "field": "DriversCount",
+        "title": "Drivers Count",
         "type": "number",
         "sortable": true
       },
       {
-        "field": "HUBCount",
-        "title": "HUBCount",
+        "field": "HUBsCount",
+        "title": "HUBs Count",
         "type": "number",
         "sortable": true
       },
       {
-        "field": "TotalPermitCount",
-        "title": "Total Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "ExpiredPermitCount",
-        "title": "Expired Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "ValidPermitCount",
-        "title": "Valid Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "SuspendedPermitCount",
-        "title": "Suspended Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "RevokedPermitCount",
-        "title": "Revoked Permit Count",
+        "field": "PermitsCount",
+        "title": "Permits Count",
         "type": "number",
         "sortable": true
       }
@@ -535,32 +751,30 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "Id",
         "UserId",
         "PersonCVOId",
-        "FullName",
-        "Firstname",
-        "Lastname",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "Firstname_fsx",
+        "Lastname_fsx",
         "Username",
-        "Email",
-        "CellPhone",
+        "Email_fsx",
+        "CellPhone_fsx",
+        "PersonCVOTitle",
+        "CVOsCount",
+        "DistributorsCount",
+        "PermitsCount",
+        "VehiclesCount",
         "DriverLicense",
         "DriverLicenseExpiry",
         "DriverLicenseStatus",
-        "DriverLicenseConditionENUM",
-        "UserFullName",
-        "UserEmail",
-        "UserUsername",
-        "PrimaryCVOTitle",
-        "PrimaryCVOCity",
-        "TotalPermitCount",
         "ValidPermitCount",
         "ExpiredPermitCount",
         "SuspendedPermitCount",
         "RevokedPermitCount",
         "NextValidPermitExpiry",
-        "VehicleCount",
-        "DistributorCount",
-        "CVOCount",
-        "LicensedVehicleTypeCount",
-        "VehicleTypeTitle",
         "LicensedVehicleTypeBadges"
       ],
       "defaultSortKey": "Id",
@@ -575,37 +789,13 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     },
     "columns": [
       {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "UserId",
-        "title": "User Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PersonCVOId",
-        "title": "Person CVOId",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FullName",
-        "title": "Full Name",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Firstname",
+        "field": "Firstname_fsx",
         "title": "Firstname",
         "type": "text",
         "sortable": true
       },
       {
-        "field": "Lastname",
+        "field": "Lastname_fsx",
         "title": "Lastname",
         "type": "text",
         "sortable": true
@@ -617,15 +807,45 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "Email",
+        "field": "Email_fsx",
         "title": "Email",
         "type": "text",
         "sortable": true
       },
       {
-        "field": "CellPhone",
+        "field": "CellPhone_fsx",
         "title": "Cell Phone",
         "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "PersonCVOTitle",
+        "title": "Person CVOTitle",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CVOsCount",
+        "title": "CVOs Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "DistributorsCount",
+        "title": "Distributors Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "PermitsCount",
+        "title": "Permits Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "VehiclesCount",
+        "title": "Vehicles Count",
+        "type": "number",
         "sortable": true
       },
       {
@@ -644,48 +864,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "DriverLicenseStatus",
         "title": "Driver License Status",
         "type": "status",
-        "sortable": true
-      },
-      {
-        "field": "DriverLicenseConditionENUM",
-        "title": "Driver License Condition ENUM",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "UserFullName",
-        "title": "User Full Name",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "UserEmail",
-        "title": "User Email",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "UserUsername",
-        "title": "User Username",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PrimaryCVOTitle",
-        "title": "Primary CVOTitle",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PrimaryCVOCity",
-        "title": "Primary CVOCity",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "TotalPermitCount",
-        "title": "Total Permit Count",
-        "type": "number",
         "sortable": true
       },
       {
@@ -716,36 +894,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "NextValidPermitExpiry",
         "title": "Next Valid Permit Expiry",
         "type": "date",
-        "sortable": true
-      },
-      {
-        "field": "VehicleCount",
-        "title": "Vehicle Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "DistributorCount",
-        "title": "Distributor Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "CVOCount",
-        "title": "CVOCount",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "LicensedVehicleTypeCount",
-        "title": "Licensed Vehicle Type Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "VehicleTypeTitle",
-        "title": "Vehicle Type Title",
-        "type": "text",
         "sortable": true
       },
       {
@@ -790,23 +938,19 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       "select": [
         "Id",
         "EntityId",
-        "PartyCode",
-        "EntityTitle",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
         "Address_fsx",
-        "City",
-        "Province",
-        "Country",
         "PostalCode_fsx",
         "Phone_fsx",
         "FaxNumber_fsx",
         "Email_fsx",
-        "DistributorCount",
-        "TotalPermitCount",
-        "ExpiredPermitCount",
-        "ValidPermitCount",
-        "SuspendedPermitCount",
-        "RevokedPermitCount",
-        "CVOLinkCount"
+        "DistributorsCount",
+        "PermitsCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -820,50 +964,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     },
     "columns": [
       {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "EntityId",
-        "title": "Entity Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PartyCode",
-        "title": "Party Code",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "EntityTitle",
-        "title": "Entity Title",
-        "type": "text",
-        "sortable": true
-      },
-      {
         "field": "Address_fsx",
         "title": "Address",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "City",
-        "title": "City",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Province",
-        "title": "Province",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Country",
-        "title": "Country",
         "type": "text",
         "sortable": true
       },
@@ -892,44 +994,14 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "DistributorCount",
-        "title": "Distributor Count",
+        "field": "DistributorsCount",
+        "title": "Distributors Count",
         "type": "number",
         "sortable": true
       },
       {
-        "field": "TotalPermitCount",
-        "title": "Total Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "ExpiredPermitCount",
-        "title": "Expired Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "ValidPermitCount",
-        "title": "Valid Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "SuspendedPermitCount",
-        "title": "Suspended Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "RevokedPermitCount",
-        "title": "Revoked Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "CVOLinkCount",
-        "title": "CVOLink Count",
+        "field": "PermitsCount",
+        "title": "Permits Count",
         "type": "number",
         "sortable": true
       }
@@ -964,8 +1036,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "requests-control-plane",
     "backend": "gd",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_RequestStatuses",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_RequestsApprovalListSummary",
       "select": [
         "Id",
         "RequestId",
@@ -973,7 +1045,24 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "RequesteeEntityId",
         "RequesteeActENUM",
         "Status",
-        "StatusReason"
+        "StatusReason",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "Address_fsx",
+        "PostalCode_fsx",
+        "Phone_fsx",
+        "FaxNumber_fsx",
+        "Email_fsx",
+        "Firstname_fsx",
+        "Lastname_fsx",
+        "Username",
+        "Email_fsx",
+        "CellPhone_fsx",
+        "RequestTitle",
+        "PermitStatusVerificationsCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -983,33 +1072,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_RequestStatusListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "RequestId",
-        "title": "Request Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "RequesteeUserId",
-        "title": "Requestee User Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "RequesteeEntityId",
-        "title": "Requestee Entity Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "RequesteeActENUM",
         "title": "Requestee Act ENUM",
@@ -1026,6 +1091,78 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "StatusReason",
         "title": "Status Reason",
         "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Address_fsx",
+        "title": "Address",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "PostalCode_fsx",
+        "title": "Postal Code",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Phone_fsx",
+        "title": "Phone",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "FaxNumber_fsx",
+        "title": "Fax Number",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Email_fsx",
+        "title": "Email",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Firstname_fsx",
+        "title": "Firstname",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Lastname_fsx",
+        "title": "Lastname",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Username",
+        "title": "Username",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Email_fsx",
+        "title": "Email",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CellPhone_fsx",
+        "title": "Cell Phone",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "RequestTitle",
+        "title": "Request Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "PermitStatusVerificationsCount",
+        "title": "Permit Status Verifications Count",
+        "type": "number",
         "sortable": true
       }
     ],
@@ -1067,28 +1204,27 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "VIN",
         "Make",
         "Model",
-        "Year",
-        "VehicleType",
-        "Color",
         "Province",
+        "Color",
+        "Year",
+        "TransportCategory",
         "Cargo_Height",
         "Cargo_Weight",
         "Cargo_Length",
         "Cargo_Width",
         "Capacity_Passengers",
         "Capacity_Luggage",
-        "CVOId",
-        "CVOTitle",
-        "CVOCity",
-        "CVOProvince",
-        "DriverCount",
-        "ExpiredPermitCount",
-        "ValidPermitCount",
-        "TotalPermitCount",
-        "FeatureTitle",
-        "FeatureBadgesTop3",
-        "FeatureCount",
-        "InspectionStatus"
+        "VehicleType",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "CVOsCount",
+        "PermitsCount",
+        "DriversCount",
+        "FeaturesCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -1101,12 +1237,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "Plate",
         "title": "Plate",
@@ -1132,14 +1262,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "Year",
-        "title": "Year",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "VehicleType",
-        "title": "Vehicle Type",
+        "field": "Province",
+        "title": "Province",
         "type": "text",
         "sortable": true
       },
@@ -1150,8 +1274,14 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "Province",
-        "title": "Province",
+        "field": "Year",
+        "title": "Year",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "TransportCategory",
+        "title": "Transport Category",
         "type": "text",
         "sortable": true
       },
@@ -1192,75 +1322,33 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "CVOId",
-        "title": "CVOId",
+        "field": "VehicleType",
+        "title": "Vehicle Type",
         "type": "text",
         "sortable": true
       },
       {
-        "field": "CVOTitle",
-        "title": "CVOTitle",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CVOCity",
-        "title": "CVOCity",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CVOProvince",
-        "title": "CVOProvince",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DriverCount",
-        "title": "Driver Count",
+        "field": "CVOsCount",
+        "title": "CVOs Count",
         "type": "number",
         "sortable": true
       },
       {
-        "field": "ExpiredPermitCount",
-        "title": "Expired Permit Count",
+        "field": "PermitsCount",
+        "title": "Permits Count",
         "type": "number",
         "sortable": true
       },
       {
-        "field": "ValidPermitCount",
-        "title": "Valid Permit Count",
+        "field": "DriversCount",
+        "title": "Drivers Count",
         "type": "number",
         "sortable": true
       },
       {
-        "field": "TotalPermitCount",
-        "title": "Total Permit Count",
+        "field": "FeaturesCount",
+        "title": "Features Count",
         "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "FeatureTitle",
-        "title": "Feature Title",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FeatureBadgesTop3",
-        "title": "Feature Badges Top3",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FeatureCount",
-        "title": "Feature Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "InspectionStatus",
-        "title": "Inspection Status",
-        "type": "status",
         "sortable": true
       }
     ],
@@ -1294,15 +1382,20 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_AAA_AppClients",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_AppClientListSummary",
       "select": [
         "Id",
         "Title",
         "ClientId",
-        "ClientSecret",
         "AppTypeId",
-        "IsInactive"
+        "IsInactive",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "AppTypeTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -1312,15 +1405,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_AppClientListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "Title",
         "title": "Title",
@@ -1328,26 +1415,14 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "ClientId",
-        "title": "Client Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "ClientSecret",
-        "title": "Client Secret",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "AppTypeId",
-        "title": "App Type Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
         "field": "IsInactive",
         "title": "Is Inactive",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "AppTypeTitle",
+        "title": "App Type Title",
         "type": "text",
         "sortable": true
       }
@@ -1371,12 +1446,18 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_AAA_AppTypes",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_AppTypeListSummary",
       "select": [
         "Id",
         "Code",
-        "Title"
+        "Title",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "PermissionsCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -1386,15 +1467,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_AppTypeListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "Code",
         "title": "Code",
@@ -1405,6 +1480,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "Title",
         "title": "Title",
         "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "PermissionsCount",
+        "title": "Permissions Count",
+        "type": "number",
         "sortable": true
       }
     ],
@@ -1427,12 +1508,18 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_CFG_ActionConfigBases",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_ActionConfigBaseListSummary",
       "select": [
         "Id",
         "Code",
-        "Description"
+        "Description",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -1442,15 +1529,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_CFG_ActionConfigBasListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "Code",
         "title": "Code",
@@ -1494,8 +1575,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_CFG_ActorConfigs",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_ActorConfigListSummary",
       "select": [
         "Id",
         "EntityId",
@@ -1506,7 +1587,19 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ConfigBaseId",
         "Value",
         "IsOverridable",
-        "Signature"
+        "Signature",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "ScenarioTitle",
+        "ConfigBaseCode",
+        "Firstname_fsx",
+        "Lastname_fsx",
+        "Username",
+        "Email_fsx",
+        "CellPhone_fsx"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -1516,48 +1609,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_CFG_ActorConfigListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
       {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "EntityId",
-        "title": "Entity Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "VehicleId",
-        "title": "Vehicle Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "UserId",
-        "title": "User Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
         "field": "ActENUM",
         "title": "Act ENUM",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "ScenarioId",
-        "title": "Scenario Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "ConfigBaseId",
-        "title": "Config Base Id",
         "type": "text",
         "sortable": true
       },
@@ -1576,6 +1633,48 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       {
         "field": "Signature",
         "title": "Signature",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "ScenarioTitle",
+        "title": "Scenario Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "ConfigBaseCode",
+        "title": "Config Base Code",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Firstname_fsx",
+        "title": "Firstname",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Lastname_fsx",
+        "title": "Lastname",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Username",
+        "title": "Username",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Email_fsx",
+        "title": "Email",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CellPhone_fsx",
+        "title": "Cell Phone",
         "type": "text",
         "sortable": true
       }
@@ -1610,8 +1709,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "gd",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_CFG_EntityConfigs",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_EntityConfigListSummary",
       "select": [
         "Id",
         "PermitIssuerId",
@@ -1625,7 +1724,18 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ConfigBaseId",
         "Value",
         "IsOverridable",
-        "Signature"
+        "Signature",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "PermitIssuerTitle",
+        "ConfigBaseCode",
+        "DistributorTitle",
+        "ScenarioTitle",
+        "CVOTitle",
+        "HUBTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -1635,66 +1745,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_CFG_EntityConfigListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
       {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PermitIssuerId",
-        "title": "Permit Issuer Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "HUBId",
-        "title": "HUBId",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DistributorId",
-        "title": "Distributor Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CVOId",
-        "title": "CVOId",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "VehicleId",
-        "title": "Vehicle Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DriverId",
-        "title": "Driver Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
         "field": "ActENUM",
         "title": "Act ENUM",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "ScenarioId",
-        "title": "Scenario Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "ConfigBaseId",
-        "title": "Config Base Id",
         "type": "text",
         "sortable": true
       },
@@ -1713,6 +1769,42 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       {
         "field": "Signature",
         "title": "Signature",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "PermitIssuerTitle",
+        "title": "Permit Issuer Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "ConfigBaseCode",
+        "title": "Config Base Code",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "DistributorTitle",
+        "title": "Distributor Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "ScenarioTitle",
+        "title": "Scenario Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CVOTitle",
+        "title": "CVOTitle",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "HUBTitle",
+        "title": "HUBTitle",
         "type": "text",
         "sortable": true
       }
@@ -1747,14 +1839,20 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_CFG_GlobalConfigs",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_GlobalConfigListSummary",
       "select": [
         "Id",
         "ConfigBaseId",
         "Value",
         "IsOverridable",
-        "Signature"
+        "Signature",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "ConfigBaseCode"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -1764,21 +1862,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_CFG_GlobalConfigListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "ConfigBaseId",
-        "title": "Config Base Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "Value",
         "title": "Value",
@@ -1794,6 +1880,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       {
         "field": "Signature",
         "title": "Signature",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "ConfigBaseCode",
+        "title": "Config Base Code",
         "type": "text",
         "sortable": true
       }
@@ -1828,14 +1920,19 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "ntf",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_NotificationTemplateSettings",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_NotificationTemplateListSummary",
       "select": [
         "Id",
         "NotificationTypeENUM",
         "NotificationTemplateENUM",
         "NotificationPlatformENUM",
-        "Settings"
+        "Settings",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -1845,15 +1942,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_NotificationTemplateSettingListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "NotificationTypeENUM",
         "title": "Notification Type ENUM",
@@ -1909,11 +2000,24 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "gd",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_PermitIssuers",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_PermitIssuerListSummary",
       "select": [
         "Id",
-        "EntityId"
+        "EntityId",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "Address_fsx",
+        "PostalCode_fsx",
+        "Phone_fsx",
+        "FaxNumber_fsx",
+        "Email_fsx",
+        "PermitTypeIssuersCount",
+        "PermitsCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -1923,19 +2027,49 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_PermitIssuerListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
       {
-        "field": "Id",
-        "title": "Id",
+        "field": "Address_fsx",
+        "title": "Address",
         "type": "text",
         "sortable": true
       },
       {
-        "field": "EntityId",
-        "title": "Entity Id",
+        "field": "PostalCode_fsx",
+        "title": "Postal Code",
         "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Phone_fsx",
+        "title": "Phone",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "FaxNumber_fsx",
+        "title": "Fax Number",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Email_fsx",
+        "title": "Email",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "PermitTypeIssuersCount",
+        "title": "Permit Type Issuers Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "PermitsCount",
+        "title": "Permits Count",
+        "type": "number",
         "sortable": true
       }
     ],
@@ -1969,8 +2103,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "compact-catalog",
     "backend": "gd",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_PermitTypes",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_PermitTypeListSummary",
       "select": [
         "Id",
         "ActENUM",
@@ -1978,7 +2112,13 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "Title",
         "AllowedServiceCategories",
         "Extendable",
-        "ProfileDependant"
+        "ProfileDependant",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -1988,15 +2128,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_PermitTypeListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "ActENUM",
         "title": "Act ENUM",
@@ -2064,8 +2198,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "production-workbench",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportBatches",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_BatchListSummary",
       "select": [
         "Id",
         "FMS_OId",
@@ -2076,7 +2210,15 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "FarePortionAmount_Driver",
         "AllowedDiscountPercent",
         "IsEditable",
-        "IsChargePerItem"
+        "IsChargePerItem",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "DistributorTitle",
+        "ItemsCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -2086,27 +2228,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportBatchListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FMS_OId",
-        "title": "FMS_OId",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DistributorId",
-        "title": "Distributor Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "TotalFareAtDispatch",
         "title": "Total Fare At Dispatch",
@@ -2148,6 +2272,18 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "title": "Is Charge Per Item",
         "type": "text",
         "sortable": true
+      },
+      {
+        "field": "DistributorTitle",
+        "title": "Distributor Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "ItemsCount",
+        "title": "Items Count",
+        "type": "number",
+        "sortable": true
       }
     ],
     "rowActions": [
@@ -2180,8 +2316,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "production-workbench",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportReqDeliveries",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_DeliveryListSummary",
       "select": [
         "Id",
         "IsEditable",
@@ -2208,7 +2344,18 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "PaymentCategory",
         "PaymentMethod",
         "PaidAt_UTC",
-        "Status"
+        "Status",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "DistributorTitle",
+        "CVOTitle",
+        "CustomerTitle",
+        "BatchItemsCount",
+        "ReqDeliveryAddonsCount",
+        "ReqDeliveryGoodsCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -2218,48 +2365,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportReqDeliveryListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
       {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
         "field": "IsEditable",
         "title": "Is Editable",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CustomerId",
-        "title": "Customer Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DistributorId",
-        "title": "Distributor Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CVOId",
-        "title": "CVOId",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FromContactLocationId",
-        "title": "From Contact Location Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "ToContactLocationId",
-        "title": "To Contact Location Id",
         "type": "text",
         "sortable": true
       },
@@ -2271,7 +2382,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       },
       {
         "field": "PickupAfterDateTime_UTC",
-        "title": "Pickup After Date Time_UTC",
+        "title": "Pickup After Date Time",
         "type": "date",
         "sortable": true
       },
@@ -2283,7 +2394,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       },
       {
         "field": "PickupBeforeDateTime_UTC",
-        "title": "Pickup Before Date Time_UTC",
+        "title": "Pickup Before Date Time",
         "type": "date",
         "sortable": true
       },
@@ -2295,7 +2406,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       },
       {
         "field": "DropOffAfterDateTime_UTC",
-        "title": "Drop Off After Date Time_UTC",
+        "title": "Drop Off After Date Time",
         "type": "date",
         "sortable": true
       },
@@ -2307,7 +2418,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       },
       {
         "field": "DropOffBeforeDateTime_UTC",
-        "title": "Drop Off Before Date Time_UTC",
+        "title": "Drop Off Before Date Time",
         "type": "date",
         "sortable": true
       },
@@ -2366,15 +2477,45 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "PaidAt_UTC",
-        "title": "Paid At_UTC",
-        "type": "date",
-        "sortable": true
-      },
-      {
         "field": "Status",
         "title": "Status",
         "type": "status",
+        "sortable": true
+      },
+      {
+        "field": "DistributorTitle",
+        "title": "Distributor Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CVOTitle",
+        "title": "CVOTitle",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CustomerTitle",
+        "title": "Customer Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "BatchItemsCount",
+        "title": "Batch Items Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "ReqDeliveryAddonsCount",
+        "title": "Req Delivery Addons Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "ReqDeliveryGoodsCount",
+        "title": "Req Delivery Goods Count",
+        "type": "number",
         "sortable": true
       }
     ],
@@ -2408,8 +2549,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "production-workbench",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportTransacts",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_DispatchListSummary",
       "select": [
         "Id",
         "FMS_OvId",
@@ -2429,7 +2570,16 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "DriverAgreedFareAmount",
         "EnforceItemsCreationSequense",
         "PaymentTransactionNumber",
-        "ExtraData"
+        "ExtraData",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "CVOTitle",
+        "PickupZoneTitle",
+        "TransactItemsCount",
+        "TransactStagesCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -2439,51 +2589,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportTransactListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FMS_OvId",
-        "title": "FMS_Ov Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "BatchId",
-        "title": "Batch Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PickupZoneId",
-        "title": "Pickup Zone Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CVOId",
-        "title": "CVOId",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "VehicleId",
-        "title": "Vehicle Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DriverId",
-        "title": "Driver Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "CurrentStatus",
         "title": "Current Status",
@@ -2555,6 +2663,30 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "title": "Extra Data",
         "type": "text",
         "sortable": true
+      },
+      {
+        "field": "CVOTitle",
+        "title": "CVOTitle",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "PickupZoneTitle",
+        "title": "Pickup Zone Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "TransactItemsCount",
+        "title": "Transact Items Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "TransactStagesCount",
+        "title": "Transact Stages Count",
+        "type": "number",
+        "sortable": true
       }
     ],
     "rowActions": [
@@ -2587,8 +2719,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "production-workbench",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportReqRides",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_RideListSummary",
       "select": [
         "Id",
         "IsEditable",
@@ -2619,7 +2751,18 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "PaymentMethod",
         "PaidAt_UTC",
         "HubCarrierInfo",
-        "Status"
+        "Status",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "CVOTitle",
+        "CustomerTitle",
+        "DistributorTitle",
+        "BatchItemsCount",
+        "ReqRideAddonsCount",
+        "ReqRidePassengersCount"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -2629,48 +2772,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportReqRideListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
       {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
         "field": "IsEditable",
         "title": "Is Editable",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CustomerId",
-        "title": "Customer Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DistributorId",
-        "title": "Distributor Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CVOId",
-        "title": "CVOId",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FromContactLocationId",
-        "title": "From Contact Location Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "ToContactLocationId",
-        "title": "To Contact Location Id",
         "type": "text",
         "sortable": true
       },
@@ -2682,7 +2789,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       },
       {
         "field": "PickupAfterDateTime_UTC",
-        "title": "Pickup After Date Time_UTC",
+        "title": "Pickup After Date Time",
         "type": "date",
         "sortable": true
       },
@@ -2694,7 +2801,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       },
       {
         "field": "PickupBeforeDateTime_UTC",
-        "title": "Pickup Before Date Time_UTC",
+        "title": "Pickup Before Date Time",
         "type": "date",
         "sortable": true
       },
@@ -2706,7 +2813,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       },
       {
         "field": "DropOffAfterDateTime_UTC",
-        "title": "Drop Off After Date Time_UTC",
+        "title": "Drop Off After Date Time",
         "type": "date",
         "sortable": true
       },
@@ -2718,7 +2825,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       },
       {
         "field": "DropOffBeforeDateTime_UTC",
-        "title": "Drop Off Before Date Time_UTC",
+        "title": "Drop Off Before Date Time",
         "type": "date",
         "sortable": true
       },
@@ -2795,12 +2902,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "PaidAt_UTC",
-        "title": "Paid At_UTC",
-        "type": "date",
-        "sortable": true
-      },
-      {
         "field": "HubCarrierInfo",
         "title": "Hub Carrier Info",
         "type": "text",
@@ -2810,6 +2911,42 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "Status",
         "title": "Status",
         "type": "status",
+        "sortable": true
+      },
+      {
+        "field": "CVOTitle",
+        "title": "CVOTitle",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CustomerTitle",
+        "title": "Customer Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "DistributorTitle",
+        "title": "Distributor Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "BatchItemsCount",
+        "title": "Batch Items Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "ReqRideAddonsCount",
+        "title": "Req Ride Addons Count",
+        "type": "number",
+        "sortable": true
+      },
+      {
+        "field": "ReqRidePassengersCount",
+        "title": "Req Ride Passengers Count",
+        "type": "number",
         "sortable": true
       }
     ],
@@ -2843,13 +2980,20 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportContactLocations",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_ContactLocationListSummary",
       "select": [
         "Id",
         "ContactId",
         "FavAdrLabel",
-        "LocationId"
+        "LocationId",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "LocationTitle",
+        "ContactTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -2859,21 +3003,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportContactLocationListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "ContactId",
-        "title": "Contact Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "FavAdrLabel",
         "title": "Fav Adr Label",
@@ -2881,8 +3013,14 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "LocationId",
-        "title": "Location Id",
+        "field": "LocationTitle",
+        "title": "Location Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "ContactTitle",
+        "title": "Contact Title",
         "type": "text",
         "sortable": true
       }
@@ -2917,8 +3055,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportFareBaseInclutions",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_FareBaseInclutionListSummary",
       "select": [
         "Id",
         "DistributorId",
@@ -2931,7 +3069,14 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "IncludedLuggageCounts",
         "IncludedParcelCounts",
         "IncludedWeightKg",
-        "IncludedVolumeCubicM"
+        "IncludedVolumeCubicM",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "CVOTitle",
+        "DistributorTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -2941,27 +3086,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportFareBaseInclutionListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DistributorId",
-        "title": "Distributor Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CVOId",
-        "title": "CVOId",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "TransportCategory",
         "title": "Transport Category",
@@ -3015,6 +3142,18 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "title": "Included Volume Cubic M",
         "type": "text",
         "sortable": true
+      },
+      {
+        "field": "CVOTitle",
+        "title": "CVOTitle",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "DistributorTitle",
+        "title": "Distributor Title",
+        "type": "text",
+        "sortable": true
       }
     ],
     "rowActions": [
@@ -3047,14 +3186,16 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportFareByGeoFence",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_FareByGeoFenceListSummary",
       "select": [
         "Id",
         "TransportFareCalculationId",
         "SourceGeoFenceBaseId",
         "DestinationGeoFenceBaseId",
-        "BaseFare"
+        "BaseFare",
+        "DestinationGeoFenceBaseTitle",
+        "SourceGeoFenceBaseTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -3064,37 +3205,25 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportFareByGeoFenceListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "TransportFareCalculationId",
-        "title": "Transport Fare Calculation Id",
-        "type": "amount",
-        "sortable": true
-      },
-      {
-        "field": "SourceGeoFenceBaseId",
-        "title": "Source Geo Fence Base Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DestinationGeoFenceBaseId",
-        "title": "Destination Geo Fence Base Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "BaseFare",
         "title": "Base Fare",
         "type": "amount",
+        "sortable": true
+      },
+      {
+        "field": "DestinationGeoFenceBaseTitle",
+        "title": "Destination Geo Fence Base Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "SourceGeoFenceBaseTitle",
+        "title": "Source Geo Fence Base Title",
+        "type": "text",
         "sortable": true
       }
     ],
@@ -3128,14 +3257,16 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportFareByZone",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_FareByZoneListSummary",
       "select": [
         "Id",
         "TransportFareCalculationId",
         "SourceGeoFenceBaseId",
         "DestinationGeoFenceBaseId",
-        "BaseFare"
+        "BaseFare",
+        "DestinationGeoFenceBaseTitle",
+        "SourceGeoFenceBaseTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -3145,37 +3276,25 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportFareByZoneListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "TransportFareCalculationId",
-        "title": "Transport Fare Calculation Id",
-        "type": "amount",
-        "sortable": true
-      },
-      {
-        "field": "SourceGeoFenceBaseId",
-        "title": "Source Geo Fence Base Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DestinationGeoFenceBaseId",
-        "title": "Destination Geo Fence Base Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "BaseFare",
         "title": "Base Fare",
         "type": "amount",
+        "sortable": true
+      },
+      {
+        "field": "DestinationGeoFenceBaseTitle",
+        "title": "Destination Geo Fence Base Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "SourceGeoFenceBaseTitle",
+        "title": "Source Geo Fence Base Title",
+        "type": "text",
         "sortable": true
       }
     ],
@@ -3198,8 +3317,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportFareCalculations",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_FareCalculationListSummary",
       "select": [
         "Id",
         "DistributorId",
@@ -3215,7 +3334,15 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "CalculationUnit",
         "UnitAmount",
         "Price",
-        "PriceTable"
+        "PriceTable",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted",
+        "DistributorTitle",
+        "CVOTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -3225,27 +3352,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportFareCalculationListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DistributorId",
-        "title": "Distributor Id",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CVOId",
-        "title": "CVOId",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "TransportCategory",
         "title": "Transport Category",
@@ -3317,6 +3426,18 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "title": "Price Table",
         "type": "amount",
         "sortable": true
+      },
+      {
+        "field": "DistributorTitle",
+        "title": "Distributor Title",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "CVOTitle",
+        "title": "CVOTitle",
+        "type": "text",
+        "sortable": true
       }
     ],
     "rowActions": [
@@ -3349,14 +3470,20 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportGeoFenceBases",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_GeoFenceBaseListSummary",
       "select": [
         "Id",
         "Code",
         "Title",
         "Coordinates",
-        "Order"
+        "Order",
+        "RecordKey",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "ModifiedAt_UTC",
+        "ModifiedBy",
+        "RecordDeleted"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -3366,15 +3493,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportGeoFenceBasListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "Code",
         "title": "Code",
@@ -3430,8 +3551,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "table",
-      "dataSourceValue": "H_TransportLocations",
+      "dataSourceType": "view",
+      "dataSourceValue": "Vi_SPC_LocationListSummary",
       "select": [
         "Id",
         "Title",
@@ -3442,7 +3563,10 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "Province",
         "PostalCode",
         "PlaceId",
-        "GoogleFullAddress"
+        "GoogleFullAddress",
+        "CreatedAt_UTC",
+        "CreatedBy",
+        "RecordDeleted"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 25,
@@ -3452,15 +3576,9 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         50,
         100
       ],
-      "pendingViewOrder": "Vi_SPC_TransportLocationListSummary"
+      "pendingViewOrder": null
     },
     "columns": [
-      {
-        "field": "Id",
-        "title": "Id",
-        "type": "text",
-        "sortable": true
-      },
       {
         "field": "Title",
         "title": "Title",
@@ -3500,12 +3618,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       {
         "field": "PostalCode",
         "title": "Postal Code",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PlaceId",
-        "title": "Place Id",
         "type": "text",
         "sortable": true
       },
