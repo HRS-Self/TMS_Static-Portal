@@ -96,7 +96,6 @@ export type SurfaceWriterConfig = {
   method: SurfaceWriterHttpMethod;
   path: string;
   includeEntityId?: boolean;
-  includeAccessKey?: boolean;
 };
 
 export type SurfaceCapabilitySnapshot = {

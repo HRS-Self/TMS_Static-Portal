@@ -18,13 +18,10 @@ type Env = {
 
   gdBackendBaseUrl: string;
   gdBackendProfilePath: string;
-  gdUseXAccessKey: boolean;
   coreBackendBaseUrl: string;
   coreBackendProfilePath: string;
-  coreUseXAccessKey: boolean;
   notificationBackendBaseUrl: string;
   notificationBackendProfilePath: string;
-  notificationUseXAccessKey: boolean;
   gdGatewayBaseUrl: string;
   coreGatewayBaseUrl: string;
   notificationGatewayBaseUrl: string;
@@ -121,21 +118,15 @@ export function getEnv(): Env {
 
     gdBackendBaseUrl: mustGet("GD_BACKEND_BASE_URL"),
     gdBackendProfilePath: optional("GD_BACKEND_PROFILE_PATH", "/api/v1/me"),
-    gdUseXAccessKey: optionalBool("GD_USE_X_ACCESS_KEY", false),
     coreBackendBaseUrl: mustGet("CORE_BACKEND_BASE_URL"),
     coreBackendProfilePath: optional(
       "CORE_BACKEND_PROFILE_PATH",
       "/api/v1/me",
     ),
-    coreUseXAccessKey: optionalBool("CORE_USE_X_ACCESS_KEY", false),
     notificationBackendBaseUrl: mustGet("NOTIFICATION_BACKEND_BASE_URL"),
     notificationBackendProfilePath: optional(
       "NOTIFICATION_BACKEND_PROFILE_PATH",
       "/api/v1/me",
-    ),
-    notificationUseXAccessKey: optionalBool(
-      "NOTIFICATION_USE_X_ACCESS_KEY",
-      false,
     ),
     gdGatewayBaseUrl: mustGet("GD_GATEWAY_BASE_URL"),
     coreGatewayBaseUrl: mustGet("CORE_GATEWAY_BASE_URL"),
