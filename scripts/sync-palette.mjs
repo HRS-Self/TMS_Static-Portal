@@ -28,14 +28,20 @@
  * Governance reference:
  *   DP_Library_UI-Kit/docs/architecture/responsive-primitives.md
  */
-import nextEnv from '@next/env';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const { loadEnvConfig } = nextEnv;
 const projectDir = process.cwd();
 
-loadEnvConfig(projectDir);
+// Optionally load .env* via @next/env. It's a transitive dep of `next`, so under
+// pnpm (strict) it may not resolve at top-level — that's non-fatal: CLI arg,
+// process.env, and the default palette still work.
+try {
+  const nextEnv = await import('@next/env');
+  (nextEnv.default ?? nextEnv).loadEnvConfig?.(projectDir);
+} catch {
+  /* @next/env not resolvable — skip auto-loading .env files */
+}
 
 const SUPPORTED_PALETTES = ['indigo', 'yellow', 'orange'];
 
