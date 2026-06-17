@@ -1,0 +1,879 @@
+{
+  "definitions.access.entities": {
+    "surfaceKey": "definitions.access.entities",
+    "primarySubject": "H_AAA_EntityProfile",
+    "backend": "gd",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_EntityListSummary",
+        "kind": "list",
+        "source": "H_AAA_EntityProfile"
+      },
+      {
+        "view": "Vi_SPC_EntityProfile",
+        "kind": "profile",
+        "source": "H_AAA_EntityProfile"
+      }
+    ],
+    "droppedChildren": [
+      {
+        "child": "H_AAA_EntityScenarios",
+        "why": "self-surfacing(capability)"
+      },
+      {
+        "child": "H_EntityNotificationSettings",
+        "why": "self-surfacing(notification)"
+      },
+      {
+        "child": "H_RequestBases",
+        "why": "self-surfacing(governance)"
+      }
+    ]
+  },
+  "definitions.access.scenarios": {
+    "surfaceKey": "definitions.access.scenarios",
+    "primarySubject": "H_AAA_Scenarios",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": "system-admin",
+    "viewCount": 4,
+    "views": [
+      {
+        "view": "Vi_SPC_ScenarioListSummary",
+        "kind": "list",
+        "source": "H_AAA_Scenarios"
+      },
+      {
+        "view": "Vi_SPC_ScenarioProfile",
+        "kind": "profile",
+        "source": "H_AAA_Scenarios"
+      },
+      {
+        "view": "Vi_SPC_ScenarioEntityScenario",
+        "kind": "tab",
+        "source": "H_AAA_EntityScenarios"
+      },
+      {
+        "view": "Vi_SPC_ScenarioScenarioDataMap",
+        "kind": "tab",
+        "source": "H_AAA_ScenarioDataMap"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "definitions.access.users": {
+    "surfaceKey": "definitions.access.users",
+    "primarySubject": "H_AAA_UserInfo",
+    "backend": null,
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 3,
+    "views": [
+      {
+        "view": "Vi_SPC_UserListSummary",
+        "kind": "list",
+        "source": "H_AAA_UserInfo"
+      },
+      {
+        "view": "Vi_SPC_UserProfile",
+        "kind": "profile",
+        "source": "H_AAA_UserInfo"
+      },
+      {
+        "view": "Vi_SPC_UserUserEntityRole",
+        "kind": "tab",
+        "source": "H_AAA_UserEntityRoles"
+      }
+    ],
+    "droppedChildren": [
+      {
+        "child": "H_AAA_UserAppSettings",
+        "why": "base-extension→Profile"
+      },
+      {
+        "child": "H_AAA_UserProfile",
+        "why": "base-extension→Profile"
+      },
+      {
+        "child": "H_RequestBases",
+        "why": "self-surfacing(governance)"
+      }
+    ]
+  },
+  "definitions.customers": {
+    "surfaceKey": "definitions.customers",
+    "primarySubject": "H_TransportCustomers",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 6,
+    "views": [
+      {
+        "view": "Vi_SPC_CustomerListSummary",
+        "kind": "list",
+        "source": "H_TransportCustomers"
+      },
+      {
+        "view": "Vi_SPC_CustomerProfile",
+        "kind": "profile",
+        "source": "H_TransportCustomers"
+      },
+      {
+        "view": "Vi_SPC_CustomerContact",
+        "kind": "tab",
+        "source": "H_TransportContactRegistry"
+      },
+      {
+        "view": "Vi_SPC_CustomerCustomerContact",
+        "kind": "tab",
+        "source": "H_TransportCustomerContacts"
+      },
+      {
+        "view": "Vi_SPC_CustomerCustomerMasterGood",
+        "kind": "tab",
+        "source": "H_TransportCustomerMasterGoods"
+      },
+      {
+        "view": "Vi_SPC_CustomerDistributorCustomer",
+        "kind": "tab",
+        "source": "H_TransportDistributorCustomers"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "definitions.cvos": {
+    "surfaceKey": "definitions.cvos",
+    "primarySubject": "H_CVOs",
+    "backend": "gd",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 7,
+    "views": [
+      {
+        "view": "Vi_SPC_CVOListSummary",
+        "kind": "list",
+        "source": "H_CVOs"
+      },
+      {
+        "view": "Vi_SPC_CVOProfile",
+        "kind": "profile",
+        "source": "H_CVOs"
+      },
+      {
+        "view": "Vi_SPC_CVODriver",
+        "kind": "tab",
+        "source": "H_CVODrivers"
+      },
+      {
+        "view": "Vi_SPC_CVOCVOService",
+        "kind": "tab",
+        "source": "H_CVOServices"
+      },
+      {
+        "view": "Vi_SPC_CVOVehicle",
+        "kind": "tab",
+        "source": "H_CVOVehicles"
+      },
+      {
+        "view": "Vi_SPC_CVODistributor",
+        "kind": "tab",
+        "source": "H_DistributorCVOs"
+      },
+      {
+        "view": "Vi_SPC_CVOPermit",
+        "kind": "tab",
+        "source": "H_Permits"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "definitions.distributors": {
+    "surfaceKey": "definitions.distributors",
+    "primarySubject": "H_Distributors",
+    "backend": "gd",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 7,
+    "views": [
+      {
+        "view": "Vi_SPC_DistributorListSummary",
+        "kind": "list",
+        "source": "H_Distributors"
+      },
+      {
+        "view": "Vi_SPC_DistributorProfile",
+        "kind": "profile",
+        "source": "H_Distributors"
+      },
+      {
+        "view": "Vi_SPC_DistributorCVO",
+        "kind": "tab",
+        "source": "H_DistributorCVOs"
+      },
+      {
+        "view": "Vi_SPC_DistributorDriver",
+        "kind": "tab",
+        "source": "H_DistributorDrivers"
+      },
+      {
+        "view": "Vi_SPC_DistributorHUB",
+        "kind": "tab",
+        "source": "H_HUBDistributors"
+      },
+      {
+        "view": "Vi_SPC_DistributorPermit",
+        "kind": "tab",
+        "source": "H_Permits"
+      },
+      {
+        "view": "Vi_SPC_DistributorDistributorCustomer",
+        "kind": "tab",
+        "source": "H_TransportDistributorCustomers"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "definitions.drivers": {
+    "surfaceKey": "definitions.drivers",
+    "primarySubject": "H_Drivers",
+    "backend": "gd",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 6,
+    "views": [
+      {
+        "view": "Vi_SPC_DriverListSummary",
+        "kind": "list",
+        "source": "H_Drivers"
+      },
+      {
+        "view": "Vi_SPC_DriverProfile",
+        "kind": "profile",
+        "source": "H_Drivers"
+      },
+      {
+        "view": "Vi_SPC_DriverCVO",
+        "kind": "tab",
+        "source": "H_CVODrivers"
+      },
+      {
+        "view": "Vi_SPC_DriverDistributor",
+        "kind": "tab",
+        "source": "H_DistributorDrivers"
+      },
+      {
+        "view": "Vi_SPC_DriverPermit",
+        "kind": "tab",
+        "source": "H_Permits"
+      },
+      {
+        "view": "Vi_SPC_DriverVehicle",
+        "kind": "tab",
+        "source": "H_VehicleDrivers"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "definitions.hubs": {
+    "surfaceKey": "definitions.hubs",
+    "primarySubject": "H_HUBs",
+    "backend": "gd",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 4,
+    "views": [
+      {
+        "view": "Vi_SPC_HUBListSummary",
+        "kind": "list",
+        "source": "H_HUBs"
+      },
+      {
+        "view": "Vi_SPC_HUBProfile",
+        "kind": "profile",
+        "source": "H_HUBs"
+      },
+      {
+        "view": "Vi_SPC_HUBDistributor",
+        "kind": "tab",
+        "source": "H_HUBDistributors"
+      },
+      {
+        "view": "Vi_SPC_HUBPermit",
+        "kind": "tab",
+        "source": "H_Permits"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "definitions.requests": {
+    "surfaceKey": "definitions.requests",
+    "primarySubject": "H_RequestStatuses",
+    "backend": "gd",
+    "archetype": "requests-control-plane",
+    "visibilityScope": null,
+    "viewCount": 3,
+    "views": [
+      {
+        "view": "Vi_SPC_RequestsApprovalListSummary",
+        "kind": "list",
+        "source": "H_RequestStatuses"
+      },
+      {
+        "view": "Vi_SPC_RequestsApprovalProfile",
+        "kind": "profile",
+        "source": "H_RequestStatuses"
+      },
+      {
+        "view": "Vi_SPC_RequestsApprovalPermitStatusVerification",
+        "kind": "tab",
+        "source": "H_PermitStatusVerifications"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "definitions.vehicles": {
+    "surfaceKey": "definitions.vehicles",
+    "primarySubject": "H_VehicleProfile",
+    "backend": "gd",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 6,
+    "views": [
+      {
+        "view": "Vi_SPC_VehicleListSummary",
+        "kind": "list",
+        "source": "H_VehicleProfile"
+      },
+      {
+        "view": "Vi_SPC_VehicleProfile",
+        "kind": "profile",
+        "source": "H_VehicleProfile"
+      },
+      {
+        "view": "Vi_SPC_VehicleCVO",
+        "kind": "tab",
+        "source": "H_CVOVehicles"
+      },
+      {
+        "view": "Vi_SPC_VehiclePermit",
+        "kind": "tab",
+        "source": "H_Permits"
+      },
+      {
+        "view": "Vi_SPC_VehicleDriver",
+        "kind": "tab",
+        "source": "H_VehicleDrivers"
+      },
+      {
+        "view": "Vi_SPC_VehicleVehicleFeature",
+        "kind": "tab",
+        "source": "H_VehicleFeatures"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "header.notifications": {
+    "surfaceKey": "header.notifications",
+    "primarySubject": "H_NotificationQueue",
+    "backend": "ntf",
+    "archetype": "notification-tray",
+    "visibilityScope": null,
+    "viewCount": 1,
+    "views": [
+      {
+        "view": "Vi_SPC_NotificationTray",
+        "kind": "tray",
+        "source": "H_NotificationQueue"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "system.app-registration.app-clients": {
+    "surfaceKey": "system.app-registration.app-clients",
+    "primarySubject": "H_AAA_AppClients",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_AppClientListSummary",
+        "kind": "list",
+        "source": "H_AAA_AppClients"
+      },
+      {
+        "view": "Vi_SPC_AppClientProfile",
+        "kind": "profile",
+        "source": "H_AAA_AppClients"
+      }
+    ],
+    "droppedChildren": [
+      {
+        "child": "H_AAA_UserAppSettings",
+        "why": "base-extension→Profile"
+      }
+    ]
+  },
+  "system.app-registration.app-types": {
+    "surfaceKey": "system.app-registration.app-types",
+    "primarySubject": "H_AAA_AppTypes",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 3,
+    "views": [
+      {
+        "view": "Vi_SPC_AppTypeListSummary",
+        "kind": "list",
+        "source": "H_AAA_AppTypes"
+      },
+      {
+        "view": "Vi_SPC_AppTypeProfile",
+        "kind": "profile",
+        "source": "H_AAA_AppTypes"
+      },
+      {
+        "view": "Vi_SPC_AppTypeAppTypePermission",
+        "kind": "tab",
+        "source": "H_AAA_AppTypePermissions"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "system.configurations.action-config-bases": {
+    "surfaceKey": "system.configurations.action-config-bases",
+    "primarySubject": "H_CFG_ActionConfigBases",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_ActionConfigBasListSummary",
+        "kind": "list",
+        "source": "H_CFG_ActionConfigBases"
+      },
+      {
+        "view": "Vi_SPC_ActionConfigBasProfile",
+        "kind": "profile",
+        "source": "H_CFG_ActionConfigBases"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "system.configurations.actor-configs": {
+    "surfaceKey": "system.configurations.actor-configs",
+    "primarySubject": "H_CFG_ActorConfigs",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_ActorConfigListSummary",
+        "kind": "list",
+        "source": "H_CFG_ActorConfigs"
+      },
+      {
+        "view": "Vi_SPC_ActorConfigProfile",
+        "kind": "profile",
+        "source": "H_CFG_ActorConfigs"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "system.configurations.entity-configs": {
+    "surfaceKey": "system.configurations.entity-configs",
+    "primarySubject": "H_CFG_EntityConfigs",
+    "backend": "gd",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_EntityConfigListSummary",
+        "kind": "list",
+        "source": "H_CFG_EntityConfigs"
+      },
+      {
+        "view": "Vi_SPC_EntityConfigProfile",
+        "kind": "profile",
+        "source": "H_CFG_EntityConfigs"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "system.configurations.global-configs": {
+    "surfaceKey": "system.configurations.global-configs",
+    "primarySubject": "H_CFG_GlobalConfigs",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_GlobalConfigListSummary",
+        "kind": "list",
+        "source": "H_CFG_GlobalConfigs"
+      },
+      {
+        "view": "Vi_SPC_GlobalConfigProfile",
+        "kind": "profile",
+        "source": "H_CFG_GlobalConfigs"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "system.notification-definitions.templates": {
+    "surfaceKey": "system.notification-definitions.templates",
+    "primarySubject": "H_NotificationTemplateSettings",
+    "backend": "ntf",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_NotificationTemplateListSummary",
+        "kind": "list",
+        "source": "H_NotificationTemplateSettings"
+      },
+      {
+        "view": "Vi_SPC_NotificationTemplateProfile",
+        "kind": "profile",
+        "source": "H_NotificationTemplateSettings"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "system.permit-management.permit-issuers": {
+    "surfaceKey": "system.permit-management.permit-issuers",
+    "primarySubject": "H_PermitIssuers",
+    "backend": "gd",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 4,
+    "views": [
+      {
+        "view": "Vi_SPC_PermitIssuerListSummary",
+        "kind": "list",
+        "source": "H_PermitIssuers"
+      },
+      {
+        "view": "Vi_SPC_PermitIssuerProfile",
+        "kind": "profile",
+        "source": "H_PermitIssuers"
+      },
+      {
+        "view": "Vi_SPC_PermitIssuerPermitTypeIssuer",
+        "kind": "tab",
+        "source": "H_PermitTypeIssuers"
+      },
+      {
+        "view": "Vi_SPC_PermitIssuerPermit",
+        "kind": "tab",
+        "source": "H_Permits"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "system.permit-management.permit-types": {
+    "surfaceKey": "system.permit-management.permit-types",
+    "primarySubject": "H_PermitTypes",
+    "backend": "gd",
+    "archetype": "compact-catalog",
+    "visibilityScope": null,
+    "viewCount": 1,
+    "views": [
+      {
+        "view": "Vi_SPC_PermitTypeListSummary",
+        "kind": "list",
+        "source": "H_PermitTypes"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.batches": {
+    "surfaceKey": "transport.batches",
+    "primarySubject": "H_TransportBatches",
+    "backend": "core",
+    "archetype": "production-workbench",
+    "visibilityScope": null,
+    "viewCount": 3,
+    "views": [
+      {
+        "view": "Vi_SPC_BatchListSummary",
+        "kind": "list",
+        "source": "H_TransportBatches"
+      },
+      {
+        "view": "Vi_SPC_BatchProfile",
+        "kind": "profile",
+        "source": "H_TransportBatches"
+      },
+      {
+        "view": "Vi_SPC_BatchBatchItem",
+        "kind": "tab",
+        "source": "H_TransportBatchItems"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.deliveries": {
+    "surfaceKey": "transport.deliveries",
+    "primarySubject": "H_TransportReqDeliveries",
+    "backend": "core",
+    "archetype": "production-workbench",
+    "visibilityScope": null,
+    "viewCount": 5,
+    "views": [
+      {
+        "view": "Vi_SPC_DeliveryListSummary",
+        "kind": "list",
+        "source": "H_TransportReqDeliveries"
+      },
+      {
+        "view": "Vi_SPC_DeliveryProfile",
+        "kind": "profile",
+        "source": "H_TransportReqDeliveries"
+      },
+      {
+        "view": "Vi_SPC_DeliveryBatchItem",
+        "kind": "tab",
+        "source": "H_TransportBatchItems"
+      },
+      {
+        "view": "Vi_SPC_DeliveryReqDeliveryAddon",
+        "kind": "tab",
+        "source": "H_TransportReqDeliveryAddons"
+      },
+      {
+        "view": "Vi_SPC_DeliveryReqDeliveryGood",
+        "kind": "tab",
+        "source": "H_TransportReqDeliveryGoods"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.dispatch": {
+    "surfaceKey": "transport.dispatch",
+    "primarySubject": "H_TransportTransacts",
+    "backend": "core",
+    "archetype": "production-workbench",
+    "visibilityScope": null,
+    "viewCount": 4,
+    "views": [
+      {
+        "view": "Vi_SPC_DispatchListSummary",
+        "kind": "list",
+        "source": "H_TransportTransacts"
+      },
+      {
+        "view": "Vi_SPC_DispatchProfile",
+        "kind": "profile",
+        "source": "H_TransportTransacts"
+      },
+      {
+        "view": "Vi_SPC_DispatchTransactItem",
+        "kind": "tab",
+        "source": "H_TransportTransactItems"
+      },
+      {
+        "view": "Vi_SPC_DispatchTransactStage",
+        "kind": "tab",
+        "source": "H_TransportTransactStages"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.rides": {
+    "surfaceKey": "transport.rides",
+    "primarySubject": "H_TransportReqRides",
+    "backend": "core",
+    "archetype": "production-workbench",
+    "visibilityScope": null,
+    "viewCount": 6,
+    "views": [
+      {
+        "view": "Vi_SPC_RideListSummary",
+        "kind": "list",
+        "source": "H_TransportReqRides"
+      },
+      {
+        "view": "Vi_SPC_RideProfile",
+        "kind": "profile",
+        "source": "H_TransportReqRides"
+      },
+      {
+        "view": "Vi_SPC_RideBatchItem",
+        "kind": "tab",
+        "source": "H_TransportBatchItems"
+      },
+      {
+        "view": "Vi_SPC_RideReqRideAddon",
+        "kind": "tab",
+        "source": "H_TransportReqRideAddons"
+      },
+      {
+        "view": "Vi_SPC_RideReqRidePassenger",
+        "kind": "tab",
+        "source": "H_TransportReqRidePassengers"
+      },
+      {
+        "view": "Vi_SPC_RideTransactItemStage",
+        "kind": "tab",
+        "source": "H_TransportTransactItemStages"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.setup.contact-locations": {
+    "surfaceKey": "transport.setup.contact-locations",
+    "primarySubject": "H_TransportContactLocations",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_ContactLocationListSummary",
+        "kind": "list",
+        "source": "H_TransportContactLocations"
+      },
+      {
+        "view": "Vi_SPC_ContactLocationProfile",
+        "kind": "profile",
+        "source": "H_TransportContactLocations"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.setup.fare-base-inclutions": {
+    "surfaceKey": "transport.setup.fare-base-inclutions",
+    "primarySubject": "H_TransportFareBaseInclutions",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_FareBaseInclutionListSummary",
+        "kind": "list",
+        "source": "H_TransportFareBaseInclutions"
+      },
+      {
+        "view": "Vi_SPC_FareBaseInclutionProfile",
+        "kind": "profile",
+        "source": "H_TransportFareBaseInclutions"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.setup.fare-by-geo-fence": {
+    "surfaceKey": "transport.setup.fare-by-geo-fence",
+    "primarySubject": "H_TransportFareByGeoFence",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_FareByGeoFenceListSummary",
+        "kind": "list",
+        "source": "H_TransportFareByGeoFence"
+      },
+      {
+        "view": "Vi_SPC_FareByGeoFenceProfile",
+        "kind": "profile",
+        "source": "H_TransportFareByGeoFence"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.setup.fare-by-zone": {
+    "surfaceKey": "transport.setup.fare-by-zone",
+    "primarySubject": "H_TransportFareByZone",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_FareByZoneListSummary",
+        "kind": "list",
+        "source": "H_TransportFareByZone"
+      },
+      {
+        "view": "Vi_SPC_FareByZoneProfile",
+        "kind": "profile",
+        "source": "H_TransportFareByZone"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.setup.fare-calculations": {
+    "surfaceKey": "transport.setup.fare-calculations",
+    "primarySubject": "H_TransportFareCalculations",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_FareCalculationListSummary",
+        "kind": "list",
+        "source": "H_TransportFareCalculations"
+      },
+      {
+        "view": "Vi_SPC_FareCalculationProfile",
+        "kind": "profile",
+        "source": "H_TransportFareCalculations"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.setup.geo-fence-bases": {
+    "surfaceKey": "transport.setup.geo-fence-bases",
+    "primarySubject": "H_TransportGeoFenceBases",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_GeoFenceBasListSummary",
+        "kind": "list",
+        "source": "H_TransportGeoFenceBases"
+      },
+      {
+        "view": "Vi_SPC_GeoFenceBasProfile",
+        "kind": "profile",
+        "source": "H_TransportGeoFenceBases"
+      }
+    ],
+    "droppedChildren": []
+  },
+  "transport.setup.locations": {
+    "surfaceKey": "transport.setup.locations",
+    "primarySubject": "H_TransportLocations",
+    "backend": "core",
+    "archetype": "managed-list",
+    "visibilityScope": null,
+    "viewCount": 2,
+    "views": [
+      {
+        "view": "Vi_SPC_LocationListSummary",
+        "kind": "list",
+        "source": "H_TransportLocations"
+      },
+      {
+        "view": "Vi_SPC_LocationProfile",
+        "kind": "profile",
+        "source": "H_TransportLocations"
+      }
+    ],
+    "droppedChildren": []
+  }
+}
