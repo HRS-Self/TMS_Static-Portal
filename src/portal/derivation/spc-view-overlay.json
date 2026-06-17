@@ -1,0 +1,27 @@
+{
+  "_README": "Hand-authored SPC overlay (§8 firewall) — domain knowledge the mechanical emitter cannot derive. helpers:[{name,dependsOn,sql}] shared views emitted first. enrichments:{\"<Vi_SPC_ name>\":{joins:[],columns:[]}} extra SELECT exprs/joins merged into a generated view; use alias m for the main table, and reference helper views by name. views:[{name,dependsOn,sql}] fully-authored views (e.g. notification tray). Constants like PermitTypeId=5001 (=DriverLicense) live here, not in the script.",
+  "helpers": [
+    {
+      "name": "Vi_SPC_PermitLatestStatus",
+      "dependsOn": [],
+      "sql": "CREATE OR REPLACE VIEW Vi_SPC_PermitLatestStatus AS SELECT ranked.Id AS PermitStatusId, ranked.PermitId, ranked.ExpiryDate_UTC, ranked.ConditionENUM, ranked.ConditionEndDate_UTC, ranked.MediaRecordKey, ranked.RecordKey, ranked.CreatedAt_UTC, ranked.CreatedBy, ranked.ModifiedAt_UTC, ranked.ModifiedBy, CASE WHEN ranked.ConditionENUM = 4 THEN 'Revoked' WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN 'Expired' WHEN ranked.ConditionENUM = 1 THEN 'Suspended' WHEN ranked.ConditionENUM IS NULL OR ranked.ConditionENUM IN (2,3) THEN 'Valid' ELSE 'Unknown' END AS StatusCategory, CASE ranked.ConditionENUM WHEN 1 THEN 'TempSuspended' WHEN 2 THEN 'TempValid' WHEN 3 THEN 'TempExtended' WHEN 4 THEN 'Revoked' ELSE 'Normal' END AS ConditionTitle, CASE WHEN ranked.ConditionENUM = 4 THEN FALSE WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN FALSE WHEN ranked.ConditionENUM = 1 THEN FALSE WHEN ranked.ConditionENUM IS NULL OR ranked.ConditionENUM IN (2,3) THEN TRUE ELSE NULL END AS IsCurrentlyValid, DATEDIFF(ranked.ExpiryDate_UTC, UTC_TIMESTAMP()) AS DaysUntilExpiry, CASE WHEN ranked.ExpiryDate_UTC IS NULL THEN NULL WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN FALSE WHEN DATEDIFF(ranked.ExpiryDate_UTC, UTC_TIMESTAMP()) <= 30 THEN TRUE ELSE FALSE END AS IsExpiringSoon FROM (SELECT ps.*, ROW_NUMBER() OVER (PARTITION BY ps.PermitId ORDER BY ps.CreatedAt_UTC DESC, ps.Id DESC) AS RowNum FROM H_PermitStatuses ps WHERE ps.RecordDeleted IS NULL) AS ranked WHERE ranked.RowNum = 1;"
+    }
+  ],
+  "enrichments": {
+    "Vi_SPC_DriverListSummary": {
+      "joins": [],
+      "columns": [
+        "(SELECT p.Code FROM H_Permits p WHERE p.DriverId = m.Id AND p.PermitTypeId = 5001 AND p.RecordDeleted IS NULL ORDER BY p.IssuedDate_UTC DESC, p.Id DESC LIMIT 1) AS DriverLicense",
+        "(SELECT pls.ExpiryDate_UTC FROM H_Permits p LEFT JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND p.PermitTypeId = 5001 AND p.RecordDeleted IS NULL ORDER BY p.IssuedDate_UTC DESC, p.Id DESC LIMIT 1) AS DriverLicenseExpiry",
+        "(SELECT COALESCE(pls.StatusCategory,'Unknown') FROM H_Permits p LEFT JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND p.PermitTypeId = 5001 AND p.RecordDeleted IS NULL ORDER BY p.IssuedDate_UTC DESC, p.Id DESC LIMIT 1) AS DriverLicenseStatus",
+        "(SELECT COUNT(*) FROM H_Permits p JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND pls.IsCurrentlyValid = TRUE AND p.RecordDeleted IS NULL) AS ValidPermitCount",
+        "(SELECT COUNT(*) FROM H_Permits p JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND pls.StatusCategory = 'Expired' AND p.RecordDeleted IS NULL) AS ExpiredPermitCount",
+        "(SELECT COUNT(*) FROM H_Permits p JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND pls.StatusCategory = 'Suspended' AND p.RecordDeleted IS NULL) AS SuspendedPermitCount",
+        "(SELECT COUNT(*) FROM H_Permits p JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND pls.StatusCategory = 'Revoked' AND p.RecordDeleted IS NULL) AS RevokedPermitCount",
+        "(SELECT MAX(pls.ExpiryDate_UTC) FROM H_Permits p JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND pls.IsCurrentlyValid = TRUE AND p.RecordDeleted IS NULL) AS NextValidPermitExpiry",
+        "(SELECT JSON_ARRAYAGG(b.VehicleTypeTitle) FROM (SELECT vt.Title AS VehicleTypeTitle FROM H_DriverPermitVehicleTypes dpvt JOIN H_Permits p ON p.Id = dpvt.PermitId JOIN H_ENUM_VehicleTypes vt ON vt.ENUM = dpvt.VehicleType WHERE p.DriverId = m.Id AND p.PermitTypeId = 5001 AND dpvt.RecordDeleted IS NULL AND p.RecordDeleted IS NULL ORDER BY vt.Title, dpvt.Id LIMIT 3) AS b) AS LicensedVehicleTypeBadges"
+      ]
+    }
+  },
+  "views": []
+}
