@@ -24,8 +24,6 @@ export type BackendName = 'core' | 'gd' | 'notification';
 
 export type BackendPermissionIds = Partial<Record<BackendName, number[]>>;
 
-export type BackendEntityIds = Partial<Record<BackendName, number>>;
-
 /** One entry in the in-memory session store. */
 export type AuthSession = {
       userRecordKey: string;
@@ -37,8 +35,6 @@ export type AuthSession = {
       expiry: string;
       /** Single session entity id — GD-master, replicated to Core/NTF with the SAME id; sent as x-entity-id to all backends. */
       entityId?: number;
-      /** @deprecated Rail-B transition: per-backend entity IDs, superseded by `entityId`. */
-      backendEntityIds?: BackendEntityIds;
       /** Display title for the active entity (from the primary backend). */
       entityTitle?: string;
       /** Cross-backend entity identity key. */

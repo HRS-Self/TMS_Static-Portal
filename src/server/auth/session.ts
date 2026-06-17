@@ -96,7 +96,7 @@ export function applyPortalSessionCookie(
 ): void {
   logger.debug("Apply portal session cookie", {
     maxAgeSeconds,
-    hasBackendEntityIds: Boolean(session.backendEntityIds && Object.keys(session.backendEntityIds).length > 0),
+    hasEntityId: Boolean(session.entityId),
   });
   const { sessionCookieName } = getEnv();
   const resolvedMaxAgeSeconds = (() => {
@@ -129,7 +129,7 @@ export function clearPortalSessionCookiesOnResponse(
 
 export async function setPortalSession(session: AuthSession): Promise<void> {
   const cookieStore = await cookies();
-  logger.debug("Set portal session", { hasBackendEntityIds: Boolean(session.backendEntityIds && Object.keys(session.backendEntityIds).length > 0) });
+  logger.debug("Set portal session", { hasEntityId: Boolean(session.entityId) });
   const { sessionCookieName } = getEnv();
   const resolvedMaxAgeSeconds = (() => {
     const expiryMs = parseExpiry(session.expiry);

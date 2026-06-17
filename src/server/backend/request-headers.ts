@@ -15,16 +15,12 @@ export function buildBasicAuthorizationHeaders(): Record<string, string> {
 
 /**
  * The single session entity id. Entities are GD-master, replicated to Core/NTF with the
- * SAME id, so one id is valid for every backend (no per-backend map). During the Rail-B
- * transition we fall back to the legacy per-backend map until entity-selection sets
- * `session.entityId` directly.
+ * SAME id, so one id is valid for every backend (no per-backend map).
  */
 export function getEntityId(session: AuthSession): number | undefined {
-  if (typeof session.entityId === 'number' && session.entityId > 0) return session.entityId;
-  const legacy = session.backendEntityIds
-    ? Object.values(session.backendEntityIds).find((v) => typeof v === 'number' && v > 0)
+  return typeof session.entityId === 'number' && session.entityId > 0
+    ? session.entityId
     : undefined;
-  return typeof legacy === 'number' && legacy > 0 ? legacy : undefined;
 }
 
 /**

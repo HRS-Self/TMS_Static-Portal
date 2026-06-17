@@ -1,6 +1,6 @@
 import 'server-only';
 
-import type { AuthSession, BackendEntityIds } from '@/src/server/auth/types';
+import type { AuthSession } from '@/src/server/auth/types';
 import { getBackends } from '@/src/server/backend';
 import { resolveRecordKeyFromBackendId } from '@/src/server/backend/key-resolver';
 import { logger } from '@/src/server/logger';
@@ -14,8 +14,6 @@ export type EntityChoice = {
       entityRecordKey: string;
       /** Which backends have this entity available. */
       sources: Array<'core' | 'gd' | 'notification'>;
-      /** Per-backend entity IDs. Each backend may have different IDs for the same logical entity. */
-      backendEntityIds: BackendEntityIds;
 };
 
 function normalizeEntities(
@@ -143,7 +141,7 @@ export async function listEntityChoices(
 ): Promise<EntityChoice[]> {
       logger.debug('List entity choices across backends', {
             userRecordKey: session.userRecordKey,
-            hasEntityId: Boolean(session.backendEntityIds),
+            hasEntityId: Boolean(session.entityId),
       });
       const backends = getBackends();
 
@@ -213,13 +211,11 @@ export async function listEntityChoices(
       const choices = Array.from(byRecordKey.values()).map((group) => {
             const display = chooseDisplayEntity(group);
             const sources: EntityChoice['sources'] = [];
-            const backendEntityIds: BackendEntityIds = {};
 
             for (const candidate of group) {
                   if (!sources.includes(candidate.backendName)) {
                         sources.push(candidate.backendName);
                   }
-                  backendEntityIds[candidate.backendName] = candidate.entityId;
             }
 
             return {
@@ -227,7 +223,6 @@ export async function listEntityChoices(
                   entityTitle: display.entityTitle,
                   entityRecordKey: display.recordKey,
                   sources,
-                  backendEntityIds,
             };
       }).sort((a, b) => a.entityTitle.localeCompare(b.entityTitle));
 
@@ -236,7 +231,6 @@ export async function listEntityChoices(
                   entityTitle: choice.entityTitle,
                   hasEntityRecordKey: Boolean(choice.entityRecordKey),
                   sources: choice.sources,
-                  backendEntityIdBackends: Object.keys(choice.backendEntityIds),
             })),
       });
 

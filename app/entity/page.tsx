@@ -47,7 +47,6 @@ export default async function EntitySelectionPage({
     params.set('entityId', String(only.entityId));
     params.set('entityTitle', only.entityTitle);
     params.set('sources', JSON.stringify(only.sources));
-    params.set('backendEntityIds', JSON.stringify(only.backendEntityIds));
     params.set('returnUrl', returnUrl);
     redirect(`/api/entity/select?${params.toString()}`);
   }
@@ -105,11 +104,6 @@ export default async function EntitySelectionPage({
               <input type="hidden" name="entityId" value={String(entity.entityId)} />
               <input type="hidden" name="entityTitle" value={entity.entityTitle} />
               <input type="hidden" name="sources" value={JSON.stringify(entity.sources)} />
-              <input
-                type="hidden"
-                name="backendEntityIds"
-                value={JSON.stringify(entity.backendEntityIds)}
-              />
               <input type="hidden" name="returnUrl" value={returnUrl} />
 
               <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">

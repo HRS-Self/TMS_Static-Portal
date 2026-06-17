@@ -7,16 +7,13 @@ import { listEntityChoices } from '@/src/server/entity/entity-choices';
 import { logger } from '@/src/server/logger';
 
 export function hasActiveEntity(
-  session: Pick<AuthSession, 'backendEntityIds' | 'entityTitle' | 'entityBackends'>,
+  session: Pick<AuthSession, 'entityId' | 'entityTitle' | 'entityBackends'>,
 ): boolean {
-  const hasBackendEntityIds =
-    session.backendEntityIds &&
-    Object.values(session.backendEntityIds).some(
-      (id) => typeof id === 'number' && id > 0,
-    );
-
   return Boolean(
-    hasBackendEntityIds && session.entityTitle && session.entityBackends?.length,
+    typeof session.entityId === 'number' &&
+      session.entityId > 0 &&
+      session.entityTitle &&
+      session.entityBackends?.length,
   );
 }
 
@@ -29,9 +26,7 @@ export async function ensureEntityScope(
   logger.debug('Ensure entity scope', {
     returnUrl,
     needsEntity,
-    hasBackendEntityIds: Boolean(
-      session.backendEntityIds && Object.keys(session.backendEntityIds).length > 0,
-    ),
+    hasEntityId: Boolean(session.entityId),
     hasEntityTitle: Boolean(session.entityTitle),
     hasEntityBackends: Boolean(session.entityBackends?.length),
   });
@@ -53,7 +48,6 @@ export async function ensureEntityScope(
     params.set('entityId', String(only.entityId));
     params.set('entityTitle', only.entityTitle);
     params.set('sources', JSON.stringify(only.sources));
-    params.set('backendEntityIds', JSON.stringify(only.backendEntityIds));
     params.set('returnUrl', returnUrl);
     redirect(`/api/entity/select?${params.toString()}`);
   }

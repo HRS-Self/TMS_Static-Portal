@@ -244,14 +244,14 @@ export async function warmBackendPermissionCache(
       if (!uniqueBackends.length) {
             logger.debug('Skip backend permission cache warm', {
                   reason: 'no_backends',
-                  backendEntityIds: session.backendEntityIds ?? null,
+                  entityId: session.entityId ?? null,
             });
             return nextPermissionIds;
       }
 
       logger.debug('Warm backend permission cache', {
             backends: uniqueBackends,
-            backendEntityIds: session.backendEntityIds ?? null,
+            entityId: session.entityId ?? null,
       });
 
       const settled = await Promise.allSettled(

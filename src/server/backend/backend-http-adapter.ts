@@ -59,7 +59,7 @@ export class BackendHttpAdapter implements BackendAdapter {
                               {
                                     session: {
                                           ...context.session,
-                                          backendEntityIds: undefined,
+                                          entityId: undefined,
                                           entityTitle: undefined,
                                     },
                               },

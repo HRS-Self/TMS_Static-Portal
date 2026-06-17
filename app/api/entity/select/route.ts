@@ -6,7 +6,6 @@ import {
   applyPortalSessionCookie,
   getOptionalSession,
 } from '@/src/server/auth/session';
-import type { BackendEntityIds } from '@/src/server/auth/types';
 import { logger } from '@/src/server/logger';
 import { warmBackendPermissionCache } from '@/src/server/permissions/backend-permissions';
 import { hydrateSurfaceCapabilities } from '@/src/server/permissions/surface-capabilities';
@@ -34,28 +33,6 @@ function parseSources(raw: string | null): Array<'core' | 'gd' | 'notification'>
   }
 }
 
-function parseBackendEntityIds(raw: string | null): BackendEntityIds | undefined {
-  const hasRaw = Boolean(raw);
-  logger.debug('Parse backend entity ids', { hasRaw });
-  if (!raw) return undefined;
-  try {
-    const parsed = JSON.parse(raw);
-    if (typeof parsed !== 'object' || parsed === null) return undefined;
-    const result: BackendEntityIds = {};
-    for (const key of ['core', 'gd', 'notification'] as const) {
-      if (typeof parsed[key] === 'number') {
-        result[key] = parsed[key];
-      }
-    }
-    return result;
-  } catch (error) {
-    logger.error('Parse backend entity ids failed', {
-      reason: error instanceof Error ? error.message : String(error),
-    });
-    return undefined;
-  }
-}
-
 export async function GET(request: NextRequest) {
   const session = await getOptionalSession();
   logger.debug('Entity select GET', { hasSession: Boolean(session) });
@@ -66,12 +43,10 @@ export async function GET(request: NextRequest) {
   const entityIdRaw = request.nextUrl.searchParams.get('entityId');
   const entityTitleRaw = request.nextUrl.searchParams.get('entityTitle') ?? '';
   const sourcesRaw = request.nextUrl.searchParams.get('sources');
-  const backendEntityIdsRaw = request.nextUrl.searchParams.get('backendEntityIds');
   const returnUrl = request.nextUrl.searchParams.get('returnUrl') ?? '/entity';
 
   const entityId = entityIdRaw ? Number.parseInt(entityIdRaw, 10) : NaN;
   const sources = parseSources(sourcesRaw);
-  const backendEntityIds = parseBackendEntityIds(backendEntityIdsRaw);
 
   const safeReturnUrl =
     returnUrl.startsWith('/') && !returnUrl.startsWith('//')
@@ -82,7 +57,6 @@ export async function GET(request: NextRequest) {
     hasEntityId: Boolean(entityIdRaw),
     hasEntityTitle: Boolean(entityTitleRaw),
     sourcesCount: sources.length,
-    hasBackendEntityIds: Boolean(backendEntityIds),
     safeReturnUrl,
   });
 
@@ -97,7 +71,6 @@ export async function GET(request: NextRequest) {
   const sessionWithEntity = {
     ...session,
     entityId,
-    backendEntityIds,
     entityTitle: entityTitleRaw,
     entityBackends: sources,
   };
@@ -138,7 +111,6 @@ export async function POST(request: NextRequest) {
   const entityIdRaw = form.get('entityId');
   const entityTitleRaw = form.get('entityTitle');
   const sourcesRaw = form.get('sources');
-  const backendEntityIdsRaw = form.get('backendEntityIds');
   const returnUrlRaw = form.get('returnUrl');
 
   if (!session) {
@@ -150,10 +122,6 @@ export async function POST(request: NextRequest) {
   const entityTitle = typeof entityTitleRaw === 'string' ? entityTitleRaw : '';
 
   const sources = typeof sourcesRaw === 'string' ? parseSources(sourcesRaw) : [];
-  const backendEntityIds =
-    typeof backendEntityIdsRaw === 'string'
-      ? parseBackendEntityIds(backendEntityIdsRaw)
-      : undefined;
   const returnUrl = typeof returnUrlRaw === 'string' ? returnUrlRaw : '';
   const safeReturnUrl =
     returnUrl.startsWith('/') && !returnUrl.startsWith('//')
@@ -171,7 +139,6 @@ export async function POST(request: NextRequest) {
   const sessionWithEntity = {
     ...session,
     entityId,
-    backendEntityIds,
     entityTitle,
     entityBackends: sources,
   };

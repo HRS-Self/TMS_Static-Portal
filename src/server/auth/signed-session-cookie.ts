@@ -115,7 +115,6 @@ export function sealSession(session: AuthSession): string {
                   (sum, ids) => sum + (Array.isArray(ids) ? ids.length : 0),
                   0,
             ),
-            hasBackendEntityIds: Boolean(session.backendEntityIds && Object.keys(session.backendEntityIds).length > 0),
             hasEntityBackends: Boolean(session.entityBackends?.length),
             hasUserSettings: Boolean(session.userSettings),
             hasSurfaceCapabilities: Boolean(session.surfaceCapabilities),
@@ -214,27 +213,6 @@ export function unsealSession(sealed: string | undefined): AuthSession | null {
             entityId: (() => {
                   const v = (rest as Record<string, unknown>)['entityId'];
                   return typeof v === 'number' && v > 0 ? v : undefined;
-            })(),
-            backendEntityIds: (() => {
-                  const backendEntityIds = (rest as Record<string, unknown>)['backendEntityIds'];
-                  logger.debug('Normalize backendEntityIds from sealed session', {
-                        hasBackendEntityIds: backendEntityIds !== undefined,
-                  });
-                  if (
-                        typeof backendEntityIds === 'object' &&
-                        backendEntityIds !== null &&
-                        !Array.isArray(backendEntityIds)
-                  ) {
-                        const result: Record<string, number> = {};
-                        for (const key of ['core', 'gd', 'notification']) {
-                              const val = (backendEntityIds as Record<string, unknown>)[key];
-                              if (typeof val === 'number') {
-                                    result[key] = val;
-                              }
-                        }
-                        return Object.keys(result).length > 0 ? result : undefined;
-                  }
-                  return undefined;
             })(),
             entityTitle:
                   typeof rest.entityTitle === 'string'

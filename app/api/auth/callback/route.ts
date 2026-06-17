@@ -74,19 +74,16 @@ export async function POST(request: NextRequest) {
     };
 
     const previousSession = await readPortalSession();
-    const hasBackendEntityIds =
-      previousSession?.backendEntityIds &&
-      Object.keys(previousSession.backendEntityIds).length > 0;
     const canCarryEntity =
       previousSession?.userRecordKey === session.userRecordKey &&
-      hasBackendEntityIds &&
+      typeof previousSession?.entityId === 'number' &&
+      previousSession.entityId > 0 &&
       typeof previousSession.entityTitle === 'string';
 
     const sessionWithEntity: AuthSession = canCarryEntity
       ? {
           ...session,
           entityId: previousSession.entityId,
-          backendEntityIds: previousSession.backendEntityIds,
           entityBackends: previousSession.entityBackends,
           entityTitle: previousSession.entityTitle,
         }
