@@ -97,7 +97,12 @@ export async function SurfacePage({ surfaceId }: SurfacePageProps) {
               Data unavailable (DataGateway): {error}
             </p>
           ) : null}
-          <SurfaceListGrid model={model} rows={rows} totalItems={total} />
+          <SurfaceListGrid
+            model={model}
+            rows={rows}
+            totalItems={total}
+            capability={session.surfaceCapabilities?.[surfaceId] ?? null}
+          />
         </div>
       );
     }
