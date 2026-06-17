@@ -70,21 +70,6 @@ function isSurfaceCapabilities(
       );
 }
 
-function isBackendUserIds(
-      value: unknown,
-): value is AuthSession['backendUserIds'] {
-      logger.debug('Check backend user ids shape', {
-            isObject: typeof value === 'object' && value !== null,
-      });
-      if (typeof value !== 'object' || value === null) return false;
-      const o = value as Record<string, unknown>;
-      const keys = ['core', 'gd', 'notification'] as const;
-      return keys.every((key) => {
-            const candidate = o[key];
-            return candidate === undefined || typeof candidate === 'number';
-      });
-}
-
 function isBackendPermissionIds(
       value: unknown,
 ): value is AuthSession['backendPermissionIds'] {
@@ -124,8 +109,6 @@ function isAuthSession(value: unknown): value is AuthSession {
 /** Tamper-evident session blob for httpOnly cookie storage (survives multi-worker / cold start). */
 export function sealSession(session: AuthSession): string {
       logger.debug('Seal session', {
-            backendUserIdsCount: Object.keys(session.backendUserIds ?? {})
-                  .length,
             backendPermissionIdsCount: Object.values(
                   session.backendPermissionIds ?? {},
             ).reduce(
@@ -212,16 +195,6 @@ export function unsealSession(sealed: string | undefined): AuthSession | null {
       return {
             userRecordKey: rest.userRecordKey,
             userId: typeof rest.userId === 'number' ? rest.userId : 0,
-            backendUserIds: (() => {
-                  const backendUserIds = (rest as Record<string, unknown>)[
-                        'backendUserIds'
-                  ];
-                  logger.debug('Normalize backendUserIds from sealed session', {
-                        hasBackendUserIds: backendUserIds !== undefined,
-                  });
-                  if (isBackendUserIds(backendUserIds)) return backendUserIds;
-                  return undefined;
-            })(),
             backendPermissionIds: (() => {
                   const backendPermissionIds = (rest as Record<string, unknown>)[
                         'backendPermissionIds'

@@ -7,7 +7,6 @@ import {
   applyPortalSessionCookie,
   readPortalSession,
 } from '@/src/server/auth/session';
-import { ensureBackendUserIds } from '@/src/server/backend/backend-user-ids';
 import type { AuthSession } from '@/src/server/auth/types';
 import { logger } from '@/src/server/logger';
 import { warmBackendPermissionCache } from '@/src/server/permissions/backend-permissions';
@@ -56,7 +55,7 @@ export async function GET(request: NextRequest) {
   const sessionWithEntity: AuthSession = canCarryEntity
     ? {
         ...session,
-        backendUserIds: previousSession.backendUserIds,
+        entityId: previousSession.entityId,
         backendEntityIds: previousSession.backendEntityIds,
         entityBackends: previousSession.entityBackends,
         entityTitle: previousSession.entityTitle,
@@ -68,18 +67,15 @@ export async function GET(request: NextRequest) {
     carriedBackendEntityIds: sessionWithEntity.backendEntityIds ?? null,
   });
 
-  const sessionWithBackendUserIds =
-    await ensureBackendUserIds(sessionWithEntity);
-
   const backendPermissionIds = canCarryEntity
     ? await warmBackendPermissionCache(
-        sessionWithBackendUserIds,
-        sessionWithBackendUserIds.entityBackends,
+        sessionWithEntity,
+        sessionWithEntity.entityBackends,
       )
     : previousSession?.backendPermissionIds;
 
   const sessionWithPermissions: AuthSession = {
-    ...sessionWithBackendUserIds,
+    ...sessionWithEntity,
     backendPermissionIds,
   };
 

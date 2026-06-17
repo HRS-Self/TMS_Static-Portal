@@ -11,7 +11,6 @@ import {
   readPortalSession,
 } from '@/src/server/auth/session';
 import type { AuthSession, IdpCallbackPayload } from '@/src/server/auth/types';
-import { ensureBackendUserIds } from '@/src/server/backend/backend-user-ids';
 import { logger } from '@/src/server/logger';
 import { warmBackendPermissionCache } from '@/src/server/permissions/backend-permissions';
 import { hydrateSurfaceCapabilities } from '@/src/server/permissions/surface-capabilities';
@@ -86,7 +85,7 @@ export async function POST(request: NextRequest) {
     const sessionWithEntity: AuthSession = canCarryEntity
       ? {
           ...session,
-          backendUserIds: previousSession.backendUserIds,
+          entityId: previousSession.entityId,
           backendEntityIds: previousSession.backendEntityIds,
           entityBackends: previousSession.entityBackends,
           entityTitle: previousSession.entityTitle,
@@ -95,21 +94,18 @@ export async function POST(request: NextRequest) {
 
     logger.debug('IDP callback entity carryover', {
       canCarryEntity,
-      carriedBackendEntityIds: sessionWithEntity.backendEntityIds ?? null,
+      carriedEntityId: sessionWithEntity.entityId ?? null,
     });
-
-    const sessionWithBackendUserIds =
-      await ensureBackendUserIds(sessionWithEntity);
 
     const backendPermissionIds = canCarryEntity
       ? await warmBackendPermissionCache(
-          sessionWithBackendUserIds,
-          sessionWithBackendUserIds.entityBackends,
+          sessionWithEntity,
+          sessionWithEntity.entityBackends,
         )
       : previousSession?.backendPermissionIds;
 
     const sessionWithPermissions: AuthSession = {
-      ...sessionWithBackendUserIds,
+      ...sessionWithEntity,
       backendPermissionIds,
     };
 

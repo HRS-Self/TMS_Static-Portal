@@ -2,7 +2,6 @@ import 'server-only';
 
 import type { AuthSession, BackendEntityIds } from '@/src/server/auth/types';
 import { getBackends } from '@/src/server/backend';
-import { ensureBackendUserIds } from '@/src/server/backend/backend-user-ids';
 import { resolveRecordKeyFromBackendId } from '@/src/server/backend/key-resolver';
 import { logger } from '@/src/server/logger';
 
@@ -146,17 +145,12 @@ export async function listEntityChoices(
             userRecordKey: session.userRecordKey,
             hasEntityId: Boolean(session.backendEntityIds),
       });
-      const sessionWithBackendUserIds = await ensureBackendUserIds(session);
       const backends = getBackends();
 
       const results = await Promise.allSettled([
-            backends.core.getUserEntities({
-                  session: sessionWithBackendUserIds,
-            }),
-            backends.gd.getUserEntities({ session: sessionWithBackendUserIds }),
-            backends.notification.getUserEntities({
-                  session: sessionWithBackendUserIds,
-            }),
+            backends.core.getUserEntities({ session }),
+            backends.gd.getUserEntities({ session }),
+            backends.notification.getUserEntities({ session }),
       ]);
 
       logger.debug('Entity choices backend results settled', {

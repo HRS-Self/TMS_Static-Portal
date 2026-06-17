@@ -22,8 +22,6 @@ export type IdpCallbackPayload = {
 
 export type BackendName = 'core' | 'gd' | 'notification';
 
-export type BackendUserIds = Partial<Record<BackendName, number>>;
-
 export type BackendPermissionIds = Partial<Record<BackendName, number[]>>;
 
 export type BackendEntityIds = Partial<Record<BackendName, number>>;
@@ -32,7 +30,6 @@ export type BackendEntityIds = Partial<Record<BackendName, number>>;
 export type AuthSession = {
       userRecordKey: string;
       userId: number;
-      backendUserIds?: BackendUserIds;
       backendPermissionIds?: BackendPermissionIds;
       firstName: string;
       lastName: string;
