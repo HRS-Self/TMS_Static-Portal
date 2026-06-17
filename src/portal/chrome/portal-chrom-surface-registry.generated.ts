@@ -21,6 +21,15 @@ export const generatedPortalSurfaces: readonly PortalSurface[] = [
     "backendOwner": "gd"
   },
   {
+    "id": "definitions.access.scenarios",
+    "route": "/definitions/access/scenarios",
+    "title": "Scenarios",
+    "section": "definitions",
+    "surfaceKind": "managed-list",
+    "implementationStatus": "contract-only",
+    "backendOwner": "core"
+  },
+  {
     "id": "definitions.access.users",
     "route": "/definitions/access/users",
     "title": "Users",

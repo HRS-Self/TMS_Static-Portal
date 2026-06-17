@@ -129,6 +129,80 @@
       "manage": "User.AaaEntityProfile.Update"
     }
   },
+  "definitions.access.scenarios": {
+    "surfaceKey": "definitions.access.scenarios",
+    "archetype": "managed-list",
+    "backend": "core",
+    "readModel": {
+      "dataSourceType": "table",
+      "dataSourceValue": "H_AAA_Scenarios",
+      "select": [
+        "Id",
+        "Description",
+        "ActivityClassENUM",
+        "ClientEntityId"
+      ],
+      "defaultSortKey": "Id",
+      "defaultPageSize": 25,
+      "pageSizeOptions": [
+        10,
+        25,
+        50,
+        100
+      ],
+      "pendingViewOrder": "Vi_SPC_ScenarioListSummary"
+    },
+    "columns": [
+      {
+        "field": "Id",
+        "title": "Id",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "Description",
+        "title": "Description",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "ActivityClassENUM",
+        "title": "Activity Class ENUM",
+        "type": "text",
+        "sortable": true
+      },
+      {
+        "field": "ClientEntityId",
+        "title": "Client Entity Id",
+        "type": "text",
+        "sortable": true
+      }
+    ],
+    "rowActions": [
+      {
+        "id": "manage",
+        "title": "Manage"
+      },
+      {
+        "id": "delete",
+        "title": "Delete",
+        "treatment": "delete"
+      }
+    ],
+    "headerActions": [
+      {
+        "id": "new",
+        "title": "New",
+        "endpoint": "/api/v5-m1/aaa.scenarios/Set"
+      }
+    ],
+    "capability": {
+      "create": "User.AaaScenarios.Create",
+      "delete": "User.AaaScenarios.Delete",
+      "view": "User.AaaScenarios.Get",
+      "manage": "User.AaaScenarios.Update"
+    }
+  },
   "definitions.access.users": {
     "surfaceKey": "definitions.access.users",
     "archetype": "managed-list",

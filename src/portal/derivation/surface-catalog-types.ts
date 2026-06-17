@@ -11,4 +11,5 @@ export interface SurfaceRecord {
   sourceRecord: string | null; order: number;
   origin: 'derived' | 'scaffold' | 'manual'; contractIntent?: string;
   exceptionStatus: 'default' | 'justified-exception' | 'deferred';
+  visibilityScope?: 'system-admin' | null;
 }

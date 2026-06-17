@@ -137,6 +137,10 @@ export const generatedSidebarSettingsMenu: readonly PortalSidebarMenuNode[] = [
             "href": "/definitions/access/entities"
           },
           {
+            "title": "Scenarios",
+            "href": "/definitions/access/scenarios"
+          },
+          {
             "title": "Users",
             "href": "/definitions/access/users"
           }

@@ -242,6 +242,13 @@ export const navigationTree = {
           "origin": "derived"
         },
         {
+          "name": "Scenarios",
+          "route": "/definitions/access/scenarios",
+          "node": "end",
+          "key": "definitions.access.scenarios",
+          "origin": "derived"
+        },
+        {
           "name": "Users",
           "route": "/definitions/access/users",
           "node": "end",
