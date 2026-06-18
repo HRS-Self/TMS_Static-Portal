@@ -1,7 +1,7 @@
 {
-  "total": 136,
+  "total": 135,
   "valuesMissing": 37,
-  "needsReview": 22,
+  "needsReview": 21,
   "enumTables": {
     "total": 32,
     "matched": [
@@ -1026,12 +1026,6 @@
       "column": "CurrentStatus",
       "signal": "status",
       "resolution": "values-missing"
-    },
-    {
-      "table": "H_TransportTransacts",
-      "column": "RecordDeleted",
-      "signal": "tinyint",
-      "resolution": "needs-review"
     },
     {
       "table": "H_TransportTransactStages",
