@@ -5,6 +5,7 @@ import type {
   PortalSurfaceId,
 } from "@/src/portal/chrome/portal-chrom-surface-registry.config";
 import { getPortalSurface } from "@/src/portal/chrome/portal-chrom-surface-registry.config";
+import { surfaceFormContracts } from "@/src/portal/derivation/surface-form-contracts";
 import type { SurfaceRenderModel } from "@/src/portal/derivation/surface-render-models";
 import { surfaceRenderModels } from "@/src/portal/derivation/surface-render-models";
 import type { SurfaceListConfig } from "@/src/portal/surfaces/types";
@@ -102,6 +103,8 @@ export async function SurfacePage({ surfaceId }: SurfacePageProps) {
             rows={rows}
             totalItems={total}
             capability={session.surfaceCapabilities?.[surfaceId] ?? null}
+            form={surfaceFormContracts[surfaceId] ?? null}
+            title={surface.title}
           />
         </div>
       );

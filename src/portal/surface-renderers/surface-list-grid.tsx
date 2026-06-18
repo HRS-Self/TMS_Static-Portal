@@ -4,11 +4,14 @@ import { TMSDataGrid } from "@conitdev/tms-ui-kit";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import type { SurfaceFormContract } from "@/src/portal/derivation/surface-form-contracts";
 import type {
   RenderAction,
   SurfaceRenderModel,
 } from "@/src/portal/derivation/surface-render-models";
 import type { SurfaceCapabilitySnapshot } from "@/src/portal/surfaces/types";
+
+import { SurfaceWizard } from "./surface-wizard";
 
 // The ONE generic managed-list host. Maps the kit-agnostic render model (S6) onto the
 // kit's TMSDataGrid props — zero surface-specific UI code.
@@ -39,11 +42,14 @@ type SurfaceListGridProps = {
   rows: object[];
   totalItems: number;
   capability?: SurfaceCapabilitySnapshot | null;
+  form?: SurfaceFormContract | null;
+  title?: string;
 };
 
-export function SurfaceListGrid({ model, rows, totalItems, capability }: SurfaceListGridProps) {
+export function SurfaceListGrid({ model, rows, totalItems, capability, form, title }: SurfaceListGridProps) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
+  const [wizard, setWizard] = useState<{ mode: "new" | "manage"; row?: Record<string, unknown> } | null>(null);
 
   // hide an action the capability snapshot forbids (when a snapshot is present)
   const allowed = (action: RenderAction) => {
@@ -74,7 +80,15 @@ export function SurfaceListGrid({ model, rows, totalItems, capability }: Surface
 
   async function handleAction(action: { id?: string }, row?: object) {
     const id = action?.id;
-    // delete is the first wired action — no form needed (New/Manage await the wizard host).
+    // New/Manage open the modal wizard (needs a form contract).
+    if ((id === "new" || id === "manage") && form) {
+      setWizard({
+        mode: id === "new" ? "new" : "manage",
+        row: id === "manage" ? (row as Record<string, unknown>) : undefined,
+      });
+      return;
+    }
+    // Delete needs no form: confirm → write route → refresh.
     if (id === "delete" && row) {
       const recordId = (row as { Id?: number }).Id;
       if (recordId == null || busy) return;
@@ -100,19 +114,32 @@ export function SurfaceListGrid({ model, rows, totalItems, capability }: Surface
   }
 
   return (
-    <TMSDataGrid
-      pageSize={25}
-      columns={columns}
-      rows={rows}
-      totalItems={totalItems}
-      actions={actions}
-      onClickActions={(action, row) => {
-        void handleAction(action as { id?: string }, row);
-      }}
-      processingMode={{ pagination: "backend", sorting: "backend", filtering: "backend" }}
-      showColumns
-      showPagination
-      hasBorder
-    />
+    <>
+      <TMSDataGrid
+        pageSize={25}
+        columns={columns}
+        rows={rows}
+        totalItems={totalItems}
+        actions={actions}
+        onClickActions={(action, row) => {
+          void handleAction(action as { id?: string }, row);
+        }}
+        processingMode={{ pagination: "backend", sorting: "backend", filtering: "backend" }}
+        showColumns
+        showPagination
+        hasBorder
+      />
+      {wizard && form ? (
+        <SurfaceWizard
+          open
+          mode={wizard.mode}
+          surfaceId={model.surfaceKey}
+          title={title ?? "Record"}
+          form={form}
+          initial={wizard.row ?? null}
+          onClose={() => setWizard(null)}
+        />
+      ) : null}
+    </>
   );
 }
