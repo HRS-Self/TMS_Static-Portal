@@ -1,13 +1,174 @@
 {
-  "ActivityClassENUM": "H_ENUM_ActivityClasses",
-  "CalculateMethod": "H_ENUM_CalculateMethods",
-  "CalculationItem": "H_ENUM_CalculationItems",
-  "CalculationType": "H_ENUM_CalculationTypes",
-  "CalculationUnit": "H_ENUM_CalculationUnits",
-  "NotificationPlatformENUM": "H_ENUM_NotificationPlatforms",
-  "NotificationTemplateENUM": "H_ENUM_NotificationTemplates",
-  "ServiceCategory": "H_ENUM_ServiceCategories",
-  "ServiceClass": "H_ENUM_ServiceClasses",
-  "TransportCategory": "H_ENUM_TransportCategories",
-  "VehicleType": "H_ENUM_VehicleTypes"
+  "H_AAA_AppClients.IsInactive": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_AAA_Scenarios.ActivityClassENUM": {
+    "signal": "suffix",
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_ActivityClasses"
+  },
+  "H_AAA_Synced_UserInfo.CellPhoneConfirmed": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_AAA_Synced_UserInfo.EmailConfirmed": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_CFG_ActorConfigs.ActENUM": {
+    "signal": "suffix",
+    "resolution": "pending"
+  },
+  "H_CFG_ActorConfigs.IsOverridable": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_CFG_EntityConfigs.ActENUM": {
+    "signal": "suffix",
+    "resolution": "pending"
+  },
+  "H_CFG_EntityConfigs.IsOverridable": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_CFG_GlobalConfigs.IsOverridable": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_NotificationTemplateSettings.NotificationPlatformENUM": {
+    "signal": "suffix",
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_NotificationPlatforms"
+  },
+  "H_NotificationTemplateSettings.NotificationTemplateENUM": {
+    "signal": "suffix",
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_NotificationTemplates"
+  },
+  "H_NotificationTemplateSettings.NotificationTypeENUM": {
+    "signal": "suffix",
+    "resolution": "pending"
+  },
+  "H_PermitTypes.ActENUM": {
+    "signal": "suffix",
+    "resolution": "pending"
+  },
+  "H_PermitTypes.ActivityClassENUM": {
+    "signal": "suffix",
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_ActivityClasses"
+  },
+  "H_PermitTypes.ProfileDependant": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_RequestStatuses.RequesteeActENUM": {
+    "signal": "suffix",
+    "resolution": "pending"
+  },
+  "H_RequestStatuses.Status": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareBaseInclutions.ServiceCategory": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareBaseInclutions.ServiceClass": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareBaseInclutions.TransportCategory": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareBaseInclutions.VehicleType": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareCalculations.CalculateMethod": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareCalculations.CalculationItem": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareCalculations.CalculationType": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareCalculations.CalculationUnit": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareCalculations.ServiceCategory": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareCalculations.ServiceClass": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareCalculations.TransportCategory": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportFareCalculations.VehicleType": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqDeliveries.ActionOnAbsentReceiver": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqDeliveries.PaymentCategory": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqDeliveries.ServiceClass": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqDeliveries.VehicleProfileSubType": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqDeliveries.VehicleType": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqRides.PaymentCategory": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqRides.ServiceCategory": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqRides.ServiceClass": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqRides.Status": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqRides.VehicleProfileSubType": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_TransportReqRides.VehicleType": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_VehicleProfile.TransportCategory": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  },
+  "H_VehicleProfile.VehicleType": {
+    "signal": "tinyint",
+    "resolution": "pending"
+  }
 }

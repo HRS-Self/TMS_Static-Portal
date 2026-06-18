@@ -1,0 +1,736 @@
+{
+  "total": 119,
+  "pending": 103,
+  "candidates": [
+    {
+      "table": "_ActivitySessions",
+      "column": "ParticipationCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "_ActivitySessions",
+      "column": "ServiceCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "_ZoneBases",
+      "column": "ZoneType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_AAA_AppClients",
+      "column": "IsInactive",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_AAA_EntityRoles",
+      "column": "ActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_AAA_EntityScenarios",
+      "column": "PermittedActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_AAA_ScenarioDataMap",
+      "column": "JoinerActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_AAA_ScenarioDataMap",
+      "column": "SourceDataType",
+      "signal": "mysql-enum",
+      "resolution": "mysql-enum",
+      "valueCount": 3
+    },
+    {
+      "table": "H_AAA_ScenarioDataMap",
+      "column": "TargetActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_AAA_Scenarios",
+      "column": "ActivityClassENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_ActivityClasses"
+    },
+    {
+      "table": "H_AAA_Synced_UserInfo",
+      "column": "CellPhoneConfirmed",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_AAA_Synced_UserInfo",
+      "column": "EmailConfirmed",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_AAA_TableAuditConfigs",
+      "column": "IsActive",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_AAA_TableAudits",
+      "column": "Action",
+      "signal": "mysql-enum",
+      "resolution": "mysql-enum",
+      "valueCount": 3
+    },
+    {
+      "table": "H_CFG_ActorConfigs",
+      "column": "ActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_CFG_ActorConfigs",
+      "column": "IsOverridable",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_CFG_EntityConfigs",
+      "column": "ActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_CFG_EntityConfigs",
+      "column": "IsOverridable",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_CFG_GlobalConfigs",
+      "column": "IsOverridable",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_CVOServices",
+      "column": "ServiceCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_DP_ActorVersions",
+      "column": "ComponentType",
+      "signal": "mysql-enum",
+      "resolution": "mysql-enum",
+      "valueCount": 39
+    },
+    {
+      "table": "H_DP_ComponentChildren",
+      "column": "DP_ChildComponentType",
+      "signal": "mysql-enum",
+      "resolution": "mysql-enum",
+      "valueCount": 39
+    },
+    {
+      "table": "H_DP_ComponentsBases",
+      "column": "Type",
+      "signal": "mysql-enum",
+      "resolution": "mysql-enum",
+      "valueCount": 39
+    },
+    {
+      "table": "H_DP_EventOutbox",
+      "column": "EventTypeENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_EventTypes"
+    },
+    {
+      "table": "H_DriverPermitVehicleTypes",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_EventHandlerListenersMap",
+      "column": "BoxTypeENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_EventHandlerListenersMap",
+      "column": "EventTypeENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_EventTypes"
+    },
+    {
+      "table": "H_EventHandlerListenersMap",
+      "column": "ServiceENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_EventHandlerProcessingQueue",
+      "column": "EventTypeENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_EventTypes"
+    },
+    {
+      "table": "H_EventHandlerProcessingQueue",
+      "column": "RetryCount",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_EventHandlerProcessingQueue",
+      "column": "ServiceENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_EventHandlerProcessingQueue",
+      "column": "Status",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_EventInbox",
+      "column": "ActivityClassENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_ActivityClasses"
+    },
+    {
+      "table": "H_EventInbox",
+      "column": "ActorActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_EventInbox",
+      "column": "EventTypeENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_EventTypes"
+    },
+    {
+      "table": "H_EventInbox",
+      "column": "Status",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_EventOutbox",
+      "column": "ActivityClassENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_ActivityClasses"
+    },
+    {
+      "table": "H_EventOutbox",
+      "column": "ActorActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_EventOutbox",
+      "column": "EventTypeENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_EventTypes"
+    },
+    {
+      "table": "H_EventOutbox",
+      "column": "Status",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_FinTransactions",
+      "column": "PerformedActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_HUBDistributorsLog",
+      "column": "ParticipationCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_HUBDistributors",
+      "column": "ParticipationCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_NotificationQueue",
+      "column": "ChannelType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_NotificationQueue",
+      "column": "Status",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_NotificationRetryLog",
+      "column": "Status",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_NotificationTemplateSettings",
+      "column": "NotificationPlatformENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_NotificationPlatforms"
+    },
+    {
+      "table": "H_NotificationTemplateSettings",
+      "column": "NotificationTemplateENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_NotificationTemplates"
+    },
+    {
+      "table": "H_NotificationTemplateSettings",
+      "column": "NotificationTypeENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Permits",
+      "column": "ActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Permits",
+      "column": "ServiceCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_PermitStatuses",
+      "column": "ConditionENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_PermitTypes",
+      "column": "ActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_PermitTypes",
+      "column": "ActivityClassENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_ActivityClasses"
+    },
+    {
+      "table": "H_PermitTypes",
+      "column": "ProfileDependant",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_RequestBases",
+      "column": "RequesterActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_RequestBases",
+      "column": "RequestType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_RequestStatusesLog",
+      "column": "RequesteeActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_RequestStatusesLog",
+      "column": "Status",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_RequestStatuses",
+      "column": "RequesteeActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_RequestStatuses",
+      "column": "Status",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_ServiceBases",
+      "column": "ServiceClass",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_ServiceBases",
+      "column": "ServiceType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_SYNC_DataSyncSessions",
+      "column": "Status",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_CVOServices",
+      "column": "ServiceCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_DriverPermitVehicleTypes",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_HUBDistributors",
+      "column": "ParticipationCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_Permits",
+      "column": "ActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_Permits",
+      "column": "ServiceCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_PermitStatuses",
+      "column": "ConditionENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_PermitStatusVerifications",
+      "column": "ApprovalStatus",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_PermitStatusVerifications",
+      "column": "ApproverActENUM",
+      "signal": "suffix",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_ServiceBases",
+      "column": "ServiceClass",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_ServiceBases",
+      "column": "ServiceType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_VehicleProfile",
+      "column": "TransportCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_Synced_VehicleProfile",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareBaseInclutions",
+      "column": "ServiceCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareBaseInclutions",
+      "column": "ServiceClass",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareBaseInclutions",
+      "column": "TransportCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareBaseInclutions",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareCalculations",
+      "column": "CalculateMethod",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareCalculations",
+      "column": "CalculationItem",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareCalculations",
+      "column": "CalculationType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareCalculations",
+      "column": "CalculationUnit",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareCalculations",
+      "column": "ServiceCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareCalculations",
+      "column": "ServiceClass",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareCalculations",
+      "column": "TransportCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportFareCalculations",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveries",
+      "column": "ActionOnAbsentReceiver",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveriesLog",
+      "column": "ActionOnAbsentReceiver",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveriesLog",
+      "column": "PaymentCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveriesLog",
+      "column": "ServiceClass",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveriesLog",
+      "column": "VehicleProfileSubType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveriesLog",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveries",
+      "column": "PaymentCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveries",
+      "column": "ServiceClass",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveries",
+      "column": "VehicleProfileSubType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveries",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveryAddons",
+      "column": "CalculationItem",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqDeliveryAddons",
+      "column": "CalculationUnit",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRideAddons",
+      "column": "CalculationItem",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRideAddons",
+      "column": "CalculationUnit",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRidesLog",
+      "column": "PaymentCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRidesLog",
+      "column": "ServiceCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRidesLog",
+      "column": "ServiceClass",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRidesLog",
+      "column": "Status",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRidesLog",
+      "column": "VehicleProfileSubType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRidesLog",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRides",
+      "column": "PaymentCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRides",
+      "column": "ServiceCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRides",
+      "column": "ServiceClass",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRides",
+      "column": "Status",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRides",
+      "column": "VehicleProfileSubType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportReqRides",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_TransportTransacts",
+      "column": "RecordDeleted",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_VehicleProfileLog",
+      "column": "TransportCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_VehicleProfileLog",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_VehicleProfile",
+      "column": "TransportCategory",
+      "signal": "tinyint",
+      "resolution": "pending"
+    },
+    {
+      "table": "H_VehicleProfile",
+      "column": "VehicleType",
+      "signal": "tinyint",
+      "resolution": "pending"
+    }
+  ]
+}

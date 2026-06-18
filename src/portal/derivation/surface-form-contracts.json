@@ -335,8 +335,7 @@
         "name": "TransportCategory",
         "label": "Transport Category",
         "required": false,
-        "type": "select",
-        "enumTable": "H_ENUM_TransportCategories"
+        "type": "number"
       },
       {
         "name": "Cargo_Height",
@@ -378,8 +377,7 @@
         "name": "VehicleType",
         "label": "Vehicle Type",
         "required": false,
-        "type": "select",
-        "enumTable": "H_ENUM_VehicleTypes"
+        "type": "number"
       }
     ]
   },
@@ -1071,8 +1069,7 @@
         "name": "VehicleType",
         "label": "Vehicle Type",
         "required": false,
-        "type": "select",
-        "enumTable": "H_ENUM_VehicleTypes"
+        "type": "number"
       },
       {
         "name": "VehicleProfileSubType",
@@ -1084,8 +1081,7 @@
         "name": "ServiceClass",
         "label": "Service Class",
         "required": false,
-        "type": "select",
-        "enumTable": "H_ENUM_ServiceClasses"
+        "type": "number"
       },
       {
         "name": "ActionOnAbsentReceiver",
@@ -1405,8 +1401,7 @@
         "name": "VehicleType",
         "label": "Vehicle Type",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_VehicleTypes"
+        "type": "number"
       },
       {
         "name": "VehicleProfileSubType",
@@ -1418,15 +1413,13 @@
         "name": "ServiceClass",
         "label": "Service Class",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_ServiceClasses"
+        "type": "number"
       },
       {
         "name": "ServiceCategory",
         "label": "Service Category",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_ServiceCategories"
+        "type": "number"
       },
       {
         "name": "TotalRequiredSeats",
@@ -1566,29 +1559,25 @@
         "name": "TransportCategory",
         "label": "Transport Category",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_TransportCategories"
+        "type": "number"
       },
       {
         "name": "ServiceCategory",
         "label": "Service Category",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_ServiceCategories"
+        "type": "number"
       },
       {
         "name": "VehicleType",
         "label": "Vehicle Type",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_VehicleTypes"
+        "type": "number"
       },
       {
         "name": "ServiceClass",
         "label": "Service Class",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_ServiceClasses"
+        "type": "number"
       },
       {
         "name": "IncludedSeatCounts",
@@ -1704,50 +1693,43 @@
         "name": "TransportCategory",
         "label": "Transport Category",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_TransportCategories"
+        "type": "number"
       },
       {
         "name": "ServiceCategory",
         "label": "Service Category",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_ServiceCategories"
+        "type": "number"
       },
       {
         "name": "VehicleType",
         "label": "Vehicle Type",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_VehicleTypes"
+        "type": "number"
       },
       {
         "name": "ServiceClass",
         "label": "Service Class",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_ServiceClasses"
+        "type": "number"
       },
       {
         "name": "CalculationItem",
         "label": "Calculation Item",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_CalculationItems"
+        "type": "number"
       },
       {
         "name": "CalculationType",
         "label": "Calculation Type",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_CalculationTypes"
+        "type": "number"
       },
       {
         "name": "CalculateMethod",
         "label": "Calculate Method",
         "required": true,
-        "type": "select",
-        "enumTable": "H_ENUM_CalculateMethods"
+        "type": "number"
       },
       {
         "name": "CalculationPriority",
@@ -1759,8 +1741,7 @@
         "name": "CalculationUnit",
         "label": "Calculation Unit",
         "required": false,
-        "type": "select",
-        "enumTable": "H_ENUM_CalculationUnits"
+        "type": "number"
       },
       {
         "name": "UnitAmount",

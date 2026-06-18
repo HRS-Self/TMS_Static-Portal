@@ -1,0 +1,4 @@
+{
+  "_README": "Approval/values for ENUM CANDIDATES (signal = ENUM suffix | mysql enum | tinyint). Candidates need review + values during S0-S7 (see enum-candidates.json). Keyed by \"Table.Column\" (preferred) or bare \"Column\". Per entry: { \"disable\": true } rejects a false positive (e.g. a tinyint flag); { \"source\": \"H_ENUM_X\" } pulls values live from that table; { \"values\": [{\"key\",\"value\"}] } sets them inline (fills the H_ENUM_ coverage gap). mysql-enum values come from the column def and H_ENUM_ suffix matches resolve live with no entry needed; tinyint and uncovered suffixes stay PENDING (raw) until approved here.",
+  "approvals": {}
+}

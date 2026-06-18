@@ -89,31 +89,31 @@ export async function SurfacePage({ surfaceId }: SurfacePageProps) {
         error = caught instanceof Error ? caught.message : String(caught);
       }
 
-      // Resolve ENUM int→label maps live (column→table is generated; labels come from the
-      // reference table via DataGateway). One fetch feeds both the grid (field → mapping) and the
-      // wizard's ENUM selects (field → {value,label} options). Failures leave the column/field raw.
+      // ENUM int→label for the grid (field → mapping) and the wizard's selects (field → options).
+      // Build-time values (mysql-enum / approved-inline) ride on the render model already; only
+      // H_ENUM_-bound (enumTable) fields need a live fetch via DataGateway. Failures → raw.
       const formContract = surfaceFormContracts[surfaceId] ?? null;
       const enumMappings: Record<string, EnumMappingEntry[]> = {};
       const formFieldOptions: Record<string, { value: string; label: string }[]> = {};
-      const enumTables = [
+      const liveTables = [
         ...model.columns.map((column) => column.enumTable),
         ...(formContract?.fields ?? []).map((field) => field.enumTable),
       ].filter((table): table is string => Boolean(table));
-      if (enumTables.length > 0) {
-        const byTable = await resolveEnumMappings(
-          session,
-          resolveSurfaceBackend(surfaceId),
-          enumTables,
-        );
-        for (const column of model.columns) {
-          if (column.enumTable && byTable[column.enumTable]) {
-            enumMappings[column.field] = byTable[column.enumTable];
-          }
+      const byTable = liveTables.length > 0
+        ? await resolveEnumMappings(session, resolveSurfaceBackend(surfaceId), liveTables)
+        : {};
+      for (const column of model.columns) {
+        if (column.mapping) {
+          enumMappings[column.field] = column.mapping.map((m) => ({ key: String(m.key), color: m.color ?? "", value: String(m.value) }));
+        } else if (column.enumTable && byTable[column.enumTable]) {
+          enumMappings[column.field] = byTable[column.enumTable];
         }
-        for (const field of formContract?.fields ?? []) {
-          if (field.enumTable && byTable[field.enumTable]) {
-            formFieldOptions[field.name] = byTable[field.enumTable].map((m) => ({ value: m.key, label: m.value }));
-          }
+      }
+      for (const field of formContract?.fields ?? []) {
+        if (field.options) {
+          formFieldOptions[field.name] = field.options;
+        } else if (field.enumTable && byTable[field.enumTable]) {
+          formFieldOptions[field.name] = byTable[field.enumTable].map((m) => ({ value: m.key, label: m.value }));
         }
       }
       body = (
