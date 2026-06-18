@@ -17,11 +17,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx,
+  h0.Title AS ClientEntityTitle,
   (SELECT COUNT(*) FROM H_AAA_EntityScenarios cc WHERE cc.ScenarioId = m.Id AND cc.RecordDeleted IS NULL) AS EntityScenariosCount,
   (SELECT COUNT(*) FROM H_AAA_ScenarioDataMap cc WHERE cc.ScenarioId = m.Id AND cc.RecordDeleted IS NULL) AS DataMapCount
 FROM H_AAA_Scenarios m
@@ -40,11 +36,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx
+  h0.Title AS ClientEntityTitle
 FROM H_AAA_Scenarios m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.ClientEntityId
 WHERE m.RecordDeleted IS NULL;
@@ -62,11 +54,7 @@ j.ModifiedAt_UTC,
 j.ModifiedBy,
 j.RecordDeleted,
   h0e.Title AS ScenarioTitle,
-  h1.Address_fsx,
-  h1.PostalCode_fsx,
-  h1.Phone_fsx,
-  h1.FaxNumber_fsx,
-  h1.Email_fsx
+  h1.Title AS EntityTitle
 FROM H_AAA_EntityScenarios j
   LEFT JOIN H_AAA_Scenarios h0 ON h0.Id = j.ScenarioId
   LEFT JOIN H_AAA_EntityProfile h0e ON h0e.Id = h0.ClientEntityId
@@ -117,11 +105,7 @@ m.RecordDeleted,
   h0.Username,
   h0.Email_fsx,
   h0.CellPhone_fsx,
-  h1.Address_fsx,
-  h1.PostalCode_fsx,
-  h1.Phone_fsx,
-  h1.FaxNumber_fsx,
-  h1.Email_fsx,
+  h1.Title AS EntityTitle,
   (SELECT COUNT(*) FROM H_TransportCustomerContacts cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS ContactsCount,
   (SELECT COUNT(*) FROM H_TransportCustomerMasterGoods cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS MasterGoodsCount,
   (SELECT COUNT(*) FROM H_TransportDistributorCustomers cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorCustomersCount
@@ -146,11 +130,7 @@ m.RecordDeleted,
   h0.Username,
   h0.Email_fsx,
   h0.CellPhone_fsx,
-  h1.Address_fsx,
-  h1.PostalCode_fsx,
-  h1.Phone_fsx,
-  h1.FaxNumber_fsx,
-  h1.Email_fsx
+  h1.Title AS EntityTitle
 FROM H_TransportCustomers m
   LEFT JOIN H_AAA_Synced_UserInfo h0 ON h0.Id = m.UserId
   LEFT JOIN H_AAA_Synced_EntityProfile h1 ON h1.Id = m.EntityId
@@ -184,16 +164,12 @@ j.CreatedBy,
 j.ModifiedAt_UTC,
 j.ModifiedBy,
 j.RecordDeleted,
-  h0.Firstname_fsx,
-  h0.Lastname_fsx,
+  h0.Firstname_fsx AS PossibleUserFirstname_fsx,
+  h0.Lastname_fsx AS PossibleUserLastname_fsx,
   h0.Username,
   h0.Email_fsx,
   h0.CellPhone_fsx,
-  h1.Address_fsx,
-  h1.PostalCode_fsx,
-  h1.Phone_fsx,
-  h1.FaxNumber_fsx,
-  h1.Email_fsx,
+  h1.Title AS PossibleEntityTitle,
   h2.Title AS MainLocationTitle
 FROM H_TransportContactRegistry j
   LEFT JOIN H_AAA_Synced_UserInfo h0 ON h0.Id = j.PossibleUserId

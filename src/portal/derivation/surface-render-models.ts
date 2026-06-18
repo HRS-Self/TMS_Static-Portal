@@ -156,11 +156,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "Address_fsx",
-        "PostalCode_fsx",
-        "Phone_fsx",
-        "FaxNumber_fsx",
-        "Email_fsx",
+        "ClientEntityTitle",
         "EntityScenariosCount",
         "DataMapCount"
       ],
@@ -188,32 +184,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "Address_fsx",
-        "title": "Address",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PostalCode_fsx",
-        "title": "Postal Code",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Phone_fsx",
-        "title": "Phone",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FaxNumber_fsx",
-        "title": "Fax Number",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Email_fsx",
-        "title": "Email",
+        "field": "ClientEntityTitle",
+        "title": "Client Entity Title",
         "type": "text",
         "sortable": true
       },
@@ -373,11 +345,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "Username",
         "Email_fsx",
         "CellPhone_fsx",
-        "Address_fsx",
-        "PostalCode_fsx",
-        "Phone_fsx",
-        "FaxNumber_fsx",
-        "Email_fsx",
+        "EntityTitle",
         "ContactsCount",
         "MasterGoodsCount",
         "DistributorCustomersCount"
@@ -424,32 +392,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "Address_fsx",
-        "title": "Address",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PostalCode_fsx",
-        "title": "Postal Code",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Phone_fsx",
-        "title": "Phone",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FaxNumber_fsx",
-        "title": "Fax Number",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Email_fsx",
-        "title": "Email",
+        "field": "EntityTitle",
+        "title": "Entity Title",
         "type": "text",
         "sortable": true
       },
@@ -512,11 +456,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "Address_fsx",
-        "PostalCode_fsx",
-        "Phone_fsx",
-        "FaxNumber_fsx",
-        "Email_fsx",
+        "EntityTitle",
         "DriversCount",
         "ServicesCount",
         "VehiclesCount",
@@ -535,32 +475,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     },
     "columns": [
       {
-        "field": "Address_fsx",
-        "title": "Address",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PostalCode_fsx",
-        "title": "Postal Code",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Phone_fsx",
-        "title": "Phone",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FaxNumber_fsx",
-        "title": "Fax Number",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Email_fsx",
-        "title": "Email",
+        "field": "EntityTitle",
+        "title": "Entity Title",
         "type": "text",
         "sortable": true
       },
@@ -635,11 +551,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "Address_fsx",
-        "PostalCode_fsx",
-        "Phone_fsx",
-        "FaxNumber_fsx",
-        "Email_fsx",
+        "EntityTitle",
         "CVOsCount",
         "DriversCount",
         "HUBsCount",
@@ -657,32 +569,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     },
     "columns": [
       {
-        "field": "Address_fsx",
-        "title": "Address",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PostalCode_fsx",
-        "title": "Postal Code",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Phone_fsx",
-        "title": "Phone",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FaxNumber_fsx",
-        "title": "Fax Number",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Email_fsx",
-        "title": "Email",
+        "field": "EntityTitle",
+        "title": "Entity Title",
         "type": "text",
         "sortable": true
       },
@@ -938,11 +826,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "Address_fsx",
-        "PostalCode_fsx",
-        "Phone_fsx",
-        "FaxNumber_fsx",
-        "Email_fsx",
+        "EntityTitle",
         "DistributorsCount",
         "PermitsCount"
       ],
@@ -958,32 +842,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     },
     "columns": [
       {
-        "field": "Address_fsx",
-        "title": "Address",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PostalCode_fsx",
-        "title": "Postal Code",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Phone_fsx",
-        "title": "Phone",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FaxNumber_fsx",
-        "title": "Fax Number",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Email_fsx",
-        "title": "Email",
+        "field": "EntityTitle",
+        "title": "Entity Title",
         "type": "text",
         "sortable": true
       },
@@ -1044,11 +904,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "Address_fsx",
-        "PostalCode_fsx",
-        "Phone_fsx",
-        "FaxNumber_fsx",
-        "Email_fsx",
+        "RequesteeEntityTitle",
         "Firstname_fsx",
         "Lastname_fsx",
         "Username",
@@ -1087,32 +943,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "sortable": true
       },
       {
-        "field": "Address_fsx",
-        "title": "Address",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PostalCode_fsx",
-        "title": "Postal Code",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Phone_fsx",
-        "title": "Phone",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FaxNumber_fsx",
-        "title": "Fax Number",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Email_fsx",
-        "title": "Email",
+        "field": "RequesteeEntityTitle",
+        "title": "Requestee Entity Title",
         "type": "text",
         "sortable": true
       },
@@ -1997,11 +1829,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "Address_fsx",
-        "PostalCode_fsx",
-        "Phone_fsx",
-        "FaxNumber_fsx",
-        "Email_fsx",
+        "EntityTitle",
         "PermitTypeIssuersCount",
         "PermitsCount"
       ],
@@ -2017,32 +1845,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     },
     "columns": [
       {
-        "field": "Address_fsx",
-        "title": "Address",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PostalCode_fsx",
-        "title": "Postal Code",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Phone_fsx",
-        "title": "Phone",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "FaxNumber_fsx",
-        "title": "Fax Number",
-        "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "Email_fsx",
-        "title": "Email",
+        "field": "EntityTitle",
+        "title": "Entity Title",
         "type": "text",
         "sortable": true
       },

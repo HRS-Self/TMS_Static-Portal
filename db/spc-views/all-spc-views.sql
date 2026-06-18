@@ -70,11 +70,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx,
+  h0.Title AS ClientEntityTitle,
   (SELECT COUNT(*) FROM H_AAA_EntityScenarios cc WHERE cc.ScenarioId = m.Id AND cc.RecordDeleted IS NULL) AS EntityScenariosCount,
   (SELECT COUNT(*) FROM H_AAA_ScenarioDataMap cc WHERE cc.ScenarioId = m.Id AND cc.RecordDeleted IS NULL) AS DataMapCount
 FROM H_AAA_Scenarios m
@@ -93,11 +89,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx
+  h0.Title AS ClientEntityTitle
 FROM H_AAA_Scenarios m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.ClientEntityId
 WHERE m.RecordDeleted IS NULL;
@@ -115,11 +107,7 @@ j.ModifiedAt_UTC,
 j.ModifiedBy,
 j.RecordDeleted,
   h0e.Title AS ScenarioTitle,
-  h1.Address_fsx,
-  h1.PostalCode_fsx,
-  h1.Phone_fsx,
-  h1.FaxNumber_fsx,
-  h1.Email_fsx
+  h1.Title AS EntityTitle
 FROM H_AAA_EntityScenarios j
   LEFT JOIN H_AAA_Scenarios h0 ON h0.Id = j.ScenarioId
   LEFT JOIN H_AAA_EntityProfile h0e ON h0e.Id = h0.ClientEntityId
@@ -236,11 +224,7 @@ m.RecordDeleted,
   h0.Username,
   h0.Email_fsx,
   h0.CellPhone_fsx,
-  h1.Address_fsx,
-  h1.PostalCode_fsx,
-  h1.Phone_fsx,
-  h1.FaxNumber_fsx,
-  h1.Email_fsx,
+  h1.Title AS EntityTitle,
   (SELECT COUNT(*) FROM H_TransportCustomerContacts cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS ContactsCount,
   (SELECT COUNT(*) FROM H_TransportCustomerMasterGoods cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS MasterGoodsCount,
   (SELECT COUNT(*) FROM H_TransportDistributorCustomers cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorCustomersCount
@@ -265,11 +249,7 @@ m.RecordDeleted,
   h0.Username,
   h0.Email_fsx,
   h0.CellPhone_fsx,
-  h1.Address_fsx,
-  h1.PostalCode_fsx,
-  h1.Phone_fsx,
-  h1.FaxNumber_fsx,
-  h1.Email_fsx
+  h1.Title AS EntityTitle
 FROM H_TransportCustomers m
   LEFT JOIN H_AAA_Synced_UserInfo h0 ON h0.Id = m.UserId
   LEFT JOIN H_AAA_Synced_EntityProfile h1 ON h1.Id = m.EntityId
@@ -303,16 +283,12 @@ j.CreatedBy,
 j.ModifiedAt_UTC,
 j.ModifiedBy,
 j.RecordDeleted,
-  h0.Firstname_fsx,
-  h0.Lastname_fsx,
+  h0.Firstname_fsx AS PossibleUserFirstname_fsx,
+  h0.Lastname_fsx AS PossibleUserLastname_fsx,
   h0.Username,
   h0.Email_fsx,
   h0.CellPhone_fsx,
-  h1.Address_fsx,
-  h1.PostalCode_fsx,
-  h1.Phone_fsx,
-  h1.FaxNumber_fsx,
-  h1.Email_fsx,
+  h1.Title AS PossibleEntityTitle,
   h2.Title AS MainLocationTitle
 FROM H_TransportContactRegistry j
   LEFT JOIN H_AAA_Synced_UserInfo h0 ON h0.Id = j.PossibleUserId
@@ -393,11 +369,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx,
+  h0.Title AS EntityTitle,
   (SELECT COUNT(*) FROM H_CVODrivers cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS DriversCount,
   (SELECT COUNT(*) FROM H_CVOServices cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS ServicesCount,
   (SELECT COUNT(*) FROM H_CVOVehicles cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS VehiclesCount,
@@ -418,11 +390,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx
+  h0.Title AS EntityTitle
 FROM H_CVOs m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;
@@ -532,11 +500,7 @@ rel.CreatedBy,
 rel.ModifiedAt_UTC,
 rel.ModifiedBy,
 rel.RecordDeleted,
-  rh0.Address_fsx,
-  rh0.PostalCode_fsx,
-  rh0.Phone_fsx,
-  rh0.FaxNumber_fsx,
-  rh0.Email_fsx
+  rh0.Title AS EntityTitle
 FROM H_DistributorCVOs j
   JOIN H_Distributors rel ON rel.Id = j.DistributorId
   LEFT JOIN H_AAA_EntityProfile rh0 ON rh0.Id = rel.EntityId
@@ -592,11 +556,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx,
+  h0.Title AS EntityTitle,
   (SELECT COUNT(*) FROM H_DistributorCVOs cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS CVOsCount,
   (SELECT COUNT(*) FROM H_DistributorDrivers cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS DriversCount,
   (SELECT COUNT(*) FROM H_HUBDistributors cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS HUBsCount,
@@ -616,11 +576,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx
+  h0.Title AS EntityTitle
 FROM H_Distributors m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;
@@ -643,11 +599,7 @@ rel.CreatedBy,
 rel.ModifiedAt_UTC,
 rel.ModifiedBy,
 rel.RecordDeleted,
-  rh0.Address_fsx,
-  rh0.PostalCode_fsx,
-  rh0.Phone_fsx,
-  rh0.FaxNumber_fsx,
-  rh0.Email_fsx
+  rh0.Title AS EntityTitle
 FROM H_DistributorCVOs j
   JOIN H_CVOs rel ON rel.Id = j.CVOId
   LEFT JOIN H_AAA_EntityProfile rh0 ON rh0.Id = rel.EntityId
@@ -704,11 +656,7 @@ rel.CreatedBy,
 rel.ModifiedAt_UTC,
 rel.ModifiedBy,
 rel.RecordDeleted,
-  rh0.Address_fsx,
-  rh0.PostalCode_fsx,
-  rh0.Phone_fsx,
-  rh0.FaxNumber_fsx,
-  rh0.Email_fsx
+  rh0.Title AS EntityTitle
 FROM H_HUBDistributors j
   JOIN H_HUBs rel ON rel.Id = j.HUBId
   LEFT JOIN H_AAA_EntityProfile rh0 ON rh0.Id = rel.EntityId
@@ -854,11 +802,7 @@ rel.CreatedBy,
 rel.ModifiedAt_UTC,
 rel.ModifiedBy,
 rel.RecordDeleted,
-  rh0.Address_fsx,
-  rh0.PostalCode_fsx,
-  rh0.Phone_fsx,
-  rh0.FaxNumber_fsx,
-  rh0.Email_fsx
+  rh0.Title AS EntityTitle
 FROM H_CVODrivers j
   JOIN H_CVOs rel ON rel.Id = j.CVOId
   LEFT JOIN H_AAA_EntityProfile rh0 ON rh0.Id = rel.EntityId
@@ -882,11 +826,7 @@ rel.CreatedBy,
 rel.ModifiedAt_UTC,
 rel.ModifiedBy,
 rel.RecordDeleted,
-  rh0.Address_fsx,
-  rh0.PostalCode_fsx,
-  rh0.Phone_fsx,
-  rh0.FaxNumber_fsx,
-  rh0.Email_fsx
+  rh0.Title AS EntityTitle
 FROM H_DistributorDrivers j
   JOIN H_Distributors rel ON rel.Id = j.DistributorId
   LEFT JOIN H_AAA_EntityProfile rh0 ON rh0.Id = rel.EntityId
@@ -978,11 +918,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx,
+  h0.Title AS EntityTitle,
   (SELECT COUNT(*) FROM H_HUBDistributors cc WHERE cc.HUBId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorsCount,
   (SELECT COUNT(*) FROM H_Permits cc WHERE cc.HUBId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount
 FROM H_HUBs m
@@ -1000,11 +936,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx
+  h0.Title AS EntityTitle
 FROM H_HUBs m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;
@@ -1028,11 +960,7 @@ rel.CreatedBy,
 rel.ModifiedAt_UTC,
 rel.ModifiedBy,
 rel.RecordDeleted,
-  rh0.Address_fsx,
-  rh0.PostalCode_fsx,
-  rh0.Phone_fsx,
-  rh0.FaxNumber_fsx,
-  rh0.Email_fsx
+  rh0.Title AS EntityTitle
 FROM H_HUBDistributors j
   JOIN H_Distributors rel ON rel.Id = j.DistributorId
   LEFT JOIN H_AAA_EntityProfile rh0 ON rh0.Id = rel.EntityId
@@ -1092,11 +1020,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx,
+  h0.Title AS RequesteeEntityTitle,
   h1.Firstname_fsx,
   h1.Lastname_fsx,
   h1.Username,
@@ -1126,11 +1050,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx,
+  h0.Title AS RequesteeEntityTitle,
   h1.Firstname_fsx,
   h1.Lastname_fsx,
   h1.Username,
@@ -1241,11 +1161,7 @@ rel.CreatedBy,
 rel.ModifiedAt_UTC,
 rel.ModifiedBy,
 rel.RecordDeleted,
-  rh0.Address_fsx,
-  rh0.PostalCode_fsx,
-  rh0.Phone_fsx,
-  rh0.FaxNumber_fsx,
-  rh0.Email_fsx
+  rh0.Title AS EntityTitle
 FROM H_CVOVehicles j
   JOIN H_CVOs rel ON rel.Id = j.CVOId
   LEFT JOIN H_AAA_EntityProfile rh0 ON rh0.Id = rel.EntityId
@@ -1691,11 +1607,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx,
+  h0.Title AS EntityTitle,
   (SELECT COUNT(*) FROM H_PermitTypeIssuers cc WHERE cc.PermitIssuerId = m.Id AND cc.RecordDeleted IS NULL) AS PermitTypeIssuersCount,
   (SELECT COUNT(*) FROM H_Permits cc WHERE cc.PermitIssuerId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount
 FROM H_PermitIssuers m
@@ -1713,11 +1625,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Address_fsx,
-  h0.PostalCode_fsx,
-  h0.Phone_fsx,
-  h0.FaxNumber_fsx,
-  h0.Email_fsx
+  h0.Title AS EntityTitle
 FROM H_PermitIssuers m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;

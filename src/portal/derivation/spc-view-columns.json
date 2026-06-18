@@ -49,11 +49,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
+    "ClientEntityTitle",
     "EntityScenariosCount",
     "DataMapCount"
   ],
@@ -67,11 +63,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "ClientEntityTitle"
   ],
   "Vi_SPC_ScenarioEntityScenarios": [
     "Id",
@@ -84,11 +76,7 @@
     "ModifiedBy",
     "RecordDeleted",
     "ScenarioTitle",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_ScenarioDataMap": [
     "Id",
@@ -176,11 +164,7 @@
     "Username",
     "Email_fsx",
     "CellPhone_fsx",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
+    "EntityTitle",
     "ContactsCount",
     "MasterGoodsCount",
     "DistributorCustomersCount"
@@ -199,11 +183,7 @@
     "Username",
     "Email_fsx",
     "CellPhone_fsx",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_CustomerContact": [
     "Id",
@@ -231,16 +211,12 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Firstname_fsx",
-    "Lastname_fsx",
+    "PossibleUserFirstname_fsx",
+    "PossibleUserLastname_fsx",
     "Username",
     "Email_fsx",
     "CellPhone_fsx",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
+    "PossibleEntityTitle",
     "MainLocationTitle"
   ],
   "Vi_SPC_CustomerContacts": [
@@ -291,11 +267,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
+    "EntityTitle",
     "DriversCount",
     "ServicesCount",
     "VehiclesCount",
@@ -311,11 +283,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_CVODrivers": [
     "LinkId",
@@ -401,11 +369,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_CVOPermits": [
     "Id",
@@ -441,11 +405,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
+    "EntityTitle",
     "CVOsCount",
     "DriversCount",
     "HUBsCount",
@@ -460,11 +420,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_DistributorCVOs": [
     "LinkId",
@@ -482,11 +438,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_DistributorDrivers": [
     "LinkId",
@@ -529,11 +481,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_DistributorPermits": [
     "Id",
@@ -637,11 +585,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_DriverDistributors": [
     "LinkId",
@@ -659,11 +603,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_DriverPermits": [
     "Id",
@@ -730,11 +670,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
+    "EntityTitle",
     "DistributorsCount",
     "PermitsCount"
   ],
@@ -747,11 +683,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_HUBDistributors": [
     "LinkId",
@@ -770,11 +702,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_HUBPermits": [
     "Id",
@@ -814,11 +742,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
+    "RequesteeEntityTitle",
     "Firstname_fsx",
     "Lastname_fsx",
     "Username",
@@ -840,11 +764,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
+    "RequesteeEntityTitle",
     "Firstname_fsx",
     "Lastname_fsx",
     "Username",
@@ -932,11 +852,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_VehiclePermits": [
     "Id",
@@ -1243,11 +1159,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
+    "EntityTitle",
     "PermitTypeIssuersCount",
     "PermitsCount"
   ],
@@ -1260,11 +1172,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "Address_fsx",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx"
+    "EntityTitle"
   ],
   "Vi_SPC_PermitIssuerPermitTypeIssuers": [
     "Id",
