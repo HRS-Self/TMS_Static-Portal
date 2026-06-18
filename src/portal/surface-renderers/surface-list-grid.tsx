@@ -22,7 +22,12 @@ const ACTION_ICON: Record<string, `lucide:${string}`> = {
   new: "lucide:plus",
 };
 
-const COLUMN_TYPE: Record<string, "text" | "number" | "date" | "status" | "amount"> = {
+// render-model column type → kit ColumnsObject type (the kit supports the full union; we map the
+// semantic types S6 emits and default unknowns to text).
+type KitColumnType =
+  | "text" | "string" | "number" | "phone" | "date" | "status" | "score"
+  | "currency" | "amount" | "recordDeleted" | "attachedFile" | "button" | "time";
+const COLUMN_TYPE: Record<string, KitColumnType> = {
   text: "text",
   number: "number",
   date: "date",
@@ -37,16 +42,20 @@ const CAP: Record<string, "canCreate" | "canUpdate" | "canDelete"> = {
   delete: "canDelete",
 };
 
+type EnumMappingEntry = { key: string; color: string; value: string };
+
 type SurfaceListGridProps = {
   model: SurfaceRenderModel;
   rows: object[];
   totalItems: number;
+  /** field → int→label mapping (resolved live from the ENUM table; see enum-mappings). */
+  enumMappings?: Record<string, EnumMappingEntry[]>;
   capability?: SurfaceCapabilitySnapshot | null;
   form?: SurfaceFormContract | null;
   title?: string;
 };
 
-export function SurfaceListGrid({ model, rows, totalItems, capability, form, title }: SurfaceListGridProps) {
+export function SurfaceListGrid({ model, rows, totalItems, enumMappings, capability, form, title }: SurfaceListGridProps) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [wizard, setWizard] = useState<{ mode: "new" | "manage"; row?: Record<string, unknown> } | null>(null);
@@ -59,13 +68,19 @@ export function SurfaceListGrid({ model, rows, totalItems, capability, form, tit
 
   // TMSDataGrid reads each cell ONLY via `accessorKey` (RowsDataView: getRowValue(row, accessorKey));
   // `name` is just the column identity. Without accessorKey every cell is undefined → blank grid.
-  const columns = model.columns.map((column) => ({
-    name: column.field,
-    accessorKey: column.field,
-    title: column.title,
-    type: COLUMN_TYPE[column.type] ?? "text",
-    clmAllowSort: column.sortable,
-  }));
+  // A column with an ENUM mapping renders via the kit's `status` cell (the only one that maps
+  // int→label); empty `color` makes it a plain label, not a badge.
+  const columns = model.columns.map((column) => {
+    const mapping = enumMappings?.[column.field];
+    return {
+      name: column.field,
+      accessorKey: column.field,
+      title: column.title,
+      type: (mapping ? "status" : COLUMN_TYPE[column.type] ?? "text") as KitColumnType,
+      clmAllowSort: column.sortable,
+      ...(mapping ? { mapping } : {}),
+    };
+  });
 
   const actions = {
     rowAction: model.rowActions.filter(allowed).map((action) => ({

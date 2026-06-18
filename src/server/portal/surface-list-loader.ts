@@ -43,7 +43,7 @@ function normalizeFilter(value: unknown): Record<string, unknown> {
   return value as Record<string, unknown>;
 }
 
-function resolveSurfaceBackend(surfaceId: PortalSurfaceId): BackendName {
+export function resolveSurfaceBackend(surfaceId: PortalSurfaceId): BackendName {
   const surface = getPortalSurface(surfaceId);
   logger.debug('Resolve surface backend for list loader', {
     surfaceId,

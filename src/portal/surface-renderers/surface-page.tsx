@@ -10,7 +10,9 @@ import type { SurfaceRenderModel } from "@/src/portal/derivation/surface-render-
 import { surfaceRenderModels } from "@/src/portal/derivation/surface-render-models";
 import type { SurfaceListConfig } from "@/src/portal/surfaces/types";
 import { getOptionalSession } from "@/src/server/auth/session";
-import { loadSurfaceList } from "@/src/server/portal/surface-list-loader";
+import type { EnumMappingEntry } from "@/src/server/portal/enum-mappings";
+import { resolveEnumMappings } from "@/src/server/portal/enum-mappings";
+import { loadSurfaceList, resolveSurfaceBackend } from "@/src/server/portal/surface-list-loader";
 
 import { SurfaceListGrid } from "./surface-list-grid";
 
@@ -86,6 +88,25 @@ export async function SurfacePage({ surfaceId }: SurfacePageProps) {
       } catch (caught) {
         error = caught instanceof Error ? caught.message : String(caught);
       }
+
+      // Resolve ENUM int→label maps live (column→table is generated; labels come from the
+      // reference table via DataGateway). field → mapping; failures just leave the column raw.
+      const enumMappings: Record<string, EnumMappingEntry[]> = {};
+      const enumTables = model.columns
+        .map((column) => column.enumTable)
+        .filter((table): table is string => Boolean(table));
+      if (enumTables.length > 0) {
+        const byTable = await resolveEnumMappings(
+          session,
+          resolveSurfaceBackend(surfaceId),
+          enumTables,
+        );
+        for (const column of model.columns) {
+          if (column.enumTable && byTable[column.enumTable]) {
+            enumMappings[column.field] = byTable[column.enumTable];
+          }
+        }
+      }
       body = (
         <div className="space-y-3">
           {model.readModel.pendingViewOrder ? (
@@ -102,6 +123,7 @@ export async function SurfacePage({ surfaceId }: SurfacePageProps) {
             model={model}
             rows={rows}
             totalItems={total}
+            enumMappings={enumMappings}
             capability={session.surfaceCapabilities?.[surfaceId] ?? null}
             form={surfaceFormContracts[surfaceId] ?? null}
             title={surface.title}

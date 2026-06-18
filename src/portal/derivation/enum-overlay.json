@@ -1,0 +1,4 @@
+{
+  "_README": "Hand-authored ENUM column→H_ENUM_ table bindings the mechanical resolver cannot derive (no FK in schema; inconsistent naming). bindings:{ \"<ColumnName>\": \"H_ENUM_Xxx\" | null }. null disables a mechanical binding. Labels are fetched live from the table via DataGateway.",
+  "bindings": {}
+}

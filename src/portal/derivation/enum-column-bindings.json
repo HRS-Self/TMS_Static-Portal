@@ -1,0 +1,13 @@
+{
+  "ActivityClassENUM": "H_ENUM_ActivityClasses",
+  "CalculateMethod": "H_ENUM_CalculateMethods",
+  "CalculationItem": "H_ENUM_CalculationItems",
+  "CalculationType": "H_ENUM_CalculationTypes",
+  "CalculationUnit": "H_ENUM_CalculationUnits",
+  "NotificationPlatformENUM": "H_ENUM_NotificationPlatforms",
+  "NotificationTemplateENUM": "H_ENUM_NotificationTemplates",
+  "ServiceCategory": "H_ENUM_ServiceCategories",
+  "ServiceClass": "H_ENUM_ServiceClasses",
+  "TransportCategory": "H_ENUM_TransportCategories",
+  "VehicleType": "H_ENUM_VehicleTypes"
+}
