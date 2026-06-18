@@ -40,6 +40,11 @@ export function buildBackendRequestHeaders({
 }): Record<string, string> {
   const headers: Record<string, string> = { ...buildBasicAuthorizationHeaders() };
   if (session.idpToken) headers['x-access-key'] = session.idpToken;
+  // The backend `aaa` guard requires a user-identity header on Basic endpoints (requiredHeaders
+  // includes 'x-user-id'; the guard accepts EITHER x-user-id or x-user-guid). The IDP gives us
+  // only the user's RecordKey (GUID) — no numeric id — and the guard resolves the local user by
+  // guid, matching the same RecordKey x-access-key carries. So send x-user-guid (never x-user-id:0).
+  if (session.userRecordKey) headers['x-user-guid'] = session.userRecordKey;
 
   const entityId = includeEntityId ? getEntityId(session) : undefined;
   if (typeof entityId === 'number') headers['x-entity-id'] = String(entityId);

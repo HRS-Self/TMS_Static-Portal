@@ -57,8 +57,11 @@ export function SurfaceListGrid({ model, rows, totalItems, capability, form, tit
     return !flag || !capability || capability[flag] !== false;
   };
 
+  // TMSDataGrid reads each cell ONLY via `accessorKey` (RowsDataView: getRowValue(row, accessorKey));
+  // `name` is just the column identity. Without accessorKey every cell is undefined → blank grid.
   const columns = model.columns.map((column) => ({
     name: column.field,
+    accessorKey: column.field,
     title: column.title,
     type: COLUMN_TYPE[column.type] ?? "text",
     clmAllowSort: column.sortable,
