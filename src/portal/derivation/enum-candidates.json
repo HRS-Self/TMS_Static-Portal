@@ -1,7 +1,7 @@
 {
-  "total": 114,
+  "total": 112,
   "valuesMissing": 22,
-  "needsReview": 76,
+  "needsReview": 74,
   "enumTables": {
     "total": 27,
     "matched": [
@@ -101,18 +101,6 @@
       "signal": "suffix",
       "resolution": "h-enum-table",
       "source": "H_ENUM_ActivityClasses"
-    },
-    {
-      "table": "H_AAA_Synced_UserInfo",
-      "column": "CellPhoneConfirmed",
-      "signal": "tinyint",
-      "resolution": "needs-review"
-    },
-    {
-      "table": "H_AAA_Synced_UserInfo",
-      "column": "EmailConfirmed",
-      "signal": "tinyint",
-      "resolution": "needs-review"
     },
     {
       "table": "H_AAA_TableAudits",

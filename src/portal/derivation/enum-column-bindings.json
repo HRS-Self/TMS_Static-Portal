@@ -4,14 +4,6 @@
     "resolution": "h-enum-table",
     "source": "H_ENUM_ActivityClasses"
   },
-  "H_AAA_Synced_UserInfo.CellPhoneConfirmed": {
-    "signal": "tinyint",
-    "resolution": "needs-review"
-  },
-  "H_AAA_Synced_UserInfo.EmailConfirmed": {
-    "signal": "tinyint",
-    "resolution": "needs-review"
-  },
   "H_CFG_ActorConfigs.ActENUM": {
     "signal": "suffix",
     "resolution": "values-missing"
