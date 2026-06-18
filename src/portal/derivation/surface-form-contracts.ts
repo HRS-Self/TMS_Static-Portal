@@ -343,7 +343,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "TransportCategory",
         "label": "Transport Category",
         "required": false,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportCategories"
       },
       {
         "name": "Cargo_Height",
@@ -385,7 +386,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "VehicleType",
         "label": "Vehicle Type",
         "required": false,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_VehicleTypes"
       }
     ]
   },
@@ -1074,7 +1076,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "VehicleType",
         "label": "Vehicle Type",
         "required": false,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "name": "VehicleProfileSubType",
@@ -1086,7 +1089,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "ServiceClass",
         "label": "Service Class",
         "required": false,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "name": "ActionOnAbsentReceiver",
@@ -1406,7 +1410,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "VehicleType",
         "label": "Vehicle Type",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "name": "VehicleProfileSubType",
@@ -1418,13 +1423,15 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "ServiceClass",
         "label": "Service Class",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "name": "ServiceCategory",
         "label": "Service Category",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_ServiceCategories"
       },
       {
         "name": "TotalRequiredSeats",
@@ -1564,25 +1571,29 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "TransportCategory",
         "label": "Transport Category",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportCategories"
       },
       {
         "name": "ServiceCategory",
         "label": "Service Category",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_ServiceCategories"
       },
       {
         "name": "VehicleType",
         "label": "Vehicle Type",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "name": "ServiceClass",
         "label": "Service Class",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "name": "IncludedSeatCounts",
@@ -1698,43 +1709,50 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "TransportCategory",
         "label": "Transport Category",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportCategories"
       },
       {
         "name": "ServiceCategory",
         "label": "Service Category",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_ServiceCategories"
       },
       {
         "name": "VehicleType",
         "label": "Vehicle Type",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "name": "ServiceClass",
         "label": "Service Class",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "name": "CalculationItem",
         "label": "Calculation Item",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_CalculationItems"
       },
       {
         "name": "CalculationType",
         "label": "Calculation Type",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_CalculationTypes"
       },
       {
         "name": "CalculateMethod",
         "label": "Calculate Method",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_CalculateMethods"
       },
       {
         "name": "CalculationPriority",
@@ -1746,7 +1764,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "CalculationUnit",
         "label": "Calculation Unit",
         "required": false,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_CalculationUnits"
       },
       {
         "name": "UnitAmount",

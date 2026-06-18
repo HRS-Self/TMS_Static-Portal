@@ -57,51 +57,63 @@
   },
   "H_TransportFareBaseInclutions.ServiceCategory": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_ServiceCategories"
   },
   "H_TransportFareBaseInclutions.ServiceClass": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_ServiceClasses"
   },
   "H_TransportFareBaseInclutions.TransportCategory": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_TransportCategories"
   },
   "H_TransportFareBaseInclutions.VehicleType": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_VehicleTypes"
   },
   "H_TransportFareCalculations.CalculateMethod": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_CalculateMethods"
   },
   "H_TransportFareCalculations.CalculationItem": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_CalculationItems"
   },
   "H_TransportFareCalculations.CalculationType": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_CalculationTypes"
   },
   "H_TransportFareCalculations.CalculationUnit": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_CalculationUnits"
   },
   "H_TransportFareCalculations.ServiceCategory": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_ServiceCategories"
   },
   "H_TransportFareCalculations.ServiceClass": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_ServiceClasses"
   },
   "H_TransportFareCalculations.TransportCategory": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_TransportCategories"
   },
   "H_TransportFareCalculations.VehicleType": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_VehicleTypes"
   },
   "H_TransportReqDeliveries.ActionOnAbsentReceiver": {
     "signal": "tinyint",
@@ -113,7 +125,8 @@
   },
   "H_TransportReqDeliveries.ServiceClass": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_ServiceClasses"
   },
   "H_TransportReqDeliveries.Status": {
     "signal": "status",
@@ -125,7 +138,8 @@
   },
   "H_TransportReqDeliveries.VehicleType": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_VehicleTypes"
   },
   "H_TransportReqRides.PaymentCategory": {
     "signal": "tinyint",
@@ -133,11 +147,13 @@
   },
   "H_TransportReqRides.ServiceCategory": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_ServiceCategories"
   },
   "H_TransportReqRides.ServiceClass": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_ServiceClasses"
   },
   "H_TransportReqRides.Status": {
     "signal": "status",
@@ -149,7 +165,8 @@
   },
   "H_TransportReqRides.VehicleType": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_VehicleTypes"
   },
   "H_TransportTransacts.CurrentStatus": {
     "signal": "status",
@@ -157,10 +174,12 @@
   },
   "H_VehicleProfile.TransportCategory": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_TransportCategories"
   },
   "H_VehicleProfile.VehicleType": {
     "signal": "tinyint",
-    "resolution": "needs-review"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_VehicleTypes"
   }
 }

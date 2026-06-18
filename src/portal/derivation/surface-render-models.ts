@@ -1110,7 +1110,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "TransportCategory",
         "title": "Transport Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportCategories"
       },
       {
         "field": "Cargo_Height",
@@ -1152,7 +1153,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "VehicleType",
         "title": "Vehicle Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "field": "CVOsCount",
@@ -2222,7 +2224,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "VehicleType",
         "title": "Vehicle Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "field": "VehicleProfileSubType",
@@ -2234,7 +2237,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "ServiceClass",
         "title": "Service Class",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "field": "ActionOnAbsentReceiver",
@@ -2627,7 +2631,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "VehicleType",
         "title": "Vehicle Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "field": "VehicleProfileSubType",
@@ -2639,13 +2644,15 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "ServiceClass",
         "title": "Service Class",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "field": "ServiceCategory",
         "title": "Service Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceCategories"
       },
       {
         "field": "TotalRequiredSeats",
@@ -2885,25 +2892,29 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "TransportCategory",
         "title": "Transport Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportCategories"
       },
       {
         "field": "ServiceCategory",
         "title": "Service Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceCategories"
       },
       {
         "field": "VehicleType",
         "title": "Vehicle Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "field": "ServiceClass",
         "title": "Service Class",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "field": "IncludedSeatCounts",
@@ -3149,43 +3160,50 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "TransportCategory",
         "title": "Transport Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportCategories"
       },
       {
         "field": "ServiceCategory",
         "title": "Service Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceCategories"
       },
       {
         "field": "VehicleType",
         "title": "Vehicle Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "field": "ServiceClass",
         "title": "Service Class",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "field": "CalculationItem",
         "title": "Calculation Item",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_CalculationItems"
       },
       {
         "field": "CalculationType",
         "title": "Calculation Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_CalculationTypes"
       },
       {
         "field": "CalculateMethod",
         "title": "Calculate Method",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_CalculateMethods"
       },
       {
         "field": "CalculationPriority",
@@ -3197,7 +3215,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "CalculationUnit",
         "title": "Calculation Unit",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_CalculationUnits"
       },
       {
         "field": "UnitAmount",

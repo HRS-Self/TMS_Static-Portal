@@ -1098,7 +1098,8 @@
         "field": "TransportCategory",
         "title": "Transport Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportCategories"
       },
       {
         "field": "Cargo_Height",
@@ -1140,7 +1141,8 @@
         "field": "VehicleType",
         "title": "Vehicle Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "field": "CVOsCount",
@@ -2210,7 +2212,8 @@
         "field": "VehicleType",
         "title": "Vehicle Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "field": "VehicleProfileSubType",
@@ -2222,7 +2225,8 @@
         "field": "ServiceClass",
         "title": "Service Class",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "field": "ActionOnAbsentReceiver",
@@ -2615,7 +2619,8 @@
         "field": "VehicleType",
         "title": "Vehicle Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "field": "VehicleProfileSubType",
@@ -2627,13 +2632,15 @@
         "field": "ServiceClass",
         "title": "Service Class",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "field": "ServiceCategory",
         "title": "Service Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceCategories"
       },
       {
         "field": "TotalRequiredSeats",
@@ -2873,25 +2880,29 @@
         "field": "TransportCategory",
         "title": "Transport Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportCategories"
       },
       {
         "field": "ServiceCategory",
         "title": "Service Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceCategories"
       },
       {
         "field": "VehicleType",
         "title": "Vehicle Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "field": "ServiceClass",
         "title": "Service Class",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "field": "IncludedSeatCounts",
@@ -3137,43 +3148,50 @@
         "field": "TransportCategory",
         "title": "Transport Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportCategories"
       },
       {
         "field": "ServiceCategory",
         "title": "Service Category",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceCategories"
       },
       {
         "field": "VehicleType",
         "title": "Vehicle Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_VehicleTypes"
       },
       {
         "field": "ServiceClass",
         "title": "Service Class",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_ServiceClasses"
       },
       {
         "field": "CalculationItem",
         "title": "Calculation Item",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_CalculationItems"
       },
       {
         "field": "CalculationType",
         "title": "Calculation Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_CalculationTypes"
       },
       {
         "field": "CalculateMethod",
         "title": "Calculate Method",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_CalculateMethods"
       },
       {
         "field": "CalculationPriority",
@@ -3185,7 +3203,8 @@
         "field": "CalculationUnit",
         "title": "Calculation Unit",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_CalculationUnits"
       },
       {
         "field": "UnitAmount",
