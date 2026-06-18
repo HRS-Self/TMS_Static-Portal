@@ -930,7 +930,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "RequesteeActENUM",
         "title": "Requestee Act ENUM",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "field": "Status",
@@ -1440,7 +1441,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "ActENUM",
         "title": "Act ENUM",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "field": "Value",
@@ -1575,7 +1577,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "ActENUM",
         "title": "Act ENUM",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "field": "Value",
@@ -1928,7 +1931,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "ActENUM",
         "title": "Act ENUM",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "field": "ActivityClassENUM",

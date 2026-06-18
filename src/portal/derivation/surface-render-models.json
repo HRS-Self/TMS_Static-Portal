@@ -918,7 +918,8 @@
         "field": "RequesteeActENUM",
         "title": "Requestee Act ENUM",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "field": "Status",
@@ -1428,7 +1429,8 @@
         "field": "ActENUM",
         "title": "Act ENUM",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "field": "Value",
@@ -1563,7 +1565,8 @@
         "field": "ActENUM",
         "title": "Act ENUM",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "field": "Value",
@@ -1916,7 +1919,8 @@
         "field": "ActENUM",
         "title": "Act ENUM",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "field": "ActivityClassENUM",

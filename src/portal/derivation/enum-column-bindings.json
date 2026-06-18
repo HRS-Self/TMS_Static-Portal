@@ -6,11 +6,13 @@
   },
   "H_CFG_ActorConfigs.ActENUM": {
     "signal": "suffix",
-    "resolution": "values-missing"
+    "resolution": "approved-source",
+    "source": "H_ENUM_Actors"
   },
   "H_CFG_EntityConfigs.ActENUM": {
     "signal": "suffix",
-    "resolution": "values-missing"
+    "resolution": "approved-source",
+    "source": "H_ENUM_Actors"
   },
   "H_NotificationTemplateSettings.NotificationPlatformENUM": {
     "signal": "suffix",
@@ -28,7 +30,8 @@
   },
   "H_PermitTypes.ActENUM": {
     "signal": "suffix",
-    "resolution": "values-missing"
+    "resolution": "approved-source",
+    "source": "H_ENUM_Actors"
   },
   "H_PermitTypes.ActivityClassENUM": {
     "signal": "suffix",
@@ -41,7 +44,8 @@
   },
   "H_RequestStatuses.RequesteeActENUM": {
     "signal": "suffix",
-    "resolution": "values-missing"
+    "resolution": "approved-source",
+    "source": "H_ENUM_Actors"
   },
   "H_RequestStatuses.Status": {
     "signal": "tinyint",

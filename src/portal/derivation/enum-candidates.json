@@ -1,17 +1,17 @@
 {
   "total": 112,
-  "valuesMissing": 22,
+  "valuesMissing": 6,
   "needsReview": 74,
   "enumTables": {
     "total": 27,
     "matched": [
       "H_ENUM_ActivityClasses",
+      "H_ENUM_Actors",
       "H_ENUM_EventTypes",
       "H_ENUM_NotificationPlatforms",
       "H_ENUM_NotificationTemplates"
     ],
     "unmatched": [
-      "H_ENUM_Actors",
       "H_ENUM_ActorsSorts",
       "H_ENUM_CalculateMethods",
       "H_ENUM_CalculationItems",
@@ -68,19 +68,22 @@
       "table": "H_AAA_EntityRoles",
       "column": "ActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_AAA_EntityScenarios",
       "column": "PermittedActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_AAA_ScenarioDataMap",
       "column": "JoinerActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_AAA_ScenarioDataMap",
@@ -93,7 +96,8 @@
       "table": "H_AAA_ScenarioDataMap",
       "column": "TargetActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_AAA_Scenarios",
@@ -113,13 +117,15 @@
       "table": "H_CFG_ActorConfigs",
       "column": "ActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_CFG_EntityConfigs",
       "column": "ActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_CVOServices",
@@ -238,11 +244,8 @@
       "table": "H_EventInbox",
       "column": "ActorActENUM",
       "signal": "suffix",
-      "resolution": "values-missing",
-      "suggestedSources": [
-        "H_ENUM_Actors",
-        "H_ENUM_ActorsSorts"
-      ]
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_EventInbox",
@@ -268,11 +271,8 @@
       "table": "H_EventOutbox",
       "column": "ActorActENUM",
       "signal": "suffix",
-      "resolution": "values-missing",
-      "suggestedSources": [
-        "H_ENUM_Actors",
-        "H_ENUM_ActorsSorts"
-      ]
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_EventOutbox",
@@ -291,7 +291,8 @@
       "table": "H_FinTransactions",
       "column": "PerformedActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_HUBDistributorsLog",
@@ -357,7 +358,8 @@
       "table": "H_Permits",
       "column": "ActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_Permits",
@@ -382,7 +384,8 @@
       "table": "H_PermitTypes",
       "column": "ActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_PermitTypes",
@@ -401,7 +404,8 @@
       "table": "H_RequestBases",
       "column": "RequesterActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_RequestBases",
@@ -418,7 +422,8 @@
       "table": "H_RequestStatusesLog",
       "column": "RequesteeActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_RequestStatusesLog",
@@ -430,7 +435,8 @@
       "table": "H_RequestStatuses",
       "column": "RequesteeActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_RequestStatuses",
@@ -496,7 +502,8 @@
       "table": "H_Synced_Permits",
       "column": "ActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_Synced_Permits",
@@ -527,7 +534,8 @@
       "table": "H_Synced_PermitStatusVerifications",
       "column": "ApproverActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
     },
     {
       "table": "H_Synced_ServiceBases",

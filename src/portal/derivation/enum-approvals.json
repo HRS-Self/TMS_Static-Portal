@@ -1,4 +1,14 @@
 {
   "_README": "Supply LABELS for ENUM columns the generator cannot resolve on its own (see enum-candidates.json). Two unresolved states: \"values-missing\" = a CONFIRMED enum (ENUM suffix) with no H_ENUM_ table and no values yet — supply them; \"needs-review\" = a loose tinyint that may not be an enum at all. Keyed by \"Table.Column\" (preferred) or bare \"Column\". Per entry: { \"disable\": true } = not an enum (e.g. a tinyint flag, renders raw); { \"source\": \"H_ENUM_X\" } = pull labels live from that table; { \"values\": [{\"key\",\"value\"}] } = set labels inline (fills the data-model gap). NOTE: mysql-enum columns get labels from the column def, and ENUM-suffix columns with a matching H_ENUM_ table resolve live — neither needs an entry here.",
-  "approvals": {}
+  "approvals": {
+    "ActENUM": { "source": "H_ENUM_Actors" },
+    "ActorActENUM": { "source": "H_ENUM_Actors" },
+    "ApproverActENUM": { "source": "H_ENUM_Actors" },
+    "JoinerActENUM": { "source": "H_ENUM_Actors" },
+    "PerformedActENUM": { "source": "H_ENUM_Actors" },
+    "PermittedActENUM": { "source": "H_ENUM_Actors" },
+    "RequesteeActENUM": { "source": "H_ENUM_Actors" },
+    "RequesterActENUM": { "source": "H_ENUM_Actors" },
+    "TargetActENUM": { "source": "H_ENUM_Actors" }
+  }
 }

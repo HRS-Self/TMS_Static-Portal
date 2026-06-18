@@ -268,7 +268,8 @@
         "name": "RequesteeActENUM",
         "label": "Requestee Act ENUM",
         "required": false,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "name": "Status",
@@ -567,7 +568,8 @@
         "name": "ActENUM",
         "label": "Act ENUM",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "name": "ScenarioId",
@@ -695,12 +697,7 @@
         "label": "Act ENUM",
         "required": true,
         "type": "select",
-        "picker": {
-          "source": "H_AAA_EntityScenarios",
-          "valueKey": "Id",
-          "labelKey": null,
-          "mode": "lookup"
-        }
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "name": "ScenarioId",
@@ -844,7 +841,8 @@
         "name": "ActENUM",
         "label": "Act ENUM",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "name": "ActivityClassENUM",

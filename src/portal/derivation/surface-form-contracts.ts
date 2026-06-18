@@ -275,7 +275,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "RequesteeActENUM",
         "label": "Requestee Act ENUM",
         "required": false,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "name": "Status",
@@ -574,7 +575,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "ActENUM",
         "label": "Act ENUM",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "name": "ScenarioId",
@@ -702,12 +704,7 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "label": "Act ENUM",
         "required": true,
         "type": "select",
-        "picker": {
-          "source": "H_AAA_EntityScenarios",
-          "valueKey": "Id",
-          "labelKey": null,
-          "mode": "lookup"
-        }
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "name": "ScenarioId",
@@ -851,7 +848,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "ActENUM",
         "label": "Act ENUM",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_Actors"
       },
       {
         "name": "ActivityClassENUM",
