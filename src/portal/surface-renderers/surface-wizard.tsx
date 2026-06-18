@@ -1,6 +1,6 @@
 "use client";
 
-import { TMSField, TMSFieldInput, TMSModal } from "@conitdev/tms-ui-kit";
+import { TMSField, TMSFieldInput, TMSFieldSelect, TMSModal } from "@conitdev/tms-ui-kit";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -9,17 +9,16 @@ import type {
   SurfaceFormField,
 } from "@/src/portal/derivation/surface-form-contracts";
 
-// First-cut wizard: tab-1 main record form composed from the kit primitives
-// (TMSModal + TMSField + TMSFieldInput). Related-family tabs + FK/ENUM pickers are a
-// follow-on; selects render as plain inputs for now (hint shows the picker source).
-const INPUT_TYPE: Record<SurfaceFormField["type"], string> = {
+// Tab-1 main-record form composed from the kit primitives (TMSModal + TMSField +
+// TMSFieldInput/TMSFieldSelect). ENUM and small FK fields render as real selects when options are
+// resolved (live); FK fields without options fall back to a hinted input (TMSLookup async + the
+// related-family tabs are the remaining follow-on).
+const INPUT_TYPE: Record<Exclude<SurfaceFormField["type"], "select" | "boolean">, string> = {
   number: "number",
   date: "date",
   email: "email",
   mobile: "tel",
-  boolean: "checkbox",
   text: "text",
-  select: "text",
 };
 
 type SurfaceWizardProps = {
@@ -28,11 +27,13 @@ type SurfaceWizardProps = {
   surfaceId: string;
   title: string;
   form: SurfaceFormContract;
+  /** field → {value,label}[] for ENUM/FK selects (resolved live in surface-page). */
+  fieldOptions?: Record<string, { value: string; label: string }[]>;
   initial?: Record<string, unknown> | null;
   onClose: () => void;
 };
 
-export function SurfaceWizard({ open, mode, surfaceId, title, form, initial, onClose }: SurfaceWizardProps) {
+export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions, initial, onClose }: SurfaceWizardProps) {
   const router = useRouter();
   const [values, setValues] = useState<Record<string, unknown>>(() => {
     const v: Record<string, unknown> = {};
@@ -78,28 +79,38 @@ export function SurfaceWizard({ open, mode, surfaceId, title, form, initial, onC
         </h2>
 
         <div className="grid gap-3 overflow-auto md:grid-cols-2">
-          {form.fields.map((f) => (
-            <TMSField
-              key={f.name}
-              label={f.label}
-              required={f.required}
-              hint={f.picker ? `picker: ${f.picker.source}` : undefined}
-            >
-              {f.type === "boolean" ? (
-                <TMSFieldInput
-                  type="checkbox"
-                  checked={Boolean(values[f.name])}
-                  onChange={(e) => set(f.name, e.target.checked)}
-                />
-              ) : (
-                <TMSFieldInput
-                  type={INPUT_TYPE[f.type]}
-                  value={String(values[f.name] ?? "")}
-                  onChange={(e) => set(f.name, e.target.value)}
-                />
-              )}
-            </TMSField>
-          ))}
+          {form.fields.map((f) => {
+            const options = fieldOptions?.[f.name];
+            return (
+              <TMSField
+                key={f.name}
+                label={f.label}
+                required={f.required}
+                hint={f.type === "select" && !options && f.picker ? `lookup: ${f.picker.source}` : undefined}
+              >
+                {f.type === "boolean" ? (
+                  <TMSFieldInput
+                    type="checkbox"
+                    checked={Boolean(values[f.name])}
+                    onChange={(e) => set(f.name, e.target.checked)}
+                  />
+                ) : f.type === "select" && options ? (
+                  <TMSFieldSelect
+                    value={String(values[f.name] ?? "")}
+                    onChange={(value) => set(f.name, value)}
+                    options={options}
+                    placeholder={`Select ${f.label}`}
+                  />
+                ) : (
+                  <TMSFieldInput
+                    type={INPUT_TYPE[f.type as keyof typeof INPUT_TYPE] ?? "text"}
+                    value={String(values[f.name] ?? "")}
+                    onChange={(e) => set(f.name, e.target.value)}
+                  />
+                )}
+              </TMSField>
+            );
+          })}
         </div>
 
         {error ? <p className="text-sm text-rose-600">{error}</p> : null}

@@ -90,11 +90,15 @@ export async function SurfacePage({ surfaceId }: SurfacePageProps) {
       }
 
       // Resolve ENUM int→label maps live (column→table is generated; labels come from the
-      // reference table via DataGateway). field → mapping; failures just leave the column raw.
+      // reference table via DataGateway). One fetch feeds both the grid (field → mapping) and the
+      // wizard's ENUM selects (field → {value,label} options). Failures leave the column/field raw.
+      const formContract = surfaceFormContracts[surfaceId] ?? null;
       const enumMappings: Record<string, EnumMappingEntry[]> = {};
-      const enumTables = model.columns
-        .map((column) => column.enumTable)
-        .filter((table): table is string => Boolean(table));
+      const formFieldOptions: Record<string, { value: string; label: string }[]> = {};
+      const enumTables = [
+        ...model.columns.map((column) => column.enumTable),
+        ...(formContract?.fields ?? []).map((field) => field.enumTable),
+      ].filter((table): table is string => Boolean(table));
       if (enumTables.length > 0) {
         const byTable = await resolveEnumMappings(
           session,
@@ -104,6 +108,11 @@ export async function SurfacePage({ surfaceId }: SurfacePageProps) {
         for (const column of model.columns) {
           if (column.enumTable && byTable[column.enumTable]) {
             enumMappings[column.field] = byTable[column.enumTable];
+          }
+        }
+        for (const field of formContract?.fields ?? []) {
+          if (field.enumTable && byTable[field.enumTable]) {
+            formFieldOptions[field.name] = byTable[field.enumTable].map((m) => ({ value: m.key, label: m.value }));
           }
         }
       }
@@ -124,8 +133,9 @@ export async function SurfacePage({ surfaceId }: SurfacePageProps) {
             rows={rows}
             totalItems={total}
             enumMappings={enumMappings}
+            formFieldOptions={formFieldOptions}
             capability={session.surfaceCapabilities?.[surfaceId] ?? null}
-            form={surfaceFormContracts[surfaceId] ?? null}
+            form={formContract}
             title={surface.title}
           />
         </div>

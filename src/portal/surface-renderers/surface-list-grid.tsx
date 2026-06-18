@@ -50,12 +50,14 @@ type SurfaceListGridProps = {
   totalItems: number;
   /** field → int→label mapping (resolved live from the ENUM table; see enum-mappings). */
   enumMappings?: Record<string, EnumMappingEntry[]>;
+  /** wizard ENUM select options: field → {value,label}[] (resolved live). */
+  formFieldOptions?: Record<string, { value: string; label: string }[]>;
   capability?: SurfaceCapabilitySnapshot | null;
   form?: SurfaceFormContract | null;
   title?: string;
 };
 
-export function SurfaceListGrid({ model, rows, totalItems, enumMappings, capability, form, title }: SurfaceListGridProps) {
+export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFieldOptions, capability, form, title }: SurfaceListGridProps) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [wizard, setWizard] = useState<{ mode: "new" | "manage"; row?: Record<string, unknown> } | null>(null);
@@ -154,6 +156,7 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, capabil
           surfaceId={model.surfaceKey}
           title={title ?? "Record"}
           form={form}
+          fieldOptions={formFieldOptions}
           initial={wizard.row ?? null}
           onClose={() => setWizard(null)}
         />
