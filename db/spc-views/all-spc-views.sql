@@ -25,7 +25,7 @@ m.RecordDeleted,
   (SELECT COUNT(*) FROM H_AAA_EntityScenarios cc WHERE cc.ScenarioId = m.Id AND cc.RecordDeleted IS NULL) AS EntityScenariosCount,
   (SELECT COUNT(*) FROM H_AAA_ScenarioDataMap cc WHERE cc.ScenarioId = m.Id AND cc.RecordDeleted IS NULL) AS DataMapCount
 FROM H_AAA_Scenarios m
-  LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.ClientEntityId
+  LEFT JOIN H_AAA_Synced_EntityProfile h0 ON h0.Id = m.ClientEntityId
 WHERE m.RecordDeleted IS NULL;
 
 DROP VIEW IF EXISTS Vi_SPC_ScenarioProfile;
@@ -42,7 +42,7 @@ m.ModifiedBy,
 m.RecordDeleted,
   h0.Title AS ClientEntityTitle
 FROM H_AAA_Scenarios m
-  LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.ClientEntityId
+  LEFT JOIN H_AAA_Synced_EntityProfile h0 ON h0.Id = m.ClientEntityId
 WHERE m.RecordDeleted IS NULL;
 
 DROP VIEW IF EXISTS Vi_SPC_ScenarioEntityScenarios;
@@ -61,8 +61,8 @@ j.RecordDeleted,
   h1.Title AS EntityTitle
 FROM H_AAA_EntityScenarios j
   LEFT JOIN H_AAA_Scenarios h0 ON h0.Id = j.ScenarioId
-  LEFT JOIN H_AAA_EntityProfile h0e ON h0e.Id = h0.ClientEntityId
-  LEFT JOIN H_AAA_EntityProfile h1 ON h1.Id = j.EntityId
+  LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.ClientEntityId
+  LEFT JOIN H_AAA_Synced_EntityProfile h1 ON h1.Id = j.EntityId
 WHERE j.RecordDeleted IS NULL;
 
 DROP VIEW IF EXISTS Vi_SPC_ScenarioDataMap;
@@ -89,7 +89,7 @@ j.RecordDeleted,
   h0e.Title AS ScenarioTitle
 FROM H_AAA_ScenarioDataMap j
   LEFT JOIN H_AAA_Scenarios h0 ON h0.Id = j.ScenarioId
-  LEFT JOIN H_AAA_EntityProfile h0e ON h0e.Id = h0.ClientEntityId
+  LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.ClientEntityId
 WHERE j.RecordDeleted IS NULL;
 
 -- ===== definitions.access.users (H_AAA_Synced_UserInfo) =====
@@ -630,6 +630,7 @@ FROM H_Permits j
   LEFT JOIN H_AAA_EntityProfile h7e ON h7e.Id = h7.EntityId
 WHERE j.RecordDeleted IS NULL;
 
+-- ===== definitions.distributors (H_Distributors) =====
 DROP VIEW IF EXISTS Vi_SPC_DistributorCustomers;
 CREATE OR REPLACE VIEW Vi_SPC_DistributorCustomers AS
 SELECT
@@ -1262,7 +1263,7 @@ m.RecordDeleted,
   h3.CellPhone_fsx
 FROM H_CFG_ActorConfigs m
   LEFT JOIN H_AAA_EntityScenarios h0 ON h0.Id = m.ScenarioId
-  LEFT JOIN H_AAA_EntityProfile h0e ON h0e.Id = h0.EntityId
+  LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.EntityId
   LEFT JOIN H_CFG_ActionConfigBases h2 ON h2.Id = m.ConfigBaseId
   LEFT JOIN H_AAA_Synced_UserInfo h3 ON h3.Id = m.UserId
 WHERE m.RecordDeleted IS NULL;
@@ -1294,7 +1295,7 @@ m.RecordDeleted,
   h3.CellPhone_fsx
 FROM H_CFG_ActorConfigs m
   LEFT JOIN H_AAA_EntityScenarios h0 ON h0.Id = m.ScenarioId
-  LEFT JOIN H_AAA_EntityProfile h0e ON h0e.Id = h0.EntityId
+  LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.EntityId
   LEFT JOIN H_CFG_ActionConfigBases h2 ON h2.Id = m.ConfigBaseId
   LEFT JOIN H_AAA_Synced_UserInfo h3 ON h3.Id = m.UserId
 WHERE m.RecordDeleted IS NULL;

@@ -396,28 +396,6 @@ FROM H_Permits j
   LEFT JOIN H_AAA_EntityProfile h7e ON h7e.Id = h7.EntityId
 WHERE j.RecordDeleted IS NULL;
 
-DROP VIEW IF EXISTS Vi_SPC_DistributorCustomers;
-CREATE OR REPLACE VIEW Vi_SPC_DistributorCustomers AS
-SELECT
-j.Id,
-j.DistributorId,
-j.CustomerId,
-j.IssuedDate_UTC,
-j.ExpiryDate_UTC,
-j.CreatedAt_UTC,
-j.CreatedBy,
-j.ModifiedAt_UTC,
-j.ModifiedBy,
-j.RecordDeleted,
-  h0e.Title AS CustomerTitle,
-  h1e.Title AS DistributorTitle
-FROM H_TransportDistributorCustomers j
-  LEFT JOIN H_TransportCustomers h0 ON h0.Id = j.CustomerId
-  LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.EntityId
-  LEFT JOIN H_Synced_Distributors h1 ON h1.Id = j.DistributorId
-  LEFT JOIN H_AAA_Synced_EntityProfile h1e ON h1e.Id = h1.EntityId
-WHERE j.RecordDeleted IS NULL;
-
 -- ===== definitions.drivers (H_Drivers) =====
 DROP VIEW IF EXISTS Vi_SPC_DriverListSummary;
 CREATE OR REPLACE VIEW Vi_SPC_DriverListSummary AS
