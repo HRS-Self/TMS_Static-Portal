@@ -610,7 +610,7 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "IsOverridable",
         "label": "Is Overridable",
         "required": true,
-        "type": "number"
+        "type": "boolean"
       },
       {
         "name": "Signature",
@@ -743,7 +743,7 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "IsOverridable",
         "label": "Is Overridable",
         "required": true,
-        "type": "number"
+        "type": "boolean"
       },
       {
         "name": "Signature",
@@ -780,7 +780,7 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "IsOverridable",
         "label": "Is Overridable",
         "required": true,
-        "type": "number"
+        "type": "boolean"
       },
       {
         "name": "Signature",

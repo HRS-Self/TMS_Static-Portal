@@ -1,7 +1,7 @@
 {
-  "total": 119,
+  "total": 114,
   "valuesMissing": 22,
-  "needsReview": 81,
+  "needsReview": 76,
   "enumTables": {
     "total": 27,
     "matched": [
@@ -65,12 +65,6 @@
       ]
     },
     {
-      "table": "H_AAA_AppClients",
-      "column": "IsInactive",
-      "signal": "tinyint",
-      "resolution": "needs-review"
-    },
-    {
       "table": "H_AAA_EntityRoles",
       "column": "ActENUM",
       "signal": "suffix",
@@ -121,12 +115,6 @@
       "resolution": "needs-review"
     },
     {
-      "table": "H_AAA_TableAuditConfigs",
-      "column": "IsActive",
-      "signal": "tinyint",
-      "resolution": "needs-review"
-    },
-    {
       "table": "H_AAA_TableAudits",
       "column": "Action",
       "signal": "mysql-enum",
@@ -140,28 +128,10 @@
       "resolution": "values-missing"
     },
     {
-      "table": "H_CFG_ActorConfigs",
-      "column": "IsOverridable",
-      "signal": "tinyint",
-      "resolution": "needs-review"
-    },
-    {
       "table": "H_CFG_EntityConfigs",
       "column": "ActENUM",
       "signal": "suffix",
       "resolution": "values-missing"
-    },
-    {
-      "table": "H_CFG_EntityConfigs",
-      "column": "IsOverridable",
-      "signal": "tinyint",
-      "resolution": "needs-review"
-    },
-    {
-      "table": "H_CFG_GlobalConfigs",
-      "column": "IsOverridable",
-      "signal": "tinyint",
-      "resolution": "needs-review"
     },
     {
       "table": "H_CVOServices",

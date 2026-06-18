@@ -1,8 +1,4 @@
 {
-  "H_AAA_AppClients.IsInactive": {
-    "signal": "tinyint",
-    "resolution": "pending"
-  },
   "H_AAA_Scenarios.ActivityClassENUM": {
     "signal": "suffix",
     "resolution": "h-enum-table",
@@ -10,31 +6,19 @@
   },
   "H_AAA_Synced_UserInfo.CellPhoneConfirmed": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_AAA_Synced_UserInfo.EmailConfirmed": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_CFG_ActorConfigs.ActENUM": {
     "signal": "suffix",
-    "resolution": "pending"
-  },
-  "H_CFG_ActorConfigs.IsOverridable": {
-    "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "values-missing"
   },
   "H_CFG_EntityConfigs.ActENUM": {
     "signal": "suffix",
-    "resolution": "pending"
-  },
-  "H_CFG_EntityConfigs.IsOverridable": {
-    "signal": "tinyint",
-    "resolution": "pending"
-  },
-  "H_CFG_GlobalConfigs.IsOverridable": {
-    "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "values-missing"
   },
   "H_NotificationTemplateSettings.NotificationPlatformENUM": {
     "signal": "suffix",
@@ -48,11 +32,11 @@
   },
   "H_NotificationTemplateSettings.NotificationTypeENUM": {
     "signal": "suffix",
-    "resolution": "pending"
+    "resolution": "values-missing"
   },
   "H_PermitTypes.ActENUM": {
     "signal": "suffix",
-    "resolution": "pending"
+    "resolution": "values-missing"
   },
   "H_PermitTypes.ActivityClassENUM": {
     "signal": "suffix",
@@ -61,114 +45,114 @@
   },
   "H_PermitTypes.ProfileDependant": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_RequestStatuses.RequesteeActENUM": {
     "signal": "suffix",
-    "resolution": "pending"
+    "resolution": "values-missing"
   },
   "H_RequestStatuses.Status": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareBaseInclutions.ServiceCategory": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareBaseInclutions.ServiceClass": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareBaseInclutions.TransportCategory": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareBaseInclutions.VehicleType": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareCalculations.CalculateMethod": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareCalculations.CalculationItem": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareCalculations.CalculationType": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareCalculations.CalculationUnit": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareCalculations.ServiceCategory": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareCalculations.ServiceClass": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareCalculations.TransportCategory": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportFareCalculations.VehicleType": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqDeliveries.ActionOnAbsentReceiver": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqDeliveries.PaymentCategory": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqDeliveries.ServiceClass": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqDeliveries.VehicleProfileSubType": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqDeliveries.VehicleType": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqRides.PaymentCategory": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqRides.ServiceCategory": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqRides.ServiceClass": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqRides.Status": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqRides.VehicleProfileSubType": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_TransportReqRides.VehicleType": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_VehicleProfile.TransportCategory": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   },
   "H_VehicleProfile.VehicleType": {
     "signal": "tinyint",
-    "resolution": "pending"
+    "resolution": "needs-review"
   }
 }

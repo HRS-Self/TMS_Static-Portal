@@ -603,7 +603,7 @@
         "name": "IsOverridable",
         "label": "Is Overridable",
         "required": true,
-        "type": "number"
+        "type": "boolean"
       },
       {
         "name": "Signature",
@@ -736,7 +736,7 @@
         "name": "IsOverridable",
         "label": "Is Overridable",
         "required": true,
-        "type": "number"
+        "type": "boolean"
       },
       {
         "name": "Signature",
@@ -773,7 +773,7 @@
         "name": "IsOverridable",
         "label": "Is Overridable",
         "required": true,
-        "type": "number"
+        "type": "boolean"
       },
       {
         "name": "Signature",
