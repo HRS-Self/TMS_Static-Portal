@@ -8,55 +8,6 @@
 DROP VIEW IF EXISTS Vi_SPC_PermitLatestStatus;
 CREATE OR REPLACE VIEW Vi_SPC_PermitLatestStatus AS SELECT ranked.Id AS PermitStatusId, ranked.PermitId, ranked.ExpiryDate_UTC, ranked.ConditionENUM, ranked.ConditionEndDate_UTC, ranked.MediaRecordKey, ranked.RecordKey, ranked.CreatedAt_UTC, ranked.CreatedBy, ranked.ModifiedAt_UTC, ranked.ModifiedBy, CASE WHEN ranked.ConditionENUM = 4 THEN 'Revoked' WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN 'Expired' WHEN ranked.ConditionENUM = 1 THEN 'Suspended' WHEN ranked.ConditionENUM IS NULL OR ranked.ConditionENUM IN (2,3) THEN 'Valid' ELSE 'Unknown' END AS StatusCategory, CASE ranked.ConditionENUM WHEN 1 THEN 'TempSuspended' WHEN 2 THEN 'TempValid' WHEN 3 THEN 'TempExtended' WHEN 4 THEN 'Revoked' ELSE 'Normal' END AS ConditionTitle, CASE WHEN ranked.ConditionENUM = 4 THEN FALSE WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN FALSE WHEN ranked.ConditionENUM = 1 THEN FALSE WHEN ranked.ConditionENUM IS NULL OR ranked.ConditionENUM IN (2,3) THEN TRUE ELSE NULL END AS IsCurrentlyValid, DATEDIFF(ranked.ExpiryDate_UTC, UTC_TIMESTAMP()) AS DaysUntilExpiry, CASE WHEN ranked.ExpiryDate_UTC IS NULL THEN NULL WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN FALSE WHEN DATEDIFF(ranked.ExpiryDate_UTC, UTC_TIMESTAMP()) <= 30 THEN TRUE ELSE FALSE END AS IsExpiringSoon FROM (SELECT ps.*, ROW_NUMBER() OVER (PARTITION BY ps.PermitId ORDER BY ps.CreatedAt_UTC DESC, ps.Id DESC) AS RowNum FROM H_PermitStatuses ps WHERE ps.RecordDeleted IS NULL) AS ranked WHERE ranked.RowNum = 1;
 
--- ===== definitions.access.entities (H_AAA_EntityProfile) =====
-DROP VIEW IF EXISTS Vi_SPC_EntityListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_EntityListSummary AS
-SELECT
-m.Id,
-m.PartyCode,
-m.Title,
-m.Address_fsx,
-m.City,
-m.Province,
-m.Country,
-m.PostalCode_fsx,
-m.Phone_fsx,
-m.FaxNumber_fsx,
-m.Email_fsx,
-m.Discriminator,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_AAA_EntityProfile m
-WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_EntityProfile;
-CREATE OR REPLACE VIEW Vi_SPC_EntityProfile AS
-SELECT
-m.Id,
-m.PartyCode,
-m.Title,
-m.Address_fsx,
-m.City,
-m.Province,
-m.Country,
-m.PostalCode_fsx,
-m.Phone_fsx,
-m.FaxNumber_fsx,
-m.Email_fsx,
-m.Discriminator,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_AAA_EntityProfile m
-WHERE m.RecordDeleted IS NULL;
-
 -- ===== definitions.access.users (H_AAA_Synced_UserInfo) =====
 DROP VIEW IF EXISTS Vi_SPC_UserListSummary;
 CREATE OR REPLACE VIEW Vi_SPC_UserListSummary AS
@@ -77,27 +28,6 @@ m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
   (SELECT COUNT(*) FROM H_AAA_UserEntityRoles cc WHERE cc.UserId = m.Id AND cc.RecordDeleted IS NULL) AS EntityRolesCount
-FROM H_AAA_Synced_UserInfo m
-WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_UserProfile;
-CREATE OR REPLACE VIEW Vi_SPC_UserProfile AS
-SELECT
-m.Id,
-m.Firstname_fsx,
-m.Lastname_fsx,
-m.Username,
-m.Email_fsx,
-m.EmailConfirmed,
-m.CellPhone_fsx,
-m.CellPhoneConfirmed,
-m.IssuedBy,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
 FROM H_AAA_Synced_UserInfo m
 WHERE m.RecordDeleted IS NULL;
 
@@ -881,34 +811,6 @@ m.RecordDeleted,
 FROM H_VehicleProfile m
 WHERE m.RecordDeleted IS NULL;
 
-DROP VIEW IF EXISTS Vi_SPC_VehicleProfile;
-CREATE OR REPLACE VIEW Vi_SPC_VehicleProfile AS
-SELECT
-m.Id,
-m.Plate,
-m.VIN,
-m.Make,
-m.Model,
-m.Province,
-m.Color,
-m.Year,
-m.TransportCategory,
-m.Cargo_Height,
-m.Cargo_Weight,
-m.Cargo_Length,
-m.Cargo_Width,
-m.Capacity_Passengers,
-m.Capacity_Luggage,
-m.VehicleType,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_VehicleProfile m
-WHERE m.RecordDeleted IS NULL;
-
 DROP VIEW IF EXISTS Vi_SPC_VehicleCVOs;
 CREATE OR REPLACE VIEW Vi_SPC_VehicleCVOs AS
 SELECT
@@ -1198,24 +1100,4 @@ FROM H_Permits j
   LEFT JOIN H_PermitIssuers h7 ON h7.Id = j.PermitIssuerId
   LEFT JOIN H_AAA_EntityProfile h7e ON h7e.Id = h7.EntityId
 WHERE j.RecordDeleted IS NULL;
-
--- ===== system.permit-management.permit-types (H_PermitTypes) =====
-DROP VIEW IF EXISTS Vi_SPC_PermitTypeListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_PermitTypeListSummary AS
-SELECT
-m.Id,
-m.ActENUM,
-m.ActivityClassENUM,
-m.Title,
-m.AllowedServiceCategories,
-m.Extendable,
-m.ProfileDependant,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_PermitTypes m
-WHERE m.RecordDeleted IS NULL;
 

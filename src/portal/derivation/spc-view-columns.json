@@ -1,44 +1,4 @@
 {
-  "Vi_SPC_EntityListSummary": [
-    "Id",
-    "PartyCode",
-    "Title",
-    "Address_fsx",
-    "City",
-    "Province",
-    "Country",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
-    "Discriminator",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
-  "Vi_SPC_EntityProfile": [
-    "Id",
-    "PartyCode",
-    "Title",
-    "Address_fsx",
-    "City",
-    "Province",
-    "Country",
-    "PostalCode_fsx",
-    "Phone_fsx",
-    "FaxNumber_fsx",
-    "Email_fsx",
-    "Discriminator",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
   "Vi_SPC_ScenarioListSummary": [
     "Id",
     "Description",
@@ -116,23 +76,6 @@
     "ModifiedBy",
     "RecordDeleted",
     "EntityRolesCount"
-  ],
-  "Vi_SPC_UserProfile": [
-    "Id",
-    "Firstname_fsx",
-    "Lastname_fsx",
-    "Username",
-    "Email_fsx",
-    "EmailConfirmed",
-    "CellPhone_fsx",
-    "CellPhoneConfirmed",
-    "IssuedBy",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
   ],
   "Vi_SPC_UserEntityRoles": [
     "Id",
@@ -812,30 +755,6 @@
     "DriversCount",
     "FeaturesCount"
   ],
-  "Vi_SPC_VehicleProfile": [
-    "Id",
-    "Plate",
-    "VIN",
-    "Make",
-    "Model",
-    "Province",
-    "Color",
-    "Year",
-    "TransportCategory",
-    "Cargo_Height",
-    "Cargo_Weight",
-    "Cargo_Length",
-    "Cargo_Width",
-    "Capacity_Passengers",
-    "Capacity_Luggage",
-    "VehicleType",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
   "Vi_SPC_VehicleCVOs": [
     "LinkId",
     "CVOId",
@@ -955,16 +874,6 @@
     "RecordDeleted",
     "PermissionsCount"
   ],
-  "Vi_SPC_AppTypeProfile": [
-    "Id",
-    "Code",
-    "Title",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
   "Vi_SPC_AppTypePermissions": [
     "Id",
     "AppTypeId",
@@ -977,28 +886,6 @@
     "RecordDeleted",
     "AppTypeTitle",
     "AppPermissionTitle"
-  ],
-  "Vi_SPC_ActionConfigBaseListSummary": [
-    "Id",
-    "Code",
-    "Description",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
-  "Vi_SPC_ActionConfigBaseProfile": [
-    "Id",
-    "Code",
-    "Description",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
   ],
   "Vi_SPC_ActorConfigListSummary": [
     "Id",
@@ -1126,30 +1013,6 @@
     "RecordDeleted",
     "ConfigBaseCode"
   ],
-  "Vi_SPC_NotificationTemplateListSummary": [
-    "Id",
-    "NotificationTypeENUM",
-    "NotificationTemplateENUM",
-    "NotificationPlatformENUM",
-    "Settings",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
-  "Vi_SPC_NotificationTemplateProfile": [
-    "Id",
-    "NotificationTypeENUM",
-    "NotificationTemplateENUM",
-    "NotificationPlatformENUM",
-    "Settings",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
   "Vi_SPC_PermitIssuerListSummary": [
     "Id",
     "EntityId",
@@ -1212,21 +1075,6 @@
     "PermitTypeTitle",
     "PermitIssuerTitle"
   ],
-  "Vi_SPC_PermitTypeListSummary": [
-    "Id",
-    "ActENUM",
-    "ActivityClassENUM",
-    "Title",
-    "AllowedServiceCategories",
-    "Extendable",
-    "ProfileDependant",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
   "Vi_SPC_BatchListSummary": [
     "Id",
     "FMS_OId",
@@ -1265,19 +1113,6 @@
     "ModifiedBy",
     "RecordDeleted",
     "DistributorTitle"
-  ],
-  "Vi_SPC_BatchItems": [
-    "Id",
-    "BatchId",
-    "ItemOrder",
-    "TransportReqRideId",
-    "TransportReqDeliveryId",
-    "Discriminator",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
   ],
   "Vi_SPC_DeliveryListSummary": [
     "Id",
@@ -1354,31 +1189,6 @@
     "CVOTitle",
     "CustomerTitle"
   ],
-  "Vi_SPC_DeliveryBatchItems": [
-    "Id",
-    "BatchId",
-    "ItemOrder",
-    "TransportReqRideId",
-    "TransportReqDeliveryId",
-    "Discriminator",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
-  "Vi_SPC_DeliveryReqDeliveryAddons": [
-    "Id",
-    "TransportReqDeliveryId",
-    "CalculationItem",
-    "CalculationUnit",
-    "Amount",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
   "Vi_SPC_DeliveryReqDeliveryGoods": [
     "Id",
     "ReqDeliveryId",
@@ -1447,26 +1257,6 @@
     "RecordDeleted",
     "CVOTitle",
     "PickupZoneTitle"
-  ],
-  "Vi_SPC_DispatchTransactItems": [
-    "Id",
-    "TransportTransactId",
-    "TransportBatchItemId",
-    "CurrentStatus",
-    "AggregatedComments",
-    "ImageUri",
-    "SignatureUri",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy"
-  ],
-  "Vi_SPC_DispatchTransactStages": [
-    "Id",
-    "TimeStamp_UTC",
-    "TransportTransactId",
-    "Status",
-    "ModifiedBy"
   ],
   "Vi_SPC_RideListSummary": [
     "Id",
@@ -1550,51 +1340,6 @@
     "CVOTitle",
     "CustomerTitle",
     "DistributorTitle"
-  ],
-  "Vi_SPC_RideBatchItems": [
-    "Id",
-    "BatchId",
-    "ItemOrder",
-    "TransportReqRideId",
-    "TransportReqDeliveryId",
-    "Discriminator",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
-  "Vi_SPC_RideReqRideAddons": [
-    "Id",
-    "TransportReqRideId",
-    "CalculationItem",
-    "CalculationUnit",
-    "Amount",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
-  "Vi_SPC_RideReqRidePassengers": [
-    "Id",
-    "ReqRideId",
-    "PassengerId",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
-  "Vi_SPC_RideTransactItemStages": [
-    "Id",
-    "TimeStamp_UTC",
-    "TransactStepId",
-    "Status",
-    "Comments",
-    "ImageUri",
-    "SignatureUri",
-    "ModifiedBy"
   ],
   "Vi_SPC_ContactLocationListSummary": [
     "Id",
@@ -1749,61 +1494,5 @@
     "RecordDeleted",
     "DistributorTitle",
     "CVOTitle"
-  ],
-  "Vi_SPC_GeoFenceBaseListSummary": [
-    "Id",
-    "Code",
-    "Title",
-    "Coordinates",
-    "Order",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
-  "Vi_SPC_GeoFenceBaseProfile": [
-    "Id",
-    "Code",
-    "Title",
-    "Coordinates",
-    "Order",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted"
-  ],
-  "Vi_SPC_LocationListSummary": [
-    "Id",
-    "Title",
-    "Latitude",
-    "Longitude",
-    "Address",
-    "City",
-    "Province",
-    "PostalCode",
-    "PlaceId",
-    "GoogleFullAddress",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "RecordDeleted"
-  ],
-  "Vi_SPC_LocationProfile": [
-    "Id",
-    "Title",
-    "Latitude",
-    "Longitude",
-    "Address",
-    "City",
-    "Province",
-    "PostalCode",
-    "PlaceId",
-    "GoogleFullAddress",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "RecordDeleted"
   ]
 }

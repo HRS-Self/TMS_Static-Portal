@@ -15,8 +15,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "gd",
     "readModel": {
-      "dataSourceType": "view",
-      "dataSourceValue": "Vi_SPC_EntityListSummary",
+      "dataSourceType": "table",
+      "dataSourceValue": "H_AAA_EntityProfile",
       "select": [
         "Id",
         "PartyCode",
@@ -1331,8 +1331,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "view",
-      "dataSourceValue": "Vi_SPC_ActionConfigBaseListSummary",
+      "dataSourceType": "table",
+      "dataSourceValue": "H_CFG_ActionConfigBases",
       "select": [
         "Id",
         "Code",
@@ -1739,8 +1739,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "ntf",
     "readModel": {
-      "dataSourceType": "view",
-      "dataSourceValue": "Vi_SPC_NotificationTemplateListSummary",
+      "dataSourceType": "table",
+      "dataSourceValue": "H_NotificationTemplateSettings",
       "select": [
         "Id",
         "NotificationTypeENUM",
@@ -1892,8 +1892,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "compact-catalog",
     "backend": "gd",
     "readModel": {
-      "dataSourceType": "view",
-      "dataSourceValue": "Vi_SPC_PermitTypeListSummary",
+      "dataSourceType": "table",
+      "dataSourceValue": "H_PermitTypes",
       "select": [
         "Id",
         "ActENUM",
@@ -3250,8 +3250,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "view",
-      "dataSourceValue": "Vi_SPC_GeoFenceBaseListSummary",
+      "dataSourceType": "table",
+      "dataSourceValue": "H_TransportGeoFenceBases",
       "select": [
         "Id",
         "Code",
@@ -3330,8 +3330,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "archetype": "managed-list",
     "backend": "core",
     "readModel": {
-      "dataSourceType": "view",
-      "dataSourceValue": "Vi_SPC_LocationListSummary",
+      "dataSourceType": "table",
+      "dataSourceValue": "H_TransportLocations",
       "select": [
         "Id",
         "Title",

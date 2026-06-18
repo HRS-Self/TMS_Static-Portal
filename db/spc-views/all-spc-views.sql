@@ -8,55 +8,6 @@
 DROP VIEW IF EXISTS Vi_SPC_PermitLatestStatus;
 CREATE OR REPLACE VIEW Vi_SPC_PermitLatestStatus AS SELECT ranked.Id AS PermitStatusId, ranked.PermitId, ranked.ExpiryDate_UTC, ranked.ConditionENUM, ranked.ConditionEndDate_UTC, ranked.MediaRecordKey, ranked.RecordKey, ranked.CreatedAt_UTC, ranked.CreatedBy, ranked.ModifiedAt_UTC, ranked.ModifiedBy, CASE WHEN ranked.ConditionENUM = 4 THEN 'Revoked' WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN 'Expired' WHEN ranked.ConditionENUM = 1 THEN 'Suspended' WHEN ranked.ConditionENUM IS NULL OR ranked.ConditionENUM IN (2,3) THEN 'Valid' ELSE 'Unknown' END AS StatusCategory, CASE ranked.ConditionENUM WHEN 1 THEN 'TempSuspended' WHEN 2 THEN 'TempValid' WHEN 3 THEN 'TempExtended' WHEN 4 THEN 'Revoked' ELSE 'Normal' END AS ConditionTitle, CASE WHEN ranked.ConditionENUM = 4 THEN FALSE WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN FALSE WHEN ranked.ConditionENUM = 1 THEN FALSE WHEN ranked.ConditionENUM IS NULL OR ranked.ConditionENUM IN (2,3) THEN TRUE ELSE NULL END AS IsCurrentlyValid, DATEDIFF(ranked.ExpiryDate_UTC, UTC_TIMESTAMP()) AS DaysUntilExpiry, CASE WHEN ranked.ExpiryDate_UTC IS NULL THEN NULL WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN FALSE WHEN DATEDIFF(ranked.ExpiryDate_UTC, UTC_TIMESTAMP()) <= 30 THEN TRUE ELSE FALSE END AS IsExpiringSoon FROM (SELECT ps.*, ROW_NUMBER() OVER (PARTITION BY ps.PermitId ORDER BY ps.CreatedAt_UTC DESC, ps.Id DESC) AS RowNum FROM H_PermitStatuses ps WHERE ps.RecordDeleted IS NULL) AS ranked WHERE ranked.RowNum = 1;
 
--- ===== definitions.access.entities (H_AAA_EntityProfile) =====
-DROP VIEW IF EXISTS Vi_SPC_EntityListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_EntityListSummary AS
-SELECT
-m.Id,
-m.PartyCode,
-m.Title,
-m.Address_fsx,
-m.City,
-m.Province,
-m.Country,
-m.PostalCode_fsx,
-m.Phone_fsx,
-m.FaxNumber_fsx,
-m.Email_fsx,
-m.Discriminator,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_AAA_EntityProfile m
-WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_EntityProfile;
-CREATE OR REPLACE VIEW Vi_SPC_EntityProfile AS
-SELECT
-m.Id,
-m.PartyCode,
-m.Title,
-m.Address_fsx,
-m.City,
-m.Province,
-m.Country,
-m.PostalCode_fsx,
-m.Phone_fsx,
-m.FaxNumber_fsx,
-m.Email_fsx,
-m.Discriminator,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_AAA_EntityProfile m
-WHERE m.RecordDeleted IS NULL;
-
 -- ===== definitions.access.scenarios (H_AAA_Scenarios) [system-admin] =====
 DROP VIEW IF EXISTS Vi_SPC_ScenarioListSummary;
 CREATE OR REPLACE VIEW Vi_SPC_ScenarioListSummary AS
@@ -161,27 +112,6 @@ m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
   (SELECT COUNT(*) FROM H_AAA_UserEntityRoles cc WHERE cc.UserId = m.Id AND cc.RecordDeleted IS NULL) AS EntityRolesCount
-FROM H_AAA_Synced_UserInfo m
-WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_UserProfile;
-CREATE OR REPLACE VIEW Vi_SPC_UserProfile AS
-SELECT
-m.Id,
-m.Firstname_fsx,
-m.Lastname_fsx,
-m.Username,
-m.Email_fsx,
-m.EmailConfirmed,
-m.CellPhone_fsx,
-m.CellPhoneConfirmed,
-m.IssuedBy,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
 FROM H_AAA_Synced_UserInfo m
 WHERE m.RecordDeleted IS NULL;
 
@@ -1115,34 +1045,6 @@ m.RecordDeleted,
 FROM H_VehicleProfile m
 WHERE m.RecordDeleted IS NULL;
 
-DROP VIEW IF EXISTS Vi_SPC_VehicleProfile;
-CREATE OR REPLACE VIEW Vi_SPC_VehicleProfile AS
-SELECT
-m.Id,
-m.Plate,
-m.VIN,
-m.Make,
-m.Model,
-m.Province,
-m.Color,
-m.Year,
-m.TransportCategory,
-m.Cargo_Height,
-m.Cargo_Weight,
-m.Cargo_Length,
-m.Cargo_Width,
-m.Capacity_Passengers,
-m.Capacity_Luggage,
-m.VehicleType,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_VehicleProfile m
-WHERE m.RecordDeleted IS NULL;
-
 DROP VIEW IF EXISTS Vi_SPC_VehicleCVOs;
 CREATE OR REPLACE VIEW Vi_SPC_VehicleCVOs AS
 SELECT
@@ -1313,20 +1215,6 @@ m.RecordDeleted,
 FROM H_AAA_AppTypes m
 WHERE m.RecordDeleted IS NULL;
 
-DROP VIEW IF EXISTS Vi_SPC_AppTypeProfile;
-CREATE OR REPLACE VIEW Vi_SPC_AppTypeProfile AS
-SELECT
-m.Id,
-m.Code,
-m.Title,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_AAA_AppTypes m
-WHERE m.RecordDeleted IS NULL;
-
 DROP VIEW IF EXISTS Vi_SPC_AppTypePermissions;
 CREATE OR REPLACE VIEW Vi_SPC_AppTypePermissions AS
 SELECT
@@ -1345,37 +1233,6 @@ FROM H_AAA_AppTypePermissions j
   LEFT JOIN H_AAA_AppTypes h0 ON h0.Id = j.AppTypeId
   LEFT JOIN H_AAA_AppPermissions h1 ON h1.Id = j.AppPermissionId
 WHERE j.RecordDeleted IS NULL;
-
--- ===== system.configurations.action-config-bases (H_CFG_ActionConfigBases) =====
-DROP VIEW IF EXISTS Vi_SPC_ActionConfigBaseListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_ActionConfigBaseListSummary AS
-SELECT
-m.Id,
-m.Code,
-m.Description,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_CFG_ActionConfigBases m
-WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_ActionConfigBaseProfile;
-CREATE OR REPLACE VIEW Vi_SPC_ActionConfigBaseProfile AS
-SELECT
-m.Id,
-m.Code,
-m.Description,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_CFG_ActionConfigBases m
-WHERE m.RecordDeleted IS NULL;
 
 -- ===== system.configurations.actor-configs (H_CFG_ActorConfigs) =====
 DROP VIEW IF EXISTS Vi_SPC_ActorConfigListSummary;
@@ -1562,39 +1419,6 @@ FROM H_CFG_GlobalConfigs m
   LEFT JOIN H_CFG_ActionConfigBases h0 ON h0.Id = m.ConfigBaseId
 WHERE m.RecordDeleted IS NULL;
 
--- ===== system.notification-definitions.templates (H_NotificationTemplateSettings) =====
-DROP VIEW IF EXISTS Vi_SPC_NotificationTemplateListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_NotificationTemplateListSummary AS
-SELECT
-m.Id,
-m.NotificationTypeENUM,
-m.NotificationTemplateENUM,
-m.NotificationPlatformENUM,
-m.Settings,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_NotificationTemplateSettings m
-WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_NotificationTemplateProfile;
-CREATE OR REPLACE VIEW Vi_SPC_NotificationTemplateProfile AS
-SELECT
-m.Id,
-m.NotificationTypeENUM,
-m.NotificationTemplateENUM,
-m.NotificationPlatformENUM,
-m.Settings,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_NotificationTemplateSettings m
-WHERE m.RecordDeleted IS NULL;
-
 -- ===== system.permit-management.permit-issuers (H_PermitIssuers) =====
 DROP VIEW IF EXISTS Vi_SPC_PermitIssuerListSummary;
 CREATE OR REPLACE VIEW Vi_SPC_PermitIssuerListSummary AS
@@ -1688,26 +1512,6 @@ FROM H_Permits j
   LEFT JOIN H_AAA_EntityProfile h7e ON h7e.Id = h7.EntityId
 WHERE j.RecordDeleted IS NULL;
 
--- ===== system.permit-management.permit-types (H_PermitTypes) =====
-DROP VIEW IF EXISTS Vi_SPC_PermitTypeListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_PermitTypeListSummary AS
-SELECT
-m.Id,
-m.ActENUM,
-m.ActivityClassENUM,
-m.Title,
-m.AllowedServiceCategories,
-m.Extendable,
-m.ProfileDependant,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_PermitTypes m
-WHERE m.RecordDeleted IS NULL;
-
 -- ===== transport.batches (H_TransportBatches) =====
 DROP VIEW IF EXISTS Vi_SPC_BatchListSummary;
 CREATE OR REPLACE VIEW Vi_SPC_BatchListSummary AS
@@ -1759,23 +1563,6 @@ FROM H_TransportBatches m
   LEFT JOIN H_Synced_Distributors h0 ON h0.Id = m.DistributorId
   LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.EntityId
 WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_BatchItems;
-CREATE OR REPLACE VIEW Vi_SPC_BatchItems AS
-SELECT
-j.Id,
-j.BatchId,
-j.ItemOrder,
-j.TransportReqRideId,
-j.TransportReqDeliveryId,
-j.Discriminator,
-j.CreatedAt_UTC,
-j.CreatedBy,
-j.ModifiedAt_UTC,
-j.ModifiedBy,
-j.RecordDeleted
-FROM H_TransportBatchItems j
-WHERE j.RecordDeleted IS NULL;
 
 -- ===== transport.deliveries (H_TransportReqDeliveries) =====
 DROP VIEW IF EXISTS Vi_SPC_DeliveryListSummary;
@@ -1873,39 +1660,6 @@ FROM H_TransportReqDeliveries m
   LEFT JOIN H_AAA_Synced_EntityProfile h4e ON h4e.Id = h4.EntityId
 WHERE m.RecordDeleted IS NULL;
 
-DROP VIEW IF EXISTS Vi_SPC_DeliveryBatchItems;
-CREATE OR REPLACE VIEW Vi_SPC_DeliveryBatchItems AS
-SELECT
-j.Id,
-j.BatchId,
-j.ItemOrder,
-j.TransportReqRideId,
-j.TransportReqDeliveryId,
-j.Discriminator,
-j.CreatedAt_UTC,
-j.CreatedBy,
-j.ModifiedAt_UTC,
-j.ModifiedBy,
-j.RecordDeleted
-FROM H_TransportBatchItems j
-WHERE j.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_DeliveryReqDeliveryAddons;
-CREATE OR REPLACE VIEW Vi_SPC_DeliveryReqDeliveryAddons AS
-SELECT
-j.Id,
-j.TransportReqDeliveryId,
-j.CalculationItem,
-j.CalculationUnit,
-j.Amount,
-j.CreatedAt_UTC,
-j.CreatedBy,
-j.ModifiedAt_UTC,
-j.ModifiedBy,
-j.RecordDeleted
-FROM H_TransportReqDeliveryAddons j
-WHERE j.RecordDeleted IS NULL;
-
 DROP VIEW IF EXISTS Vi_SPC_DeliveryReqDeliveryGoods;
 CREATE OR REPLACE VIEW Vi_SPC_DeliveryReqDeliveryGoods AS
 SELECT
@@ -1994,32 +1748,6 @@ FROM H_TransportTransacts m
   LEFT JOIN H_AAA_Synced_EntityProfile h3e ON h3e.Id = h3.EntityId
   LEFT JOIN _ZoneBases h4 ON h4.Id = m.PickupZoneId
 WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_DispatchTransactItems;
-CREATE OR REPLACE VIEW Vi_SPC_DispatchTransactItems AS
-SELECT
-j.Id,
-j.TransportTransactId,
-j.TransportBatchItemId,
-j.CurrentStatus,
-j.AggregatedComments,
-j.ImageUri,
-j.SignatureUri,
-j.CreatedAt_UTC,
-j.CreatedBy,
-j.ModifiedAt_UTC,
-j.ModifiedBy
-FROM H_TransportTransactItems j;
-
-DROP VIEW IF EXISTS Vi_SPC_DispatchTransactStages;
-CREATE OR REPLACE VIEW Vi_SPC_DispatchTransactStages AS
-SELECT
-j.Id,
-j.TimeStamp_UTC,
-j.TransportTransactId,
-j.Status,
-j.ModifiedBy
-FROM H_TransportTransactStages j;
 
 -- ===== transport.rides (H_TransportReqRides) =====
 DROP VIEW IF EXISTS Vi_SPC_RideListSummary;
@@ -2124,66 +1852,6 @@ FROM H_TransportReqRides m
   LEFT JOIN H_Synced_Distributors h3 ON h3.Id = m.DistributorId
   LEFT JOIN H_AAA_Synced_EntityProfile h3e ON h3e.Id = h3.EntityId
 WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_RideBatchItems;
-CREATE OR REPLACE VIEW Vi_SPC_RideBatchItems AS
-SELECT
-j.Id,
-j.BatchId,
-j.ItemOrder,
-j.TransportReqRideId,
-j.TransportReqDeliveryId,
-j.Discriminator,
-j.CreatedAt_UTC,
-j.CreatedBy,
-j.ModifiedAt_UTC,
-j.ModifiedBy,
-j.RecordDeleted
-FROM H_TransportBatchItems j
-WHERE j.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_RideReqRideAddons;
-CREATE OR REPLACE VIEW Vi_SPC_RideReqRideAddons AS
-SELECT
-j.Id,
-j.TransportReqRideId,
-j.CalculationItem,
-j.CalculationUnit,
-j.Amount,
-j.CreatedAt_UTC,
-j.CreatedBy,
-j.ModifiedAt_UTC,
-j.ModifiedBy,
-j.RecordDeleted
-FROM H_TransportReqRideAddons j
-WHERE j.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_RideReqRidePassengers;
-CREATE OR REPLACE VIEW Vi_SPC_RideReqRidePassengers AS
-SELECT
-j.Id,
-j.ReqRideId,
-j.PassengerId,
-j.CreatedAt_UTC,
-j.CreatedBy,
-j.ModifiedAt_UTC,
-j.ModifiedBy,
-j.RecordDeleted
-FROM H_TransportReqRidePassengers j
-WHERE j.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_RideTransactItemStages;
-CREATE OR REPLACE VIEW Vi_SPC_RideTransactItemStages AS
-SELECT
-j.Id,
-j.TimeStamp_UTC,
-j.TransactStepId,
-j.Status,
-j.Comments,
-j.ImageUri,
-j.SignatureUri,
-j.ModifiedBy
-FROM H_TransportTransactItemStages j;
 
 -- ===== transport.setup.contact-locations (H_TransportContactLocations) =====
 DROP VIEW IF EXISTS Vi_SPC_ContactLocationListSummary;
@@ -2408,79 +2076,5 @@ FROM H_TransportFareCalculations m
   LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.EntityId
   LEFT JOIN H_Synced_CVOs h1 ON h1.Id = m.CVOId
   LEFT JOIN H_AAA_Synced_EntityProfile h1e ON h1e.Id = h1.EntityId
-WHERE m.RecordDeleted IS NULL;
-
--- ===== transport.setup.geo-fence-bases (H_TransportGeoFenceBases) =====
-DROP VIEW IF EXISTS Vi_SPC_GeoFenceBaseListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_GeoFenceBaseListSummary AS
-SELECT
-m.Id,
-m.Code,
-m.Title,
-m.Coordinates,
-m.Order,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_TransportGeoFenceBases m
-WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_GeoFenceBaseProfile;
-CREATE OR REPLACE VIEW Vi_SPC_GeoFenceBaseProfile AS
-SELECT
-m.Id,
-m.Code,
-m.Title,
-m.Coordinates,
-m.Order,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted
-FROM H_TransportGeoFenceBases m
-WHERE m.RecordDeleted IS NULL;
-
--- ===== transport.setup.locations (H_TransportLocations) =====
-DROP VIEW IF EXISTS Vi_SPC_LocationListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_LocationListSummary AS
-SELECT
-m.Id,
-m.Title,
-m.Latitude,
-m.Longitude,
-m.Address,
-m.City,
-m.Province,
-m.PostalCode,
-m.PlaceId,
-m.GoogleFullAddress,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.RecordDeleted
-FROM H_TransportLocations m
-WHERE m.RecordDeleted IS NULL;
-
-DROP VIEW IF EXISTS Vi_SPC_LocationProfile;
-CREATE OR REPLACE VIEW Vi_SPC_LocationProfile AS
-SELECT
-m.Id,
-m.Title,
-m.Latitude,
-m.Longitude,
-m.Address,
-m.City,
-m.Province,
-m.PostalCode,
-m.PlaceId,
-m.GoogleFullAddress,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.RecordDeleted
-FROM H_TransportLocations m
 WHERE m.RecordDeleted IS NULL;
 
