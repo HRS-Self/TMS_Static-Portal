@@ -1,8 +1,7 @@
 "use client";
 
 import { TMSDataGrid } from "@conitdev/tms-ui-kit";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import type { SurfaceFormContract } from "@/src/portal/derivation/surface-form-contracts";
 import type {
@@ -58,9 +57,51 @@ type SurfaceListGridProps = {
 };
 
 export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFieldOptions, capability, form, title }: SurfaceListGridProps) {
-  const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [wizard, setWizard] = useState<{ mode: "new" | "manage"; row?: Record<string, unknown> } | null>(null);
+
+  // The grid runs in `backend` processing mode: rows are seeded server-side (page 1) and re-queried
+  // here via the BFF list route on page / sort / filter / include-deleted changes. queryRef holds
+  // the live query so each change composes with the others.
+  const [data, setData] = useState<{ rows: object[]; total: number }>({ rows, total: totalItems });
+  const [loading, setLoading] = useState(false);
+  const queryRef = useRef({
+    page: 1,
+    size: model.readModel.defaultPageSize ?? 25,
+    sortKey: model.readModel.defaultSortKey,
+    sortDirection: "asc" as "asc" | "desc",
+    filter: {} as Record<string, unknown>,
+    includeDeleted: false,
+  });
+  const refetch = useCallback(
+    async (patch: Partial<typeof queryRef.current>) => {
+      const q = { ...queryRef.current, ...patch };
+      queryRef.current = q;
+      setLoading(true);
+      try {
+        const res = await fetch("/api/portal/list", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            surfaceId: model.surfaceKey,
+            page: q.page,
+            size: q.size,
+            sortKey: q.sortKey,
+            sortDirection: q.sortDirection,
+            filter: q.filter,
+            includeDeletedRecords: q.includeDeleted,
+          }),
+        });
+        if (res.ok) {
+          const json = (await res.json()) as { rows?: object[]; total?: number };
+          setData({ rows: json.rows ?? [], total: json.total ?? 0 });
+        }
+      } finally {
+        setLoading(false);
+      }
+    },
+    [model.surfaceKey],
+  );
 
   // hide an action the capability snapshot forbids (when a snapshot is present)
   const allowed = (action: RenderAction) => {
@@ -125,7 +166,7 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
             payload: { Id: recordId, RecordDeleted: true },
           }),
         });
-        if (res.ok) router.refresh();
+        if (res.ok) void refetch({});
         else window.alert("Delete failed.");
       } finally {
         setBusy(false);
@@ -138,14 +179,30 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
       <TMSDataGrid
         pageSize={25}
         columns={columns}
-        rows={rows}
-        totalItems={totalItems}
+        rows={data.rows}
+        totalItems={data.total}
+        loading={loading}
         actions={actions}
         onClickActions={(action, row) => {
           void handleAction(action as { id?: string }, row);
         }}
         processingMode={{ pagination: "backend", sorting: "backend", filtering: "backend" }}
+        onPageChange={(page) => void refetch({ page })}
+        onRowsPerPage={(size) => void refetch({ size, page: 1 })}
+        onSortChange={(sort) =>
+          void refetch({
+            sortKey: sort?.accessorKey ?? model.readModel.defaultSortKey,
+            sortDirection: sort?.direction ?? "asc",
+            page: 1,
+          })
+        }
+        onComposedFilterChange={(payload) =>
+          void refetch({ filter: payload?.composedFilter ?? {}, page: payload?.page ?? 1 })
+        }
+        onIncludeDeleted={(includeDeleted) => void refetch({ includeDeleted, page: 1 })}
+        resizableColumns
         showColumns
+        showFilters
         showPagination
         hasBorder
       />
@@ -158,7 +215,10 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
           form={form}
           fieldOptions={formFieldOptions}
           initial={wizard.row ?? null}
-          onClose={() => setWizard(null)}
+          onClose={() => {
+            setWizard(null);
+            void refetch({});
+          }}
         />
       ) : null}
     </>
