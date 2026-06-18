@@ -2,6 +2,40 @@
   "total": 119,
   "valuesMissing": 22,
   "needsReview": 81,
+  "enumTables": {
+    "total": 27,
+    "matched": [
+      "H_ENUM_ActivityClasses",
+      "H_ENUM_EventTypes",
+      "H_ENUM_NotificationPlatforms",
+      "H_ENUM_NotificationTemplates"
+    ],
+    "unmatched": [
+      "H_ENUM_Actors",
+      "H_ENUM_ActorsSorts",
+      "H_ENUM_CalculateMethods",
+      "H_ENUM_CalculationItems",
+      "H_ENUM_CalculationTypes",
+      "H_ENUM_CalculationUnits",
+      "H_ENUM_DataSourceTypes",
+      "H_ENUM_FinTransactionMethods",
+      "H_ENUM_NotificationChannelTypes",
+      "H_ENUM_NotificationStatuses",
+      "H_ENUM_PermitConditions",
+      "H_ENUM_RequestStatuses",
+      "H_ENUM_RequestTypes",
+      "H_ENUM_ScenarioDataMapCheckingTypes",
+      "H_ENUM_ServiceCategories",
+      "H_ENUM_ServiceClasses",
+      "H_ENUM_TransportCategories",
+      "H_ENUM_TransportRequestStatuses",
+      "H_ENUM_TransportTransactItemStatuses",
+      "H_ENUM_TransportTransactOfferStatuses",
+      "H_ENUM_TransportTransactOfferTypes",
+      "H_ENUM_TransportTransactStatuses",
+      "H_ENUM_VehicleTypes"
+    ]
+  },
   "candidates": [
     {
       "table": "_ActivitySessions",
@@ -13,13 +47,22 @@
       "table": "_ActivitySessions",
       "column": "ServiceCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "_ZoneBases",
       "column": "ZoneType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes",
+        "H_ENUM_EventTypes"
+      ]
     },
     {
       "table": "H_AAA_AppClients",
@@ -124,7 +167,11 @@
       "table": "H_CVOServices",
       "column": "ServiceCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_DP_ActorVersions",
@@ -158,13 +205,23 @@
       "table": "H_DriverPermitVehicleTypes",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_EventHandlerListenersMap",
       "column": "BoxTypeENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes",
+        "H_ENUM_EventTypes"
+      ]
     },
     {
       "table": "H_EventHandlerListenersMap",
@@ -177,7 +234,11 @@
       "table": "H_EventHandlerListenersMap",
       "column": "ServiceENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_EventHandlerProcessingQueue",
@@ -196,7 +257,11 @@
       "table": "H_EventHandlerProcessingQueue",
       "column": "ServiceENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_EventHandlerProcessingQueue",
@@ -215,7 +280,11 @@
       "table": "H_EventInbox",
       "column": "ActorActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_Actors",
+        "H_ENUM_ActorsSorts"
+      ]
     },
     {
       "table": "H_EventInbox",
@@ -241,7 +310,11 @@
       "table": "H_EventOutbox",
       "column": "ActorActENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_Actors",
+        "H_ENUM_ActorsSorts"
+      ]
     },
     {
       "table": "H_EventOutbox",
@@ -278,7 +351,12 @@
       "table": "H_NotificationQueue",
       "column": "ChannelType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_NotificationChannelTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_NotificationQueue",
@@ -310,7 +388,12 @@
       "table": "H_NotificationTemplateSettings",
       "column": "NotificationTypeENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_NotificationChannelTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_Permits",
@@ -322,13 +405,20 @@
       "table": "H_Permits",
       "column": "ServiceCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_PermitStatuses",
       "column": "ConditionENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_PermitConditions"
+      ]
     },
     {
       "table": "H_PermitTypes",
@@ -359,7 +449,12 @@
       "table": "H_RequestBases",
       "column": "RequestType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_RequestTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_RequestStatusesLog",
@@ -389,13 +484,22 @@
       "table": "H_ServiceBases",
       "column": "ServiceClass",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_ServiceBases",
       "column": "ServiceType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes",
+        "H_ENUM_EventTypes"
+      ]
     },
     {
       "table": "H_SYNC_DataSyncSessions",
@@ -407,13 +511,22 @@
       "table": "H_Synced_CVOServices",
       "column": "ServiceCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_Synced_DriverPermitVehicleTypes",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_Synced_HUBDistributors",
@@ -431,13 +544,20 @@
       "table": "H_Synced_Permits",
       "column": "ServiceCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_Synced_PermitStatuses",
       "column": "ConditionENUM",
       "signal": "suffix",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_PermitConditions"
+      ]
     },
     {
       "table": "H_Synced_PermitStatusVerifications",
@@ -455,97 +575,171 @@
       "table": "H_Synced_ServiceBases",
       "column": "ServiceClass",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_Synced_ServiceBases",
       "column": "ServiceType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes",
+        "H_ENUM_EventTypes"
+      ]
     },
     {
       "table": "H_Synced_VehicleProfile",
       "column": "TransportCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_TransportCategories",
+        "H_ENUM_TransportRequestStatuses",
+        "H_ENUM_TransportTransactItemStatuses"
+      ]
     },
     {
       "table": "H_Synced_VehicleProfile",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportFareBaseInclutions",
       "column": "ServiceCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_TransportFareBaseInclutions",
       "column": "ServiceClass",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_TransportFareBaseInclutions",
       "column": "TransportCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_TransportCategories",
+        "H_ENUM_TransportRequestStatuses",
+        "H_ENUM_TransportTransactItemStatuses"
+      ]
     },
     {
       "table": "H_TransportFareBaseInclutions",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportFareCalculations",
       "column": "CalculateMethod",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculateMethods",
+        "H_ENUM_FinTransactionMethods"
+      ]
     },
     {
       "table": "H_TransportFareCalculations",
       "column": "CalculationItem",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculationItems",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_CalculationUnits"
+      ]
     },
     {
       "table": "H_TransportFareCalculations",
       "column": "CalculationType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_CalculationItems",
+        "H_ENUM_CalculationUnits"
+      ]
     },
     {
       "table": "H_TransportFareCalculations",
       "column": "CalculationUnit",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculationUnits",
+        "H_ENUM_CalculationItems",
+        "H_ENUM_CalculationTypes"
+      ]
     },
     {
       "table": "H_TransportFareCalculations",
       "column": "ServiceCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_TransportFareCalculations",
       "column": "ServiceClass",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_TransportFareCalculations",
       "column": "TransportCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_TransportCategories",
+        "H_ENUM_TransportRequestStatuses",
+        "H_ENUM_TransportTransactItemStatuses"
+      ]
     },
     {
       "table": "H_TransportFareCalculations",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportReqDeliveries",
@@ -569,19 +763,33 @@
       "table": "H_TransportReqDeliveriesLog",
       "column": "ServiceClass",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_TransportReqDeliveriesLog",
       "column": "VehicleProfileSubType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportReqDeliveriesLog",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportReqDeliveries",
@@ -593,43 +801,77 @@
       "table": "H_TransportReqDeliveries",
       "column": "ServiceClass",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_TransportReqDeliveries",
       "column": "VehicleProfileSubType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportReqDeliveries",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportReqDeliveryAddons",
       "column": "CalculationItem",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculationItems",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_CalculationUnits"
+      ]
     },
     {
       "table": "H_TransportReqDeliveryAddons",
       "column": "CalculationUnit",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculationUnits",
+        "H_ENUM_CalculationItems",
+        "H_ENUM_CalculationTypes"
+      ]
     },
     {
       "table": "H_TransportReqRideAddons",
       "column": "CalculationItem",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculationItems",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_CalculationUnits"
+      ]
     },
     {
       "table": "H_TransportReqRideAddons",
       "column": "CalculationUnit",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_CalculationUnits",
+        "H_ENUM_CalculationItems",
+        "H_ENUM_CalculationTypes"
+      ]
     },
     {
       "table": "H_TransportReqRidesLog",
@@ -641,13 +883,21 @@
       "table": "H_TransportReqRidesLog",
       "column": "ServiceCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_TransportReqRidesLog",
       "column": "ServiceClass",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_TransportReqRidesLog",
@@ -659,13 +909,23 @@
       "table": "H_TransportReqRidesLog",
       "column": "VehicleProfileSubType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportReqRidesLog",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportReqRides",
@@ -677,13 +937,21 @@
       "table": "H_TransportReqRides",
       "column": "ServiceCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_TransportReqRides",
       "column": "ServiceClass",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_ServiceCategories",
+        "H_ENUM_ServiceClasses"
+      ]
     },
     {
       "table": "H_TransportReqRides",
@@ -695,13 +963,23 @@
       "table": "H_TransportReqRides",
       "column": "VehicleProfileSubType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportReqRides",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_TransportTransacts",
@@ -713,25 +991,45 @@
       "table": "H_VehicleProfileLog",
       "column": "TransportCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_TransportCategories",
+        "H_ENUM_TransportRequestStatuses",
+        "H_ENUM_TransportTransactItemStatuses"
+      ]
     },
     {
       "table": "H_VehicleProfileLog",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     },
     {
       "table": "H_VehicleProfile",
       "column": "TransportCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_TransportCategories",
+        "H_ENUM_TransportRequestStatuses",
+        "H_ENUM_TransportTransactItemStatuses"
+      ]
     },
     {
       "table": "H_VehicleProfile",
       "column": "VehicleType",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "needs-review",
+      "suggestedSources": [
+        "H_ENUM_VehicleTypes",
+        "H_ENUM_CalculationTypes",
+        "H_ENUM_DataSourceTypes"
+      ]
     }
   ]
 }
