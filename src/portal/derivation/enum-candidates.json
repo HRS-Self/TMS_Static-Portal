@@ -1,15 +1,19 @@
 {
   "total": 136,
-  "valuesMissing": 41,
+  "valuesMissing": 37,
   "needsReview": 63,
   "enumTables": {
-    "total": 27,
+    "total": 32,
     "matched": [
       "H_ENUM_ActivityClasses",
       "H_ENUM_Actors",
       "H_ENUM_EventTypes",
       "H_ENUM_NotificationPlatforms",
-      "H_ENUM_NotificationTemplates"
+      "H_ENUM_NotificationTemplates",
+      "_ENUM_ActivityStatus",
+      "_ENUM_AlivenessStatus",
+      "_ENUM_AvailabilityStatus",
+      "_ENUM_ViolationStatus"
     ],
     "unmatched": [
       "H_ENUM_ActorsSorts",
@@ -33,7 +37,8 @@
       "H_ENUM_TransportTransactOfferStatuses",
       "H_ENUM_TransportTransactOfferTypes",
       "H_ENUM_TransportTransactStatuses",
-      "H_ENUM_VehicleTypes"
+      "H_ENUM_VehicleTypes",
+      "_ENUM_ViolationType"
     ]
   },
   "candidates": [
@@ -41,7 +46,12 @@
       "table": "_ActivitySessions",
       "column": "CurrentStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_ActivitySessions",
@@ -53,65 +63,102 @@
       "table": "_ActivitySessions",
       "column": "ServiceCategory",
       "signal": "tinyint",
-      "resolution": "needs-review",
-      "suggestedSources": [
-        "H_ENUM_ServiceCategories",
-        "H_ENUM_ServiceClasses"
-      ]
+      "resolution": "needs-review"
     },
     {
       "table": "_ActivitySessionsViolations",
       "column": "ViolationStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "h-enum-table",
+      "source": "_ENUM_ViolationStatus"
     },
     {
       "table": "_ActivityStatusLog",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_AlivenessSessionAvailabilityStatus",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_AlivenessSessions",
       "column": "CurrentStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_AlivenessStatusLog",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_DelegatedDispatchContracts",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_DispatchRuleArtifacts",
       "column": "CompileStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_DispatchRuleSets",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_RideDispatchApprovalItems",
       "column": "ApprovalStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_RideDispatchCycleDecisions",
@@ -119,49 +166,64 @@
       "signal": "status",
       "resolution": "values-missing",
       "suggestedSources": [
-        "H_ENUM_RequestStatuses",
-        "H_ENUM_RequestTypes",
-        "H_ENUM_TransportRequestStatuses"
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
       ]
     },
     {
       "table": "_RollCallSessions",
       "column": "SessionStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_RollCallWaves",
       "column": "WaveStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_TransportBatchPlanningScopes",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
+      ]
     },
     {
       "table": "_VehicleStatusLog",
       "column": "ActivityStatus",
       "signal": "status",
-      "resolution": "values-missing",
-      "suggestedSources": [
-        "H_ENUM_ActivityClasses"
-      ]
+      "resolution": "h-enum-table",
+      "source": "_ENUM_ActivityStatus"
     },
     {
       "table": "_VehicleStatusLog",
       "column": "AlivenessStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "h-enum-table",
+      "source": "_ENUM_AlivenessStatus"
     },
     {
       "table": "_VehicleStatusLog",
       "column": "AvailabilityStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "h-enum-table",
+      "source": "_ENUM_AvailabilityStatus"
     },
     {
       "table": "_WatchdogInterventions",
@@ -169,9 +231,9 @@
       "signal": "status",
       "resolution": "values-missing",
       "suggestedSources": [
-        "H_ENUM_RequestStatuses",
-        "H_ENUM_RequestTypes",
-        "H_ENUM_TransportRequestStatuses"
+        "_ENUM_ActivityStatus",
+        "_ENUM_AlivenessStatus",
+        "_ENUM_AvailabilityStatus"
       ]
     },
     {
@@ -180,9 +242,7 @@
       "signal": "tinyint",
       "resolution": "needs-review",
       "suggestedSources": [
-        "H_ENUM_CalculationTypes",
-        "H_ENUM_DataSourceTypes",
-        "H_ENUM_EventTypes"
+        "_ENUM_ViolationType"
       ]
     },
     {
