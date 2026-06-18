@@ -14,6 +14,10 @@
     "resolution": "approved-source",
     "source": "H_ENUM_Actors"
   },
+  "H_Drivers.DriverLicenseStatus": {
+    "signal": "status",
+    "resolution": "values-missing"
+  },
   "H_NotificationTemplateSettings.NotificationPlatformENUM": {
     "signal": "suffix",
     "resolution": "h-enum-table",
@@ -48,8 +52,8 @@
     "source": "H_ENUM_Actors"
   },
   "H_RequestStatuses.Status": {
-    "signal": "tinyint",
-    "resolution": "needs-review"
+    "signal": "status",
+    "resolution": "values-missing"
   },
   "H_TransportFareBaseInclutions.ServiceCategory": {
     "signal": "tinyint",
@@ -111,6 +115,10 @@
     "signal": "tinyint",
     "resolution": "needs-review"
   },
+  "H_TransportReqDeliveries.Status": {
+    "signal": "status",
+    "resolution": "values-missing"
+  },
   "H_TransportReqDeliveries.VehicleProfileSubType": {
     "signal": "tinyint",
     "resolution": "needs-review"
@@ -132,8 +140,8 @@
     "resolution": "needs-review"
   },
   "H_TransportReqRides.Status": {
-    "signal": "tinyint",
-    "resolution": "needs-review"
+    "signal": "status",
+    "resolution": "values-missing"
   },
   "H_TransportReqRides.VehicleProfileSubType": {
     "signal": "tinyint",
@@ -142,6 +150,10 @@
   "H_TransportReqRides.VehicleType": {
     "signal": "tinyint",
     "resolution": "needs-review"
+  },
+  "H_TransportTransacts.CurrentStatus": {
+    "signal": "status",
+    "resolution": "values-missing"
   },
   "H_VehicleProfile.TransportCategory": {
     "signal": "tinyint",

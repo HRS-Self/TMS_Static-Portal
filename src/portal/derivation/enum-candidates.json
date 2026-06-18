@@ -1,7 +1,7 @@
 {
-  "total": 112,
-  "valuesMissing": 6,
-  "needsReview": 74,
+  "total": 136,
+  "valuesMissing": 41,
+  "needsReview": 63,
   "enumTables": {
     "total": 27,
     "matched": [
@@ -39,6 +39,12 @@
   "candidates": [
     {
       "table": "_ActivitySessions",
+      "column": "CurrentStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_ActivitySessions",
       "column": "ParticipationCategory",
       "signal": "tinyint",
       "resolution": "needs-review"
@@ -51,6 +57,121 @@
       "suggestedSources": [
         "H_ENUM_ServiceCategories",
         "H_ENUM_ServiceClasses"
+      ]
+    },
+    {
+      "table": "_ActivitySessionsViolations",
+      "column": "ViolationStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_ActivityStatusLog",
+      "column": "Status",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_AlivenessSessionAvailabilityStatus",
+      "column": "Status",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_AlivenessSessions",
+      "column": "CurrentStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_AlivenessStatusLog",
+      "column": "Status",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_DelegatedDispatchContracts",
+      "column": "Status",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_DispatchRuleArtifacts",
+      "column": "CompileStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_DispatchRuleSets",
+      "column": "Status",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_RideDispatchApprovalItems",
+      "column": "ApprovalStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_RideDispatchCycleDecisions",
+      "column": "DerivedRequestStatus",
+      "signal": "status",
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_RequestStatuses",
+        "H_ENUM_RequestTypes",
+        "H_ENUM_TransportRequestStatuses"
+      ]
+    },
+    {
+      "table": "_RollCallSessions",
+      "column": "SessionStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_RollCallWaves",
+      "column": "WaveStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_TransportBatchPlanningScopes",
+      "column": "Status",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_VehicleStatusLog",
+      "column": "ActivityStatus",
+      "signal": "status",
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_ActivityClasses"
+      ]
+    },
+    {
+      "table": "_VehicleStatusLog",
+      "column": "AlivenessStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_VehicleStatusLog",
+      "column": "AvailabilityStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "_WatchdogInterventions",
+      "column": "DerivedRequestStatus",
+      "signal": "status",
+      "resolution": "values-missing",
+      "suggestedSources": [
+        "H_ENUM_RequestStatuses",
+        "H_ENUM_RequestTypes",
+        "H_ENUM_TransportRequestStatuses"
       ]
     },
     {
@@ -230,8 +351,8 @@
     {
       "table": "H_EventHandlerProcessingQueue",
       "column": "Status",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_EventInbox",
@@ -257,8 +378,8 @@
     {
       "table": "H_EventInbox",
       "column": "Status",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_EventOutbox",
@@ -284,8 +405,8 @@
     {
       "table": "H_EventOutbox",
       "column": "Status",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_FinTransactions",
@@ -320,14 +441,14 @@
     {
       "table": "H_NotificationQueue",
       "column": "Status",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_NotificationRetryLog",
       "column": "Status",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_NotificationTemplateSettings",
@@ -428,8 +549,8 @@
     {
       "table": "H_RequestStatusesLog",
       "column": "Status",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_RequestStatuses",
@@ -441,8 +562,8 @@
     {
       "table": "H_RequestStatuses",
       "column": "Status",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_ServiceBases",
@@ -468,8 +589,8 @@
     {
       "table": "H_SYNC_DataSyncSessions",
       "column": "Status",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_Synced_CVOServices",
@@ -527,8 +648,8 @@
     {
       "table": "H_Synced_PermitStatusVerifications",
       "column": "ApprovalStatus",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_Synced_PermitStatusVerifications",
@@ -737,6 +858,12 @@
     },
     {
       "table": "H_TransportReqDeliveriesLog",
+      "column": "Status",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "H_TransportReqDeliveriesLog",
       "column": "VehicleProfileSubType",
       "signal": "tinyint",
       "resolution": "needs-review",
@@ -775,6 +902,12 @@
     },
     {
       "table": "H_TransportReqDeliveries",
+      "column": "Status",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "H_TransportReqDeliveries",
       "column": "VehicleProfileSubType",
       "signal": "tinyint",
       "resolution": "needs-review",
@@ -868,8 +1001,8 @@
     {
       "table": "H_TransportReqRidesLog",
       "column": "Status",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_TransportReqRidesLog",
@@ -922,8 +1055,8 @@
     {
       "table": "H_TransportReqRides",
       "column": "Status",
-      "signal": "tinyint",
-      "resolution": "needs-review"
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_TransportReqRides",
@@ -948,10 +1081,34 @@
       ]
     },
     {
+      "table": "H_TransportTransactItems",
+      "column": "CurrentStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "H_TransportTransactItemStages",
+      "column": "Status",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
+      "table": "H_TransportTransacts",
+      "column": "CurrentStatus",
+      "signal": "status",
+      "resolution": "values-missing"
+    },
+    {
       "table": "H_TransportTransacts",
       "column": "RecordDeleted",
       "signal": "tinyint",
       "resolution": "needs-review"
+    },
+    {
+      "table": "H_TransportTransactStages",
+      "column": "Status",
+      "signal": "status",
+      "resolution": "values-missing"
     },
     {
       "table": "H_VehicleProfileLog",
