@@ -925,7 +925,8 @@
         "field": "Status",
         "title": "Status",
         "type": "status",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_RequestStatuses"
       },
       {
         "field": "StatusReason",
@@ -2383,7 +2384,8 @@
         "field": "CurrentStatus",
         "title": "Current Status",
         "type": "status",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportTransactStatuses"
       },
       {
         "field": "OfferType",

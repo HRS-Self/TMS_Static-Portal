@@ -53,7 +53,8 @@
   },
   "H_RequestStatuses.Status": {
     "signal": "status",
-    "resolution": "values-missing"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_RequestStatuses"
   },
   "H_TransportFareBaseInclutions.ServiceCategory": {
     "signal": "tinyint",
@@ -170,7 +171,8 @@
   },
   "H_TransportTransacts.CurrentStatus": {
     "signal": "status",
-    "resolution": "values-missing"
+    "resolution": "h-enum-table",
+    "source": "H_ENUM_TransportTransactStatuses"
   },
   "H_VehicleProfile.TransportCategory": {
     "signal": "tinyint",

@@ -1,6 +1,6 @@
 {
   "total": 135,
-  "valuesMissing": 37,
+  "valuesMissing": 34,
   "needsReview": 21,
   "enumTables": {
     "total": 32,
@@ -14,10 +14,13 @@
       "H_ENUM_EventTypes",
       "H_ENUM_NotificationPlatforms",
       "H_ENUM_NotificationTemplates",
+      "H_ENUM_RequestStatuses",
       "H_ENUM_RequestTypes",
       "H_ENUM_ServiceCategories",
       "H_ENUM_ServiceClasses",
       "H_ENUM_TransportCategories",
+      "H_ENUM_TransportTransactItemStatuses",
+      "H_ENUM_TransportTransactStatuses",
       "H_ENUM_VehicleTypes",
       "_ENUM_ActivityStatus",
       "_ENUM_AlivenessStatus",
@@ -31,13 +34,10 @@
       "H_ENUM_NotificationChannelTypes",
       "H_ENUM_NotificationStatuses",
       "H_ENUM_PermitConditions",
-      "H_ENUM_RequestStatuses",
       "H_ENUM_ScenarioDataMapCheckingTypes",
       "H_ENUM_TransportRequestStatuses",
-      "H_ENUM_TransportTransactItemStatuses",
       "H_ENUM_TransportTransactOfferStatuses",
       "H_ENUM_TransportTransactOfferTypes",
-      "H_ENUM_TransportTransactStatuses",
       "_ENUM_ViolationType"
     ]
   },
@@ -609,7 +609,8 @@
       "table": "H_RequestStatuses",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_RequestStatuses"
     },
     {
       "table": "H_ServiceBases",
@@ -1013,7 +1014,8 @@
       "table": "H_TransportTransactItems",
       "column": "CurrentStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_TransportTransactItemStatuses"
     },
     {
       "table": "H_TransportTransactItemStages",
@@ -1025,7 +1027,8 @@
       "table": "H_TransportTransacts",
       "column": "CurrentStatus",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_TransportTransactStatuses"
     },
     {
       "table": "H_TransportTransactStages",
