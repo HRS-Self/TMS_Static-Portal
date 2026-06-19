@@ -22,6 +22,7 @@
     "H_NotificationRetryLog.Status": { "source": "H_ENUM_NotificationStatuses" },
     "H_RequestStatusesLog.Status": { "source": "H_ENUM_RequestStatuses" },
 
-    "OfferType": { "source": "H_ENUM_TransportTransactOfferTypes" }
+    "OfferType": { "source": "H_ENUM_TransportTransactOfferTypes" },
+    "_DispatchOffers.ResponseType": { "source": "H_ENUM_TransportTransactOfferStatuses" }
   }
 }
