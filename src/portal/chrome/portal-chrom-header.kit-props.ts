@@ -1,6 +1,17 @@
 import { TMSHeader } from "@conitdev/tms-ui-kit";
 import type { ComponentProps } from "react";
 
+import { searchRegistry } from "@/src/portal/derivation/search-registry";
+
+// Global-search dropdowns derived from the generated registry (no hand-typed values).
+// entity = the subject (value = surfaceKey); property = the searchable field label (a flat union
+// across subjects per the kit's API — the shell resolves it per subject on submit).
+const searchSubjects = Object.values(searchRegistry);
+const searchEntityOptions = searchSubjects.map((subject) => ({ value: subject.key, title: subject.label }));
+const searchPropertyOptions = [
+  ...new Set(searchSubjects.flatMap((subject) => subject.fields.map((field) => field.label))),
+].map((label) => ({ value: label, title: label }));
+
 export type PortalChromHeaderRuntimeState = {
   isMobile: boolean;
   currentEntityId?: number;
@@ -68,10 +79,12 @@ export function buildPortalChromHeaderProps({
       // onClickMenuItem: undefined,
     },
     profileInitials: currentUserInitials ?? "PU",
-    searchPlaceholder: "Search portal",
-    searchEntityOptions: ["All", "Vehicles", "Drivers", "Distributors", "CVOs"],
-    searchPropertyOptions: ["All fields", "Name", "Email", "Phone", "Plate"],
-    showSearchBar: true,
+    searchPlaceholder: "Find a record (wildcards: *abc, abc*, *abc*)",
+    searchEntityOptions,
+    searchPropertyOptions,
+    defaultSearchEntity: searchEntityOptions[0]?.value,
+    defaultSearchProperty: searchPropertyOptions[0]?.value,
+    showSearchBar: searchEntityOptions.length > 0,
     showCompanySelector: companySelectorOptions.length > 1,
     showHelp: true,
     showNotification: true,

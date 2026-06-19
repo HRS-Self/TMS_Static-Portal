@@ -1,0 +1,165 @@
+{
+  "definitions.customers": {
+    "key": "definitions.customers",
+    "label": "Customers",
+    "route": "/definitions/customers",
+    "datasource": "Vi_SPC_CustomerListSummary",
+    "fields": [
+      {
+        "label": "Firstname",
+        "accessorKey": "Firstname_fsx",
+        "encrypted": true
+      },
+      {
+        "label": "Lastname",
+        "accessorKey": "Lastname_fsx",
+        "encrypted": true
+      },
+      {
+        "label": "Username",
+        "accessorKey": "Username",
+        "encrypted": false
+      },
+      {
+        "label": "Email",
+        "accessorKey": "Email_fsx",
+        "encrypted": true
+      },
+      {
+        "label": "Cell Phone",
+        "accessorKey": "CellPhone_fsx",
+        "encrypted": true
+      },
+      {
+        "label": "Entity Title",
+        "accessorKey": "EntityTitle",
+        "encrypted": false
+      }
+    ]
+  },
+  "definitions.cvos": {
+    "key": "definitions.cvos",
+    "label": "CVOs",
+    "route": "/definitions/cvos",
+    "datasource": "Vi_SPC_CVOListSummary",
+    "fields": [
+      {
+        "label": "Entity Title",
+        "accessorKey": "EntityTitle",
+        "encrypted": false
+      }
+    ]
+  },
+  "definitions.distributors": {
+    "key": "definitions.distributors",
+    "label": "Distributors",
+    "route": "/definitions/distributors",
+    "datasource": "Vi_SPC_DistributorListSummary",
+    "fields": [
+      {
+        "label": "Entity Title",
+        "accessorKey": "EntityTitle",
+        "encrypted": false
+      }
+    ]
+  },
+  "definitions.drivers": {
+    "key": "definitions.drivers",
+    "label": "Drivers",
+    "route": "/definitions/drivers",
+    "datasource": "Vi_SPC_DriverListSummary",
+    "fields": [
+      {
+        "label": "Firstname",
+        "accessorKey": "Firstname_fsx",
+        "encrypted": true
+      },
+      {
+        "label": "Lastname",
+        "accessorKey": "Lastname_fsx",
+        "encrypted": true
+      },
+      {
+        "label": "Username",
+        "accessorKey": "Username",
+        "encrypted": false
+      },
+      {
+        "label": "Email",
+        "accessorKey": "Email_fsx",
+        "encrypted": true
+      },
+      {
+        "label": "Cell Phone",
+        "accessorKey": "CellPhone_fsx",
+        "encrypted": true
+      },
+      {
+        "label": "Person CVOTitle",
+        "accessorKey": "PersonCVOTitle",
+        "encrypted": false
+      },
+      {
+        "label": "Driver License",
+        "accessorKey": "DriverLicense",
+        "encrypted": false
+      },
+      {
+        "label": "Licensed Vehicle Type Badges",
+        "accessorKey": "LicensedVehicleTypeBadges",
+        "encrypted": false
+      }
+    ]
+  },
+  "definitions.hubs": {
+    "key": "definitions.hubs",
+    "label": "HUBs",
+    "route": "/definitions/hubs",
+    "datasource": "Vi_SPC_HUBListSummary",
+    "fields": [
+      {
+        "label": "Entity Title",
+        "accessorKey": "EntityTitle",
+        "encrypted": false
+      }
+    ]
+  },
+  "definitions.vehicles": {
+    "key": "definitions.vehicles",
+    "label": "Vehicles",
+    "route": "/definitions/vehicles",
+    "datasource": "Vi_SPC_VehicleListSummary",
+    "fields": [
+      {
+        "label": "Plate",
+        "accessorKey": "Plate",
+        "encrypted": false
+      },
+      {
+        "label": "VIN",
+        "accessorKey": "VIN",
+        "encrypted": false
+      },
+      {
+        "label": "Make",
+        "accessorKey": "Make",
+        "encrypted": false
+      },
+      {
+        "label": "Model",
+        "accessorKey": "Model",
+        "encrypted": false
+      },
+      {
+        "label": "Province",
+        "accessorKey": "Province",
+        "encrypted": false
+      },
+      {
+        "label": "Color",
+        "accessorKey": "Color",
+        "encrypted": false
+      }
+    ]
+  }
+}

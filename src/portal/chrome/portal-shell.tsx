@@ -8,6 +8,7 @@ import { getPortalSurfaceByRoute } from "@/src/portal/chrome/portal-chrom-surfac
 import { logger } from "@/src/logger";
 import { portalChromLocalUIOverrides } from "@/src/portal/chrome/portal-chrom.local-ui-overrides";
 import { CompanySelectorModal, type CompanyChoice } from "@/src/portal/chrome/company-selector-modal";
+import { searchRegistry } from "@/src/portal/derivation/search-registry";
 import { buildPortalChromHeaderProps } from "@/src/portal/chrome/portal-chrom-header.kit-props";
 import { buildPortalChromSidebarProps } from "@/src/portal/chrome/portal-chrom-sidebar.kit-props";
 import { PortalPage } from "@/src/portal/chrome/portal-page";
@@ -52,6 +53,18 @@ export function PortalShell({
       returnUrl: pathname || "/dashboard",
     });
     window.location.assign(`/api/entity/select?${params.toString()}`);
+  };
+
+  // Global search: subject + field + wildcard term → navigate to that subject's grid pre-filtered
+  // to the matches (sf=accessorKey, sq=term). The property is a flat union, so resolve it to the
+  // subject's field by label (fallback to the subject's primary field). Row actions take over there.
+  const runSearch = (term: string, entityKey: string, propertyLabel: string) => {
+    const subject = searchRegistry[entityKey];
+    if (!subject || !term.trim()) return;
+    const field = subject.fields.find((f) => f.label === propertyLabel) ?? subject.fields[0];
+    if (!field) return;
+    const params = new URLSearchParams({ sf: field.accessorKey, sq: term.trim() });
+    router.push(`${subject.route}?${params.toString()}`);
   };
   const currentSurface = getPortalSurfaceByRoute(pathname);
   const currentHref = currentSurface?.route ?? pathname;
@@ -191,6 +204,7 @@ export function PortalShell({
             }
           }}
           onCompanySelectorChange={(value) => selectEntity(Number(value))}
+          onSearch={(value, context) => runSearch(value, context.entity, context.property)}
           onClickSeeAllNotif={() => {
             router.push("/inbox/notifications");
           }}

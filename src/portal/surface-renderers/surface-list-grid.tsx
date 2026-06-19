@@ -1,7 +1,8 @@
 "use client";
 
 import { TMSDataGrid } from "@conitdev/tms-ui-kit";
-import { useCallback, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import type { SurfaceFormContract } from "@/src/portal/derivation/surface-form-contracts";
 import type {
@@ -102,6 +103,18 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
     },
     [model.surfaceKey],
   );
+
+  // Header global-search landing: ?sf=<accessorKey>&sq=<wildcard term> → pre-filter the grid to the
+  // matches (wildcard * → SQL %; the gateway routes _fsx fields to its encrypted search). Row
+  // actions then take over. Re-applies whenever the search params change.
+  const searchParams = useSearchParams();
+  const sf = searchParams.get("sf");
+  const sq = searchParams.get("sq");
+  useEffect(() => {
+    if (!sf || !sq) return;
+    queryRef.current = { ...queryRef.current, page: 1, filter: { [sf]: { like: sq.replace(/\*/g, "%") } } };
+    void refetch({});
+  }, [sf, sq, refetch]);
 
   // hide an action the capability snapshot forbids (when a snapshot is present)
   const allowed = (action: RenderAction) => {
