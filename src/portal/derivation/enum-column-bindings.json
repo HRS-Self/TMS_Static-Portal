@@ -131,7 +131,8 @@
   },
   "H_TransportReqDeliveries.Status": {
     "signal": "status",
-    "resolution": "values-missing"
+    "resolution": "approved-source",
+    "source": "H_ENUM_TransportRequestStatuses"
   },
   "H_TransportReqDeliveries.VehicleProfileSubType": {
     "signal": "tinyint",
@@ -158,7 +159,8 @@
   },
   "H_TransportReqRides.Status": {
     "signal": "status",
-    "resolution": "values-missing"
+    "resolution": "approved-source",
+    "source": "H_ENUM_TransportRequestStatuses"
   },
   "H_TransportReqRides.VehicleProfileSubType": {
     "signal": "tinyint",

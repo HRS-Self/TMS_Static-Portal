@@ -2269,7 +2269,8 @@
         "field": "Status",
         "title": "Status",
         "type": "status",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportRequestStatuses"
       },
       {
         "field": "DistributorTitle",
@@ -2702,7 +2703,8 @@
         "field": "Status",
         "title": "Status",
         "type": "status",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportRequestStatuses"
       },
       {
         "field": "CVOTitle",

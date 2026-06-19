@@ -1,6 +1,6 @@
 {
   "total": 135,
-  "valuesMissing": 34,
+  "valuesMissing": 28,
   "needsReview": 21,
   "enumTables": {
     "total": 32,
@@ -19,6 +19,7 @@
       "H_ENUM_ServiceCategories",
       "H_ENUM_ServiceClasses",
       "H_ENUM_TransportCategories",
+      "H_ENUM_TransportRequestStatuses",
       "H_ENUM_TransportTransactItemStatuses",
       "H_ENUM_TransportTransactStatuses",
       "H_ENUM_VehicleTypes",
@@ -35,7 +36,6 @@
       "H_ENUM_NotificationStatuses",
       "H_ENUM_PermitConditions",
       "H_ENUM_ScenarioDataMapCheckingTypes",
-      "H_ENUM_TransportRequestStatuses",
       "H_ENUM_TransportTransactOfferStatuses",
       "H_ENUM_TransportTransactOfferTypes",
       "_ENUM_ViolationType"
@@ -837,7 +837,8 @@
       "table": "H_TransportReqDeliveriesLog",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_TransportRequestStatuses"
     },
     {
       "table": "H_TransportReqDeliveriesLog",
@@ -874,7 +875,8 @@
       "table": "H_TransportReqDeliveries",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_TransportRequestStatuses"
     },
     {
       "table": "H_TransportReqDeliveries",
@@ -946,7 +948,8 @@
       "table": "H_TransportReqRidesLog",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_TransportRequestStatuses"
     },
     {
       "table": "H_TransportReqRidesLog",
@@ -990,7 +993,8 @@
       "table": "H_TransportReqRides",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_TransportRequestStatuses"
     },
     {
       "table": "H_TransportReqRides",
@@ -1021,7 +1025,8 @@
       "table": "H_TransportTransactItemStages",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_TransportTransactItemStatuses"
     },
     {
       "table": "H_TransportTransacts",
@@ -1034,7 +1039,8 @@
       "table": "H_TransportTransactStages",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_TransportTransactStatuses"
     },
     {
       "table": "H_VehicleProfileLog",

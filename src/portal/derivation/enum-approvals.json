@@ -9,6 +9,13 @@
     "PermittedActENUM": { "source": "H_ENUM_Actors" },
     "RequesteeActENUM": { "source": "H_ENUM_Actors" },
     "RequesterActENUM": { "source": "H_ENUM_Actors" },
-    "TargetActENUM": { "source": "H_ENUM_Actors" }
+    "TargetActENUM": { "source": "H_ENUM_Actors" },
+
+    "H_TransportReqRides.Status": { "source": "H_ENUM_TransportRequestStatuses" },
+    "H_TransportReqRidesLog.Status": { "source": "H_ENUM_TransportRequestStatuses" },
+    "H_TransportReqDeliveries.Status": { "source": "H_ENUM_TransportRequestStatuses" },
+    "H_TransportReqDeliveriesLog.Status": { "source": "H_ENUM_TransportRequestStatuses" },
+    "H_TransportTransactItemStages.Status": { "source": "H_ENUM_TransportTransactItemStatuses" },
+    "H_TransportTransactStages.Status": { "source": "H_ENUM_TransportTransactStatuses" }
   }
 }

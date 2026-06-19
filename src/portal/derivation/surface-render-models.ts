@@ -2281,7 +2281,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "Status",
         "title": "Status",
         "type": "status",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportRequestStatuses"
       },
       {
         "field": "DistributorTitle",
@@ -2714,7 +2715,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "Status",
         "title": "Status",
         "type": "status",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportRequestStatuses"
       },
       {
         "field": "CVOTitle",
