@@ -1,6 +1,6 @@
 {
   "total": 135,
-  "valuesMissing": 28,
+  "valuesMissing": 25,
   "needsReview": 21,
   "enumTables": {
     "total": 32,
@@ -13,6 +13,7 @@
       "H_ENUM_CalculationUnits",
       "H_ENUM_EventTypes",
       "H_ENUM_NotificationPlatforms",
+      "H_ENUM_NotificationStatuses",
       "H_ENUM_NotificationTemplates",
       "H_ENUM_RequestStatuses",
       "H_ENUM_RequestTypes",
@@ -33,7 +34,6 @@
       "H_ENUM_DataSourceTypes",
       "H_ENUM_FinTransactionMethods",
       "H_ENUM_NotificationChannelTypes",
-      "H_ENUM_NotificationStatuses",
       "H_ENUM_PermitConditions",
       "H_ENUM_ScenarioDataMapCheckingTypes",
       "H_ENUM_TransportTransactOfferStatuses",
@@ -495,13 +495,15 @@
       "table": "H_NotificationQueue",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_NotificationStatuses"
     },
     {
       "table": "H_NotificationRetryLog",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_NotificationStatuses"
     },
     {
       "table": "H_NotificationTemplateSettings",
@@ -596,7 +598,8 @@
       "table": "H_RequestStatusesLog",
       "column": "Status",
       "signal": "status",
-      "resolution": "values-missing"
+      "resolution": "approved-source",
+      "source": "H_ENUM_RequestStatuses"
     },
     {
       "table": "H_RequestStatuses",

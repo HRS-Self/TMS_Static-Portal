@@ -16,6 +16,10 @@
     "H_TransportReqDeliveries.Status": { "source": "H_ENUM_TransportRequestStatuses" },
     "H_TransportReqDeliveriesLog.Status": { "source": "H_ENUM_TransportRequestStatuses" },
     "H_TransportTransactItemStages.Status": { "source": "H_ENUM_TransportTransactItemStatuses" },
-    "H_TransportTransactStages.Status": { "source": "H_ENUM_TransportTransactStatuses" }
+    "H_TransportTransactStages.Status": { "source": "H_ENUM_TransportTransactStatuses" },
+
+    "H_NotificationQueue.Status": { "source": "H_ENUM_NotificationStatuses" },
+    "H_NotificationRetryLog.Status": { "source": "H_ENUM_NotificationStatuses" },
+    "H_RequestStatusesLog.Status": { "source": "H_ENUM_RequestStatuses" }
   }
 }
