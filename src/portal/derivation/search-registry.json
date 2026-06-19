@@ -16,11 +16,6 @@
         "encrypted": true
       },
       {
-        "label": "Username",
-        "accessorKey": "Username",
-        "encrypted": false
-      },
-      {
         "label": "Email",
         "accessorKey": "Email_fsx",
         "encrypted": true
@@ -80,11 +75,6 @@
         "encrypted": true
       },
       {
-        "label": "Username",
-        "accessorKey": "Username",
-        "encrypted": false
-      },
-      {
         "label": "Email",
         "accessorKey": "Email_fsx",
         "encrypted": true
@@ -97,16 +87,6 @@
       {
         "label": "Person CVOTitle",
         "accessorKey": "PersonCVOTitle",
-        "encrypted": false
-      },
-      {
-        "label": "Driver License",
-        "accessorKey": "DriverLicense",
-        "encrypted": false
-      },
-      {
-        "label": "Licensed Vehicle Type Badges",
-        "accessorKey": "LicensedVehicleTypeBadges",
         "encrypted": false
       }
     ]
@@ -158,6 +138,77 @@
       {
         "label": "Color",
         "accessorKey": "Color",
+        "encrypted": false
+      }
+    ]
+  },
+  "transport.deliveries": {
+    "key": "transport.deliveries",
+    "label": "Deliveries",
+    "route": "/transport/deliveries",
+    "datasource": "Vi_SPC_DeliveryListSummary",
+    "fields": [
+      {
+        "label": "Comments",
+        "accessorKey": "Comments",
+        "encrypted": false
+      },
+      {
+        "label": "Promo Code",
+        "accessorKey": "PromoCode",
+        "encrypted": false
+      },
+      {
+        "label": "Distributor Title",
+        "accessorKey": "DistributorTitle",
+        "encrypted": false
+      },
+      {
+        "label": "CVOTitle",
+        "accessorKey": "CVOTitle",
+        "encrypted": false
+      },
+      {
+        "label": "Customer Title",
+        "accessorKey": "CustomerTitle",
+        "encrypted": false
+      }
+    ]
+  },
+  "transport.rides": {
+    "key": "transport.rides",
+    "label": "Rides",
+    "route": "/transport/rides",
+    "datasource": "Vi_SPC_RideListSummary",
+    "fields": [
+      {
+        "label": "Comments",
+        "accessorKey": "Comments",
+        "encrypted": false
+      },
+      {
+        "label": "Promo Code",
+        "accessorKey": "PromoCode",
+        "encrypted": false
+      },
+      {
+        "label": "Hub Carrier Info",
+        "accessorKey": "HubCarrierInfo",
+        "encrypted": false
+      },
+      {
+        "label": "CVOTitle",
+        "accessorKey": "CVOTitle",
+        "encrypted": false
+      },
+      {
+        "label": "Customer Title",
+        "accessorKey": "CustomerTitle",
+        "encrypted": false
+      },
+      {
+        "label": "Distributor Title",
+        "accessorKey": "DistributorTitle",
         "encrypted": false
       }
     ]
