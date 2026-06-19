@@ -7,28 +7,52 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { getPortalSurfaceByRoute } from "@/src/portal/chrome/portal-chrom-surface-registry.config";
 import { logger } from "@/src/logger";
 import { portalChromLocalUIOverrides } from "@/src/portal/chrome/portal-chrom.local-ui-overrides";
+import { CompanySelectorModal, type CompanyChoice } from "@/src/portal/chrome/company-selector-modal";
 import { buildPortalChromHeaderProps } from "@/src/portal/chrome/portal-chrom-header.kit-props";
 import { buildPortalChromSidebarProps } from "@/src/portal/chrome/portal-chrom-sidebar.kit-props";
 import { PortalPage } from "@/src/portal/chrome/portal-page";
 
 type PortalShellProps = {
   children: ReactNode;
+  currentEntityId?: number;
   currentEntityTitle?: string;
   currentUserName?: string;
   currentUserInitials?: string;
+  /** true when signed in without an active entity → the selector is blocking (first-login). */
+  needsEntity?: boolean;
+  /** company choices (cached at login) — feed the modal + header switcher. */
+  entityChoices?: CompanyChoice[];
 };
 
 export function PortalShell({
   children,
+  currentEntityId,
   currentEntityTitle,
   currentUserName,
   currentUserInitials,
+  needsEntity = false,
+  entityChoices = [],
 }: PortalShellProps) {
   const pathname = usePathname();
   const router = useRouter();
   const viewportTier = useTMSUIViewportTier();
   const shellRef = useRef<HTMLDivElement>(null);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [switchCompanyOpen, setSwitchCompanyOpen] = useState(false);
+
+  // Selecting a company (header switcher OR modal) runs the SAME flow as first login: GET
+  // /api/entity/select → sets session.entityId → server redirect → full reload re-renders the app.
+  const selectEntity = (entityId: number) => {
+    const choice = entityChoices.find((c) => c.entityId === entityId);
+    if (!choice) return;
+    const params = new URLSearchParams({
+      entityId: String(choice.entityId),
+      entityTitle: choice.entityTitle,
+      sources: JSON.stringify(choice.sources),
+      returnUrl: pathname || "/dashboard",
+    });
+    window.location.assign(`/api/entity/select?${params.toString()}`);
+  };
   const currentSurface = getPortalSurfaceByRoute(pathname);
   const currentHref = currentSurface?.route ?? pathname;
   const isMobile = viewportTier === "mobile";
@@ -50,11 +74,13 @@ export function PortalShell({
     () =>
       buildPortalChromHeaderProps({
         isMobile,
+        currentEntityId,
         currentEntityTitle,
         currentUserName,
         currentUserInitials,
+        entityChoices,
       }),
-    [currentEntityTitle, currentUserInitials, currentUserName, isMobile],
+    [currentEntityId, currentEntityTitle, currentUserInitials, currentUserName, entityChoices, isMobile],
   );
 
   const sidebarProps = useMemo(
@@ -150,6 +176,11 @@ export function PortalShell({
             router.push("/info/help");
           }}
           onClickMenuItem={(menuItem) => {
+            if (menuItem.href === "#switch-company") {
+              setSwitchCompanyOpen(true);
+              closeMobileSidebar();
+              return;
+            }
             if (menuItem.href) {
               logger.debug("Portal header navigate", {
                 href: menuItem.href,
@@ -159,6 +190,7 @@ export function PortalShell({
               closeMobileSidebar();
             }
           }}
+          onCompanySelectorChange={(value) => selectEntity(Number(value))}
           onClickSeeAllNotif={() => {
             router.push("/inbox/notifications");
           }}
@@ -180,6 +212,13 @@ export function PortalShell({
           </PortalPage>
         </main>
       </div>
+      {needsEntity || switchCompanyOpen ? (
+        <CompanySelectorModal
+          choices={entityChoices}
+          returnUrl={pathname || "/dashboard"}
+          onClose={needsEntity ? undefined : () => setSwitchCompanyOpen(false)}
+        />
+      ) : null}
     </div>
   );
 }

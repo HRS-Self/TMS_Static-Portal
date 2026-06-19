@@ -3,31 +3,29 @@ import type { ComponentProps } from "react";
 
 export type PortalChromHeaderRuntimeState = {
   isMobile: boolean;
+  currentEntityId?: number;
   currentEntityTitle?: string;
   currentUserName?: string;
   currentUserInitials?: string;
+  /** All company choices (cached at login) — feed the header switcher; id = entityId string. */
+  entityChoices?: Array<{ entityId: number; entityTitle: string }>;
 };
 
 type PortalChromHeaderProps = ComponentProps<typeof TMSHeader>;
 
-function normalizeCompanySelectorValue(value: string): string {
-  return value.trim().toLowerCase().replace(/\s+/g, "-");
-}
-
 export function buildPortalChromHeaderProps({
   isMobile,
+  currentEntityId,
   currentEntityTitle,
   currentUserName,
   currentUserInitials,
+  entityChoices,
 }: PortalChromHeaderRuntimeState): PortalChromHeaderProps {
-  const companySelectorOptions = currentEntityTitle
-    ? [
-        {
-          id: normalizeCompanySelectorValue(currentEntityTitle),
-          title: currentEntityTitle,
-        },
-      ]
-    : [];
+  // selector options keyed by entityId so onCompanySelectorChange yields the id to select
+  const companySelectorOptions = (entityChoices ?? []).map((choice) => ({
+    id: String(choice.entityId),
+    title: choice.entityTitle,
+  }));
 
   return {
     id: "portal-header",
@@ -49,6 +47,8 @@ export function buildPortalChromHeaderProps({
       showAvatar: true,
       showText: false,
       menu: [
+        // sentinel href → intercepted by onClickMenuItem in the shell (opens the selector modal)
+        { title: "Switch company", href: "#switch-company", icon: "lucide:arrow-left-right" },
         { title: "Notification Inbox", href: "/inbox/notifications", icon: "notification" },
         {
           title: "Information",
@@ -72,14 +72,13 @@ export function buildPortalChromHeaderProps({
     searchEntityOptions: ["All", "Vehicles", "Drivers", "Distributors", "CVOs"],
     searchPropertyOptions: ["All fields", "Name", "Email", "Phone", "Plate"],
     showSearchBar: true,
-    showCompanySelector: companySelectorOptions.length > 0,
+    showCompanySelector: companySelectorOptions.length > 1,
     showHelp: true,
     showNotification: true,
     companySelectorTitle: "Company",
     companySelectorPlaceholder: "Active company",
     companySelectorName: "portal-company-context",
-    companySelectorValue:
-      companySelectorOptions.length > 0 ? String(companySelectorOptions[0]?.id ?? "") : "",
+    companySelectorValue: currentEntityId != null ? String(currentEntityId) : "",
     companySelectorOptions,
     helpButtonProps: { message: "Help" },
     notificationButtonProps: { message: "Notifications" },

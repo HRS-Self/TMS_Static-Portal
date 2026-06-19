@@ -11,6 +11,7 @@ import {
   readPortalSession,
 } from '@/src/server/auth/session';
 import type { AuthSession, IdpCallbackPayload } from '@/src/server/auth/types';
+import { listEntityChoices } from '@/src/server/entity/entity-choices';
 import { logger } from '@/src/server/logger';
 import { warmBackendPermissionCache } from '@/src/server/permissions/backend-permissions';
 import { hydrateSurfaceCapabilities } from '@/src/server/permissions/surface-capabilities';
@@ -112,10 +113,14 @@ export async function POST(request: NextRequest) {
       ? await hydrateSurfaceCapabilities(sessionWithUserSettings)
       : undefined;
 
-    const nextSession: AuthSession = {
+    const baseSession: AuthSession = {
       ...sessionWithUserSettings,
       surfaceCapabilities,
     };
+    // Cache the company choices once at login so the chrome (selector modal + header switcher) can
+    // offer "Switch company" without a per-render backend round-trip.
+    const entityChoices = await listEntityChoices(baseSession);
+    const nextSession: AuthSession = { ...baseSession, entityChoices };
 
     const { appBaseUrl } = getEnv();
     const safePath =

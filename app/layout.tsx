@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { getEnv } from "@/src/config/env.server";
-import { CompanySelectorModal } from "@/src/portal/chrome/company-selector-modal";
 import { PortalShell } from "@/src/portal/chrome/portal-shell";
 import { SessionRefreshGuard } from "@/src/portal/chrome/session-refresh-guard";
 import { GovernanceProvider } from "@/src/portal/TMS_UI-Kit/governance-provider";
@@ -24,9 +23,11 @@ type RootLayoutProps = {
 export default async function RootLayout({ children }: RootLayoutProps) {
   const { inactivityTimeoutMinutes, idpRecheckTimeoutMinutes } = getEnv();
   const session = await getOptionalSession();
-  // Company-context gate as a MODAL (not a page): when signed in without an active entity, resolve
-  // the choices and overlay the blocking selector on top of whatever route rendered.
-  const entityChoices = session && !hasActiveEntity(session) ? await listEntityChoices(session) : null;
+  // Company choices for the chrome (cached in the session at login → no per-render backend call;
+  // fall back to a live resolve for older sessions). Drives the first-login selector modal AND the
+  // header switcher / "Switch company". needsEntity makes the modal blocking.
+  const needsEntity = session ? !hasActiveEntity(session) : false;
+  const entityChoices = session ? session.entityChoices ?? (await listEntityChoices(session)) : [];
   const currentUserName = [session?.firstName, session?.lastName].filter(Boolean).join(" ").trim() || undefined;
   const currentUserInitials = [session?.firstName, session?.lastName]
     .filter(Boolean)
@@ -45,15 +46,15 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             />
           ) : null}
           <PortalShell
+            currentEntityId={session?.entityId}
             currentEntityTitle={session?.entityTitle}
             currentUserName={currentUserName}
             currentUserInitials={currentUserInitials}
+            needsEntity={needsEntity}
+            entityChoices={entityChoices}
           >
             {children}
           </PortalShell>
-          {entityChoices ? (
-            <CompanySelectorModal choices={entityChoices} returnUrl="/dashboard" />
-          ) : null}
         </GovernanceProvider>
       </body>
     </html>

@@ -12,6 +12,8 @@ export type CompanyChoice = {
 type CompanySelectorModalProps = {
   choices: CompanyChoice[];
   returnUrl: string;
+  /** when provided the modal is dismissible (switching company); omit for the blocking first-login gate. */
+  onClose?: () => void;
 };
 
 // Governed modal-card chrome — the same recipe the kit's TMSWizardDialog applies to TMSModal
@@ -25,16 +27,17 @@ const CARD_CLASS =
  * active entity. Exactly one choice auto-submits; more than one shows the picker; zero shows the
  * "not assigned" message. Selecting posts to /api/entity/select, which sets session.entityId.
  */
-export function CompanySelectorModal({ choices, returnUrl }: CompanySelectorModalProps) {
+export function CompanySelectorModal({ choices, returnUrl, onClose }: CompanySelectorModalProps) {
   const autoFormRef = useRef<HTMLFormElement>(null);
-  const single = choices.length === 1;
+  // auto-select only the blocking first-login gate (no onClose); never auto-submit a manual switch
+  const single = choices.length === 1 && !onClose;
 
   useEffect(() => {
     if (single) autoFormRef.current?.submit();
   }, [single]);
 
   return (
-    <TMSModal isOpen className={CARD_CLASS}>
+    <TMSModal isOpen closeModal={onClose} className={CARD_CLASS}>
       <header className="border-b tms-governed-border-strong tms-governed-padding-inline-lg tms-governed-padding-block-md">
         <h2 className="tms-governed-type-body tms-governed-font-title tms-governed-text-primary">Select your company</h2>
         <p className="tms-governed-stack-sm tms-governed-type-caption tms-governed-font-label tms-governed-text-secondary">

@@ -41,6 +41,8 @@ export type AuthSession = {
       entityRecordKey?: string;
       /** Which backends have this entity active. */
       entityBackends?: BackendName[];
+      /** Company choices resolved at login — drives the selector modal + header company switcher. */
+      entityChoices?: Array<{ entityId: number; entityTitle: string; sources: BackendName[] }>;
       userSettings?: PortalUserSettings;
       surfaceCapabilities?: SurfaceCapabilities;
 };
