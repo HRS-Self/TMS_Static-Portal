@@ -1,6 +1,6 @@
 "use client";
 
-import { TMSModal } from "@conitdev/tms-ui-kit";
+import { TMSButton, TMSModal } from "@conitdev/tms-ui-kit";
 import { useEffect, useRef } from "react";
 
 export type CompanyChoice = {
@@ -14,11 +14,16 @@ type CompanySelectorModalProps = {
   returnUrl: string;
 };
 
+// Governed modal-card chrome — the same recipe the kit's TMSWizardDialog applies to TMSModal
+// (surface panel + radius + modal shadow). NOT bespoke styling: only governed tokens + layout.
+const CARD_CLASS =
+  "flex flex-col tms-governed-surface-panel tms-governed-surface-muted tms-governed-radius-surface shadow-modal overflow-hidden w-[min(34rem,92vw)]";
+
 /**
- * Blocking company-context selector — a MODAL, not a page. Rendered by the root layout when the
- * session has no active entity. Exactly one choice auto-submits (no manual step); more than one
- * shows the picker; zero shows the "not assigned" message. Selecting posts to /api/entity/select,
- * which sets session.entityId and redirects back, after which the modal no longer renders.
+ * Blocking company-context selector — a MODAL (not a page), composed from kit primitives only
+ * (TMSModal + TMSButton + governed tokens). Rendered by the root layout when the session has no
+ * active entity. Exactly one choice auto-submits; more than one shows the picker; zero shows the
+ * "not assigned" message. Selecting posts to /api/entity/select, which sets session.entityId.
  */
 export function CompanySelectorModal({ choices, returnUrl }: CompanySelectorModalProps) {
   const autoFormRef = useRef<HTMLFormElement>(null);
@@ -29,58 +34,55 @@ export function CompanySelectorModal({ choices, returnUrl }: CompanySelectorModa
   }, [single]);
 
   return (
-    <TMSModal isOpen>
-      <div className="flex w-[min(34rem,92vw)] flex-col gap-4 p-5">
-        <div className="flex flex-col gap-1">
-          <h2 className="text-lg font-semibold tms-governed-text-title">Select your company</h2>
-          <p className="text-sm tms-governed-text-subtle">
-            Choose the company context for this portal session.
-          </p>
-        </div>
+    <TMSModal isOpen className={CARD_CLASS}>
+      <header className="border-b tms-governed-border-strong tms-governed-padding-inline-lg tms-governed-padding-block-md">
+        <h2 className="tms-governed-type-body tms-governed-font-title tms-governed-text-primary">Select your company</h2>
+        <p className="tms-governed-stack-sm tms-governed-type-caption tms-governed-font-label tms-governed-text-secondary">
+          Choose the company context for this portal session.
+        </p>
+      </header>
 
+      <div className="flex flex-col tms-governed-gap-sm tms-governed-padding-lg">
         {choices.length === 0 ? (
-          <p className="rounded-md border tms-governed-border-default tms-governed-surface-panel p-4 text-sm tms-governed-text-body">
+          <p className="tms-governed-surface-page tms-governed-radius-control tms-governed-padding-md tms-governed-type-body tms-governed-text-secondary">
             You have not been assigned to a company yet.
           </p>
         ) : (
-          <div className="grid gap-2">
-            {choices.map((choice) => (
-              <form
-                key={choice.entityId}
-                ref={single ? autoFormRef : undefined}
-                action="/api/entity/select"
-                method="post"
-              >
-                <input type="hidden" name="entityId" value={String(choice.entityId)} />
-                <input type="hidden" name="entityTitle" value={choice.entityTitle} />
-                <input type="hidden" name="sources" value={JSON.stringify(choice.sources)} />
-                <input type="hidden" name="returnUrl" value={returnUrl} />
-                <button
-                  type="submit"
-                  className="flex w-full items-center justify-between rounded-md border tms-governed-border-default tms-governed-surface-panel px-4 py-3 text-left hover:border-indigo-400"
-                >
-                  <span className="min-w-0">
-                    <span className="block truncate text-sm font-semibold tms-governed-text-title">
-                      {choice.entityTitle}
+          choices.map((choice) => (
+            <form
+              key={choice.entityId}
+              ref={single ? autoFormRef : undefined}
+              action="/api/entity/select"
+              method="post"
+              className="flex items-center justify-between tms-governed-gap-md tms-governed-surface-page tms-governed-radius-control tms-governed-padding-md"
+            >
+              <input type="hidden" name="entityId" value={String(choice.entityId)} />
+              <input type="hidden" name="entityTitle" value={choice.entityTitle} />
+              <input type="hidden" name="sources" value={JSON.stringify(choice.sources)} />
+              <input type="hidden" name="returnUrl" value={returnUrl} />
+
+              <div className="min-w-0">
+                <div className="tms-governed-type-body tms-governed-font-title tms-governed-text-primary truncate">
+                  {choice.entityTitle}
+                </div>
+                <div className="tms-governed-stack-sm tms-governed-type-caption tms-governed-text-secondary">
+                  Entity ID: {choice.entityId}
+                </div>
+                <div className="flex flex-wrap tms-governed-gap-sm tms-governed-stack-sm">
+                  {choice.sources.map((source) => (
+                    <span
+                      key={source}
+                      className="tms-governed-surface-muted tms-governed-radius-control tms-governed-padding-sm tms-governed-type-caption tms-governed-font-label tms-governed-text-secondary uppercase"
+                    >
+                      {source}
                     </span>
-                    <span className="mt-0.5 block text-xs tms-governed-text-subtle">
-                      Entity ID: {choice.entityId}
-                    </span>
-                  </span>
-                  <span className="flex flex-wrap gap-1">
-                    {choice.sources.map((source) => (
-                      <span
-                        key={source}
-                        className="rounded border tms-governed-border-default px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide tms-governed-surface-muted"
-                      >
-                        {source}
-                      </span>
-                    ))}
-                  </span>
-                </button>
-              </form>
-            ))}
-          </div>
+                  ))}
+                </div>
+              </div>
+
+              <TMSButton type="submit" variant="containedPrimary" label="Select" />
+            </form>
+          ))
         )}
       </div>
     </TMSModal>
