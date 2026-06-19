@@ -143,15 +143,7 @@ export async function SurfacePage({ surfaceId }: SurfacePageProps) {
     }
   }
 
-  return (
-    <section className="space-y-4">
-      <header className="space-y-1">
-        <p className="text-sm font-medium uppercase tracking-wide text-slate-500">
-          {surface.section}
-        </p>
-        <h1 className="text-3xl font-semibold">{surface.title}</h1>
-      </header>
-      {body}
-    </section>
-  );
+  // The route page renders ONLY its content (the grid/stub) — no host page-title header. The path
+  // is shown by the chrome breadcrumb; the grid owns its own (governed, padded) title slot.
+  return body;
 }
