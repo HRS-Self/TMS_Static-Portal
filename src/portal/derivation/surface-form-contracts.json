@@ -275,7 +275,8 @@
         "name": "Status",
         "label": "Status",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_RequestStatuses"
       },
       {
         "name": "StatusReason",
@@ -441,7 +442,8 @@
         "name": "Status",
         "label": "Status",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_NotificationStatuses"
       },
       {
         "name": "Reason",
@@ -1131,7 +1133,8 @@
         "name": "Status",
         "label": "Status",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportRequestStatuses"
       }
     ]
   },
@@ -1210,13 +1213,15 @@
         "name": "CurrentStatus",
         "label": "Current Status",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportTransactStatuses"
       },
       {
         "name": "OfferType",
         "label": "Offer Type",
         "required": false,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportTransactOfferTypes"
       },
       {
         "name": "PaidTripFare",
@@ -1490,7 +1495,8 @@
         "name": "Status",
         "label": "Status",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportRequestStatuses"
       }
     ]
   },

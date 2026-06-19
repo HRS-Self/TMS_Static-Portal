@@ -69,6 +69,84 @@ export const navigationTree = {
     }
   ],
   "lowerSidebar": {
+    "Definitions": {
+      "_": [
+        {
+          "name": "Customers",
+          "route": "/definitions/customers",
+          "node": "end",
+          "key": "definitions.customers",
+          "origin": "derived"
+        },
+        {
+          "name": "CVOs",
+          "route": "/definitions/cvos",
+          "node": "end",
+          "key": "definitions.cvos",
+          "origin": "derived"
+        },
+        {
+          "name": "Distributors",
+          "route": "/definitions/distributors",
+          "node": "end",
+          "key": "definitions.distributors",
+          "origin": "derived"
+        },
+        {
+          "name": "Drivers",
+          "route": "/definitions/drivers",
+          "node": "end",
+          "key": "definitions.drivers",
+          "origin": "derived"
+        },
+        {
+          "name": "HUBs",
+          "route": "/definitions/hubs",
+          "node": "end",
+          "key": "definitions.hubs",
+          "origin": "derived"
+        },
+        {
+          "name": "Vehicles",
+          "route": "/definitions/vehicles",
+          "node": "end",
+          "key": "definitions.vehicles",
+          "origin": "derived"
+        }
+      ],
+      "Identity & Access": [
+        {
+          "name": "Entities",
+          "route": "/definitions/access/entities",
+          "node": "end",
+          "key": "definitions.access.entities",
+          "origin": "derived"
+        },
+        {
+          "name": "Scenarios",
+          "route": "/definitions/access/scenarios",
+          "node": "end",
+          "key": "definitions.access.scenarios",
+          "origin": "derived"
+        },
+        {
+          "name": "Users",
+          "route": "/definitions/access/users",
+          "node": "end",
+          "key": "definitions.access.users",
+          "origin": "derived"
+        }
+      ],
+      "Requests & Approvals": [
+        {
+          "name": "Requests & Approvals",
+          "route": "/definitions/requests",
+          "node": "end",
+          "key": "definitions.requests",
+          "origin": "derived"
+        }
+      ]
+    },
     "System": {
       "Configurations": [
         {
@@ -191,86 +269,6 @@ export const navigationTree = {
           "route": "/transport/setup/locations",
           "node": "end",
           "key": "transport.setup.locations",
-          "origin": "derived"
-        }
-      ]
-    },
-    "Definitions": {
-      "Actors": [
-        {
-          "name": "Customers",
-          "route": "/definitions/customers",
-          "node": "end",
-          "key": "definitions.customers",
-          "origin": "derived"
-        },
-        {
-          "name": "CVOs",
-          "route": "/definitions/cvos",
-          "node": "end",
-          "key": "definitions.cvos",
-          "origin": "derived"
-        },
-        {
-          "name": "Distributors",
-          "route": "/definitions/distributors",
-          "node": "end",
-          "key": "definitions.distributors",
-          "origin": "derived"
-        },
-        {
-          "name": "Drivers",
-          "route": "/definitions/drivers",
-          "node": "end",
-          "key": "definitions.drivers",
-          "origin": "derived"
-        },
-        {
-          "name": "HUBs",
-          "route": "/definitions/hubs",
-          "node": "end",
-          "key": "definitions.hubs",
-          "origin": "derived"
-        }
-      ],
-      "Identity & Access": [
-        {
-          "name": "Entities",
-          "route": "/definitions/access/entities",
-          "node": "end",
-          "key": "definitions.access.entities",
-          "origin": "derived"
-        },
-        {
-          "name": "Scenarios",
-          "route": "/definitions/access/scenarios",
-          "node": "end",
-          "key": "definitions.access.scenarios",
-          "origin": "derived"
-        },
-        {
-          "name": "Users",
-          "route": "/definitions/access/users",
-          "node": "end",
-          "key": "definitions.access.users",
-          "origin": "derived"
-        }
-      ],
-      "Requests & Approvals": [
-        {
-          "name": "Requests & Approvals",
-          "route": "/definitions/requests",
-          "node": "end",
-          "key": "definitions.requests",
-          "origin": "derived"
-        }
-      ],
-      "Facilitators": [
-        {
-          "name": "Vehicles",
-          "route": "/definitions/vehicles",
-          "node": "end",
-          "key": "definitions.vehicles",
           "origin": "derived"
         }
       ]

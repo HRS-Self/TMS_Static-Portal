@@ -97,7 +97,7 @@
   },
   "definitions.customers": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Actors",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_TransportContactRegistry",
       "H_TransportCustomerContacts",
@@ -123,7 +123,7 @@
   },
   "definitions.cvos": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Actors",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_CVODrivers",
       "H_CVOServices",
@@ -150,7 +150,7 @@
   },
   "definitions.distributors": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Actors",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_DistributorCVOs",
       "H_DistributorDrivers",
@@ -177,7 +177,7 @@
   },
   "definitions.drivers": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Actors",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_CVODrivers",
       "H_DistributorDrivers",
@@ -203,7 +203,7 @@
   },
   "definitions.hubs": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Actors",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_HUBDistributors",
       "H_Permits"
@@ -250,7 +250,7 @@
   },
   "definitions.vehicles": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Facilitators",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_CVOVehicles",
       "H_Permits",

@@ -100,7 +100,7 @@ export const surfaceCatalog: Record<string, SurfaceRecord> = {
   },
   "definitions.customers": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Actors",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_TransportContactRegistry",
       "H_TransportCustomerContacts",
@@ -126,7 +126,7 @@ export const surfaceCatalog: Record<string, SurfaceRecord> = {
   },
   "definitions.cvos": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Actors",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_CVODrivers",
       "H_CVOServices",
@@ -153,7 +153,7 @@ export const surfaceCatalog: Record<string, SurfaceRecord> = {
   },
   "definitions.distributors": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Actors",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_DistributorCVOs",
       "H_DistributorDrivers",
@@ -180,7 +180,7 @@ export const surfaceCatalog: Record<string, SurfaceRecord> = {
   },
   "definitions.drivers": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Actors",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_CVODrivers",
       "H_DistributorDrivers",
@@ -206,7 +206,7 @@ export const surfaceCatalog: Record<string, SurfaceRecord> = {
   },
   "definitions.hubs": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Actors",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_HUBDistributors",
       "H_Permits"
@@ -253,7 +253,7 @@ export const surfaceCatalog: Record<string, SurfaceRecord> = {
   },
   "definitions.vehicles": {
     "exceptionStatus": "default",
-    "menuSubgroup": "Facilitators",
+    "menuSubgroup": null,
     "embeddedChildren": [
       "H_CVOVehicles",
       "H_Permits",

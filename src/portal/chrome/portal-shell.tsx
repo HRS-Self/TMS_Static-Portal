@@ -142,6 +142,10 @@ export function PortalShell({
       <div className={portalChromLocalUIOverrides.headerHostClassName}>
         <TMSHeader
           {...headerProps}
+          signOutOnClick={() => {
+            // full navigation so the /api/auth/logout route's redirect() to the IDP signout fires
+            window.location.assign("/api/auth/logout");
+          }}
           onClickHelp={() => {
             router.push("/info/help");
           }}

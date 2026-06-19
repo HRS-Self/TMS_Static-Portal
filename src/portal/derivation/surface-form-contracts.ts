@@ -282,7 +282,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "Status",
         "label": "Status",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_RequestStatuses"
       },
       {
         "name": "StatusReason",
@@ -448,7 +449,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "Status",
         "label": "Status",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_NotificationStatuses"
       },
       {
         "name": "Reason",
@@ -1138,7 +1140,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "Status",
         "label": "Status",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportRequestStatuses"
       }
     ]
   },
@@ -1217,13 +1220,15 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "CurrentStatus",
         "label": "Current Status",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportTransactStatuses"
       },
       {
         "name": "OfferType",
         "label": "Offer Type",
         "required": false,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportTransactOfferTypes"
       },
       {
         "name": "PaidTripFare",
@@ -1497,7 +1502,8 @@ export const surfaceFormContracts: Record<string, SurfaceFormContract> = {
         "name": "Status",
         "label": "Status",
         "required": true,
-        "type": "number"
+        "type": "select",
+        "enumTable": "H_ENUM_TransportRequestStatuses"
       }
     ]
   },

@@ -3,6 +3,61 @@ import type { PortalSidebarMenuNode } from "./portal-chrom-sidebar-bottom-menu.c
 
 export const generatedSidebarSettingsMenu: readonly PortalSidebarMenuNode[] = [
   {
+    "title": "Definitions",
+    "items": [
+      {
+        "title": "Customers",
+        "href": "/definitions/customers"
+      },
+      {
+        "title": "CVOs",
+        "href": "/definitions/cvos"
+      },
+      {
+        "title": "Distributors",
+        "href": "/definitions/distributors"
+      },
+      {
+        "title": "Drivers",
+        "href": "/definitions/drivers"
+      },
+      {
+        "title": "HUBs",
+        "href": "/definitions/hubs"
+      },
+      {
+        "title": "Vehicles",
+        "href": "/definitions/vehicles"
+      },
+      {
+        "title": "Identity & Access",
+        "items": [
+          {
+            "title": "Entities",
+            "href": "/definitions/access/entities"
+          },
+          {
+            "title": "Scenarios",
+            "href": "/definitions/access/scenarios"
+          },
+          {
+            "title": "Users",
+            "href": "/definitions/access/users"
+          }
+        ]
+      },
+      {
+        "title": "Requests & Approvals",
+        "items": [
+          {
+            "title": "Requests & Approvals",
+            "href": "/definitions/requests"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "title": "System",
     "items": [
       {
@@ -96,71 +151,6 @@ export const generatedSidebarSettingsMenu: readonly PortalSidebarMenuNode[] = [
           {
             "title": "Locations",
             "href": "/transport/setup/locations"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Definitions",
-    "items": [
-      {
-        "title": "Actors",
-        "items": [
-          {
-            "title": "Customers",
-            "href": "/definitions/customers"
-          },
-          {
-            "title": "CVOs",
-            "href": "/definitions/cvos"
-          },
-          {
-            "title": "Distributors",
-            "href": "/definitions/distributors"
-          },
-          {
-            "title": "Drivers",
-            "href": "/definitions/drivers"
-          },
-          {
-            "title": "HUBs",
-            "href": "/definitions/hubs"
-          }
-        ]
-      },
-      {
-        "title": "Identity & Access",
-        "items": [
-          {
-            "title": "Entities",
-            "href": "/definitions/access/entities"
-          },
-          {
-            "title": "Scenarios",
-            "href": "/definitions/access/scenarios"
-          },
-          {
-            "title": "Users",
-            "href": "/definitions/access/users"
-          }
-        ]
-      },
-      {
-        "title": "Requests & Approvals",
-        "items": [
-          {
-            "title": "Requests & Approvals",
-            "href": "/definitions/requests"
-          }
-        ]
-      },
-      {
-        "title": "Facilitators",
-        "items": [
-          {
-            "title": "Vehicles",
-            "href": "/definitions/vehicles"
           }
         ]
       }
