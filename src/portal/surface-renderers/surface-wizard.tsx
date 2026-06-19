@@ -1,6 +1,10 @@
 "use client";
 
-import { TMSField, TMSFieldInput, TMSFieldSelect, TMSModal } from "@conitdev/tms-ui-kit";
+import { TMSButton, TMSField, TMSFieldInput, TMSFieldSelect, TMSModal } from "@conitdev/tms-ui-kit";
+
+// Governed modal-card chrome — the recipe the kit's TMSWizardDialog applies to TMSModal.
+const WIZARD_CARD_CLASS =
+  "flex max-h-[85vh] w-[min(42rem,92vw)] flex-col tms-governed-surface-panel tms-governed-surface-muted tms-governed-radius-surface shadow-modal overflow-hidden";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -72,13 +76,15 @@ export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions
   }
 
   return (
-    <TMSModal isOpen={open} closeModal={onClose}>
-      <div className="flex max-h-[85vh] w-[min(42rem,92vw)] flex-col gap-4 p-5">
-        <h2 className="text-lg font-semibold tms-governed-text-title">
+    <TMSModal isOpen={open} closeModal={onClose} className={WIZARD_CARD_CLASS}>
+      <header className="shrink-0 border-b tms-governed-border-strong tms-governed-padding-inline-lg tms-governed-padding-block-md">
+        <h2 className="tms-governed-type-body tms-governed-font-title tms-governed-text-primary">
           {mode === "new" ? `New ${title}` : `Manage ${title}`}
         </h2>
+      </header>
 
-        <div className="grid gap-3 overflow-auto md:grid-cols-2">
+      <div className="flex min-h-0 flex-col tms-governed-gap-md tms-governed-padding-lg overflow-hidden">
+        <div className="grid tms-governed-gap-md overflow-auto md:grid-cols-2">
           {form.fields.map((f) => {
             const options = fieldOptions?.[f.name];
             return (
@@ -113,20 +119,19 @@ export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions
           })}
         </div>
 
-        {error ? <p className="text-sm text-rose-600">{error}</p> : null}
+        {error ? (
+          <p className="tms-governed-type-caption tms-governed-text-danger">{error}</p>
+        ) : null}
 
-        <div className="flex justify-end gap-2">
-          <button type="button" onClick={onClose} className="rounded border tms-governed-border-default px-3 py-1.5 text-sm">
-            Cancel
-          </button>
-          <button
-            type="button"
+        <div className="flex shrink-0 justify-end tms-governed-gap-sm">
+          <TMSButton variant="outlined" label="Cancel" onClick={onClose} />
+          <TMSButton
+            variant="containedPrimary"
+            label={busy ? "Saving…" : "Save"}
             onClick={() => void save()}
             disabled={busy}
-            className="rounded bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50"
-          >
-            {busy ? "Saving…" : "Save"}
-          </button>
+            loading={busy}
+          />
         </div>
       </div>
     </TMSModal>
