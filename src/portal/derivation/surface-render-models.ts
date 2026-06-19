@@ -2404,7 +2404,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "OfferType",
         "title": "Offer Type",
         "type": "text",
-        "sortable": true
+        "sortable": true,
+        "enumTable": "H_ENUM_TransportTransactOfferTypes"
       },
       {
         "field": "PaidTripFare",

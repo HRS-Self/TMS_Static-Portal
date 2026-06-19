@@ -1,5 +1,5 @@
 {
-  "total": 135,
+  "total": 137,
   "valuesMissing": 25,
   "needsReview": 21,
   "enumTables": {
@@ -22,6 +22,7 @@
       "H_ENUM_TransportCategories",
       "H_ENUM_TransportRequestStatuses",
       "H_ENUM_TransportTransactItemStatuses",
+      "H_ENUM_TransportTransactOfferTypes",
       "H_ENUM_TransportTransactStatuses",
       "H_ENUM_VehicleTypes",
       "_ENUM_ActivityStatus",
@@ -37,7 +38,6 @@
       "H_ENUM_PermitConditions",
       "H_ENUM_ScenarioDataMapCheckingTypes",
       "H_ENUM_TransportTransactOfferStatuses",
-      "H_ENUM_TransportTransactOfferTypes",
       "_ENUM_ViolationType"
     ]
   },
@@ -126,6 +126,13 @@
         "_ENUM_AlivenessStatus",
         "_ENUM_AvailabilityStatus"
       ]
+    },
+    {
+      "table": "_DispatchOffers",
+      "column": "OfferType",
+      "signal": "approved",
+      "resolution": "approved-source",
+      "source": "H_ENUM_TransportTransactOfferTypes"
     },
     {
       "table": "_DispatchRuleArtifacts",
@@ -1037,6 +1044,13 @@
       "signal": "status",
       "resolution": "h-enum-table",
       "source": "H_ENUM_TransportTransactStatuses"
+    },
+    {
+      "table": "H_TransportTransacts",
+      "column": "OfferType",
+      "signal": "approved",
+      "resolution": "approved-source",
+      "source": "H_ENUM_TransportTransactOfferTypes"
     },
     {
       "table": "H_TransportTransactStages",

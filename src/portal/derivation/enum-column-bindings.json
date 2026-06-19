@@ -176,6 +176,11 @@
     "resolution": "h-enum-table",
     "source": "H_ENUM_TransportTransactStatuses"
   },
+  "H_TransportTransacts.OfferType": {
+    "signal": "approved",
+    "resolution": "approved-source",
+    "source": "H_ENUM_TransportTransactOfferTypes"
+  },
   "H_VehicleProfile.TransportCategory": {
     "signal": "tinyint",
     "resolution": "h-enum-table",
