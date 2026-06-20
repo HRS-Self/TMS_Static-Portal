@@ -1,6 +1,7 @@
 import 'server-only';
 
 import type { PortalSurfaceId } from '@/src/portal/chrome/portal-chrom-surface-registry.config';
+import relationContracts from '@/src/portal/derivation/spc-relation-contracts.json';
 import { surfaceContracts } from '@/src/portal/derivation/surface-contracts';
 import type { SurfaceCapabilities, SurfaceCapabilitySnapshot } from '@/src/portal/surfaces/types';
 import type { AuthSession, BackendName } from '@/src/server/auth/types';
@@ -47,6 +48,15 @@ export async function hydrateSurfaceCapabilities(
       !gate ? true : typeof code === 'string' && codeUris.has(code);
     const canRead = !gate ? true : typeof cap.view === 'string' ? codeUris.has(cap.view) : true;
 
+    // C4 — per-tab projection: hide a relation tab when the user lacks its read code (User.<Junction>.Get).
+    const tabs: Record<string, boolean> = {};
+    for (const [rcKey, rc] of Object.entries(relationContracts as Record<string, { viewCode?: string }>)) {
+      if (!rcKey.startsWith(`${surfaceId}::`)) continue;
+      const area = rcKey.slice(surfaceId.length + 2);
+      const code = rc.viewCode;
+      tabs[area] = !gate || typeof code !== 'string' ? true : codeUris.has(code);
+    }
+
     const snapshot: SurfaceCapabilitySnapshot = {
       pageVisible: canRead,
       canRead,
@@ -54,7 +64,7 @@ export async function hydrateSurfaceCapabilities(
       canUpdate: granted(cap.manage),
       canDelete: granted(cap.delete),
       sections: {},
-      tabs: {}, // per-tab projection filled by C4 (per-family capability codes)
+      tabs,
       actions: {},
     };
     surfaceCapabilities[surfaceId as PortalSurfaceId] = snapshot;

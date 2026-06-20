@@ -2,41 +2,49 @@
   "definitions.access.scenarios::DataMap": {
     "kind": "child",
     "junctionTable": "H_AAA_ScenarioDataMap",
+    "viewCode": "User.AAA_ScenarioDataMap.Get",
     "parentFk": "ScenarioId"
   },
   "definitions.access.scenarios::EntityScenarios": {
     "kind": "child",
     "junctionTable": "H_AAA_EntityScenarios",
+    "viewCode": "User.AAA_EntityScenarios.Get",
     "parentFk": "ScenarioId"
   },
   "definitions.access.users::EntityRoles": {
     "kind": "child",
     "junctionTable": "H_AAA_UserEntityRoles",
+    "viewCode": "User.AAA_UserEntityRoles.Get",
     "parentFk": "UserId"
   },
   "definitions.customers::Contact": {
     "kind": "child",
     "junctionTable": "H_TransportContactRegistry",
+    "viewCode": "User.TransportContactRegistry.Get",
     "parentFk": null
   },
   "definitions.customers::Contacts": {
     "kind": "child",
     "junctionTable": "H_TransportCustomerContacts",
+    "viewCode": "User.TransportCustomerContacts.Get",
     "parentFk": "CustomerId"
   },
   "definitions.customers::DistributorCustomers": {
     "kind": "child",
     "junctionTable": "H_TransportDistributorCustomers",
+    "viewCode": "User.TransportDistributorCustomers.Get",
     "parentFk": "CustomerId"
   },
   "definitions.customers::MasterGoods": {
     "kind": "child",
     "junctionTable": "H_TransportCustomerMasterGoods",
+    "viewCode": "User.TransportCustomerMasterGoods.Get",
     "parentFk": "CustomerId"
   },
   "definitions.cvos::Distributors": {
     "kind": "bridge",
     "junctionTable": "H_DistributorCVOs",
+    "viewCode": "User.DistributorCVOs.Get",
     "parentFk": "CVOId",
     "relatedEntity": "H_Distributors",
     "relatedFk": "DistributorId",
@@ -60,6 +68,7 @@
   "definitions.cvos::Drivers": {
     "kind": "bridge",
     "junctionTable": "H_CVODrivers",
+    "viewCode": "User.CVODrivers.Get",
     "parentFk": "CVOId",
     "relatedEntity": "H_Drivers",
     "relatedFk": "DriverId",
@@ -83,16 +92,19 @@
   "definitions.cvos::Permits": {
     "kind": "child",
     "junctionTable": "H_Permits",
+    "viewCode": "User.Permits.Get",
     "parentFk": "CVOId"
   },
   "definitions.cvos::Services": {
     "kind": "child",
     "junctionTable": "H_CVOServices",
+    "viewCode": "User.CVOServices.Get",
     "parentFk": "CVOId"
   },
   "definitions.cvos::Vehicles": {
     "kind": "bridge",
     "junctionTable": "H_CVOVehicles",
+    "viewCode": "User.CVOVehicles.Get",
     "parentFk": "CVOId",
     "relatedEntity": "H_VehicleProfile",
     "relatedFk": "VehicleId",
@@ -116,6 +128,7 @@
   "definitions.distributors::CVOs": {
     "kind": "bridge",
     "junctionTable": "H_DistributorCVOs",
+    "viewCode": "User.DistributorCVOs.Get",
     "parentFk": "DistributorId",
     "relatedEntity": "H_CVOs",
     "relatedFk": "CVOId",
@@ -139,11 +152,13 @@
   "definitions.distributors::Customers": {
     "kind": "child",
     "junctionTable": "H_TransportDistributorCustomers",
+    "viewCode": "User.TransportDistributorCustomers.Get",
     "parentFk": null
   },
   "definitions.distributors::Drivers": {
     "kind": "bridge",
     "junctionTable": "H_DistributorDrivers",
+    "viewCode": "User.DistributorDrivers.Get",
     "parentFk": "DistributorId",
     "relatedEntity": "H_Drivers",
     "relatedFk": "DriverId",
@@ -167,6 +182,7 @@
   "definitions.distributors::HUBs": {
     "kind": "bridge",
     "junctionTable": "H_HUBDistributors",
+    "viewCode": "User.HUBDistributors.Get",
     "parentFk": "DistributorId",
     "relatedEntity": "H_HUBs",
     "relatedFk": "HUBId",
@@ -190,11 +206,13 @@
   "definitions.distributors::Permits": {
     "kind": "child",
     "junctionTable": "H_Permits",
+    "viewCode": "User.Permits.Get",
     "parentFk": "DistributorId"
   },
   "definitions.drivers::CVOs": {
     "kind": "bridge",
     "junctionTable": "H_CVODrivers",
+    "viewCode": "User.CVODrivers.Get",
     "parentFk": "DriverId",
     "relatedEntity": "H_CVOs",
     "relatedFk": "CVOId",
@@ -218,6 +236,7 @@
   "definitions.drivers::Distributors": {
     "kind": "bridge",
     "junctionTable": "H_DistributorDrivers",
+    "viewCode": "User.DistributorDrivers.Get",
     "parentFk": "DriverId",
     "relatedEntity": "H_Distributors",
     "relatedFk": "DistributorId",
@@ -241,11 +260,13 @@
   "definitions.drivers::Permits": {
     "kind": "child",
     "junctionTable": "H_Permits",
+    "viewCode": "User.Permits.Get",
     "parentFk": "DriverId"
   },
   "definitions.drivers::Vehicles": {
     "kind": "bridge",
     "junctionTable": "H_VehicleDrivers",
+    "viewCode": "User.VehicleDrivers.Get",
     "parentFk": "DriverId",
     "relatedEntity": "H_VehicleProfile",
     "relatedFk": "VehicleId",
@@ -269,6 +290,7 @@
   "definitions.hubs::Distributors": {
     "kind": "bridge",
     "junctionTable": "H_HUBDistributors",
+    "viewCode": "User.HUBDistributors.Get",
     "parentFk": "HUBId",
     "relatedEntity": "H_Distributors",
     "relatedFk": "DistributorId",
@@ -292,16 +314,19 @@
   "definitions.hubs::Permits": {
     "kind": "child",
     "junctionTable": "H_Permits",
+    "viewCode": "User.Permits.Get",
     "parentFk": "HUBId"
   },
   "definitions.requests::PermitStatusVerifications": {
     "kind": "child",
     "junctionTable": "H_PermitStatusVerifications",
+    "viewCode": "User.PermitStatusVerifications.Get",
     "parentFk": "RequestStatusId"
   },
   "definitions.vehicles::CVOs": {
     "kind": "bridge",
     "junctionTable": "H_CVOVehicles",
+    "viewCode": "User.CVOVehicles.Get",
     "parentFk": "VehicleId",
     "relatedEntity": "H_CVOs",
     "relatedFk": "CVOId",
@@ -325,6 +350,7 @@
   "definitions.vehicles::Drivers": {
     "kind": "bridge",
     "junctionTable": "H_VehicleDrivers",
+    "viewCode": "User.VehicleDrivers.Get",
     "parentFk": "VehicleId",
     "relatedEntity": "H_Drivers",
     "relatedFk": "DriverId",
@@ -348,76 +374,91 @@
   "definitions.vehicles::Features": {
     "kind": "child",
     "junctionTable": "H_VehicleFeatures",
+    "viewCode": "User.VehicleFeatures.Get",
     "parentFk": "VehicleId"
   },
   "definitions.vehicles::Permits": {
     "kind": "child",
     "junctionTable": "H_Permits",
+    "viewCode": "User.Permits.Get",
     "parentFk": "VehicleId"
   },
   "system.app-registration.app-types::Permissions": {
     "kind": "child",
     "junctionTable": "H_AAA_AppTypePermissions",
+    "viewCode": "User.AAA_AppTypePermissions.Get",
     "parentFk": "AppTypeId"
   },
   "system.permit-management.permit-issuers::PermitTypeIssuers": {
     "kind": "child",
     "junctionTable": "H_PermitTypeIssuers",
+    "viewCode": "User.PermitTypeIssuers.Get",
     "parentFk": "PermitIssuerId"
   },
   "system.permit-management.permit-issuers::Permits": {
     "kind": "child",
     "junctionTable": "H_Permits",
+    "viewCode": "User.Permits.Get",
     "parentFk": "PermitIssuerId"
   },
   "transport.batches::Items": {
     "kind": "child",
     "junctionTable": "H_TransportBatchItems",
+    "viewCode": "User.TransportBatchItems.Get",
     "parentFk": "BatchId"
   },
   "transport.deliveries::BatchItems": {
     "kind": "child",
     "junctionTable": "H_TransportBatchItems",
+    "viewCode": "User.TransportBatchItems.Get",
     "parentFk": "TransportReqDeliveryId"
   },
   "transport.deliveries::ReqDeliveryAddons": {
     "kind": "child",
     "junctionTable": "H_TransportReqDeliveryAddons",
+    "viewCode": "User.TransportReqDeliveryAddons.Get",
     "parentFk": "TransportReqDeliveryId"
   },
   "transport.deliveries::ReqDeliveryGoods": {
     "kind": "child",
     "junctionTable": "H_TransportReqDeliveryGoods",
+    "viewCode": "User.TransportReqDeliveryGoods.Get",
     "parentFk": "ReqDeliveryId"
   },
   "transport.dispatch::TransactItems": {
     "kind": "child",
     "junctionTable": "H_TransportTransactItems",
+    "viewCode": "User.TransportTransactItems.Get",
     "parentFk": "TransportTransactId"
   },
   "transport.dispatch::TransactStages": {
     "kind": "child",
     "junctionTable": "H_TransportTransactStages",
+    "viewCode": "User.TransportTransactStages.Get",
     "parentFk": "TransportTransactId"
   },
   "transport.rides::BatchItems": {
     "kind": "child",
     "junctionTable": "H_TransportBatchItems",
+    "viewCode": "User.TransportBatchItems.Get",
     "parentFk": "TransportReqRideId"
   },
   "transport.rides::ReqRideAddons": {
     "kind": "child",
     "junctionTable": "H_TransportReqRideAddons",
+    "viewCode": "User.TransportReqRideAddons.Get",
     "parentFk": "TransportReqRideId"
   },
   "transport.rides::ReqRidePassengers": {
     "kind": "child",
     "junctionTable": "H_TransportReqRidePassengers",
+    "viewCode": "User.TransportReqRidePassengers.Get",
     "parentFk": "ReqRideId"
   },
   "transport.rides::TransactItemStages": {
     "kind": "child",
     "junctionTable": "H_TransportTransactItemStages",
+    "viewCode": "User.TransportTransactItemStages.Get",
     "parentFk": null
   }
 }

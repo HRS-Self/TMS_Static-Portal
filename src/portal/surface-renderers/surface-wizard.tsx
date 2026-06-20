@@ -42,7 +42,9 @@ export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions
   const contract = surfaceContracts[surfaceId];
   const isEdit = mode === "manage";
   // New shows ALL steps but locks the later ones until the base saves (restricted/guided flow).
-  const tabs = contract?.render?.tabs && contract.render.tabs.length > 0 ? contract.render.tabs : ["Profile"];
+  // C4: drop relation tabs the user can't read (capability.tabs[area] === false); Profile always stays.
+  const allTabs = contract?.render?.tabs && contract.render.tabs.length > 0 ? contract.render.tabs : ["Profile"];
+  const tabs = allTabs.filter((t, i) => i === 0 || capability?.tabs?.[t] !== false);
 
   const [values, setValues] = useState<Record<string, unknown>>(() => {
     const v: Record<string, unknown> = {};
