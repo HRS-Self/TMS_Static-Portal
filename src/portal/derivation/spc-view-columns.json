@@ -452,10 +452,7 @@
     "DriverLicense",
     "DriverLicenseExpiry",
     "DriverLicenseStatus",
-    "ValidPermitCount",
-    "ExpiredPermitCount",
-    "SuspendedPermitCount",
-    "RevokedPermitCount",
+    "PermitStatus",
     "NextValidPermitExpiry",
     "LicensedVehicleTypeBadges"
   ],

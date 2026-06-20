@@ -554,10 +554,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "DriverLicense",
         "DriverLicenseExpiry",
         "DriverLicenseStatus",
-        "ValidPermitCount",
-        "ExpiredPermitCount",
-        "SuspendedPermitCount",
-        "RevokedPermitCount",
+        "PermitStatus",
         "NextValidPermitExpiry",
         "LicensedVehicleTypeBadges"
       ],
@@ -623,31 +620,13 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
       {
         "field": "DriverLicenseStatus",
         "title": "Driver License Status",
-        "type": "status",
+        "type": "text",
         "sortable": true
       },
       {
-        "field": "ValidPermitCount",
-        "title": "Valid Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "ExpiredPermitCount",
-        "title": "Expired Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "SuspendedPermitCount",
-        "title": "Suspended Permit Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "RevokedPermitCount",
-        "title": "Revoked Permit Count",
-        "type": "number",
+        "field": "PermitStatus",
+        "title": "Permit Status",
+        "type": "text",
         "sortable": true
       },
       {

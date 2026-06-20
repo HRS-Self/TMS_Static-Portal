@@ -18,6 +18,10 @@
     "signal": "status",
     "resolution": "values-missing"
   },
+  "H_Drivers.PermitStatus": {
+    "signal": "status",
+    "resolution": "values-missing"
+  },
   "H_NotificationTemplateSettings.NotificationPlatformENUM": {
     "signal": "suffix",
     "resolution": "h-enum-table",
