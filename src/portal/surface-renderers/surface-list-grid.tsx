@@ -68,7 +68,7 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
   const [loading, setLoading] = useState(false);
   const queryRef = useRef({
     page: 1,
-    size: model.readModel.defaultPageSize ?? 25,
+    size: model.readModel.defaultPageSize ?? 10,
     sortKey: model.readModel.defaultSortKey,
     sortDirection: "asc" as "asc" | "desc",
     filter: {} as Record<string, unknown>,
@@ -192,7 +192,7 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
       <TMSDataGrid
         title={title}
         description={model.description}
-        pageSize={25}
+        pageSize={(model.readModel.defaultPageSize ?? 10) as 5 | 10 | 25 | 50}
         columns={columns}
         rows={data.rows}
         totalItems={data.total}

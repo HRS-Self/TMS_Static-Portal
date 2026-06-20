@@ -72,7 +72,7 @@ export function SurfaceFamilyTab({ surfaceId, area, parentId }: SurfaceFamilyTab
 
   return (
     <TMSDataGrid
-      pageSize={25}
+      pageSize={10}
       columns={columns}
       rows={state.rows}
       totalItems={state.total}

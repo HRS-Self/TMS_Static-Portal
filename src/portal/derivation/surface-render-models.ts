@@ -41,12 +41,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -165,12 +165,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "DataMapCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -258,12 +258,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "EntityRolesCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -358,12 +358,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "DistributorCustomersCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -472,12 +472,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "PermitsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -567,12 +567,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "PermitsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -671,12 +671,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "LicensedVehicleTypeBadges"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -842,12 +842,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "PermitsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -926,12 +926,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "PermitStatusVerificationsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1066,12 +1066,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "FeaturesCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1239,12 +1239,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "AppTypeTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1302,12 +1302,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "PermissionsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1365,12 +1365,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1445,12 +1445,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "CellPhone_fsx"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1582,12 +1582,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "HUBTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1700,12 +1700,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ConfigBaseCode"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1780,12 +1780,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1863,12 +1863,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "PermitsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1940,12 +1940,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2042,12 +2042,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ItemsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2179,12 +2179,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ReqDeliveryGoodsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2406,12 +2406,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "TransactStagesCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2591,12 +2591,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ReqRidePassengersCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2826,12 +2826,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ContactTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2909,12 +2909,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "DistributorTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -3032,12 +3032,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "SourceGeoFenceBaseTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -3103,12 +3103,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "SourceGeoFenceBaseTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -3180,12 +3180,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "CVOTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -3329,12 +3329,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -3412,12 +3412,12 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },

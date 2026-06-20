@@ -28,12 +28,12 @@
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -152,12 +152,12 @@
         "DataMapCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -245,12 +245,12 @@
         "EntityRolesCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -345,12 +345,12 @@
         "DistributorCustomersCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -459,12 +459,12 @@
         "PermitsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -554,12 +554,12 @@
         "PermitsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -658,12 +658,12 @@
         "LicensedVehicleTypeBadges"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -829,12 +829,12 @@
         "PermitsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -913,12 +913,12 @@
         "PermitStatusVerificationsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1053,12 +1053,12 @@
         "FeaturesCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1226,12 +1226,12 @@
         "AppTypeTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1289,12 +1289,12 @@
         "PermissionsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1352,12 +1352,12 @@
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1432,12 +1432,12 @@
         "CellPhone_fsx"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1569,12 +1569,12 @@
         "HUBTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1687,12 +1687,12 @@
         "ConfigBaseCode"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1767,12 +1767,12 @@
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1850,12 +1850,12 @@
         "PermitsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -1927,12 +1927,12 @@
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2029,12 +2029,12 @@
         "ItemsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2166,12 +2166,12 @@
         "ReqDeliveryGoodsCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2393,12 +2393,12 @@
         "TransactStagesCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2578,12 +2578,12 @@
         "ReqRidePassengersCount"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2813,12 +2813,12 @@
         "ContactTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -2896,12 +2896,12 @@
         "DistributorTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -3019,12 +3019,12 @@
         "SourceGeoFenceBaseTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -3090,12 +3090,12 @@
         "SourceGeoFenceBaseTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -3167,12 +3167,12 @@
         "CVOTitle"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -3316,12 +3316,12 @@
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
@@ -3399,12 +3399,12 @@
         "RecordDeleted"
       ],
       "defaultSortKey": "Id",
-      "defaultPageSize": 25,
+      "defaultPageSize": 10,
       "pageSizeOptions": [
+        5,
         10,
         25,
-        50,
-        100
+        50
       ],
       "pendingViewOrder": null
     },
