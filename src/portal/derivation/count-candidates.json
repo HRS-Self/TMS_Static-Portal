@@ -1,0 +1,192 @@
+{
+  "definitions.access.scenarios": [
+    {
+      "area": "EntityScenarios",
+      "source": "H_AAA_EntityScenarios",
+      "approved": false
+    },
+    {
+      "area": "DataMap",
+      "source": "H_AAA_ScenarioDataMap",
+      "approved": false
+    }
+  ],
+  "definitions.access.users": [
+    {
+      "area": "EntityRoles",
+      "source": "H_AAA_UserEntityRoles",
+      "approved": false
+    }
+  ],
+  "definitions.customers": [
+    {
+      "area": "Contacts",
+      "source": "H_TransportCustomerContacts",
+      "approved": false
+    },
+    {
+      "area": "MasterGoods",
+      "source": "H_TransportCustomerMasterGoods",
+      "approved": false
+    },
+    {
+      "area": "DistributorCustomers",
+      "source": "H_TransportDistributorCustomers",
+      "approved": false
+    }
+  ],
+  "definitions.cvos": [
+    {
+      "area": "Drivers",
+      "source": "H_CVODrivers",
+      "approved": false
+    },
+    {
+      "area": "Services",
+      "source": "H_CVOServices",
+      "approved": false
+    },
+    {
+      "area": "Vehicles",
+      "source": "H_CVOVehicles",
+      "approved": false
+    },
+    {
+      "area": "Distributors",
+      "source": "H_DistributorCVOs",
+      "approved": false
+    }
+  ],
+  "definitions.distributors": [
+    {
+      "area": "CVOs",
+      "source": "H_DistributorCVOs",
+      "approved": false
+    },
+    {
+      "area": "Drivers",
+      "source": "H_DistributorDrivers",
+      "approved": false
+    },
+    {
+      "area": "HUBs",
+      "source": "H_HUBDistributors",
+      "approved": false
+    }
+  ],
+  "definitions.drivers": [
+    {
+      "area": "CVOs",
+      "source": "H_CVODrivers",
+      "approved": false
+    },
+    {
+      "area": "Distributors",
+      "source": "H_DistributorDrivers",
+      "approved": false
+    },
+    {
+      "area": "Vehicles",
+      "source": "H_VehicleDrivers",
+      "approved": false
+    }
+  ],
+  "definitions.hubs": [
+    {
+      "area": "Distributors",
+      "source": "H_HUBDistributors",
+      "approved": false
+    }
+  ],
+  "definitions.requests": [
+    {
+      "area": "PermitStatusVerifications",
+      "source": "H_PermitStatusVerifications",
+      "approved": false
+    }
+  ],
+  "definitions.vehicles": [
+    {
+      "area": "CVOs",
+      "source": "H_CVOVehicles",
+      "approved": false
+    },
+    {
+      "area": "Drivers",
+      "source": "H_VehicleDrivers",
+      "approved": false
+    },
+    {
+      "area": "Features",
+      "source": "H_VehicleFeatures",
+      "approved": false
+    }
+  ],
+  "system.app-registration.app-types": [
+    {
+      "area": "Permissions",
+      "source": "H_AAA_AppTypePermissions",
+      "approved": false
+    }
+  ],
+  "system.permit-management.permit-issuers": [
+    {
+      "area": "PermitTypeIssuers",
+      "source": "H_PermitTypeIssuers",
+      "approved": false
+    }
+  ],
+  "transport.batches": [
+    {
+      "area": "Items",
+      "source": "H_TransportBatchItems",
+      "approved": false
+    }
+  ],
+  "transport.deliveries": [
+    {
+      "area": "BatchItems",
+      "source": "H_TransportBatchItems",
+      "approved": false
+    },
+    {
+      "area": "ReqDeliveryAddons",
+      "source": "H_TransportReqDeliveryAddons",
+      "approved": false
+    },
+    {
+      "area": "ReqDeliveryGoods",
+      "source": "H_TransportReqDeliveryGoods",
+      "approved": false
+    }
+  ],
+  "transport.dispatch": [
+    {
+      "area": "TransactItems",
+      "source": "H_TransportTransactItems",
+      "approved": false
+    },
+    {
+      "area": "TransactStages",
+      "source": "H_TransportTransactStages",
+      "approved": false
+    }
+  ],
+  "transport.rides": [
+    {
+      "area": "BatchItems",
+      "source": "H_TransportBatchItems",
+      "approved": false
+    },
+    {
+      "area": "ReqRideAddons",
+      "source": "H_TransportReqRideAddons",
+      "approved": false
+    },
+    {
+      "area": "ReqRidePassengers",
+      "source": "H_TransportReqRidePassengers",
+      "approved": false
+    }
+  ]
+}

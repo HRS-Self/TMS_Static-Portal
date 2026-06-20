@@ -36,14 +36,12 @@
       "ModifiedAt_UTC",
       "ModifiedBy",
       "RecordDeleted",
-      "ClientEntityTitle",
-      "EntityScenariosCount",
-      "DataMapCount"
+      "ClientEntityTitle"
     ]
   },
   "definitions.access.users": {
-    "dataSourceType": "view",
-    "dataSourceValue": "Vi_SPC_UserListSummary",
+    "dataSourceType": "table",
+    "dataSourceValue": "H_AAA_Synced_UserInfo",
     "columns": [
       "Id",
       "Firstname_fsx",
@@ -59,8 +57,7 @@
       "CreatedBy",
       "ModifiedAt_UTC",
       "ModifiedBy",
-      "RecordDeleted",
-      "EntityRolesCount"
+      "RecordDeleted"
     ]
   },
   "definitions.customers": {
@@ -80,10 +77,7 @@
       "Username",
       "Email_fsx",
       "CellPhone_fsx",
-      "EntityTitle",
-      "ContactsCount",
-      "MasterGoodsCount",
-      "DistributorCustomersCount"
+      "EntityTitle"
     ]
   },
   "definitions.cvos": {
@@ -98,12 +92,7 @@
       "ModifiedAt_UTC",
       "ModifiedBy",
       "RecordDeleted",
-      "EntityTitle",
-      "DriversCount",
-      "ServicesCount",
-      "VehiclesCount",
-      "DistributorsCount",
-      "PermitsCount"
+      "EntityTitle"
     ]
   },
   "definitions.distributors": {
@@ -118,11 +107,7 @@
       "ModifiedAt_UTC",
       "ModifiedBy",
       "RecordDeleted",
-      "EntityTitle",
-      "CVOsCount",
-      "DriversCount",
-      "HUBsCount",
-      "PermitsCount"
+      "EntityTitle"
     ]
   },
   "definitions.drivers": {
@@ -144,10 +129,6 @@
       "Email_fsx",
       "CellPhone_fsx",
       "PersonCVOTitle",
-      "CVOsCount",
-      "DistributorsCount",
-      "PermitsCount",
-      "VehiclesCount",
       "DriverLicense",
       "DriverLicenseExpiry",
       "DriverLicenseStatus",
@@ -171,9 +152,7 @@
       "ModifiedAt_UTC",
       "ModifiedBy",
       "RecordDeleted",
-      "EntityTitle",
-      "DistributorsCount",
-      "PermitsCount"
+      "EntityTitle"
     ]
   },
   "definitions.requests": {
@@ -198,13 +177,12 @@
       "Username",
       "Email_fsx",
       "CellPhone_fsx",
-      "RequestTitle",
-      "PermitStatusVerificationsCount"
+      "RequestTitle"
     ]
   },
   "definitions.vehicles": {
-    "dataSourceType": "view",
-    "dataSourceValue": "Vi_SPC_VehicleListSummary",
+    "dataSourceType": "table",
+    "dataSourceValue": "H_VehicleProfile",
     "columns": [
       "Id",
       "Plate",
@@ -227,11 +205,7 @@
       "CreatedBy",
       "ModifiedAt_UTC",
       "ModifiedBy",
-      "RecordDeleted",
-      "CVOsCount",
-      "PermitsCount",
-      "DriversCount",
-      "FeaturesCount"
+      "RecordDeleted"
     ]
   },
   "system.app-registration.app-clients": {
@@ -252,8 +226,8 @@
     ]
   },
   "system.app-registration.app-types": {
-    "dataSourceType": "view",
-    "dataSourceValue": "Vi_SPC_AppTypeListSummary",
+    "dataSourceType": "table",
+    "dataSourceValue": "H_AAA_AppTypes",
     "columns": [
       "Id",
       "Code",
@@ -262,8 +236,7 @@
       "CreatedBy",
       "ModifiedAt_UTC",
       "ModifiedBy",
-      "RecordDeleted",
-      "PermissionsCount"
+      "RecordDeleted"
     ]
   },
   "system.configurations.action-config-bases": {
@@ -384,9 +357,7 @@
       "ModifiedAt_UTC",
       "ModifiedBy",
       "RecordDeleted",
-      "EntityTitle",
-      "PermitTypeIssuersCount",
-      "PermitsCount"
+      "EntityTitle"
     ]
   },
   "system.permit-management.permit-types": {
@@ -428,8 +399,7 @@
       "ModifiedAt_UTC",
       "ModifiedBy",
       "RecordDeleted",
-      "DistributorTitle",
-      "ItemsCount"
+      "DistributorTitle"
     ]
   },
   "transport.deliveries": {
@@ -469,10 +439,7 @@
       "RecordDeleted",
       "DistributorTitle",
       "CVOTitle",
-      "CustomerTitle",
-      "BatchItemsCount",
-      "ReqDeliveryAddonsCount",
-      "ReqDeliveryGoodsCount"
+      "CustomerTitle"
     ]
   },
   "transport.dispatch": {
@@ -504,9 +471,7 @@
       "ModifiedBy",
       "RecordDeleted",
       "CVOTitle",
-      "PickupZoneTitle",
-      "TransactItemsCount",
-      "TransactStagesCount"
+      "PickupZoneTitle"
     ]
   },
   "transport.rides": {
@@ -550,10 +515,7 @@
       "RecordDeleted",
       "CVOTitle",
       "CustomerTitle",
-      "DistributorTitle",
-      "BatchItemsCount",
-      "ReqRideAddonsCount",
-      "ReqRidePassengersCount"
+      "DistributorTitle"
     ]
   },
   "transport.setup.contact-locations": {

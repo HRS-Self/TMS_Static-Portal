@@ -112,7 +112,7 @@ export const searchRegistry: Record<string, SearchSubject> = {
     "key": "definitions.vehicles",
     "label": "Vehicles",
     "route": "/definitions/vehicles",
-    "datasource": "Vi_SPC_VehicleListSummary",
+    "datasource": "H_VehicleProfile",
     "fields": [
       {
         "label": "Plate",

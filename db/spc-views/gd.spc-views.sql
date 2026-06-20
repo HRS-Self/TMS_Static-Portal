@@ -9,28 +9,6 @@ DROP VIEW IF EXISTS Vi_SPC_PermitLatestStatus;
 CREATE OR REPLACE VIEW Vi_SPC_PermitLatestStatus AS SELECT ranked.Id AS PermitStatusId, ranked.PermitId, ranked.ExpiryDate_UTC, ranked.ConditionENUM, ranked.ConditionEndDate_UTC, ranked.MediaRecordKey, ranked.RecordKey, ranked.CreatedAt_UTC, ranked.CreatedBy, ranked.ModifiedAt_UTC, ranked.ModifiedBy, CASE WHEN ranked.ConditionENUM = 4 THEN 'Revoked' WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN 'Expired' WHEN ranked.ConditionENUM = 1 THEN 'Suspended' WHEN ranked.ConditionENUM IS NULL OR ranked.ConditionENUM IN (2,3) THEN 'Valid' ELSE 'Unknown' END AS StatusCategory, CASE ranked.ConditionENUM WHEN 1 THEN 'TempSuspended' WHEN 2 THEN 'TempValid' WHEN 3 THEN 'TempExtended' WHEN 4 THEN 'Revoked' ELSE 'Normal' END AS ConditionTitle, CASE WHEN ranked.ConditionENUM = 4 THEN FALSE WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN FALSE WHEN ranked.ConditionENUM = 1 THEN FALSE WHEN ranked.ConditionENUM IS NULL OR ranked.ConditionENUM IN (2,3) THEN TRUE ELSE NULL END AS IsCurrentlyValid, DATEDIFF(ranked.ExpiryDate_UTC, UTC_TIMESTAMP()) AS DaysUntilExpiry, CASE WHEN ranked.ExpiryDate_UTC IS NULL THEN NULL WHEN ranked.ExpiryDate_UTC < UTC_TIMESTAMP() THEN FALSE WHEN DATEDIFF(ranked.ExpiryDate_UTC, UTC_TIMESTAMP()) <= 30 THEN TRUE ELSE FALSE END AS IsExpiringSoon FROM (SELECT ps.*, ROW_NUMBER() OVER (PARTITION BY ps.PermitId ORDER BY ps.CreatedAt_UTC DESC, ps.Id DESC) AS RowNum FROM H_PermitStatuses ps WHERE ps.RecordDeleted IS NULL) AS ranked WHERE ranked.RowNum = 1;
 
 -- ===== definitions.access.users (H_AAA_Synced_UserInfo) =====
-DROP VIEW IF EXISTS Vi_SPC_UserListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_UserListSummary AS
-SELECT
-m.Id,
-m.Firstname_fsx,
-m.Lastname_fsx,
-m.Username,
-m.Email_fsx,
-m.EmailConfirmed,
-m.CellPhone_fsx,
-m.CellPhoneConfirmed,
-m.IssuedBy,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted,
-  (SELECT COUNT(*) FROM H_AAA_UserEntityRoles cc WHERE cc.UserId = m.Id AND cc.RecordDeleted IS NULL) AS EntityRolesCount
-FROM H_AAA_Synced_UserInfo m
-WHERE m.RecordDeleted IS NULL;
-
 DROP VIEW IF EXISTS Vi_SPC_UserEntityRoles;
 CREATE OR REPLACE VIEW Vi_SPC_UserEntityRoles AS
 SELECT
@@ -65,12 +43,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Title AS EntityTitle,
-  (SELECT COUNT(*) FROM H_CVODrivers cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS DriversCount,
-  (SELECT COUNT(*) FROM H_CVOServices cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS ServicesCount,
-  (SELECT COUNT(*) FROM H_CVOVehicles cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS VehiclesCount,
-  (SELECT COUNT(*) FROM H_DistributorCVOs cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorsCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount
+  h0.Title AS EntityTitle
 FROM H_CVOs m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;
@@ -252,11 +225,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Title AS EntityTitle,
-  (SELECT COUNT(*) FROM H_DistributorCVOs cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS CVOsCount,
-  (SELECT COUNT(*) FROM H_DistributorDrivers cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS DriversCount,
-  (SELECT COUNT(*) FROM H_HUBDistributors cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS HUBsCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount
+  h0.Title AS EntityTitle
 FROM H_Distributors m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;
@@ -415,10 +384,6 @@ m.RecordDeleted,
   h0.Email_fsx,
   h0.CellPhone_fsx,
   h1e.Title AS PersonCVOTitle,
-  (SELECT COUNT(*) FROM H_CVODrivers cc WHERE cc.DriverId = m.Id AND cc.RecordDeleted IS NULL) AS CVOsCount,
-  (SELECT COUNT(*) FROM H_DistributorDrivers cc WHERE cc.DriverId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorsCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.DriverId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount,
-  (SELECT COUNT(*) FROM H_VehicleDrivers cc WHERE cc.DriverId = m.Id AND cc.RecordDeleted IS NULL) AS VehiclesCount,
   (SELECT p.Code FROM H_Permits p WHERE p.DriverId = m.Id AND p.PermitTypeId = 5001 AND p.RecordDeleted IS NULL ORDER BY p.IssuedDate_UTC DESC, p.Id DESC LIMIT 1) AS DriverLicense,
   (SELECT pls.ExpiryDate_UTC FROM H_Permits p LEFT JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND p.PermitTypeId = 5001 AND p.RecordDeleted IS NULL ORDER BY p.IssuedDate_UTC DESC, p.Id DESC LIMIT 1) AS DriverLicenseExpiry,
   (SELECT COALESCE(pls.StatusCategory,'Unknown') FROM H_Permits p LEFT JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND p.PermitTypeId = 5001 AND p.RecordDeleted IS NULL ORDER BY p.IssuedDate_UTC DESC, p.Id DESC LIMIT 1) AS DriverLicenseStatus,
@@ -592,9 +557,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Title AS EntityTitle,
-  (SELECT COUNT(*) FROM H_HUBDistributors cc WHERE cc.HUBId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorsCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.HUBId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount
+  h0.Title AS EntityTitle
 FROM H_HUBs m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;
@@ -700,8 +663,7 @@ m.RecordDeleted,
   h1.Username,
   h1.Email_fsx,
   h1.CellPhone_fsx,
-  h2e.Title AS RequestTitle,
-  (SELECT COUNT(*) FROM H_PermitStatusVerifications cc WHERE cc.RequestStatusId = m.Id AND cc.RecordDeleted IS NULL) AS PermitStatusVerificationsCount
+  h2e.Title AS RequestTitle
 FROM H_RequestStatuses m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.RequesteeEntityId
   LEFT JOIN H_AAA_Synced_UserInfo h1 ON h1.Id = m.RequesteeUserId
@@ -757,38 +719,6 @@ FROM H_PermitStatusVerifications j
 WHERE j.RecordDeleted IS NULL;
 
 -- ===== definitions.vehicles (H_VehicleProfile) =====
-DROP VIEW IF EXISTS Vi_SPC_VehicleListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_VehicleListSummary AS
-SELECT
-m.Id,
-m.Plate,
-m.VIN,
-m.Make,
-m.Model,
-m.Province,
-m.Color,
-m.Year,
-m.TransportCategory,
-m.Cargo_Height,
-m.Cargo_Weight,
-m.Cargo_Length,
-m.Cargo_Width,
-m.Capacity_Passengers,
-m.Capacity_Luggage,
-m.VehicleType,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted,
-  (SELECT COUNT(*) FROM H_CVOVehicles cc WHERE cc.VehicleId = m.Id AND cc.RecordDeleted IS NULL) AS CVOsCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.VehicleId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount,
-  (SELECT COUNT(*) FROM H_VehicleDrivers cc WHERE cc.VehicleId = m.Id AND cc.RecordDeleted IS NULL) AS DriversCount,
-  (SELECT COUNT(*) FROM H_VehicleFeatures cc WHERE cc.VehicleId = m.Id AND cc.RecordDeleted IS NULL) AS FeaturesCount
-FROM H_VehicleProfile m
-WHERE m.RecordDeleted IS NULL;
-
 DROP VIEW IF EXISTS Vi_SPC_VehicleCVOs;
 CREATE OR REPLACE VIEW Vi_SPC_VehicleCVOs AS
 SELECT
@@ -998,9 +928,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Title AS EntityTitle,
-  (SELECT COUNT(*) FROM H_PermitTypeIssuers cc WHERE cc.PermitIssuerId = m.Id AND cc.RecordDeleted IS NULL) AS PermitTypeIssuersCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.PermitIssuerId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount
+  h0.Title AS EntityTitle
 FROM H_PermitIssuers m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;

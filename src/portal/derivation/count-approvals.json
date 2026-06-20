@@ -1,0 +1,4 @@
+{
+  "_README": "Relation list-column COUNTs are OFF by default — a count fills a grid column, so it must earn its place (see count-candidates.json for the worklist). To enable one, set its key \"surfaceKey::Area\" to true under \"approvals\" and re-run the builder. Permits are never countable (no signal). Counts are meaningful mainly for Layer-3/4 relations (e.g. how many vehicles a driver has). Changing this RE-EMITS view SQL → redeploy the per-backend db/spc-views/*.sql to each backend.",
+  "approvals": {}
+}

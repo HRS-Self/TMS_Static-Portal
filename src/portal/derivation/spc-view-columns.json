@@ -9,9 +9,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "ClientEntityTitle",
-    "EntityScenariosCount",
-    "DataMapCount"
+    "ClientEntityTitle"
   ],
   "Vi_SPC_ScenarioProfile": [
     "Id",
@@ -59,24 +57,6 @@
     "RecordDeleted",
     "ScenarioTitle"
   ],
-  "Vi_SPC_UserListSummary": [
-    "Id",
-    "Firstname_fsx",
-    "Lastname_fsx",
-    "Username",
-    "Email_fsx",
-    "EmailConfirmed",
-    "CellPhone_fsx",
-    "CellPhoneConfirmed",
-    "IssuedBy",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted",
-    "EntityRolesCount"
-  ],
   "Vi_SPC_UserEntityRoles": [
     "Id",
     "UserId",
@@ -107,10 +87,7 @@
     "Username",
     "Email_fsx",
     "CellPhone_fsx",
-    "EntityTitle",
-    "ContactsCount",
-    "MasterGoodsCount",
-    "DistributorCustomersCount"
+    "EntityTitle"
   ],
   "Vi_SPC_CustomerProfile": [
     "Id",
@@ -210,12 +187,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "EntityTitle",
-    "DriversCount",
-    "ServicesCount",
-    "VehiclesCount",
-    "DistributorsCount",
-    "PermitsCount"
+    "EntityTitle"
   ],
   "Vi_SPC_CVOProfile": [
     "Id",
@@ -348,11 +320,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "EntityTitle",
-    "CVOsCount",
-    "DriversCount",
-    "HUBsCount",
-    "PermitsCount"
+    "EntityTitle"
   ],
   "Vi_SPC_DistributorProfile": [
     "Id",
@@ -481,10 +449,6 @@
     "Email_fsx",
     "CellPhone_fsx",
     "PersonCVOTitle",
-    "CVOsCount",
-    "DistributorsCount",
-    "PermitsCount",
-    "VehiclesCount",
     "DriverLicense",
     "DriverLicenseExpiry",
     "DriverLicenseStatus",
@@ -613,9 +577,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "EntityTitle",
-    "DistributorsCount",
-    "PermitsCount"
+    "EntityTitle"
   ],
   "Vi_SPC_HUBProfile": [
     "Id",
@@ -691,8 +653,7 @@
     "Username",
     "Email_fsx",
     "CellPhone_fsx",
-    "RequestTitle",
-    "PermitStatusVerificationsCount"
+    "RequestTitle"
   ],
   "Vi_SPC_RequestsApprovalProfile": [
     "Id",
@@ -726,34 +687,6 @@
     "ModifiedBy",
     "RecordDeleted",
     "RequestStatusTitle"
-  ],
-  "Vi_SPC_VehicleListSummary": [
-    "Id",
-    "Plate",
-    "VIN",
-    "Make",
-    "Model",
-    "Province",
-    "Color",
-    "Year",
-    "TransportCategory",
-    "Cargo_Height",
-    "Cargo_Weight",
-    "Cargo_Length",
-    "Cargo_Width",
-    "Capacity_Passengers",
-    "Capacity_Luggage",
-    "VehicleType",
-    "RecordKey",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted",
-    "CVOsCount",
-    "PermitsCount",
-    "DriversCount",
-    "FeaturesCount"
   ],
   "Vi_SPC_VehicleCVOs": [
     "LinkId",
@@ -862,17 +795,6 @@
     "ModifiedBy",
     "RecordDeleted",
     "AppTypeTitle"
-  ],
-  "Vi_SPC_AppTypeListSummary": [
-    "Id",
-    "Code",
-    "Title",
-    "CreatedAt_UTC",
-    "CreatedBy",
-    "ModifiedAt_UTC",
-    "ModifiedBy",
-    "RecordDeleted",
-    "PermissionsCount"
   ],
   "Vi_SPC_AppTypePermissions": [
     "Id",
@@ -1022,9 +944,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "EntityTitle",
-    "PermitTypeIssuersCount",
-    "PermitsCount"
+    "EntityTitle"
   ],
   "Vi_SPC_PermitIssuerProfile": [
     "Id",
@@ -1092,8 +1012,7 @@
     "ModifiedAt_UTC",
     "ModifiedBy",
     "RecordDeleted",
-    "DistributorTitle",
-    "ItemsCount"
+    "DistributorTitle"
   ],
   "Vi_SPC_BatchProfile": [
     "Id",
@@ -1148,10 +1067,7 @@
     "RecordDeleted",
     "DistributorTitle",
     "CVOTitle",
-    "CustomerTitle",
-    "BatchItemsCount",
-    "ReqDeliveryAddonsCount",
-    "ReqDeliveryGoodsCount"
+    "CustomerTitle"
   ],
   "Vi_SPC_DeliveryProfile": [
     "Id",
@@ -1226,9 +1142,7 @@
     "ModifiedBy",
     "RecordDeleted",
     "CVOTitle",
-    "PickupZoneTitle",
-    "TransactItemsCount",
-    "TransactStagesCount"
+    "PickupZoneTitle"
   ],
   "Vi_SPC_DispatchProfile": [
     "Id",
@@ -1296,10 +1210,7 @@
     "RecordDeleted",
     "CVOTitle",
     "CustomerTitle",
-    "DistributorTitle",
-    "BatchItemsCount",
-    "ReqRideAddonsCount",
-    "ReqRidePassengersCount"
+    "DistributorTitle"
   ],
   "Vi_SPC_RideProfile": [
     "Id",

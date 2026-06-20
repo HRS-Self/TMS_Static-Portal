@@ -21,9 +21,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Title AS ClientEntityTitle,
-  (SELECT COUNT(*) FROM H_AAA_EntityScenarios cc WHERE cc.ScenarioId = m.Id AND cc.RecordDeleted IS NULL) AS EntityScenariosCount,
-  (SELECT COUNT(*) FROM H_AAA_ScenarioDataMap cc WHERE cc.ScenarioId = m.Id AND cc.RecordDeleted IS NULL) AS DataMapCount
+  h0.Title AS ClientEntityTitle
 FROM H_AAA_Scenarios m
   LEFT JOIN H_AAA_Synced_EntityProfile h0 ON h0.Id = m.ClientEntityId
 WHERE m.RecordDeleted IS NULL;
@@ -93,28 +91,6 @@ FROM H_AAA_ScenarioDataMap j
 WHERE j.RecordDeleted IS NULL;
 
 -- ===== definitions.access.users (H_AAA_Synced_UserInfo) =====
-DROP VIEW IF EXISTS Vi_SPC_UserListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_UserListSummary AS
-SELECT
-m.Id,
-m.Firstname_fsx,
-m.Lastname_fsx,
-m.Username,
-m.Email_fsx,
-m.EmailConfirmed,
-m.CellPhone_fsx,
-m.CellPhoneConfirmed,
-m.IssuedBy,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted,
-  (SELECT COUNT(*) FROM H_AAA_UserEntityRoles cc WHERE cc.UserId = m.Id AND cc.RecordDeleted IS NULL) AS EntityRolesCount
-FROM H_AAA_Synced_UserInfo m
-WHERE m.RecordDeleted IS NULL;
-
 DROP VIEW IF EXISTS Vi_SPC_UserEntityRoles;
 CREATE OR REPLACE VIEW Vi_SPC_UserEntityRoles AS
 SELECT
@@ -154,10 +130,7 @@ m.RecordDeleted,
   h0.Username,
   h0.Email_fsx,
   h0.CellPhone_fsx,
-  h1.Title AS EntityTitle,
-  (SELECT COUNT(*) FROM H_TransportCustomerContacts cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS ContactsCount,
-  (SELECT COUNT(*) FROM H_TransportCustomerMasterGoods cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS MasterGoodsCount,
-  (SELECT COUNT(*) FROM H_TransportDistributorCustomers cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorCustomersCount
+  h1.Title AS EntityTitle
 FROM H_TransportCustomers m
   LEFT JOIN H_AAA_Synced_UserInfo h0 ON h0.Id = m.UserId
   LEFT JOIN H_AAA_Synced_EntityProfile h1 ON h1.Id = m.EntityId
@@ -299,12 +272,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Title AS EntityTitle,
-  (SELECT COUNT(*) FROM H_CVODrivers cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS DriversCount,
-  (SELECT COUNT(*) FROM H_CVOServices cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS ServicesCount,
-  (SELECT COUNT(*) FROM H_CVOVehicles cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS VehiclesCount,
-  (SELECT COUNT(*) FROM H_DistributorCVOs cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorsCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.CVOId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount
+  h0.Title AS EntityTitle
 FROM H_CVOs m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;
@@ -486,11 +454,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Title AS EntityTitle,
-  (SELECT COUNT(*) FROM H_DistributorCVOs cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS CVOsCount,
-  (SELECT COUNT(*) FROM H_DistributorDrivers cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS DriversCount,
-  (SELECT COUNT(*) FROM H_HUBDistributors cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS HUBsCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.DistributorId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount
+  h0.Title AS EntityTitle
 FROM H_Distributors m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;
@@ -672,10 +636,6 @@ m.RecordDeleted,
   h0.Email_fsx,
   h0.CellPhone_fsx,
   h1e.Title AS PersonCVOTitle,
-  (SELECT COUNT(*) FROM H_CVODrivers cc WHERE cc.DriverId = m.Id AND cc.RecordDeleted IS NULL) AS CVOsCount,
-  (SELECT COUNT(*) FROM H_DistributorDrivers cc WHERE cc.DriverId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorsCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.DriverId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount,
-  (SELECT COUNT(*) FROM H_VehicleDrivers cc WHERE cc.DriverId = m.Id AND cc.RecordDeleted IS NULL) AS VehiclesCount,
   (SELECT p.Code FROM H_Permits p WHERE p.DriverId = m.Id AND p.PermitTypeId = 5001 AND p.RecordDeleted IS NULL ORDER BY p.IssuedDate_UTC DESC, p.Id DESC LIMIT 1) AS DriverLicense,
   (SELECT pls.ExpiryDate_UTC FROM H_Permits p LEFT JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND p.PermitTypeId = 5001 AND p.RecordDeleted IS NULL ORDER BY p.IssuedDate_UTC DESC, p.Id DESC LIMIT 1) AS DriverLicenseExpiry,
   (SELECT COALESCE(pls.StatusCategory,'Unknown') FROM H_Permits p LEFT JOIN Vi_SPC_PermitLatestStatus pls ON pls.PermitId = p.Id WHERE p.DriverId = m.Id AND p.PermitTypeId = 5001 AND p.RecordDeleted IS NULL ORDER BY p.IssuedDate_UTC DESC, p.Id DESC LIMIT 1) AS DriverLicenseStatus,
@@ -849,9 +809,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Title AS EntityTitle,
-  (SELECT COUNT(*) FROM H_HUBDistributors cc WHERE cc.HUBId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorsCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.HUBId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount
+  h0.Title AS EntityTitle
 FROM H_HUBs m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;
@@ -957,8 +915,7 @@ m.RecordDeleted,
   h1.Username,
   h1.Email_fsx,
   h1.CellPhone_fsx,
-  h2e.Title AS RequestTitle,
-  (SELECT COUNT(*) FROM H_PermitStatusVerifications cc WHERE cc.RequestStatusId = m.Id AND cc.RecordDeleted IS NULL) AS PermitStatusVerificationsCount
+  h2e.Title AS RequestTitle
 FROM H_RequestStatuses m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.RequesteeEntityId
   LEFT JOIN H_AAA_Synced_UserInfo h1 ON h1.Id = m.RequesteeUserId
@@ -1014,38 +971,6 @@ FROM H_PermitStatusVerifications j
 WHERE j.RecordDeleted IS NULL;
 
 -- ===== definitions.vehicles (H_VehicleProfile) =====
-DROP VIEW IF EXISTS Vi_SPC_VehicleListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_VehicleListSummary AS
-SELECT
-m.Id,
-m.Plate,
-m.VIN,
-m.Make,
-m.Model,
-m.Province,
-m.Color,
-m.Year,
-m.TransportCategory,
-m.Cargo_Height,
-m.Cargo_Weight,
-m.Cargo_Length,
-m.Cargo_Width,
-m.Capacity_Passengers,
-m.Capacity_Luggage,
-m.VehicleType,
-m.RecordKey,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted,
-  (SELECT COUNT(*) FROM H_CVOVehicles cc WHERE cc.VehicleId = m.Id AND cc.RecordDeleted IS NULL) AS CVOsCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.VehicleId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount,
-  (SELECT COUNT(*) FROM H_VehicleDrivers cc WHERE cc.VehicleId = m.Id AND cc.RecordDeleted IS NULL) AS DriversCount,
-  (SELECT COUNT(*) FROM H_VehicleFeatures cc WHERE cc.VehicleId = m.Id AND cc.RecordDeleted IS NULL) AS FeaturesCount
-FROM H_VehicleProfile m
-WHERE m.RecordDeleted IS NULL;
-
 DROP VIEW IF EXISTS Vi_SPC_VehicleCVOs;
 CREATE OR REPLACE VIEW Vi_SPC_VehicleCVOs AS
 SELECT
@@ -1201,21 +1126,6 @@ FROM H_AAA_AppClients m
 WHERE m.RecordDeleted IS NULL;
 
 -- ===== system.app-registration.app-types (H_AAA_AppTypes) =====
-DROP VIEW IF EXISTS Vi_SPC_AppTypeListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_AppTypeListSummary AS
-SELECT
-m.Id,
-m.Code,
-m.Title,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted,
-  (SELECT COUNT(*) FROM H_AAA_AppTypePermissions cc WHERE cc.AppTypeId = m.Id AND cc.RecordDeleted IS NULL) AS PermissionsCount
-FROM H_AAA_AppTypes m
-WHERE m.RecordDeleted IS NULL;
-
 DROP VIEW IF EXISTS Vi_SPC_AppTypePermissions;
 CREATE OR REPLACE VIEW Vi_SPC_AppTypePermissions AS
 SELECT
@@ -1432,9 +1342,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Title AS EntityTitle,
-  (SELECT COUNT(*) FROM H_PermitTypeIssuers cc WHERE cc.PermitIssuerId = m.Id AND cc.RecordDeleted IS NULL) AS PermitTypeIssuersCount,
-  (SELECT COUNT(*) FROM H_Permits cc WHERE cc.PermitIssuerId = m.Id AND cc.RecordDeleted IS NULL) AS PermitsCount
+  h0.Title AS EntityTitle
 FROM H_PermitIssuers m
   LEFT JOIN H_AAA_EntityProfile h0 ON h0.Id = m.EntityId
 WHERE m.RecordDeleted IS NULL;
@@ -1533,8 +1441,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0e.Title AS DistributorTitle,
-  (SELECT COUNT(*) FROM H_TransportBatchItems cc WHERE cc.BatchId = m.Id AND cc.RecordDeleted IS NULL) AS ItemsCount
+  h0e.Title AS DistributorTitle
 FROM H_TransportBatches m
   LEFT JOIN H_Synced_Distributors h0 ON h0.Id = m.DistributorId
   LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.EntityId
@@ -1602,10 +1509,7 @@ m.ModifiedBy,
 m.RecordDeleted,
   h0e.Title AS DistributorTitle,
   h2e.Title AS CVOTitle,
-  h4e.Title AS CustomerTitle,
-  (SELECT COUNT(*) FROM H_TransportBatchItems cc WHERE cc.TransportReqDeliveryId = m.Id AND cc.RecordDeleted IS NULL) AS BatchItemsCount,
-  (SELECT COUNT(*) FROM H_TransportReqDeliveryAddons cc WHERE cc.TransportReqDeliveryId = m.Id AND cc.RecordDeleted IS NULL) AS ReqDeliveryAddonsCount,
-  (SELECT COUNT(*) FROM H_TransportReqDeliveryGoods cc WHERE cc.ReqDeliveryId = m.Id AND cc.RecordDeleted IS NULL) AS ReqDeliveryGoodsCount
+  h4e.Title AS CustomerTitle
 FROM H_TransportReqDeliveries m
   LEFT JOIN H_Synced_Distributors h0 ON h0.Id = m.DistributorId
   LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.EntityId
@@ -1706,9 +1610,7 @@ m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
   h3e.Title AS CVOTitle,
-  h4.Title AS PickupZoneTitle,
-  (SELECT COUNT(*) FROM H_TransportTransactItems cc WHERE cc.TransportTransactId = m.Id) AS TransactItemsCount,
-  (SELECT COUNT(*) FROM H_TransportTransactStages cc WHERE cc.TransportTransactId = m.Id) AS TransactStagesCount
+  h4.Title AS PickupZoneTitle
 FROM H_TransportTransacts m
   LEFT JOIN H_Synced_CVOs h3 ON h3.Id = m.CVOId
   LEFT JOIN H_AAA_Synced_EntityProfile h3e ON h3e.Id = h3.EntityId
@@ -1791,10 +1693,7 @@ m.ModifiedBy,
 m.RecordDeleted,
   h1e.Title AS CVOTitle,
   h2e.Title AS CustomerTitle,
-  h3e.Title AS DistributorTitle,
-  (SELECT COUNT(*) FROM H_TransportBatchItems cc WHERE cc.TransportReqRideId = m.Id AND cc.RecordDeleted IS NULL) AS BatchItemsCount,
-  (SELECT COUNT(*) FROM H_TransportReqRideAddons cc WHERE cc.TransportReqRideId = m.Id AND cc.RecordDeleted IS NULL) AS ReqRideAddonsCount,
-  (SELECT COUNT(*) FROM H_TransportReqRidePassengers cc WHERE cc.ReqRideId = m.Id AND cc.RecordDeleted IS NULL) AS ReqRidePassengersCount
+  h3e.Title AS DistributorTitle
 FROM H_TransportReqRides m
   LEFT JOIN H_Synced_CVOs h1 ON h1.Id = m.CVOId
   LEFT JOIN H_AAA_Synced_EntityProfile h1e ON h1e.Id = h1.EntityId

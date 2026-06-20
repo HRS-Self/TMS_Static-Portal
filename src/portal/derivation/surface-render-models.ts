@@ -160,9 +160,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "ClientEntityTitle",
-        "EntityScenariosCount",
-        "DataMapCount"
+        "ClientEntityTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -192,18 +190,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "ClientEntityTitle",
         "title": "Client Entity Title",
         "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "EntityScenariosCount",
-        "title": "Entity Scenarios Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "DataMapCount",
-        "title": "Data Map Count",
-        "type": "number",
         "sortable": true
       }
     ],
@@ -237,8 +223,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "backend": null,
     "description": "PLACEHOLDER — description for \"definitions.access.users\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
-      "dataSourceType": "view",
-      "dataSourceValue": "Vi_SPC_UserListSummary",
+      "dataSourceType": "table",
+      "dataSourceValue": "H_AAA_Synced_UserInfo",
       "select": [
         "Id",
         "Firstname_fsx",
@@ -254,8 +240,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "CreatedBy",
         "ModifiedAt_UTC",
         "ModifiedBy",
-        "RecordDeleted",
-        "EntityRolesCount"
+        "RecordDeleted"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -309,12 +294,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "title": "Cell Phone Confirmed",
         "type": "text",
         "sortable": true
-      },
-      {
-        "field": "EntityRolesCount",
-        "title": "Entity Roles Count",
-        "type": "number",
-        "sortable": true
       }
     ],
     "rowActions": [
@@ -352,10 +331,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "Username",
         "Email_fsx",
         "CellPhone_fsx",
-        "EntityTitle",
-        "ContactsCount",
-        "MasterGoodsCount",
-        "DistributorCustomersCount"
+        "EntityTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -403,24 +379,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "title": "Entity Title",
         "type": "text",
         "sortable": true
-      },
-      {
-        "field": "ContactsCount",
-        "title": "Contacts Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "MasterGoodsCount",
-        "title": "Master Goods Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "DistributorCustomersCount",
-        "title": "Distributor Customers Count",
-        "type": "number",
-        "sortable": true
       }
     ],
     "rowActions": [
@@ -464,12 +422,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "EntityTitle",
-        "DriversCount",
-        "ServicesCount",
-        "VehiclesCount",
-        "DistributorsCount",
-        "PermitsCount"
+        "EntityTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -486,36 +439,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "EntityTitle",
         "title": "Entity Title",
         "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DriversCount",
-        "title": "Drivers Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "ServicesCount",
-        "title": "Services Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "VehiclesCount",
-        "title": "Vehicles Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "DistributorsCount",
-        "title": "Distributors Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "PermitsCount",
-        "title": "Permits Count",
-        "type": "number",
         "sortable": true
       }
     ],
@@ -560,11 +483,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "EntityTitle",
-        "CVOsCount",
-        "DriversCount",
-        "HUBsCount",
-        "PermitsCount"
+        "EntityTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -581,30 +500,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "EntityTitle",
         "title": "Entity Title",
         "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CVOsCount",
-        "title": "CVOs Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "DriversCount",
-        "title": "Drivers Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "HUBsCount",
-        "title": "HUBs Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "PermitsCount",
-        "title": "Permits Count",
-        "type": "number",
         "sortable": true
       }
     ],
@@ -656,10 +551,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "Email_fsx",
         "CellPhone_fsx",
         "PersonCVOTitle",
-        "CVOsCount",
-        "DistributorsCount",
-        "PermitsCount",
-        "VehiclesCount",
         "DriverLicense",
         "DriverLicenseExpiry",
         "DriverLicenseStatus",
@@ -715,30 +606,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "PersonCVOTitle",
         "title": "Person CVOTitle",
         "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "CVOsCount",
-        "title": "CVOs Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "DistributorsCount",
-        "title": "Distributors Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "PermitsCount",
-        "title": "Permits Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "VehiclesCount",
-        "title": "Vehicles Count",
-        "type": "number",
         "sortable": true
       },
       {
@@ -837,9 +704,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "EntityTitle",
-        "DistributorsCount",
-        "PermitsCount"
+        "EntityTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -856,18 +721,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "EntityTitle",
         "title": "Entity Title",
         "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "DistributorsCount",
-        "title": "Distributors Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "PermitsCount",
-        "title": "Permits Count",
-        "type": "number",
         "sortable": true
       }
     ],
@@ -922,8 +775,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "Username",
         "Email_fsx",
         "CellPhone_fsx",
-        "RequestTitle",
-        "PermitStatusVerificationsCount"
+        "RequestTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -997,12 +849,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "title": "Request Title",
         "type": "text",
         "sortable": true
-      },
-      {
-        "field": "PermitStatusVerificationsCount",
-        "title": "Permit Status Verifications Count",
-        "type": "number",
-        "sortable": true
       }
     ],
     "rowActions": [
@@ -1035,8 +881,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "backend": "gd",
     "description": "PLACEHOLDER — description for \"definitions.vehicles\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
-      "dataSourceType": "view",
-      "dataSourceValue": "Vi_SPC_VehicleListSummary",
+      "dataSourceType": "table",
+      "dataSourceValue": "H_VehicleProfile",
       "select": [
         "Id",
         "Plate",
@@ -1059,11 +905,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "CreatedBy",
         "ModifiedAt_UTC",
         "ModifiedBy",
-        "RecordDeleted",
-        "CVOsCount",
-        "PermitsCount",
-        "DriversCount",
-        "FeaturesCount"
+        "RecordDeleted"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -1167,30 +1009,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "type": "text",
         "sortable": true,
         "enumTable": "H_ENUM_VehicleTypes"
-      },
-      {
-        "field": "CVOsCount",
-        "title": "CVOs Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "PermitsCount",
-        "title": "Permits Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "DriversCount",
-        "title": "Drivers Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "FeaturesCount",
-        "title": "Features Count",
-        "type": "number",
-        "sortable": true
       }
     ],
     "rowActions": [
@@ -1288,8 +1106,8 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "backend": "core",
     "description": "PLACEHOLDER — description for \"system.app-registration.app-types\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
-      "dataSourceType": "view",
-      "dataSourceValue": "Vi_SPC_AppTypeListSummary",
+      "dataSourceType": "table",
+      "dataSourceValue": "H_AAA_AppTypes",
       "select": [
         "Id",
         "Code",
@@ -1298,8 +1116,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "CreatedBy",
         "ModifiedAt_UTC",
         "ModifiedBy",
-        "RecordDeleted",
-        "PermissionsCount"
+        "RecordDeleted"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -1322,12 +1139,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "Title",
         "title": "Title",
         "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PermissionsCount",
-        "title": "Permissions Count",
-        "type": "number",
         "sortable": true
       }
     ],
@@ -1858,9 +1669,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "EntityTitle",
-        "PermitTypeIssuersCount",
-        "PermitsCount"
+        "EntityTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -1877,18 +1686,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "EntityTitle",
         "title": "Entity Title",
         "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "PermitTypeIssuersCount",
-        "title": "Permit Type Issuers Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "PermitsCount",
-        "title": "Permits Count",
-        "type": "number",
         "sortable": true
       }
     ],
@@ -2038,8 +1835,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedAt_UTC",
         "ModifiedBy",
         "RecordDeleted",
-        "DistributorTitle",
-        "ItemsCount"
+        "DistributorTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -2098,12 +1894,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "DistributorTitle",
         "title": "Distributor Title",
         "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "ItemsCount",
-        "title": "Items Count",
-        "type": "number",
         "sortable": true
       }
     ],
@@ -2173,10 +1963,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "RecordDeleted",
         "DistributorTitle",
         "CVOTitle",
-        "CustomerTitle",
-        "BatchItemsCount",
-        "ReqDeliveryAddonsCount",
-        "ReqDeliveryGoodsCount"
+        "CustomerTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -2323,24 +2110,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "title": "Customer Title",
         "type": "text",
         "sortable": true
-      },
-      {
-        "field": "BatchItemsCount",
-        "title": "Batch Items Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "ReqDeliveryAddonsCount",
-        "title": "Req Delivery Addons Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "ReqDeliveryGoodsCount",
-        "title": "Req Delivery Goods Count",
-        "type": "number",
-        "sortable": true
       }
     ],
     "rowActions": [
@@ -2401,9 +2170,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "ModifiedBy",
         "RecordDeleted",
         "CVOTitle",
-        "PickupZoneTitle",
-        "TransactItemsCount",
-        "TransactStagesCount"
+        "PickupZoneTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -2501,18 +2268,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "title": "Pickup Zone Title",
         "type": "text",
         "sortable": true
-      },
-      {
-        "field": "TransactItemsCount",
-        "title": "Transact Items Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "TransactStagesCount",
-        "title": "Transact Stages Count",
-        "type": "number",
-        "sortable": true
       }
     ],
     "rowActions": [
@@ -2585,10 +2340,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "RecordDeleted",
         "CVOTitle",
         "CustomerTitle",
-        "DistributorTitle",
-        "BatchItemsCount",
-        "ReqRideAddonsCount",
-        "ReqRidePassengersCount"
+        "DistributorTitle"
       ],
       "defaultSortKey": "Id",
       "defaultPageSize": 10,
@@ -2759,24 +2511,6 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
         "field": "DistributorTitle",
         "title": "Distributor Title",
         "type": "text",
-        "sortable": true
-      },
-      {
-        "field": "BatchItemsCount",
-        "title": "Batch Items Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "ReqRideAddonsCount",
-        "title": "Req Ride Addons Count",
-        "type": "number",
-        "sortable": true
-      },
-      {
-        "field": "ReqRidePassengersCount",
-        "title": "Req Ride Passengers Count",
-        "type": "number",
         "sortable": true
       }
     ],

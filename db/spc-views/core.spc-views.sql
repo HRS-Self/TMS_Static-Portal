@@ -17,9 +17,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0.Title AS ClientEntityTitle,
-  (SELECT COUNT(*) FROM H_AAA_EntityScenarios cc WHERE cc.ScenarioId = m.Id AND cc.RecordDeleted IS NULL) AS EntityScenariosCount,
-  (SELECT COUNT(*) FROM H_AAA_ScenarioDataMap cc WHERE cc.ScenarioId = m.Id AND cc.RecordDeleted IS NULL) AS DataMapCount
+  h0.Title AS ClientEntityTitle
 FROM H_AAA_Scenarios m
   LEFT JOIN H_AAA_Synced_EntityProfile h0 ON h0.Id = m.ClientEntityId
 WHERE m.RecordDeleted IS NULL;
@@ -105,10 +103,7 @@ m.RecordDeleted,
   h0.Username,
   h0.Email_fsx,
   h0.CellPhone_fsx,
-  h1.Title AS EntityTitle,
-  (SELECT COUNT(*) FROM H_TransportCustomerContacts cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS ContactsCount,
-  (SELECT COUNT(*) FROM H_TransportCustomerMasterGoods cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS MasterGoodsCount,
-  (SELECT COUNT(*) FROM H_TransportDistributorCustomers cc WHERE cc.CustomerId = m.Id AND cc.RecordDeleted IS NULL) AS DistributorCustomersCount
+  h1.Title AS EntityTitle
 FROM H_TransportCustomers m
   LEFT JOIN H_AAA_Synced_UserInfo h0 ON h0.Id = m.UserId
   LEFT JOIN H_AAA_Synced_EntityProfile h1 ON h1.Id = m.EntityId
@@ -299,21 +294,6 @@ FROM H_AAA_AppClients m
 WHERE m.RecordDeleted IS NULL;
 
 -- ===== system.app-registration.app-types (H_AAA_AppTypes) =====
-DROP VIEW IF EXISTS Vi_SPC_AppTypeListSummary;
-CREATE OR REPLACE VIEW Vi_SPC_AppTypeListSummary AS
-SELECT
-m.Id,
-m.Code,
-m.Title,
-m.CreatedAt_UTC,
-m.CreatedBy,
-m.ModifiedAt_UTC,
-m.ModifiedBy,
-m.RecordDeleted,
-  (SELECT COUNT(*) FROM H_AAA_AppTypePermissions cc WHERE cc.AppTypeId = m.Id AND cc.RecordDeleted IS NULL) AS PermissionsCount
-FROM H_AAA_AppTypes m
-WHERE m.RecordDeleted IS NULL;
-
 DROP VIEW IF EXISTS Vi_SPC_AppTypePermissions;
 CREATE OR REPLACE VIEW Vi_SPC_AppTypePermissions AS
 SELECT
@@ -455,8 +435,7 @@ m.CreatedBy,
 m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
-  h0e.Title AS DistributorTitle,
-  (SELECT COUNT(*) FROM H_TransportBatchItems cc WHERE cc.BatchId = m.Id AND cc.RecordDeleted IS NULL) AS ItemsCount
+  h0e.Title AS DistributorTitle
 FROM H_TransportBatches m
   LEFT JOIN H_Synced_Distributors h0 ON h0.Id = m.DistributorId
   LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.EntityId
@@ -524,10 +503,7 @@ m.ModifiedBy,
 m.RecordDeleted,
   h0e.Title AS DistributorTitle,
   h2e.Title AS CVOTitle,
-  h4e.Title AS CustomerTitle,
-  (SELECT COUNT(*) FROM H_TransportBatchItems cc WHERE cc.TransportReqDeliveryId = m.Id AND cc.RecordDeleted IS NULL) AS BatchItemsCount,
-  (SELECT COUNT(*) FROM H_TransportReqDeliveryAddons cc WHERE cc.TransportReqDeliveryId = m.Id AND cc.RecordDeleted IS NULL) AS ReqDeliveryAddonsCount,
-  (SELECT COUNT(*) FROM H_TransportReqDeliveryGoods cc WHERE cc.ReqDeliveryId = m.Id AND cc.RecordDeleted IS NULL) AS ReqDeliveryGoodsCount
+  h4e.Title AS CustomerTitle
 FROM H_TransportReqDeliveries m
   LEFT JOIN H_Synced_Distributors h0 ON h0.Id = m.DistributorId
   LEFT JOIN H_AAA_Synced_EntityProfile h0e ON h0e.Id = h0.EntityId
@@ -628,9 +604,7 @@ m.ModifiedAt_UTC,
 m.ModifiedBy,
 m.RecordDeleted,
   h3e.Title AS CVOTitle,
-  h4.Title AS PickupZoneTitle,
-  (SELECT COUNT(*) FROM H_TransportTransactItems cc WHERE cc.TransportTransactId = m.Id) AS TransactItemsCount,
-  (SELECT COUNT(*) FROM H_TransportTransactStages cc WHERE cc.TransportTransactId = m.Id) AS TransactStagesCount
+  h4.Title AS PickupZoneTitle
 FROM H_TransportTransacts m
   LEFT JOIN H_Synced_CVOs h3 ON h3.Id = m.CVOId
   LEFT JOIN H_AAA_Synced_EntityProfile h3e ON h3e.Id = h3.EntityId
@@ -713,10 +687,7 @@ m.ModifiedBy,
 m.RecordDeleted,
   h1e.Title AS CVOTitle,
   h2e.Title AS CustomerTitle,
-  h3e.Title AS DistributorTitle,
-  (SELECT COUNT(*) FROM H_TransportBatchItems cc WHERE cc.TransportReqRideId = m.Id AND cc.RecordDeleted IS NULL) AS BatchItemsCount,
-  (SELECT COUNT(*) FROM H_TransportReqRideAddons cc WHERE cc.TransportReqRideId = m.Id AND cc.RecordDeleted IS NULL) AS ReqRideAddonsCount,
-  (SELECT COUNT(*) FROM H_TransportReqRidePassengers cc WHERE cc.ReqRideId = m.Id AND cc.RecordDeleted IS NULL) AS ReqRidePassengersCount
+  h3e.Title AS DistributorTitle
 FROM H_TransportReqRides m
   LEFT JOIN H_Synced_CVOs h1 ON h1.Id = m.CVOId
   LEFT JOIN H_AAA_Synced_EntityProfile h1e ON h1e.Id = h1.EntityId
