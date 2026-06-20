@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import type { PortalSurfaceId } from '@/src/portal/chrome/portal-chrom-surface-registry.config';
 import familyKeys from '@/src/portal/derivation/spc-family-keys.json';
+import surfaceDescriptions from '@/src/portal/derivation/surface-descriptions.json';
 import { surfaceContracts } from '@/src/portal/derivation/surface-contracts';
 import spcViewColumns from '@/src/portal/derivation/spc-view-columns.json';
 import { getOptionalSession } from '@/src/server/auth/session';
@@ -90,10 +91,17 @@ export async function POST(request: NextRequest) {
       },
     );
     const columns = displayColumns.map((c) => ({ accessorKey: c, title: humanize(c) }));
+    // Per-grid description keyed by "surfaceKey::Area" in the descriptions overlay; PLACEHOLDER when unset.
+    const descKey = `${surfaceId}::${body.area}`;
+    const descRaw = (surfaceDescriptions as Record<string, unknown>)[descKey];
+    const description = typeof descRaw === 'string' && descRaw.trim()
+      ? descRaw
+      : `PLACEHOLDER — description for the "${body.area}" tab. Set it in src/portal/derivation/surface-descriptions.json (key "${descKey}") and re-run the builder.`;
     return NextResponse.json({
       rows: Array.isArray(result.list) ? result.list : [],
       total: result.total,
       columns,
+      description,
     });
   } catch (error) {
     return NextResponse.json(

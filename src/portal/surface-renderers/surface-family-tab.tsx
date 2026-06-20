@@ -20,8 +20,9 @@ export function SurfaceFamilyTab({ surfaceId, area, parentId }: SurfaceFamilyTab
     rows: object[];
     total: number;
     columns: FamilyColumn[];
+    description: string;
     error: string | null;
-  }>({ loading: true, rows: [], total: 0, columns: [], error: null });
+  }>({ loading: true, rows: [], total: 0, columns: [], description: "", error: null });
 
   useEffect(() => {
     let cancelled = false;
@@ -36,11 +37,12 @@ export function SurfaceFamilyTab({ surfaceId, area, parentId }: SurfaceFamilyTab
           rows?: object[];
           total?: number;
           columns?: FamilyColumn[];
+          description?: string;
           message?: string;
         };
         if (cancelled) return;
         if (!res.ok) {
-          setState({ loading: false, rows: [], total: 0, columns: [], error: json.message ?? "Failed to load." });
+          setState({ loading: false, rows: [], total: 0, columns: [], description: "", error: json.message ?? "Failed to load." });
           return;
         }
         setState({
@@ -48,12 +50,13 @@ export function SurfaceFamilyTab({ surfaceId, area, parentId }: SurfaceFamilyTab
           rows: json.rows ?? [],
           total: json.total ?? 0,
           columns: json.columns ?? [],
+          description: json.description ?? "",
           error: null,
         });
       })
       .catch((e) => {
         if (!cancelled) {
-          setState({ loading: false, rows: [], total: 0, columns: [], error: e instanceof Error ? e.message : "Failed to load." });
+          setState({ loading: false, rows: [], total: 0, columns: [], description: "", error: e instanceof Error ? e.message : "Failed to load." });
         }
       });
     return () => {
@@ -74,6 +77,7 @@ export function SurfaceFamilyTab({ surfaceId, area, parentId }: SurfaceFamilyTab
       rows={state.rows}
       totalItems={state.total}
       loading={state.loading}
+      description={state.description}
       actions={{ rowAction: [], headerAction: [] }}
       onClickActions={() => {}}
       hasBorder={false}

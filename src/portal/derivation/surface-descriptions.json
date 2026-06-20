@@ -1,0 +1,3 @@
+{
+  "_README": "Per-grid descriptions (product copy, not schema-derived). Key = surfaceKey for a main list grid, or \"surfaceKey::Area\" for a related-family tab. Set a string value and re-run the builder; any key left unset renders an explicit PLACEHOLDER in the grid."
+}

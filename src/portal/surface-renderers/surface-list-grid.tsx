@@ -191,6 +191,7 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
     <>
       <TMSDataGrid
         title={title}
+        description={model.description}
         pageSize={25}
         columns={columns}
         rows={data.rows}

@@ -3,6 +3,7 @@
     "surfaceKey": "definitions.access.entities",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.access.entities\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_AAA_EntityProfile",
@@ -132,6 +133,7 @@
     "surfaceKey": "definitions.access.scenarios",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"definitions.access.scenarios\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_ScenarioListSummary",
@@ -220,6 +222,7 @@
     "surfaceKey": "definitions.access.users",
     "archetype": "managed-list",
     "backend": null,
+    "description": "PLACEHOLDER — description for \"definitions.access.users\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_UserListSummary",
@@ -318,6 +321,7 @@
     "surfaceKey": "definitions.customers",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"definitions.customers\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_CustomerListSummary",
@@ -434,6 +438,7 @@
     "surfaceKey": "definitions.cvos",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.cvos\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_CVOListSummary",
@@ -529,6 +534,7 @@
     "surfaceKey": "definitions.distributors",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.distributors\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_DistributorListSummary",
@@ -617,6 +623,7 @@
     "surfaceKey": "definitions.drivers",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.drivers\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_DriverListSummary",
@@ -804,6 +811,7 @@
     "surfaceKey": "definitions.hubs",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.hubs\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_HUBListSummary",
@@ -878,6 +886,7 @@
     "surfaceKey": "definitions.requests",
     "archetype": "requests-control-plane",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.requests\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_RequestsApprovalListSummary",
@@ -1011,6 +1020,7 @@
     "surfaceKey": "definitions.vehicles",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.vehicles\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_VehicleListSummary",
@@ -1198,6 +1208,7 @@
     "surfaceKey": "system.app-registration.app-clients",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"system.app-registration.app-clients\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_AppClientListSummary",
@@ -1262,6 +1273,7 @@
     "surfaceKey": "system.app-registration.app-types",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"system.app-registration.app-types\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_AppTypeListSummary",
@@ -1324,6 +1336,7 @@
     "surfaceKey": "system.configurations.action-config-bases",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"system.configurations.action-config-bases\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_CFG_ActionConfigBases",
@@ -1390,6 +1403,7 @@
     "surfaceKey": "system.configurations.actor-configs",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"system.configurations.actor-configs\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_ActorConfigListSummary",
@@ -1524,6 +1538,7 @@
     "surfaceKey": "system.configurations.entity-configs",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"system.configurations.entity-configs\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_EntityConfigListSummary",
@@ -1654,6 +1669,7 @@
     "surfaceKey": "system.configurations.global-configs",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"system.configurations.global-configs\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_GlobalConfigListSummary",
@@ -1734,6 +1750,7 @@
     "surfaceKey": "system.notification-definitions.templates",
     "archetype": "managed-list",
     "backend": "ntf",
+    "description": "PLACEHOLDER — description for \"system.notification-definitions.templates\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_NotificationTemplateSettings",
@@ -1815,6 +1832,7 @@
     "surfaceKey": "system.permit-management.permit-issuers",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"system.permit-management.permit-issuers\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_PermitIssuerListSummary",
@@ -1889,6 +1907,7 @@
     "surfaceKey": "system.permit-management.permit-types",
     "archetype": "compact-catalog",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"system.permit-management.permit-types\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_PermitTypes",
@@ -1985,6 +2004,7 @@
     "surfaceKey": "transport.batches",
     "archetype": "production-workbench",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.batches\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_BatchListSummary",
@@ -2102,6 +2122,7 @@
     "surfaceKey": "transport.deliveries",
     "archetype": "production-workbench",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.deliveries\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_DeliveryListSummary",
@@ -2337,6 +2358,7 @@
     "surfaceKey": "transport.dispatch",
     "archetype": "production-workbench",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.dispatch\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_DispatchListSummary",
@@ -2508,6 +2530,7 @@
     "surfaceKey": "transport.rides",
     "archetype": "production-workbench",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.rides\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_RideListSummary",
@@ -2772,6 +2795,7 @@
     "surfaceKey": "transport.setup.contact-locations",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.contact-locations\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_ContactLocationListSummary",
@@ -2846,6 +2870,7 @@
     "surfaceKey": "transport.setup.fare-base-inclutions",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.fare-base-inclutions\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_FareBaseInclutionListSummary",
@@ -2980,6 +3005,7 @@
     "surfaceKey": "transport.setup.fare-by-geo-fence",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.fare-by-geo-fence\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_FareByGeoFenceListSummary",
@@ -3050,6 +3076,7 @@
     "surfaceKey": "transport.setup.fare-by-zone",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.fare-by-zone\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_FareByZoneListSummary",
@@ -3110,6 +3137,7 @@
     "surfaceKey": "transport.setup.fare-calculations",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.fare-calculations\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_FareCalculationListSummary",
@@ -3270,6 +3298,7 @@
     "surfaceKey": "transport.setup.geo-fence-bases",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.geo-fence-bases\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_TransportGeoFenceBases",
@@ -3350,6 +3379,7 @@
     "surfaceKey": "transport.setup.locations",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.locations\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_TransportLocations",

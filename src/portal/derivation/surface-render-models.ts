@@ -5,6 +5,7 @@ export type RenderReadModel = { dataSourceType: 'view' | 'table'; dataSourceValu
 export type RenderAction = { id: string; title: string; treatment?: 'delete'; endpoint?: string };
 export type SurfaceRenderModel = {
   surfaceKey: string; archetype: string; backend: string | null;
+  description: string;
   readModel: RenderReadModel; columns: RenderColumn[];
   rowActions: RenderAction[]; headerActions: RenderAction[];
   capability: Record<string, string>;
@@ -15,6 +16,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "definitions.access.entities",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.access.entities\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_AAA_EntityProfile",
@@ -144,6 +146,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "definitions.access.scenarios",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"definitions.access.scenarios\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_ScenarioListSummary",
@@ -232,6 +235,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "definitions.access.users",
     "archetype": "managed-list",
     "backend": null,
+    "description": "PLACEHOLDER — description for \"definitions.access.users\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_UserListSummary",
@@ -330,6 +334,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "definitions.customers",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"definitions.customers\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_CustomerListSummary",
@@ -446,6 +451,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "definitions.cvos",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.cvos\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_CVOListSummary",
@@ -541,6 +547,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "definitions.distributors",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.distributors\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_DistributorListSummary",
@@ -629,6 +636,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "definitions.drivers",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.drivers\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_DriverListSummary",
@@ -816,6 +824,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "definitions.hubs",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.hubs\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_HUBListSummary",
@@ -890,6 +899,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "definitions.requests",
     "archetype": "requests-control-plane",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.requests\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_RequestsApprovalListSummary",
@@ -1023,6 +1033,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "definitions.vehicles",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"definitions.vehicles\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_VehicleListSummary",
@@ -1210,6 +1221,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "system.app-registration.app-clients",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"system.app-registration.app-clients\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_AppClientListSummary",
@@ -1274,6 +1286,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "system.app-registration.app-types",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"system.app-registration.app-types\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_AppTypeListSummary",
@@ -1336,6 +1349,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "system.configurations.action-config-bases",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"system.configurations.action-config-bases\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_CFG_ActionConfigBases",
@@ -1402,6 +1416,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "system.configurations.actor-configs",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"system.configurations.actor-configs\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_ActorConfigListSummary",
@@ -1536,6 +1551,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "system.configurations.entity-configs",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"system.configurations.entity-configs\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_EntityConfigListSummary",
@@ -1666,6 +1682,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "system.configurations.global-configs",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"system.configurations.global-configs\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_GlobalConfigListSummary",
@@ -1746,6 +1763,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "system.notification-definitions.templates",
     "archetype": "managed-list",
     "backend": "ntf",
+    "description": "PLACEHOLDER — description for \"system.notification-definitions.templates\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_NotificationTemplateSettings",
@@ -1827,6 +1845,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "system.permit-management.permit-issuers",
     "archetype": "managed-list",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"system.permit-management.permit-issuers\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_PermitIssuerListSummary",
@@ -1901,6 +1920,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "system.permit-management.permit-types",
     "archetype": "compact-catalog",
     "backend": "gd",
+    "description": "PLACEHOLDER — description for \"system.permit-management.permit-types\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_PermitTypes",
@@ -1997,6 +2017,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.batches",
     "archetype": "production-workbench",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.batches\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_BatchListSummary",
@@ -2114,6 +2135,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.deliveries",
     "archetype": "production-workbench",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.deliveries\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_DeliveryListSummary",
@@ -2349,6 +2371,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.dispatch",
     "archetype": "production-workbench",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.dispatch\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_DispatchListSummary",
@@ -2520,6 +2543,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.rides",
     "archetype": "production-workbench",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.rides\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_RideListSummary",
@@ -2784,6 +2808,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.setup.contact-locations",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.contact-locations\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_ContactLocationListSummary",
@@ -2858,6 +2883,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.setup.fare-base-inclutions",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.fare-base-inclutions\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_FareBaseInclutionListSummary",
@@ -2992,6 +3018,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.setup.fare-by-geo-fence",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.fare-by-geo-fence\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_FareByGeoFenceListSummary",
@@ -3062,6 +3089,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.setup.fare-by-zone",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.fare-by-zone\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_FareByZoneListSummary",
@@ -3122,6 +3150,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.setup.fare-calculations",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.fare-calculations\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "view",
       "dataSourceValue": "Vi_SPC_FareCalculationListSummary",
@@ -3282,6 +3311,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.setup.geo-fence-bases",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.geo-fence-bases\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_TransportGeoFenceBases",
@@ -3362,6 +3392,7 @@ export const surfaceRenderModels: Record<string, SurfaceRenderModel> = {
     "surfaceKey": "transport.setup.locations",
     "archetype": "managed-list",
     "backend": "core",
+    "description": "PLACEHOLDER — description for \"transport.setup.locations\". Set it in src/portal/derivation/surface-descriptions.json and re-run the builder.",
     "readModel": {
       "dataSourceType": "table",
       "dataSourceValue": "H_TransportLocations",
