@@ -1,34 +1,29 @@
 "use client";
 
-import { TMSButton, TMSField, TMSFieldInput, TMSFieldSelect, TMSModal, TMSTabs } from "@conitdev/tms-ui-kit";
-
-// Governed modal-card chrome — the recipe the kit's TMSWizardDialog applies to TMSModal.
-const WIZARD_CARD_CLASS =
-  "flex max-h-[85vh] w-[min(42rem,92vw)] flex-col tms-governed-surface-panel tms-governed-surface-muted tms-governed-radius-surface shadow-modal overflow-hidden";
+import { TMSWizardDialog } from "@conitdev/tms-ui-kit";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-import type {
-  SurfaceFormContract,
-  SurfaceFormField,
-} from "@/src/portal/derivation/surface-form-contracts";
-
+import relationContracts from "@/src/portal/derivation/spc-relation-contracts.json";
 import { surfaceContracts } from "@/src/portal/derivation/surface-contracts";
+import type { SurfaceFormContract } from "@/src/portal/derivation/surface-form-contracts";
+import type { SurfaceCapabilitySnapshot } from "@/src/portal/surfaces/types";
 
-import { SurfaceFamilyTab } from "./surface-family-tab";
-import { SurfaceFkPicker } from "./surface-fk-picker";
+import { SurfaceRecordForm } from "./surface-record-form";
+import { SurfaceRelationTab } from "./surface-relation-tab";
 
-// Tab-1 main-record form composed from the kit primitives (TMSModal + TMSField +
-// TMSFieldInput/TMSFieldSelect). ENUM and small FK fields render as real selects when options are
-// resolved (live); large FK fields (mode:'lookup', no options) render a TMSLookup-driven picker.
-// (Related-family tabs are the remaining follow-on.)
-const INPUT_TYPE: Record<Exclude<SurfaceFormField["type"], "select" | "boolean">, string> = {
-  number: "number",
-  date: "date",
-  email: "email",
-  mobile: "tel",
-  text: "text",
+// The governed layered relation wizard (kit TMSWizardDialog). Tab 1 = the base-record form; later
+// tabs = relation grids (Assign/Unassign). NEW is restricted — every later step is locked until the
+// base record saves and returns an Id; MANAGE is unrestricted (free step navigation). Capability
+// projection makes the form read-only / gates relation mutation.
+type RelationContractRow = {
+  kind: "bridge" | "child";
+  relatedHasRootSurface?: boolean;
+  assignableSurfaceKey?: string | null;
+  sensitiveLinkage?: boolean;
 };
+
+type WriteResult = { Id?: string | number; id?: string | number; data?: { Id?: string | number } };
 
 type SurfaceWizardProps = {
   open: boolean;
@@ -36,140 +31,118 @@ type SurfaceWizardProps = {
   surfaceId: string;
   title: string;
   form: SurfaceFormContract;
-  /** field → {value,label}[] for ENUM/FK selects (resolved live in surface-page). */
   fieldOptions?: Record<string, { value: string; label: string }[]>;
   initial?: Record<string, unknown> | null;
+  capability?: SurfaceCapabilitySnapshot | null;
   onClose: () => void;
 };
 
-export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions, initial, onClose }: SurfaceWizardProps) {
+export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions, initial, capability, onClose }: SurfaceWizardProps) {
   const router = useRouter();
+  const contract = surfaceContracts[surfaceId];
+  const isEdit = mode === "manage";
+  // New shows ALL steps but locks the later ones until the base saves (restricted/guided flow).
+  const tabs = contract?.render?.tabs && contract.render.tabs.length > 0 ? contract.render.tabs : ["Profile"];
+
   const [values, setValues] = useState<Record<string, unknown>>(() => {
     const v: Record<string, unknown> = {};
     for (const f of form.fields) v[f.name] = initial?.[f.name] ?? "";
     return v;
   });
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState("Profile");
-
   const set = (name: string, value: unknown) => setValues((prev) => ({ ...prev, [name]: value }));
+  const [activeStep, setActiveStep] = useState(0);
+  const [savedId, setSavedId] = useState<string | number | null>(
+    isEdit ? ((initial?.Id as string | number | undefined) ?? null) : null,
+  );
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  // Related-family tabs (Profile = this form; the rest = read-only child grids scoped to this
-  // record). Only available when a parent record exists, i.e. manage mode with an Id — a record
-  // can't have children before it's saved. Tab list + per-tab views come from the generated contract.
-  const parentId = initial?.Id as string | number | undefined;
-  const contract = surfaceContracts[surfaceId];
-  const familyTabs = (mode === "manage" && parentId != null ? contract?.render.tabs : null) ?? ["Profile"];
-  const showTabs = familyTabs.length > 1;
+  const readOnly = isEdit ? capability?.canUpdate === false : capability?.canCreate === false;
+  const furthestUnlocked = isEdit || savedId != null ? tabs.length - 1 : 0;
 
-  async function save() {
-    if (busy) return;
-    setBusy(true);
+  async function saveBase(): Promise<boolean> {
+    if (readOnly) return true;
+    setSaving(true);
     setError(null);
     try {
       const payload: Record<string, unknown> = { ...values };
-      if (mode === "manage" && initial?.Id !== undefined) payload.Id = initial.Id;
+      if (isEdit && initial?.Id !== undefined) payload.Id = initial.Id;
       const res = await fetch("/api/portal/write", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ surfaceId, buttonId: mode === "new" ? "new" : "manage", payload }),
+        body: JSON.stringify({ surfaceId, buttonId: isEdit ? "manage" : "new", payload }),
       });
-      if (res.ok) {
-        onClose();
-        router.refresh();
-      } else {
-        const j = (await res.json().catch(() => ({}))) as { message?: string };
-        setError(j.message ?? "Save failed.");
+      if (!res.ok) {
+        const j = (await res.json().catch(() => ({}))) as { message?: string; error?: string };
+        setError(j.message ?? j.error ?? "Save failed.");
+        return false;
       }
+      const json = (await res.json().catch(() => ({}))) as { result?: WriteResult };
+      const newId = json.result?.Id ?? json.result?.id ?? json.result?.data?.Id ?? savedId;
+      if (newId != null) setSavedId(newId);
+      return true;
     } catch (e) {
       setError(e instanceof Error ? e.message : "Save failed.");
+      return false;
     } finally {
-      setBusy(false);
+      setSaving(false);
     }
   }
 
+  function finish() {
+    onClose();
+    router.refresh();
+  }
+
+  function renderStep(step: number) {
+    if (step === 0) {
+      return (
+        <div className="tms-governed-stack-sm">
+          {error ? <p className="tms-governed-type-caption tms-governed-text-danger">{error}</p> : null}
+          <SurfaceRecordForm surfaceId={surfaceId} form={form} values={values} onChange={set} fieldOptions={fieldOptions} readOnly={readOnly} />
+        </div>
+      );
+    }
+    const area = tabs[step];
+    if (savedId == null) {
+      return <p className="tms-governed-type-caption tms-governed-text-muted">Save the record first to manage its {area}.</p>;
+    }
+    const rc = (relationContracts as Record<string, RelationContractRow>)[`${surfaceId}::${area}`];
+    return (
+      <SurfaceRelationTab surfaceId={surfaceId} area={area} parentId={savedId} contract={rc} canMutate={capability?.canUpdate !== false} />
+    );
+  }
+
+  const stepStatuses = useMemo(() => {
+    const m: Record<number, "active" | "completed" | "pending"> = {};
+    for (let i = 0; i < tabs.length; i += 1) m[i] = i < activeStep ? "completed" : i === activeStep ? "active" : "pending";
+    return m;
+  }, [tabs.length, activeStep]);
+
   return (
-    <TMSModal isOpen={open} closeModal={onClose} className={WIZARD_CARD_CLASS}>
-      <header className="shrink-0 border-b tms-governed-border-strong tms-governed-padding-inline-lg tms-governed-padding-block-md">
-        <h2 className="tms-governed-type-body tms-governed-font-title tms-governed-text-primary">
-          {mode === "new" ? `New ${title}` : `Manage ${title}`}
-        </h2>
-      </header>
-
-      <div className="flex min-h-0 flex-col tms-governed-gap-md tms-governed-padding-lg overflow-hidden">
-        {showTabs ? (
-          <TMSTabs
-            isBorder
-            tabs={familyTabs.map((label) => ({ id: label, label, selected: label === activeTab }))}
-            onClickSTabs={(tab) => setActiveTab(String(tab.label))}
-          />
-        ) : null}
-        {activeTab !== "Profile" && parentId != null ? (
-          <div className="min-h-0 flex-1 overflow-auto">
-            <SurfaceFamilyTab surfaceId={surfaceId} area={activeTab} parentId={parentId} />
-          </div>
-        ) : (
-        <div className="grid tms-governed-gap-md overflow-auto md:grid-cols-2">
-          {form.fields.map((f) => {
-            const options = fieldOptions?.[f.name];
-            return (
-              <TMSField
-                key={f.name}
-                label={f.label}
-                required={f.required}
-              >
-                {f.type === "boolean" ? (
-                  <TMSFieldInput
-                    type="checkbox"
-                    checked={Boolean(values[f.name])}
-                    onChange={(e) => set(f.name, e.target.checked)}
-                  />
-                ) : f.type === "select" && options ? (
-                  <TMSFieldSelect
-                    value={String(values[f.name] ?? "")}
-                    onChange={(value) => set(f.name, value)}
-                    options={options}
-                    placeholder={`Select ${f.label}`}
-                  />
-                ) : f.type === "select" && f.picker && f.picker.mode === "lookup" ? (
-                  <SurfaceFkPicker
-                    surfaceId={surfaceId}
-                    fieldName={f.name}
-                    picker={f.picker}
-                    value={String(values[f.name] ?? "")}
-                    onChange={(value) => set(f.name, value)}
-                  />
-                ) : (
-                  <TMSFieldInput
-                    type={INPUT_TYPE[f.type as keyof typeof INPUT_TYPE] ?? "text"}
-                    value={String(values[f.name] ?? "")}
-                    onChange={(e) => set(f.name, e.target.value)}
-                  />
-                )}
-              </TMSField>
-            );
-          })}
-        </div>
-        )}
-
-        {error ? (
-          <p className="tms-governed-type-caption tms-governed-text-danger">{error}</p>
-        ) : null}
-
-        <div className="flex shrink-0 justify-end tms-governed-gap-sm">
-          <TMSButton variant="outlined" label={activeTab === "Profile" ? "Cancel" : "Close"} onClick={onClose} />
-          {activeTab === "Profile" ? (
-            <TMSButton
-              variant="containedPrimary"
-              label={busy ? "Saving…" : "Save"}
-              onClick={() => void save()}
-              disabled={busy}
-              loading={busy}
-            />
-          ) : null}
-        </div>
-      </div>
-    </TMSModal>
+    <TMSWizardDialog
+      isOpen={open}
+      onOpenChange={(o) => { if (!o) finish(); }}
+      mode={isEdit ? "edit" : "create"}
+      entityLabel={title}
+      recordId={savedId != null ? String(savedId) : undefined}
+      steps={tabs}
+      activeStep={activeStep}
+      onStepChange={setActiveStep}
+      canNavigateToStep={(step) => isEdit || step <= furthestUnlocked}
+      onSaveStep={async (step) => (step === 0 ? saveBase() : true)}
+      onSubmit={async () => {
+        if (!isEdit && savedId == null) {
+          const ok = await saveBase();
+          if (!ok) return false;
+        }
+        finish();
+        return true;
+      }}
+      onCancel={onClose}
+      isSaving={saving}
+      stepStatuses={stepStatuses}
+      renderStep={renderStep}
+    />
   );
 }

@@ -231,6 +231,7 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
           form={form}
           fieldOptions={formFieldOptions}
           initial={wizard.row ?? null}
+          capability={capability ?? null}
           onClose={() => {
             setWizard(null);
             void refetch({});

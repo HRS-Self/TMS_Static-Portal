@@ -75,6 +75,13 @@ export async function POST(request: NextRequest) {
 
   const allColumns = (spcViewColumns as Record<string, string[]>)[view] ?? [];
   const displayColumns = allColumns.filter((c) => !SYSTEM_COLUMNS.has(c) && c !== key);
+  // The junction's own row Id (aliased Link* in bridge views) is carried for Unassign but not shown.
+  const junctionKey = ['LinkId', 'Id'].find((c) => allColumns.includes(c)) ?? null;
+  const select = [...new Set([
+    ...(displayColumns.length > 0 ? displayColumns : allColumns),
+    key,
+    ...(junctionKey ? [junctionKey] : []),
+  ].filter((c) => allColumns.includes(c)))];
 
   try {
     const result = await fetchBackendGatewayList<Record<string, unknown>>(
@@ -86,7 +93,7 @@ export async function POST(request: NextRequest) {
         page: typeof body.page === 'number' ? body.page : 1,
         size: typeof body.size === 'number' ? body.size : FAMILY_PAGE_SIZE,
         sort: [[displayColumns[0] ?? key, 'asc']],
-        select: displayColumns.length > 0 ? displayColumns : allColumns,
+        select,
         filter: { [key]: { eq: body.parentId } },
       },
     );
@@ -102,6 +109,7 @@ export async function POST(request: NextRequest) {
       total: result.total,
       columns,
       description,
+      junctionKey, // field on each row holding the junction's own Id (for Unassign)
     });
   } catch (error) {
     return NextResponse.json(
