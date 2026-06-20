@@ -17,13 +17,15 @@ type AssignPickerProps = {
   parentId: string | number;
   assignableSurfaceKey: string | null;
   relatedHasRootSurface: boolean;
+  /** sensitive linkage (L1 user): Assign submits a governed request, not a direct junction write. */
+  requestMode?: boolean;
   onAssigned: () => void;
   onClose: () => void;
   onAddNew?: () => void;
 };
 
 export function SurfaceAssignPicker({
-  surfaceId, area, parentId, assignableSurfaceKey, relatedHasRootSurface, onAssigned, onClose, onAddNew,
+  surfaceId, area, parentId, assignableSurfaceKey, relatedHasRootSurface, requestMode = false, onAssigned, onClose, onAddNew,
 }: AssignPickerProps) {
   const model = assignableSurfaceKey ? surfaceRenderModels[assignableSurfaceKey] : null;
   const [rows, setRows] = useState<object[]>([]);
@@ -31,6 +33,7 @@ export function SurfaceAssignPicker({
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [sent, setSent] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     if (!assignableSurfaceKey) { setLoading(false); return; }
@@ -60,15 +63,21 @@ export function SurfaceAssignPicker({
     setBusy(true);
     setError(null);
     try {
-      const res = await fetch("/api/portal/relation", {
+      const res = await fetch(requestMode ? "/api/portal/invite" : "/api/portal/relation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ surfaceId, area, op: "assign", parentId, relatedId }),
+        body: JSON.stringify(
+          requestMode
+            ? { kind: "link", surfaceId, area, parentId, relatedId }
+            : { surfaceId, area, op: "assign", parentId, relatedId },
+        ),
       });
-      if (res.ok) { onAssigned(); }
-      else {
+      if (res.ok) {
+        if (requestMode) setSent("Link request submitted — it takes effect once approved.");
+        else onAssigned();
+      } else {
         const j = (await res.json().catch(() => ({}))) as { message?: string; error?: string };
-        setError(j.message ?? j.error ?? "Assign failed.");
+        setError(j.message ?? j.error ?? (requestMode ? "Request failed." : "Assign failed."));
       }
     } finally {
       setBusy(false);
@@ -78,12 +87,14 @@ export function SurfaceAssignPicker({
   return (
     <TMSModal isOpen closeModal={onClose} className={CARD}>
       <header className="shrink-0 border-b tms-governed-border-strong tms-governed-padding-inline-lg tms-governed-padding-block-md flex items-center justify-between">
-        <h3 className="tms-governed-type-body tms-governed-font-title tms-governed-text-primary">Assign {area}</h3>
+        <h3 className="tms-governed-type-body tms-governed-font-title tms-governed-text-primary">{requestMode ? `Request ${area}` : `Assign ${area}`}</h3>
         <TMSButton variant="outlined" label="Close" onClick={onClose} />
       </header>
       <div className="flex min-h-0 flex-col tms-governed-gap-md tms-governed-padding-lg overflow-auto">
         {error ? <p className="tms-governed-type-caption tms-governed-text-danger">{error}</p> : null}
-        {assignableSurfaceKey ? (
+        {sent ? (
+          <p className="tms-governed-type-body tms-governed-text-success">{sent}</p>
+        ) : assignableSurfaceKey ? (
           <TMSDataGrid
             pageSize={10}
             columns={columns}

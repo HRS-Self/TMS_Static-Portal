@@ -83,7 +83,11 @@ export function SurfaceRelationTab({ surfaceId, area, parentId, contract, canMut
     return <p className="tms-governed-type-caption tms-governed-text-danger">{state.error}</p>;
   }
 
-  const showActions = isBridge && canMutate && !contract?.sensitiveLinkage;
+  const sensitive = Boolean(contract?.sensitiveLinkage);
+  // Sensitive (L1-user) linkage: Assign is still offered but routes through a request (not a direct
+  // /Set); direct Unassign is withheld (un-linking a person is request-governed too).
+  const canAssign = isBridge && canMutate;
+  const canDirectUnassign = canAssign && !sensitive;
   const columns = state.columns.map((c) => ({ name: c.accessorKey, accessorKey: c.accessorKey, title: c.title, type: "text" as const }));
 
   return (
@@ -102,8 +106,8 @@ export function SurfaceRelationTab({ surfaceId, area, parentId, contract, canMut
         totalItems={state.total}
         loading={state.loading || busy}
         actions={{
-          rowAction: showActions ? [{ id: "unassign", title: "Unassign", iconImage: "lucide:unlink", treatment: "delete" }] : [],
-          headerAction: showActions ? [{ id: "assign", title: "Assign", iconImage: "lucide:link" }] : [],
+          rowAction: canDirectUnassign ? [{ id: "unassign", title: "Unassign", iconImage: "lucide:unlink", treatment: "delete" }] : [],
+          headerAction: canAssign ? [{ id: "assign", title: sensitive ? "Request" : "Assign", iconImage: "lucide:link" }] : [],
         }}
         onClickActions={(action, row) => {
           const id = (action as { id?: string }).id;
@@ -120,6 +124,7 @@ export function SurfaceRelationTab({ surfaceId, area, parentId, contract, canMut
           parentId={parentId}
           assignableSurfaceKey={contract?.assignableSurfaceKey ?? null}
           relatedHasRootSurface={Boolean(contract?.relatedHasRootSurface)}
+          requestMode={sensitive}
           onAssigned={() => { setPicking(false); void load(); }}
           onClose={() => setPicking(false)}
         />

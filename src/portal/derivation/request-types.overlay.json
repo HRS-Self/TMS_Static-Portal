@@ -1,0 +1,5 @@
+{
+  "_README": "RequestType enum values for governed entrance/linkage requests (H_RequestBases.RequestType). The exact int values are DOMAIN CONFIG that cannot be derived from schema — set them here. 'inviteUser' = invite a Layer-1 user identity (e.g. a Driver); 'sensitiveLink' = request to link a user to an entity/role/actor. A null (PLACEHOLDER) makes the invite/link flow return an honest 'not configured' state (invite policy Rule 7) instead of submitting a mis-typed request to H_RequestBases/Set.",
+  "inviteUser": null,
+  "sensitiveLink": null
+}

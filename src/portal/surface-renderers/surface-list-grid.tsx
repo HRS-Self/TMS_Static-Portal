@@ -11,6 +11,9 @@ import type {
 } from "@/src/portal/derivation/surface-render-models";
 import type { SurfaceCapabilitySnapshot } from "@/src/portal/surfaces/types";
 
+import surfaceEntranceModes from "@/src/portal/derivation/surface-entrance-modes.json";
+
+import { SurfaceInviteModal } from "./surface-invite-modal";
 import { SurfaceWizard } from "./surface-wizard";
 
 // The ONE generic managed-list host. Maps the kit-agnostic render model (S6) onto the
@@ -60,6 +63,9 @@ type SurfaceListGridProps = {
 export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFieldOptions, capability, form, title }: SurfaceListGridProps) {
   const [busy, setBusy] = useState(false);
   const [wizard, setWizard] = useState<{ mode: "new" | "manage"; row?: Record<string, unknown> } | null>(null);
+  const [inviting, setInviting] = useState(false);
+  // invite-mode surfaces (Layer-1 identities, e.g. Driver) are entered by invitation, not the create wizard.
+  const entranceMode = (surfaceEntranceModes as Record<string, string>)[model.surfaceKey] ?? "create";
 
   // The grid runs in `backend` processing mode: rows are seeded server-side (page 1) and re-queried
   // here via the BFF list route on page / sort / filter / include-deleted changes. queryRef holds
@@ -155,6 +161,11 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
   async function handleAction(action: { id?: string }, row?: object) {
     const id = action?.id;
     // New/Manage open the modal wizard (needs a form contract).
+    // invite-mode New → invitation modal, not the create wizard (governed entrance policy)
+    if (id === "new" && entranceMode === "invite") {
+      setInviting(true);
+      return;
+    }
     if ((id === "new" || id === "manage") && form) {
       setWizard({
         mode: id === "new" ? "new" : "manage",
@@ -222,6 +233,9 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
         stickyHeader
         hasBorder={false}
       />
+      {inviting ? (
+        <SurfaceInviteModal surfaceId={model.surfaceKey} title={title ?? "User"} onClose={() => setInviting(false)} />
+      ) : null}
       {wizard && form ? (
         <SurfaceWizard
           open
