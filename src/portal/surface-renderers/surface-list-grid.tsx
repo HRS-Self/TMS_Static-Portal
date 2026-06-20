@@ -218,7 +218,8 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
         showColumns
         showFilters
         showPagination
-        hasBorder
+        stickyHeader
+        hasBorder={false}
       />
       {wizard && form ? (
         <SurfaceWizard
