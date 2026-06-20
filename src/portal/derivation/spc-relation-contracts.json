@@ -1,0 +1,411 @@
+{
+  "definitions.access.scenarios::DataMap": {
+    "kind": "child",
+    "junctionTable": "H_AAA_ScenarioDataMap",
+    "parentFk": "ScenarioId"
+  },
+  "definitions.access.scenarios::EntityScenarios": {
+    "kind": "child",
+    "junctionTable": "H_AAA_EntityScenarios",
+    "parentFk": "ScenarioId"
+  },
+  "definitions.access.users::EntityRoles": {
+    "kind": "child",
+    "junctionTable": "H_AAA_UserEntityRoles",
+    "parentFk": "UserId"
+  },
+  "definitions.customers::Contact": {
+    "kind": "child",
+    "junctionTable": "H_TransportContactRegistry",
+    "parentFk": null
+  },
+  "definitions.customers::Contacts": {
+    "kind": "child",
+    "junctionTable": "H_TransportCustomerContacts",
+    "parentFk": "CustomerId"
+  },
+  "definitions.customers::DistributorCustomers": {
+    "kind": "child",
+    "junctionTable": "H_TransportDistributorCustomers",
+    "parentFk": "CustomerId"
+  },
+  "definitions.customers::MasterGoods": {
+    "kind": "child",
+    "junctionTable": "H_TransportCustomerMasterGoods",
+    "parentFk": "CustomerId"
+  },
+  "definitions.cvos::Distributors": {
+    "kind": "bridge",
+    "junctionTable": "H_DistributorCVOs",
+    "parentFk": "CVOId",
+    "relatedEntity": "H_Distributors",
+    "relatedFk": "DistributorId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "Vi_SPC_DistributorListSummary",
+    "assignableSurfaceKey": "definitions.distributors",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/distributor-cvos/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/distributor-cvos/Set",
+      "mode": "set-softdelete"
+    }
+  },
+  "definitions.cvos::Drivers": {
+    "kind": "bridge",
+    "junctionTable": "H_CVODrivers",
+    "parentFk": "CVOId",
+    "relatedEntity": "H_Drivers",
+    "relatedFk": "DriverId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "Vi_SPC_DriverListSummary",
+    "assignableSurfaceKey": "definitions.drivers",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/cvodrivers/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/cvodrivers/Set",
+      "mode": "set-softdelete"
+    }
+  },
+  "definitions.cvos::Permits": {
+    "kind": "child",
+    "junctionTable": "H_Permits",
+    "parentFk": "CVOId"
+  },
+  "definitions.cvos::Services": {
+    "kind": "child",
+    "junctionTable": "H_CVOServices",
+    "parentFk": "CVOId"
+  },
+  "definitions.cvos::Vehicles": {
+    "kind": "bridge",
+    "junctionTable": "H_CVOVehicles",
+    "parentFk": "CVOId",
+    "relatedEntity": "H_VehicleProfile",
+    "relatedFk": "VehicleId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "Vi_SPC_VehicleListSummary",
+    "assignableSurfaceKey": "definitions.vehicles",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/cvovehicles/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Unassign",
+      "method": "POST",
+      "path": "/api/v5-m1/cvovehicles/Unassign",
+      "mode": "recipe"
+    }
+  },
+  "definitions.distributors::CVOs": {
+    "kind": "bridge",
+    "junctionTable": "H_DistributorCVOs",
+    "parentFk": "DistributorId",
+    "relatedEntity": "H_CVOs",
+    "relatedFk": "CVOId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "H_CVOs",
+    "assignableSurfaceKey": "definitions.cvos",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/distributor-cvos/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/distributor-cvos/Set",
+      "mode": "set-softdelete"
+    }
+  },
+  "definitions.distributors::Customers": {
+    "kind": "child",
+    "junctionTable": "H_TransportDistributorCustomers",
+    "parentFk": null
+  },
+  "definitions.distributors::Drivers": {
+    "kind": "bridge",
+    "junctionTable": "H_DistributorDrivers",
+    "parentFk": "DistributorId",
+    "relatedEntity": "H_Drivers",
+    "relatedFk": "DriverId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "Vi_SPC_DriverListSummary",
+    "assignableSurfaceKey": "definitions.drivers",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/distributor-drivers/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/distributor-drivers/Set",
+      "mode": "set-softdelete"
+    }
+  },
+  "definitions.distributors::HUBs": {
+    "kind": "bridge",
+    "junctionTable": "H_HUBDistributors",
+    "parentFk": "DistributorId",
+    "relatedEntity": "H_HUBs",
+    "relatedFk": "HUBId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "Vi_SPC_HUBListSummary",
+    "assignableSurfaceKey": "definitions.hubs",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/hubdistributors/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/hubdistributors/Set",
+      "mode": "set-softdelete"
+    }
+  },
+  "definitions.distributors::Permits": {
+    "kind": "child",
+    "junctionTable": "H_Permits",
+    "parentFk": "DistributorId"
+  },
+  "definitions.drivers::CVOs": {
+    "kind": "bridge",
+    "junctionTable": "H_CVODrivers",
+    "parentFk": "DriverId",
+    "relatedEntity": "H_CVOs",
+    "relatedFk": "CVOId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "H_CVOs",
+    "assignableSurfaceKey": "definitions.cvos",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/cvodrivers/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/cvodrivers/Set",
+      "mode": "set-softdelete"
+    }
+  },
+  "definitions.drivers::Distributors": {
+    "kind": "bridge",
+    "junctionTable": "H_DistributorDrivers",
+    "parentFk": "DriverId",
+    "relatedEntity": "H_Distributors",
+    "relatedFk": "DistributorId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "Vi_SPC_DistributorListSummary",
+    "assignableSurfaceKey": "definitions.distributors",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/distributor-drivers/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/distributor-drivers/Set",
+      "mode": "set-softdelete"
+    }
+  },
+  "definitions.drivers::Permits": {
+    "kind": "child",
+    "junctionTable": "H_Permits",
+    "parentFk": "DriverId"
+  },
+  "definitions.drivers::Vehicles": {
+    "kind": "bridge",
+    "junctionTable": "H_VehicleDrivers",
+    "parentFk": "DriverId",
+    "relatedEntity": "H_VehicleProfile",
+    "relatedFk": "VehicleId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "Vi_SPC_VehicleListSummary",
+    "assignableSurfaceKey": "definitions.vehicles",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/vehicle-drivers/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/vehicle-drivers/Set",
+      "mode": "set-softdelete"
+    }
+  },
+  "definitions.hubs::Distributors": {
+    "kind": "bridge",
+    "junctionTable": "H_HUBDistributors",
+    "parentFk": "HUBId",
+    "relatedEntity": "H_Distributors",
+    "relatedFk": "DistributorId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "Vi_SPC_DistributorListSummary",
+    "assignableSurfaceKey": "definitions.distributors",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/hubdistributors/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/hubdistributors/Set",
+      "mode": "set-softdelete"
+    }
+  },
+  "definitions.hubs::Permits": {
+    "kind": "child",
+    "junctionTable": "H_Permits",
+    "parentFk": "HUBId"
+  },
+  "definitions.requests::PermitStatusVerifications": {
+    "kind": "child",
+    "junctionTable": "H_PermitStatusVerifications",
+    "parentFk": "RequestStatusId"
+  },
+  "definitions.vehicles::CVOs": {
+    "kind": "bridge",
+    "junctionTable": "H_CVOVehicles",
+    "parentFk": "VehicleId",
+    "relatedEntity": "H_CVOs",
+    "relatedFk": "CVOId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "H_CVOs",
+    "assignableSurfaceKey": "definitions.cvos",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/cvovehicles/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Unassign",
+      "method": "POST",
+      "path": "/api/v5-m1/cvovehicles/Unassign",
+      "mode": "recipe"
+    }
+  },
+  "definitions.vehicles::Drivers": {
+    "kind": "bridge",
+    "junctionTable": "H_VehicleDrivers",
+    "parentFk": "VehicleId",
+    "relatedEntity": "H_Drivers",
+    "relatedFk": "DriverId",
+    "relatedHasRootSurface": true,
+    "assignableListSource": "Vi_SPC_DriverListSummary",
+    "assignableSurfaceKey": "definitions.drivers",
+    "assignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/vehicle-drivers/Set",
+      "mode": "set"
+    },
+    "unassignEndpoint": {
+      "action": "Set",
+      "method": "POST",
+      "path": "/api/v5-m1/vehicle-drivers/Set",
+      "mode": "set-softdelete"
+    }
+  },
+  "definitions.vehicles::Features": {
+    "kind": "child",
+    "junctionTable": "H_VehicleFeatures",
+    "parentFk": "VehicleId"
+  },
+  "definitions.vehicles::Permits": {
+    "kind": "child",
+    "junctionTable": "H_Permits",
+    "parentFk": "VehicleId"
+  },
+  "system.app-registration.app-types::Permissions": {
+    "kind": "child",
+    "junctionTable": "H_AAA_AppTypePermissions",
+    "parentFk": "AppTypeId"
+  },
+  "system.permit-management.permit-issuers::PermitTypeIssuers": {
+    "kind": "child",
+    "junctionTable": "H_PermitTypeIssuers",
+    "parentFk": "PermitIssuerId"
+  },
+  "system.permit-management.permit-issuers::Permits": {
+    "kind": "child",
+    "junctionTable": "H_Permits",
+    "parentFk": "PermitIssuerId"
+  },
+  "transport.batches::Items": {
+    "kind": "child",
+    "junctionTable": "H_TransportBatchItems",
+    "parentFk": "BatchId"
+  },
+  "transport.deliveries::BatchItems": {
+    "kind": "child",
+    "junctionTable": "H_TransportBatchItems",
+    "parentFk": "TransportReqDeliveryId"
+  },
+  "transport.deliveries::ReqDeliveryAddons": {
+    "kind": "child",
+    "junctionTable": "H_TransportReqDeliveryAddons",
+    "parentFk": "TransportReqDeliveryId"
+  },
+  "transport.deliveries::ReqDeliveryGoods": {
+    "kind": "child",
+    "junctionTable": "H_TransportReqDeliveryGoods",
+    "parentFk": "ReqDeliveryId"
+  },
+  "transport.dispatch::TransactItems": {
+    "kind": "child",
+    "junctionTable": "H_TransportTransactItems",
+    "parentFk": "TransportTransactId"
+  },
+  "transport.dispatch::TransactStages": {
+    "kind": "child",
+    "junctionTable": "H_TransportTransactStages",
+    "parentFk": "TransportTransactId"
+  },
+  "transport.rides::BatchItems": {
+    "kind": "child",
+    "junctionTable": "H_TransportBatchItems",
+    "parentFk": "TransportReqRideId"
+  },
+  "transport.rides::ReqRideAddons": {
+    "kind": "child",
+    "junctionTable": "H_TransportReqRideAddons",
+    "parentFk": "TransportReqRideId"
+  },
+  "transport.rides::ReqRidePassengers": {
+    "kind": "child",
+    "junctionTable": "H_TransportReqRidePassengers",
+    "parentFk": "ReqRideId"
+  },
+  "transport.rides::TransactItemStages": {
+    "kind": "child",
+    "junctionTable": "H_TransportTransactItemStages",
+    "parentFk": null
+  }
+}
