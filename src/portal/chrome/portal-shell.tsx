@@ -12,6 +12,7 @@ import { searchRegistry } from "@/src/portal/derivation/search-registry";
 import { buildPortalChromHeaderProps } from "@/src/portal/chrome/portal-chrom-header.kit-props";
 import { buildPortalChromSidebarProps } from "@/src/portal/chrome/portal-chrom-sidebar.kit-props";
 import { PortalPage } from "@/src/portal/chrome/portal-page";
+import { PortalSearchbar } from "@/src/portal/chrome/portal-searchbar";
 
 type PortalShellProps = {
   children: ReactNode;
@@ -55,15 +56,13 @@ export function PortalShell({
     window.location.assign(`/api/entity/select?${params.toString()}`);
   };
 
-  // Global search: subject + field + wildcard term → navigate to that subject's grid pre-filtered
-  // to the matches (sf=accessorKey, sq=term). The property is a flat union, so resolve it to the
-  // subject's field by label (fallback to the subject's primary field). Row actions take over there.
-  const runSearch = (term: string, entityKey: string, propertyLabel: string) => {
-    const subject = searchRegistry[entityKey];
+  // Global search: subject + (subject-scoped) field + wildcard term → navigate to that subject's
+  // grid pre-filtered to the matches (sf=accessorKey, sq=term). The field comes from PortalSearchbar
+  // already scoped to the subject (its accessorKey), so there's no cross-subject resolution to do.
+  const runSearch = (term: string, subjectKey: string, fieldAccessorKey: string) => {
+    const subject = searchRegistry[subjectKey];
     if (!subject || !term.trim()) return;
-    const field = subject.fields.find((f) => f.label === propertyLabel) ?? subject.fields[0];
-    if (!field) return;
-    const params = new URLSearchParams({ sf: field.accessorKey, sq: term.trim() });
+    const params = new URLSearchParams({ sf: fieldAccessorKey, sq: term.trim() });
     router.push(`${subject.route}?${params.toString()}`);
   };
   const currentSurface = getPortalSurfaceByRoute(pathname);
@@ -204,11 +203,12 @@ export function PortalShell({
             }
           }}
           onCompanySelectorChange={(value) => selectEntity(Number(value))}
-          onSearch={(value, context) => runSearch(value, context.entity, context.property)}
           onClickSeeAllNotif={() => {
             router.push("/inbox/notifications");
           }}
-        />
+        >
+          <PortalSearchbar onSearch={runSearch} />
+        </TMSHeader>
       </div>
       <div data-tsid="portal-shell-body" className={portalChromLocalUIOverrides.bodyClassName}>
         <aside data-tsid="portal-chrome-sidebar-host" className={portalChromLocalUIOverrides.sidebarHostClassName}>{sidebar}</aside>

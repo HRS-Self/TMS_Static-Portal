@@ -1,16 +1,9 @@
 import { TMSHeader } from "@conitdev/tms-ui-kit";
 import type { ComponentProps } from "react";
 
-import { searchRegistry } from "@/src/portal/derivation/search-registry";
-
-// Global-search dropdowns derived from the generated registry (no hand-typed values).
-// entity = the subject (value = surfaceKey); property = the searchable field label (a flat union
-// across subjects per the kit's API — the shell resolves it per subject on submit).
-const searchSubjects = Object.values(searchRegistry);
-const searchEntityOptions = searchSubjects.map((subject) => ({ value: subject.key, title: subject.label }));
-const searchPropertyOptions = [
-  ...new Set(searchSubjects.flatMap((subject) => subject.fields.map((field) => field.label))),
-].map((label) => ({ value: label, title: label }));
+// Global search is now a composed children searchbar (PortalSearchbar) passed to TMSHeader, so the
+// header's built-in flat search props are no longer used (they caused the cross-subject "wrong
+// column" bug). The field list is scoped per subject inside PortalSearchbar.
 
 export type PortalChromHeaderRuntimeState = {
   isMobile: boolean;
@@ -79,12 +72,8 @@ export function buildPortalChromHeaderProps({
       // onClickMenuItem: undefined,
     },
     profileInitials: currentUserInitials ?? "PU",
-    searchPlaceholder: "Search — abc=exact, abc*=starts, *abc=ends, *abc*=contains",
-    searchEntityOptions,
-    searchPropertyOptions,
-    defaultSearchEntity: searchEntityOptions[0]?.value,
-    defaultSearchProperty: searchPropertyOptions[0]?.value,
-    showSearchBar: searchEntityOptions.length > 0,
+    // No built-in flat search — the shell passes a composed PortalSearchbar as children.
+    // showSearchBar left unset so the header renders children in the search zone.
     showCompanySelector: companySelectorOptions.length > 1,
     showHelp: true,
     showNotification: true,
