@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@conitdev/tms-ui-kit':
-        specifier: 2.3.7-next
-        version: 2.3.7-next(@types/react@19.2.17)(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: 2.3.8-next
+        version: 2.3.8-next(@types/react@19.2.17)(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@react-google-maps/api':
         specifier: ^2.19.3
         version: 2.20.8(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -150,8 +150,8 @@ packages:
     resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
     engines: {node: '>=6.9.0'}
 
-  '@conitdev/tms-ui-kit@2.3.7-next':
-    resolution: {integrity: sha512-WC78umpWd6n1DeSLunxbq8B13C1JcCtWz80TsSEuAtpzVLJvsNeWt0SFr9TmX1SgEqh0HFVGGh0Q5KcbUE9ztA==, tarball: https://npm.pkg.github.com/download/@conitdev/tms-ui-kit/2.3.7-next/1f132d6898e380faa361c79babfd65fd0ae6d30f}
+  '@conitdev/tms-ui-kit@2.3.8-next':
+    resolution: {integrity: sha512-cTTmB+np2SxKg5IL5+p2rj6S9aqTEjAO5jCJrBGkBBTq8ik65DA6Q/qrSipTW1uKp9e2njrzPFCnp26u3IFpWQ==, tarball: https://npm.pkg.github.com/download/@conitdev/tms-ui-kit/2.3.8-next/9c7e10fdbf41227dfae793534700a635056760d4}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
@@ -2566,7 +2566,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@conitdev/tms-ui-kit@2.3.7-next(@types/react@19.2.17)(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@conitdev/tms-ui-kit@2.3.8-next(@types/react@19.2.17)(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@date-fns/tz': 1.5.0
       '@emotion/react': 11.14.0(@types/react@19.2.17)(react@19.2.4)

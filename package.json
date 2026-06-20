@@ -12,7 +12,7 @@
     "sync:palette": "node scripts/sync-palette.mjs"
   },
   "dependencies": {
-    "@conitdev/tms-ui-kit": "2.3.7-next",
+    "@conitdev/tms-ui-kit": "2.3.8-next",
     "@react-google-maps/api": "^2.19.3",
     "@reduxjs/toolkit": "^2.11.2",
     "axios": "^1.7.2",
