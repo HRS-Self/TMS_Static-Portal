@@ -79,7 +79,7 @@ export function buildPortalChromHeaderProps({
       // onClickMenuItem: undefined,
     },
     profileInitials: currentUserInitials ?? "PU",
-    searchPlaceholder: "Find a record (wildcards: *abc, abc*, *abc*)",
+    searchPlaceholder: "Search — abc=exact, abc*=starts, *abc=ends, *abc*=contains",
     searchEntityOptions,
     searchPropertyOptions,
     defaultSearchEntity: searchEntityOptions[0]?.value,

@@ -118,7 +118,11 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
   const sq = searchParams.get("sq");
   useEffect(() => {
     if (!sf || !sq) return;
-    queryRef.current = { ...queryRef.current, page: 1, filter: { [sf]: { like: sq.replace(/\*/g, "%") } } };
+    // Wildcard semantics: a bare term (no *) is EXACT (eq); a leading/trailing * is ends/starts/
+    // contains (like with % substituted). Per the global-search contract.
+    const hasWildcard = sq.includes("*");
+    const clause = hasWildcard ? { like: sq.replace(/\*/g, "%") } : { eq: sq };
+    queryRef.current = { ...queryRef.current, page: 1, filter: { [sf]: clause } };
     void refetch({});
   }, [sf, sq, refetch]);
 
