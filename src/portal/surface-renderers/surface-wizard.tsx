@@ -119,8 +119,33 @@ export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions
     return m;
   }, [tabs.length, activeStep]);
 
+  // A9 — summary side panel: current record identity + saved state + the relationship families.
+  const identityField = form.fields.find((f) => /title|name/i.test(f.name))?.name ?? form.fields[0]?.name;
+  const summary = tabs.length > 1 ? (
+    <div className="tms-governed-stack-md">
+      <div className="tms-governed-stack-sm">
+        <p className="tms-governed-type-caption tms-governed-text-muted">{title}</p>
+        <p className="tms-governed-font-title tms-governed-text-primary">{String((identityField && values[identityField]) || "—")}</p>
+        {savedId != null ? (
+          <p className="tms-governed-type-caption tms-governed-text-muted">#{String(savedId)}</p>
+        ) : (
+          <p className="tms-governed-type-caption tms-governed-text-warning">Not saved yet — save to manage relationships.</p>
+        )}
+      </div>
+      <div className="tms-governed-stack-sm">
+        <p className="tms-governed-type-caption tms-governed-text-muted">Relationships</p>
+        {tabs.slice(1).map((area, i) => (
+          <p key={area} className={`tms-governed-type-caption ${i + 1 <= furthestUnlocked ? "tms-governed-text-secondary" : "tms-governed-text-muted"}`}>
+            {area}{i + 1 > furthestUnlocked ? " (locked)" : ""}
+          </p>
+        ))}
+      </div>
+    </div>
+  ) : undefined;
+
   return (
     <TMSWizardDialog
+      summary={summary}
       isOpen={open}
       onOpenChange={(o) => { if (!o) finish(); }}
       mode={isEdit ? "edit" : "create"}
