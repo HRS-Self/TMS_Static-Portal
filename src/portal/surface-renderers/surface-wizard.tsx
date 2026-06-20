@@ -1,6 +1,6 @@
 "use client";
 
-import { TMSButton, TMSField, TMSFieldInput, TMSFieldSelect, TMSModal } from "@conitdev/tms-ui-kit";
+import { TMSButton, TMSField, TMSFieldInput, TMSFieldSelect, TMSModal, TMSTabs } from "@conitdev/tms-ui-kit";
 
 // Governed modal-card chrome — the recipe the kit's TMSWizardDialog applies to TMSModal.
 const WIZARD_CARD_CLASS =
@@ -13,6 +13,9 @@ import type {
   SurfaceFormField,
 } from "@/src/portal/derivation/surface-form-contracts";
 
+import { surfaceContracts } from "@/src/portal/derivation/surface-contracts";
+
+import { SurfaceFamilyTab } from "./surface-family-tab";
 import { SurfaceFkPicker } from "./surface-fk-picker";
 
 // Tab-1 main-record form composed from the kit primitives (TMSModal + TMSField +
@@ -48,8 +51,17 @@ export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions
   });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState("Profile");
 
   const set = (name: string, value: unknown) => setValues((prev) => ({ ...prev, [name]: value }));
+
+  // Related-family tabs (Profile = this form; the rest = read-only child grids scoped to this
+  // record). Only available when a parent record exists, i.e. manage mode with an Id — a record
+  // can't have children before it's saved. Tab list + per-tab views come from the generated contract.
+  const parentId = initial?.Id as string | number | undefined;
+  const contract = surfaceContracts[surfaceId];
+  const familyTabs = (mode === "manage" && parentId != null ? contract?.render.tabs : null) ?? ["Profile"];
+  const showTabs = familyTabs.length > 1;
 
   async function save() {
     if (busy) return;
@@ -86,6 +98,18 @@ export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions
       </header>
 
       <div className="flex min-h-0 flex-col tms-governed-gap-md tms-governed-padding-lg overflow-hidden">
+        {showTabs ? (
+          <TMSTabs
+            isBorder
+            tabs={familyTabs.map((label) => ({ id: label, label, selected: label === activeTab }))}
+            onClickSTabs={(tab) => setActiveTab(String(tab.label))}
+          />
+        ) : null}
+        {activeTab !== "Profile" && parentId != null ? (
+          <div className="min-h-0 flex-1 overflow-auto">
+            <SurfaceFamilyTab surfaceId={surfaceId} area={activeTab} parentId={parentId} />
+          </div>
+        ) : (
         <div className="grid tms-governed-gap-md overflow-auto md:grid-cols-2">
           {form.fields.map((f) => {
             const options = fieldOptions?.[f.name];
@@ -127,20 +151,23 @@ export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions
             );
           })}
         </div>
+        )}
 
         {error ? (
           <p className="tms-governed-type-caption tms-governed-text-danger">{error}</p>
         ) : null}
 
         <div className="flex shrink-0 justify-end tms-governed-gap-sm">
-          <TMSButton variant="outlined" label="Cancel" onClick={onClose} />
-          <TMSButton
-            variant="containedPrimary"
-            label={busy ? "Saving…" : "Save"}
-            onClick={() => void save()}
-            disabled={busy}
-            loading={busy}
-          />
+          <TMSButton variant="outlined" label={activeTab === "Profile" ? "Cancel" : "Close"} onClick={onClose} />
+          {activeTab === "Profile" ? (
+            <TMSButton
+              variant="containedPrimary"
+              label={busy ? "Saving…" : "Save"}
+              onClick={() => void save()}
+              disabled={busy}
+              loading={busy}
+            />
+          ) : null}
         </div>
       </div>
     </TMSModal>
