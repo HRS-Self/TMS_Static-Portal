@@ -41,6 +41,7 @@
     "relatedEntity": "H_Distributors",
     "relatedFk": "DistributorId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": false,
     "assignableListSource": "Vi_SPC_DistributorListSummary",
     "assignableSurfaceKey": "definitions.distributors",
     "assignEndpoint": {
@@ -63,6 +64,7 @@
     "relatedEntity": "H_Drivers",
     "relatedFk": "DriverId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": true,
     "assignableListSource": "Vi_SPC_DriverListSummary",
     "assignableSurfaceKey": "definitions.drivers",
     "assignEndpoint": {
@@ -95,6 +97,7 @@
     "relatedEntity": "H_VehicleProfile",
     "relatedFk": "VehicleId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": false,
     "assignableListSource": "Vi_SPC_VehicleListSummary",
     "assignableSurfaceKey": "definitions.vehicles",
     "assignEndpoint": {
@@ -117,6 +120,7 @@
     "relatedEntity": "H_CVOs",
     "relatedFk": "CVOId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": false,
     "assignableListSource": "H_CVOs",
     "assignableSurfaceKey": "definitions.cvos",
     "assignEndpoint": {
@@ -144,6 +148,7 @@
     "relatedEntity": "H_Drivers",
     "relatedFk": "DriverId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": true,
     "assignableListSource": "Vi_SPC_DriverListSummary",
     "assignableSurfaceKey": "definitions.drivers",
     "assignEndpoint": {
@@ -166,6 +171,7 @@
     "relatedEntity": "H_HUBs",
     "relatedFk": "HUBId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": false,
     "assignableListSource": "Vi_SPC_HUBListSummary",
     "assignableSurfaceKey": "definitions.hubs",
     "assignEndpoint": {
@@ -193,6 +199,7 @@
     "relatedEntity": "H_CVOs",
     "relatedFk": "CVOId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": false,
     "assignableListSource": "H_CVOs",
     "assignableSurfaceKey": "definitions.cvos",
     "assignEndpoint": {
@@ -215,6 +222,7 @@
     "relatedEntity": "H_Distributors",
     "relatedFk": "DistributorId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": false,
     "assignableListSource": "Vi_SPC_DistributorListSummary",
     "assignableSurfaceKey": "definitions.distributors",
     "assignEndpoint": {
@@ -242,6 +250,7 @@
     "relatedEntity": "H_VehicleProfile",
     "relatedFk": "VehicleId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": false,
     "assignableListSource": "Vi_SPC_VehicleListSummary",
     "assignableSurfaceKey": "definitions.vehicles",
     "assignEndpoint": {
@@ -264,6 +273,7 @@
     "relatedEntity": "H_Distributors",
     "relatedFk": "DistributorId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": false,
     "assignableListSource": "Vi_SPC_DistributorListSummary",
     "assignableSurfaceKey": "definitions.distributors",
     "assignEndpoint": {
@@ -296,6 +306,7 @@
     "relatedEntity": "H_CVOs",
     "relatedFk": "CVOId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": false,
     "assignableListSource": "H_CVOs",
     "assignableSurfaceKey": "definitions.cvos",
     "assignEndpoint": {
@@ -318,6 +329,7 @@
     "relatedEntity": "H_Drivers",
     "relatedFk": "DriverId",
     "relatedHasRootSurface": true,
+    "sensitiveLinkage": true,
     "assignableListSource": "Vi_SPC_DriverListSummary",
     "assignableSurfaceKey": "definitions.drivers",
     "assignEndpoint": {
