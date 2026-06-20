@@ -13,10 +13,12 @@ import type {
   SurfaceFormField,
 } from "@/src/portal/derivation/surface-form-contracts";
 
+import { SurfaceFkPicker } from "./surface-fk-picker";
+
 // Tab-1 main-record form composed from the kit primitives (TMSModal + TMSField +
 // TMSFieldInput/TMSFieldSelect). ENUM and small FK fields render as real selects when options are
-// resolved (live); FK fields without options fall back to a hinted input (TMSLookup async + the
-// related-family tabs are the remaining follow-on).
+// resolved (live); large FK fields (mode:'lookup', no options) render a TMSLookup-driven picker.
+// (Related-family tabs are the remaining follow-on.)
 const INPUT_TYPE: Record<Exclude<SurfaceFormField["type"], "select" | "boolean">, string> = {
   number: "number",
   date: "date",
@@ -92,7 +94,6 @@ export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions
                 key={f.name}
                 label={f.label}
                 required={f.required}
-                hint={f.type === "select" && !options && f.picker ? `lookup: ${f.picker.source}` : undefined}
               >
                 {f.type === "boolean" ? (
                   <TMSFieldInput
@@ -106,6 +107,14 @@ export function SurfaceWizard({ open, mode, surfaceId, title, form, fieldOptions
                     onChange={(value) => set(f.name, value)}
                     options={options}
                     placeholder={`Select ${f.label}`}
+                  />
+                ) : f.type === "select" && f.picker && f.picker.mode === "lookup" ? (
+                  <SurfaceFkPicker
+                    surfaceId={surfaceId}
+                    fieldName={f.name}
+                    picker={f.picker}
+                    value={String(values[f.name] ?? "")}
+                    onChange={(value) => set(f.name, value)}
                   />
                 ) : (
                   <TMSFieldInput
