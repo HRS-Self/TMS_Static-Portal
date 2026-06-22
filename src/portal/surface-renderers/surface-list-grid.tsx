@@ -199,6 +199,30 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
       } finally {
         setBusy(false);
       }
+      return;
+    }
+    // Custom action (declared via component-action-overrides): a generic write through the write
+    // route. Row actions post the row's Id; header actions post an empty payload. The writer config
+    // (backend/method/path) is resolved server-side by surfaceId+buttonId — no endpoint in the client.
+    if (id && !["new", "manage", "delete", "view"].includes(id)) {
+      if (busy) return;
+      const recordId = (row as { Id?: number } | undefined)?.Id;
+      setBusy(true);
+      try {
+        const res = await fetch("/api/portal/write", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            surfaceId: model.surfaceKey,
+            buttonId: id,
+            payload: recordId != null ? { Id: recordId } : {},
+          }),
+        });
+        if (res.ok) void refetch({});
+        else window.alert("Action failed.");
+      } finally {
+        setBusy(false);
+      }
     }
   }
 

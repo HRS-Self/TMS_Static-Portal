@@ -1,0 +1,3 @@
+{
+  "_README": "Component-scoped ACTION-API overrides (build-time). Key = \"<surfaceKey>\" → { \"<actionId>\": { backend, method, path, includeEntityId?, title?, treatment?, placement?(\"row\"|\"header\") } }. Overrides the derived /Set for new/manage/delete/assign/unassign and declares custom action buttons → endpoints. Re-run the builder after editing."
+}
