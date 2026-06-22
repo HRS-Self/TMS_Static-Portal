@@ -1,0 +1,3 @@
+{
+  "_README": "Component-scoped READ-source overrides (build-time). Key = a DataGrid component id: \"<surfaceKey>\" (list grid), \"<surfaceKey>::<area>\" (family grid), or \"<surfaceKey>#<field>\" (FK picker). Value = { dataSourceType: \"table\"|\"view\"|\"internalUrlPath\"|\"externalUrlPath\", dataSourceValue?, select?, columns?, filter? (Sequelize-style), details? (forwarded for internalUrlPath), processing? (\"backend\"|\"frontend\"), valueKey?/labelKey? (picker) }. ExternalUrlPath is accepted but the gateway does not implement it yet (reads will fail until it does). The generators bake the effective binding into the artifacts; the BFF routes read it. Re-run the builder after editing."
+}

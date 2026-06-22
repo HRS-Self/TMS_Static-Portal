@@ -9,7 +9,8 @@ export type SurfaceColumnContract = {
   visibility: "default" | "optional" | "hidden";
 };
 
-export type SurfaceListDataSourceType = "table" | "view";
+// The 4 DataGateway datasource kinds; URL kinds are proxied by the gateway (see data-gateway.ts).
+export type SurfaceListDataSourceType = "table" | "view" | "internalUrlPath" | "externalUrlPath";
 
 export type SurfaceListSortDirection = "asc" | "desc";
 

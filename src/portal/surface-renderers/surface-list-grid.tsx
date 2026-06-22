@@ -202,6 +202,12 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
     }
   }
 
+  // Datasource kinds the gateway fully serves (table/view) are processed backend-side; URL-proxy
+  // kinds (internalUrlPath/externalUrlPath) don't enforce filter/sort/page, so the build marks them
+  // `frontend` and the kit slices the already-fetched bounded set client-side. Default backend.
+  const processing = model.readModel.processing === "frontend" ? "frontend" : "backend";
+  const processingMode = { pagination: processing, sorting: processing, filtering: processing } as const;
+
   return (
     <>
       <TMSDataGrid
@@ -216,7 +222,7 @@ export function SurfaceListGrid({ model, rows, totalItems, enumMappings, formFie
         onClickActions={(action, row) => {
           void handleAction(action as { id?: string }, row);
         }}
-        processingMode={{ pagination: "backend", sorting: "backend", filtering: "backend" }}
+        processingMode={processingMode}
         onPageChange={(page) => void refetch({ page })}
         onRowsPerPage={(size) => void refetch({ size, page: 1 })}
         onSortChange={(sort) =>

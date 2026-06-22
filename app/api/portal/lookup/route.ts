@@ -56,7 +56,8 @@ export async function POST(request: NextRequest) {
       session,
       resolveSurfaceBackend(surfaceId),
       {
-        dataSourceType: 'table',
+        // datasource kind is build-time config on the picker (§8 override may repoint it); default table.
+        dataSourceType: picker.dataSourceType ?? 'table',
         dataSourceValue: picker.source,
         page: 1,
         size: LOOKUP_PAGE_SIZE,

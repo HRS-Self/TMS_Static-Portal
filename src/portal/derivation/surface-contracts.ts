@@ -438,7 +438,9 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "permits": {
         "area": "permits",
         "view": "Vi_SPC_CVOPermits",
-        "binding": "aligned"
+        "binding": "aligned",
+        "dataSourceType": "view",
+        "dataSourceValue": "Vi_SPC_CVOPermits"
       }
     },
     "write": {
@@ -573,7 +575,9 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "permits": {
         "area": "permits",
         "view": "Vi_SPC_DistributorPermits",
-        "binding": "aligned"
+        "binding": "aligned",
+        "dataSourceType": "view",
+        "dataSourceValue": "Vi_SPC_DistributorPermits"
       }
     },
     "write": {
@@ -779,28 +783,38 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
         {
           "area": "CVOs",
           "view": "Vi_SPC_DriverCVOs",
-          "binding": "aligned"
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_DriverCVOs"
         },
         {
           "area": "DLVC",
           "view": "Vi_SPC_DriverDLVC",
-          "binding": "aligned"
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_DriverDLVC"
         },
         {
           "area": "Distributors",
           "view": "Vi_SPC_DriverDistributors",
-          "binding": "aligned"
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_DriverDistributors"
         },
         {
           "area": "Vehicles",
           "view": "Vi_SPC_DriverVehicles",
-          "binding": "aligned"
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_DriverVehicles"
         }
       ],
       "permits": {
         "area": "permits",
         "view": "Vi_SPC_DriverPermits",
-        "binding": "aligned"
+        "binding": "aligned",
+        "dataSourceType": "view",
+        "dataSourceValue": "Vi_SPC_DriverPermits"
       }
     },
     "write": {
@@ -958,13 +972,17 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
         {
           "area": "Distributors",
           "view": "Vi_SPC_HUBDistributors",
-          "binding": "aligned"
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_HUBDistributors"
         }
       ],
       "permits": {
         "area": "permits",
         "view": "Vi_SPC_HUBPermits",
-        "binding": "aligned"
+        "binding": "aligned",
+        "dataSourceType": "view",
+        "dataSourceValue": "Vi_SPC_HUBPermits"
       }
     },
     "write": {
@@ -1256,23 +1274,31 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
         {
           "area": "CVOs",
           "view": "Vi_SPC_VehicleCVOs",
-          "binding": "aligned"
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_VehicleCVOs"
         },
         {
           "area": "Drivers",
           "view": "Vi_SPC_VehicleDrivers",
-          "binding": "aligned"
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_VehicleDrivers"
         },
         {
           "area": "Features",
           "view": "Vi_SPC_VehicleFeatures",
-          "binding": "aligned"
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_VehicleFeatures"
         }
       ],
       "permits": {
         "area": "permits",
         "view": "Vi_SPC_VehiclePermits",
-        "binding": "aligned"
+        "binding": "aligned",
+        "dataSourceType": "view",
+        "dataSourceValue": "Vi_SPC_VehiclePermits"
       }
     },
     "write": {

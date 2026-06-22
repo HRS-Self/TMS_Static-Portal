@@ -54,8 +54,13 @@ export async function POST(request: NextRequest) {
   const contract = surfaceContracts[surfaceId];
   // Most tabs are families; Permits is a distinct binding but reads the same way (a child view with
   // a parent-scope key), so serve it here too — keeps the wizard's render.tabs fully covered.
-  const tab = contract?.read.familyTabs.find((t) => t.area === body.area);
-  const view = tab?.view ?? (body.area === 'Permits' ? contract?.read.permits?.view ?? undefined : undefined);
+  const tab = contract?.read.familyTabs.find((t) => t.area === body.area)
+    ?? (body.area === 'Permits' ? contract?.read.permits ?? undefined : undefined);
+  // effective read binding (component-read-overrides may have repointed the datasource at build time);
+  // default = the generated SPC view. Scope-key + columns key off the effective value (works for a
+  // view→view override; a non-view family override would need to carry its own scope/columns).
+  const dataSourceType = (tab?.dataSourceType ?? 'view') as 'table' | 'view' | 'internalUrlPath' | 'externalUrlPath';
+  const view = tab?.dataSourceValue ?? tab?.view ?? undefined;
   if (!view) {
     return NextResponse.json(
       { message: `No family tab "${body.area}" on ${surfaceId}` },
@@ -88,7 +93,7 @@ export async function POST(request: NextRequest) {
       session,
       resolveSurfaceBackend(surfaceId),
       {
-        dataSourceType: 'view',
+        dataSourceType,
         dataSourceValue: view,
         page: typeof body.page === 'number' ? body.page : 1,
         size: typeof body.size === 'number' ? body.size : FAMILY_PAGE_SIZE,

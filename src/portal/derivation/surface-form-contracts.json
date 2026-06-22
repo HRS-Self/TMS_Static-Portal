@@ -96,6 +96,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_EntityProfile",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -115,6 +116,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_Synced_EntityProfile",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -127,6 +129,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_Synced_UserInfo",
           "valueKey": "Id",
           "labelKey": null,
@@ -146,6 +149,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_EntityProfile",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -165,6 +169,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_EntityProfile",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -184,6 +189,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_Synced_UserInfo",
           "valueKey": "Id",
           "labelKey": null,
@@ -196,6 +202,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_CVOs",
           "valueKey": "Id",
           "labelKey": null,
@@ -215,6 +222,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_EntityProfile",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -234,6 +242,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_RequestBases",
           "valueKey": "Id",
           "labelKey": null,
@@ -246,6 +255,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_Synced_UserInfo",
           "valueKey": "Id",
           "labelKey": null,
@@ -258,6 +268,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_EntityProfile",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -396,6 +407,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_NotificationRequests",
           "valueKey": "Id",
           "labelKey": null,
@@ -408,6 +420,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_Synced_UserInfo",
           "valueKey": "Id",
           "labelKey": null,
@@ -420,6 +433,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_Synced_EntityProfile",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -476,6 +490,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_Synced_UserInfo",
           "valueKey": "Id",
           "labelKey": null,
@@ -550,6 +565,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_VehicleProfile",
           "valueKey": "Id",
           "labelKey": null,
@@ -562,6 +578,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_Synced_UserInfo",
           "valueKey": "Id",
           "labelKey": null,
@@ -581,6 +598,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_EntityScenarios",
           "valueKey": "Id",
           "labelKey": null,
@@ -593,6 +611,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_CFG_ActionConfigBases",
           "valueKey": "Id",
           "labelKey": "Code",
@@ -630,6 +649,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_PermitIssuers",
           "valueKey": "Id",
           "labelKey": null,
@@ -642,6 +662,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_HUBs",
           "valueKey": "Id",
           "labelKey": null,
@@ -654,6 +675,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Distributors",
           "valueKey": "Id",
           "labelKey": null,
@@ -666,6 +688,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_CVOs",
           "valueKey": "Id",
           "labelKey": null,
@@ -678,6 +701,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_VehicleProfile",
           "valueKey": "Id",
           "labelKey": null,
@@ -690,6 +714,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Drivers",
           "valueKey": "Id",
           "labelKey": null,
@@ -709,6 +734,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_EntityScenarios",
           "valueKey": "Id",
           "labelKey": null,
@@ -721,6 +747,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_CFG_ActionConfigBases",
           "valueKey": "Id",
           "labelKey": "Code",
@@ -758,6 +785,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_CFG_ActionConfigBases",
           "valueKey": "Id",
           "labelKey": "Code",
@@ -828,6 +856,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_AAA_EntityProfile",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -898,6 +927,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_Distributors",
           "valueKey": "Id",
           "labelKey": null,
@@ -965,6 +995,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportCustomers",
           "valueKey": "Id",
           "labelKey": null,
@@ -977,6 +1008,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_Distributors",
           "valueKey": "Id",
           "labelKey": null,
@@ -989,6 +1021,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_CVOs",
           "valueKey": "Id",
           "labelKey": null,
@@ -1001,6 +1034,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportContactLocations",
           "valueKey": "Id",
           "labelKey": null,
@@ -1013,6 +1047,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportContactLocations",
           "valueKey": "Id",
           "labelKey": null,
@@ -1155,6 +1190,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportBatches",
           "valueKey": "Id",
           "labelKey": null,
@@ -1167,6 +1203,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "_ZoneBases",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -1179,6 +1216,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_CVOs",
           "valueKey": "Id",
           "labelKey": null,
@@ -1191,6 +1229,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_VehicleProfile",
           "valueKey": "Id",
           "labelKey": null,
@@ -1203,6 +1242,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_Drivers",
           "valueKey": "Id",
           "labelKey": null,
@@ -1302,6 +1342,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportCustomers",
           "valueKey": "Id",
           "labelKey": null,
@@ -1314,6 +1355,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_Distributors",
           "valueKey": "Id",
           "labelKey": null,
@@ -1326,6 +1368,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_CVOs",
           "valueKey": "Id",
           "labelKey": null,
@@ -1338,6 +1381,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportContactLocations",
           "valueKey": "Id",
           "labelKey": null,
@@ -1350,6 +1394,7 @@
         "required": false,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportContactLocations",
           "valueKey": "Id",
           "labelKey": null,
@@ -1511,6 +1556,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportContactRegistry",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -1529,6 +1575,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportLocations",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -1548,6 +1595,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_Distributors",
           "valueKey": "Id",
           "labelKey": null,
@@ -1560,6 +1608,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_CVOs",
           "valueKey": "Id",
           "labelKey": null,
@@ -1637,6 +1686,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportFareCalculations",
           "valueKey": "Id",
           "labelKey": null,
@@ -1649,6 +1699,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportGeoFenceBases",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -1661,6 +1712,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_TransportGeoFenceBases",
           "valueKey": "Id",
           "labelKey": "Title",
@@ -1686,6 +1738,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_Distributors",
           "valueKey": "Id",
           "labelKey": null,
@@ -1698,6 +1751,7 @@
         "required": true,
         "type": "select",
         "picker": {
+          "dataSourceType": "table",
           "source": "H_Synced_CVOs",
           "valueKey": "Id",
           "labelKey": null,
