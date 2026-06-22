@@ -6,7 +6,18 @@ import { serverRequest } from '@/src/server/backend/http';
 import { buildBackendRequestHeaders } from '@/src/server/backend/request-headers';
 import { logger } from '@/src/server/logger';
 
-export type DataGatewayDataSourceType = 'table' | 'view';
+// The DataGateway's four datasource kinds. Internal values are lowercase; the wire/gateway strings
+// are exactly Table / View / InternalUrlPath / ExternalUrlPath (camel "Url"). NOTE: ExternalUrlPath
+// is declared but NOT yet implemented in the gateway runtime — reads against it will be rejected
+// ("Invalid data source type") until the gateway adds the handler.
+export type DataGatewayDataSourceType = 'table' | 'view' | 'internalUrlPath' | 'externalUrlPath';
+
+const GATEWAY_DATASOURCE_TYPE: Record<DataGatewayDataSourceType, string> = {
+  table: 'Table',
+  view: 'View',
+  internalUrlPath: 'InternalUrlPath',
+  externalUrlPath: 'ExternalUrlPath',
+};
 
 /**
  * Backend hard cap per `docs/policies/2026-04-18-server-side-pagination-policy.md`.
@@ -27,6 +38,8 @@ export type DataGatewayFetchQuery = {
   select?: string[];
   size?: number;
   sort?: Array<[string, 'asc' | 'desc']>;
+  /** Extra params (forwarded to the downstream endpoint for InternalUrlPath datasources). */
+  details?: Record<string, unknown>;
 };
 
 export type DataGatewayFetchResponse<T> = {
@@ -58,6 +71,7 @@ type ResolvedGatewayQuery = {
   select: string[];
   filter?: Record<string, unknown>;
   includeDeletedRecords: boolean;
+  details?: Record<string, unknown>;
 };
 
 function resolveGatewayQuery(query: DataGatewayFetchQuery): ResolvedGatewayQuery {
@@ -98,6 +112,7 @@ function resolveGatewayQuery(query: DataGatewayFetchQuery): ResolvedGatewayQuery
     select,
     filter: query.filter,
     includeDeletedRecords: Boolean(query.includeDeletedRecords),
+    details: query.details,
   };
 }
 
@@ -120,11 +135,12 @@ function buildGatewayUrl(
   });
   const url = new URL(`${baseUrl}/api/v5-m1/dynamic-pages/FetchData`);
 
-  url.searchParams.set(
-    'dataSourceType',
-    resolved.dataSourceType === 'view' ? 'View' : 'Table',
-  );
+  url.searchParams.set('dataSourceType', GATEWAY_DATASOURCE_TYPE[resolved.dataSourceType]);
   url.searchParams.set('dataSourceValue', resolved.dataSourceValue);
+  if (resolved.details && Object.keys(resolved.details).length > 0) {
+    // forwarded into the proxied querystring for InternalUrlPath; rides along otherwise
+    url.searchParams.set('details', JSON.stringify(resolved.details));
+  }
   url.searchParams.set('page', String(resolved.page));
   url.searchParams.set('size', String(resolved.size));
 
