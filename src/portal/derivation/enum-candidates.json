@@ -1,9 +1,9 @@
 {
-  "total": 138,
+  "total": 141,
   "valuesMissing": 25,
-  "needsReview": 21,
+  "needsReview": 17,
   "enumTables": {
-    "total": 32,
+    "total": 34,
     "matched": [
       "H_ENUM_ActivityClasses",
       "H_ENUM_Actors",
@@ -15,10 +15,12 @@
       "H_ENUM_NotificationPlatforms",
       "H_ENUM_NotificationStatuses",
       "H_ENUM_NotificationTemplates",
+      "H_ENUM_ParticipationCategories",
       "H_ENUM_RequestStatuses",
       "H_ENUM_RequestTypes",
       "H_ENUM_ServiceCategories",
       "H_ENUM_ServiceClasses",
+      "H_ENUM_ServiceTypes",
       "H_ENUM_TransportCategories",
       "H_ENUM_TransportRequestStatuses",
       "H_ENUM_TransportTransactItemStatuses",
@@ -389,7 +391,8 @@
       "resolution": "values-missing",
       "suggestedSources": [
         "H_ENUM_ServiceCategories",
-        "H_ENUM_ServiceClasses"
+        "H_ENUM_ServiceClasses",
+        "H_ENUM_ServiceTypes"
       ]
     },
     {
@@ -412,7 +415,8 @@
       "resolution": "values-missing",
       "suggestedSources": [
         "H_ENUM_ServiceCategories",
-        "H_ENUM_ServiceClasses"
+        "H_ENUM_ServiceClasses",
+        "H_ENUM_ServiceTypes"
       ]
     },
     {
@@ -486,13 +490,15 @@
       "table": "H_HUBDistributorsLog",
       "column": "ParticipationCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_ParticipationCategories"
     },
     {
       "table": "H_HUBDistributors",
       "column": "ParticipationCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_ParticipationCategories"
     },
     {
       "table": "H_NotificationQueue",
@@ -552,7 +558,14 @@
       "source": "H_ENUM_Actors"
     },
     {
-      "table": "H_Permits",
+      "table": "H_PermitsBackup",
+      "column": "ActENUM",
+      "signal": "suffix",
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
+    },
+    {
+      "table": "H_PermitsBackup",
       "column": "ServiceCategory",
       "signal": "tinyint",
       "resolution": "h-enum-table",
@@ -640,12 +653,8 @@
       "table": "H_ServiceBases",
       "column": "ServiceType",
       "signal": "tinyint",
-      "resolution": "needs-review",
-      "suggestedSources": [
-        "H_ENUM_CalculationTypes",
-        "H_ENUM_DataSourceTypes",
-        "H_ENUM_EventTypes"
-      ]
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_ServiceTypes"
     },
     {
       "table": "H_SYNC_DataSyncSessions",
@@ -671,7 +680,8 @@
       "table": "H_Synced_HUBDistributors",
       "column": "ParticipationCategory",
       "signal": "tinyint",
-      "resolution": "needs-review"
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_ParticipationCategories"
     },
     {
       "table": "H_Synced_Permits",
@@ -679,13 +689,6 @@
       "signal": "suffix",
       "resolution": "approved-source",
       "source": "H_ENUM_Actors"
-    },
-    {
-      "table": "H_Synced_Permits",
-      "column": "ServiceCategory",
-      "signal": "tinyint",
-      "resolution": "h-enum-table",
-      "source": "H_ENUM_ServiceCategories"
     },
     {
       "table": "H_Synced_PermitStatuses",
@@ -710,6 +713,26 @@
       "source": "H_ENUM_Actors"
     },
     {
+      "table": "H_Synced_PermitTypes",
+      "column": "ActENUM",
+      "signal": "suffix",
+      "resolution": "approved-source",
+      "source": "H_ENUM_Actors"
+    },
+    {
+      "table": "H_Synced_PermitTypes",
+      "column": "ActivityClassENUM",
+      "signal": "suffix",
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_ActivityClasses"
+    },
+    {
+      "table": "H_Synced_PermitTypes",
+      "column": "ProfileDependant",
+      "signal": "tinyint",
+      "resolution": "needs-review"
+    },
+    {
       "table": "H_Synced_ServiceBases",
       "column": "ServiceClass",
       "signal": "tinyint",
@@ -720,12 +743,8 @@
       "table": "H_Synced_ServiceBases",
       "column": "ServiceType",
       "signal": "tinyint",
-      "resolution": "needs-review",
-      "suggestedSources": [
-        "H_ENUM_CalculationTypes",
-        "H_ENUM_DataSourceTypes",
-        "H_ENUM_EventTypes"
-      ]
+      "resolution": "h-enum-table",
+      "source": "H_ENUM_ServiceTypes"
     },
     {
       "table": "H_Synced_VehicleProfile",

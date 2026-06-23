@@ -94,7 +94,22 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
         "binding": "order",
         "viewOrder": "Vi_SPC_EntityProfile"
       },
-      "familyTabs": [],
+      "familyTabs": [
+        {
+          "area": "ConfigListSummary",
+          "view": "Vi_SPC_EntityConfigListSummary",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_EntityConfigListSummary"
+        },
+        {
+          "area": "ConfigProfile",
+          "view": "Vi_SPC_EntityConfigProfile",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_EntityConfigProfile"
+        }
+      ],
       "permits": null
     },
     "write": {
@@ -116,7 +131,9 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "render": {
       "archetype": "managed-list",
       "tabs": [
-        "Profile"
+        "Profile",
+        "ConfigListSummary",
+        "ConfigProfile"
       ],
       "headerActions": [
         "New"
@@ -135,7 +152,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "gd",
-        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+        "sha256": "89e13da459f078bfe09fa8dc55904c4b5ecd55c0739adde986d265a61c1a22c6"
       }
     ]
   },
@@ -147,9 +164,8 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "backend": "core",
       "list": {
         "area": "list",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_ScenarioListSummary",
+        "view": "Vi_SPC_ScenarioListSummary",
+        "binding": "aligned",
         "columns": [
           {
             "field": "Id",
@@ -186,16 +202,42 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
           {
             "field": "RecordDeleted",
             "title": "Record Deleted"
+          },
+          {
+            "field": "ClientEntityTitle",
+            "title": "Client Entity Title"
+          },
+          {
+            "field": "EntityScenariosCount",
+            "title": "Entity Scenarios Count"
+          },
+          {
+            "field": "DataMapCount",
+            "title": "Data Map Count"
           }
         ]
       },
       "profile": {
         "area": "profile",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_ScenarioProfile"
+        "view": "Vi_SPC_ScenarioProfile",
+        "binding": "aligned"
       },
-      "familyTabs": [],
+      "familyTabs": [
+        {
+          "area": "DataMap",
+          "view": "Vi_SPC_ScenarioDataMap",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_ScenarioDataMap"
+        },
+        {
+          "area": "EntityScenarios",
+          "view": "Vi_SPC_ScenarioEntityScenarios",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_ScenarioEntityScenarios"
+        }
+      ],
       "permits": null
     },
     "write": {
@@ -217,7 +259,9 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "render": {
       "archetype": "managed-list",
       "tabs": [
-        "Profile"
+        "Profile",
+        "DataMap",
+        "EntityScenarios"
       ],
       "headerActions": [
         "New"
@@ -236,7 +280,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -248,10 +292,74 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "backend": null,
       "list": {
         "area": "list",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_UserListSummary",
-        "columns": []
+        "view": "Vi_SPC_UserListSummary",
+        "binding": "aligned",
+        "columns": [
+          {
+            "field": "Id",
+            "title": "Id"
+          },
+          {
+            "field": "Firstname_fsx",
+            "title": "Firstname"
+          },
+          {
+            "field": "Lastname_fsx",
+            "title": "Lastname"
+          },
+          {
+            "field": "Username",
+            "title": "Username"
+          },
+          {
+            "field": "Email_fsx",
+            "title": "Email"
+          },
+          {
+            "field": "EmailConfirmed",
+            "title": "Email Confirmed"
+          },
+          {
+            "field": "CellPhone_fsx",
+            "title": "Cell Phone"
+          },
+          {
+            "field": "CellPhoneConfirmed",
+            "title": "Cell Phone Confirmed"
+          },
+          {
+            "field": "IssuedBy",
+            "title": "Issued By"
+          },
+          {
+            "field": "RecordKey",
+            "title": "Record Key"
+          },
+          {
+            "field": "CreatedAt_UTC",
+            "title": "Created At_UTC"
+          },
+          {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
+            "field": "ModifiedAt_UTC",
+            "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          },
+          {
+            "field": "EntityRolesCount",
+            "title": "Entity Roles Count"
+          }
+        ]
       },
       "profile": {
         "area": "profile",
@@ -259,7 +367,15 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
         "binding": "order",
         "viewOrder": "Vi_SPC_UserProfile"
       },
-      "familyTabs": [],
+      "familyTabs": [
+        {
+          "area": "EntityRoles",
+          "view": "Vi_SPC_UserEntityRoles",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_UserEntityRoles"
+        }
+      ],
       "permits": null
     },
     "write": {
@@ -271,7 +387,8 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "render": {
       "archetype": "managed-list",
       "tabs": [
-        "Profile"
+        "Profile",
+        "EntityRoles"
       ],
       "headerActions": [],
       "rowActions": [
@@ -378,7 +495,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -390,9 +507,8 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "backend": "gd",
       "list": {
         "area": "list",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_CVOListSummary",
+        "view": "Vi_SPC_CVOListSummary",
+        "binding": "aligned",
         "columns": [
           {
             "field": "Id",
@@ -425,16 +541,68 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
           {
             "field": "RecordDeleted",
             "title": "Record Deleted"
+          },
+          {
+            "field": "EntityTitle",
+            "title": "Entity Title"
+          },
+          {
+            "field": "DriversCount",
+            "title": "Drivers Count"
+          },
+          {
+            "field": "ServicesCount",
+            "title": "Services Count"
+          },
+          {
+            "field": "VehiclesCount",
+            "title": "Vehicles Count"
+          },
+          {
+            "field": "DistributorsCount",
+            "title": "Distributors Count"
+          },
+          {
+            "field": "PermitsCount",
+            "title": "Permits Count"
           }
         ]
       },
       "profile": {
         "area": "profile",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_CVOProfile"
+        "view": "Vi_SPC_CVOProfile",
+        "binding": "aligned"
       },
-      "familyTabs": [],
+      "familyTabs": [
+        {
+          "area": "Distributors",
+          "view": "Vi_SPC_CVODistributors",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_CVODistributors"
+        },
+        {
+          "area": "Drivers",
+          "view": "Vi_SPC_CVODrivers",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_CVODrivers"
+        },
+        {
+          "area": "Services",
+          "view": "Vi_SPC_CVOServices",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_CVOServices"
+        },
+        {
+          "area": "Vehicles",
+          "view": "Vi_SPC_CVOVehicles",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_CVOVehicles"
+        }
+      ],
       "permits": {
         "area": "permits",
         "view": "Vi_SPC_CVOPermits",
@@ -457,6 +625,10 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "archetype": "managed-list",
       "tabs": [
         "Profile",
+        "Distributors",
+        "Drivers",
+        "Services",
+        "Vehicles",
         "Permits"
       ],
       "headerActions": [
@@ -476,7 +648,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "gd",
-        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+        "sha256": "89e13da459f078bfe09fa8dc55904c4b5ecd55c0739adde986d265a61c1a22c6"
       }
     ]
   },
@@ -500,58 +672,6 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
             "title": "Entity Id"
           },
           {
-            "field": "EntityTitle",
-            "title": "Entity Title"
-          },
-          {
-            "field": "City",
-            "title": "City"
-          },
-          {
-            "field": "Province",
-            "title": "Province"
-          },
-          {
-            "field": "Phone_fsx",
-            "title": "Phone"
-          },
-          {
-            "field": "Email_fsx",
-            "title": "Email"
-          },
-          {
-            "field": "CVOCount",
-            "title": "CVOCount"
-          },
-          {
-            "field": "DriverCount",
-            "title": "Driver Count"
-          },
-          {
-            "field": "HUBCount",
-            "title": "HUBCount"
-          },
-          {
-            "field": "TotalPermitCount",
-            "title": "Total Permit Count"
-          },
-          {
-            "field": "ExpiredPermitCount",
-            "title": "Expired Permit Count"
-          },
-          {
-            "field": "ValidPermitCount",
-            "title": "Valid Permit Count"
-          },
-          {
-            "field": "SuspendedPermitCount",
-            "title": "Suspended Permit Count"
-          },
-          {
-            "field": "RevokedPermitCount",
-            "title": "Revoked Permit Count"
-          },
-          {
             "field": "RecordKey",
             "title": "Record Key"
           },
@@ -560,18 +680,78 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
             "title": "Created At_UTC"
           },
           {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
             "field": "ModifiedAt_UTC",
             "title": "Modified At_UTC"
+          },
+          {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
+            "field": "RecordDeleted",
+            "title": "Record Deleted"
+          },
+          {
+            "field": "EntityTitle",
+            "title": "Entity Title"
+          },
+          {
+            "field": "CVOsCount",
+            "title": "CVOs Count"
+          },
+          {
+            "field": "DriversCount",
+            "title": "Drivers Count"
+          },
+          {
+            "field": "HUBsCount",
+            "title": "HUBs Count"
+          },
+          {
+            "field": "PermitsCount",
+            "title": "Permits Count"
           }
         ]
       },
       "profile": {
         "area": "profile",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_DistributorProfile"
+        "view": "Vi_SPC_DistributorProfile",
+        "binding": "aligned"
       },
-      "familyTabs": [],
+      "familyTabs": [
+        {
+          "area": "CVOs",
+          "view": "Vi_SPC_DistributorCVOs",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_DistributorCVOs"
+        },
+        {
+          "area": "Customers",
+          "view": "Vi_SPC_DistributorCustomers",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_DistributorCustomers"
+        },
+        {
+          "area": "Drivers",
+          "view": "Vi_SPC_DistributorDrivers",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_DistributorDrivers"
+        },
+        {
+          "area": "HUBs",
+          "view": "Vi_SPC_DistributorHUBs",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_DistributorHUBs"
+        }
+      ],
       "permits": {
         "area": "permits",
         "view": "Vi_SPC_DistributorPermits",
@@ -594,6 +774,10 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "archetype": "managed-list",
       "tabs": [
         "Profile",
+        "CVOs",
+        "Customers",
+        "Drivers",
+        "HUBs",
         "Permits"
       ],
       "headerActions": [
@@ -613,7 +797,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "gd",
-        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+        "sha256": "89e13da459f078bfe09fa8dc55904c4b5ecd55c0739adde986d265a61c1a22c6"
       }
     ]
   },
@@ -665,15 +849,11 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
             "title": "Record Deleted"
           },
           {
-            "field": "FullName",
-            "title": "Full Name"
-          },
-          {
-            "field": "Firstname",
+            "field": "Firstname_fsx",
             "title": "Firstname"
           },
           {
-            "field": "Lastname",
+            "field": "Lastname_fsx",
             "title": "Lastname"
           },
           {
@@ -681,12 +861,32 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
             "title": "Username"
           },
           {
-            "field": "Email",
+            "field": "Email_fsx",
             "title": "Email"
           },
           {
-            "field": "CellPhone",
+            "field": "CellPhone_fsx",
             "title": "Cell Phone"
+          },
+          {
+            "field": "PersonCVOTitle",
+            "title": "Person CVOTitle"
+          },
+          {
+            "field": "CVOsCount",
+            "title": "CVOs Count"
+          },
+          {
+            "field": "DistributorsCount",
+            "title": "Distributors Count"
+          },
+          {
+            "field": "PermitsCount",
+            "title": "Permits Count"
+          },
+          {
+            "field": "VehiclesCount",
+            "title": "Vehicles Count"
           },
           {
             "field": "DriverLicense",
@@ -699,34 +899,6 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
           {
             "field": "DriverLicenseStatus",
             "title": "Driver License Status"
-          },
-          {
-            "field": "DriverLicenseConditionENUM",
-            "title": "Driver License Condition ENUM"
-          },
-          {
-            "field": "UserFullName",
-            "title": "User Full Name"
-          },
-          {
-            "field": "UserEmail",
-            "title": "User Email"
-          },
-          {
-            "field": "UserUsername",
-            "title": "User Username"
-          },
-          {
-            "field": "PrimaryCVOTitle",
-            "title": "Primary CVOTitle"
-          },
-          {
-            "field": "PrimaryCVOCity",
-            "title": "Primary CVOCity"
-          },
-          {
-            "field": "TotalPermitCount",
-            "title": "Total Permit Count"
           },
           {
             "field": "ValidPermitCount",
@@ -747,22 +919,6 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
           {
             "field": "NextValidPermitExpiry",
             "title": "Next Valid Permit Expiry"
-          },
-          {
-            "field": "VehicleCount",
-            "title": "Vehicle Count"
-          },
-          {
-            "field": "DistributorCount",
-            "title": "Distributor Count"
-          },
-          {
-            "field": "CVOCount",
-            "title": "CVOCount"
-          },
-          {
-            "field": "LicensedVehicleTypeCount",
-            "title": "Licensed Vehicle Type Count"
           },
           {
             "field": "VehicleTypeTitle",
@@ -786,13 +942,6 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
           "binding": "aligned",
           "dataSourceType": "view",
           "dataSourceValue": "Vi_SPC_DriverCVOs"
-        },
-        {
-          "area": "DLVC",
-          "view": "Vi_SPC_DriverDLVC",
-          "binding": "aligned",
-          "dataSourceType": "view",
-          "dataSourceValue": "Vi_SPC_DriverDLVC"
         },
         {
           "area": "Distributors",
@@ -832,7 +981,6 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "tabs": [
         "Profile",
         "CVOs",
-        "DLVC",
         "Distributors",
         "Vehicles",
         "Permits"
@@ -854,7 +1002,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "gd",
-        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+        "sha256": "89e13da459f078bfe09fa8dc55904c4b5ecd55c0739adde986d265a61c1a22c6"
       }
     ]
   },
@@ -878,74 +1026,6 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
             "title": "Entity Id"
           },
           {
-            "field": "PartyCode",
-            "title": "Party Code"
-          },
-          {
-            "field": "EntityTitle",
-            "title": "Entity Title"
-          },
-          {
-            "field": "Address_fsx",
-            "title": "Address"
-          },
-          {
-            "field": "City",
-            "title": "City"
-          },
-          {
-            "field": "Province",
-            "title": "Province"
-          },
-          {
-            "field": "Country",
-            "title": "Country"
-          },
-          {
-            "field": "PostalCode_fsx",
-            "title": "Postal Code"
-          },
-          {
-            "field": "Phone_fsx",
-            "title": "Phone"
-          },
-          {
-            "field": "FaxNumber_fsx",
-            "title": "Fax Number"
-          },
-          {
-            "field": "Email_fsx",
-            "title": "Email"
-          },
-          {
-            "field": "DistributorCount",
-            "title": "Distributor Count"
-          },
-          {
-            "field": "TotalPermitCount",
-            "title": "Total Permit Count"
-          },
-          {
-            "field": "ExpiredPermitCount",
-            "title": "Expired Permit Count"
-          },
-          {
-            "field": "ValidPermitCount",
-            "title": "Valid Permit Count"
-          },
-          {
-            "field": "SuspendedPermitCount",
-            "title": "Suspended Permit Count"
-          },
-          {
-            "field": "RevokedPermitCount",
-            "title": "Revoked Permit Count"
-          },
-          {
-            "field": "CVOLinkCount",
-            "title": "CVOLink Count"
-          },
-          {
             "field": "RecordKey",
             "title": "Record Key"
           },
@@ -954,12 +1034,32 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
             "title": "Created At_UTC"
           },
           {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
             "field": "ModifiedAt_UTC",
             "title": "Modified At_UTC"
           },
           {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
             "field": "RecordDeleted",
             "title": "Record Deleted"
+          },
+          {
+            "field": "EntityTitle",
+            "title": "Entity Title"
+          },
+          {
+            "field": "DistributorsCount",
+            "title": "Distributors Count"
+          },
+          {
+            "field": "PermitsCount",
+            "title": "Permits Count"
           }
         ]
       },
@@ -1019,7 +1119,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "gd",
-        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+        "sha256": "89e13da459f078bfe09fa8dc55904c4b5ecd55c0739adde986d265a61c1a22c6"
       }
     ]
   },
@@ -1124,7 +1224,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "gd",
-        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+        "sha256": "89e13da459f078bfe09fa8dc55904c4b5ecd55c0739adde986d265a61c1a22c6"
       }
     ]
   },
@@ -1160,20 +1260,20 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
             "title": "Model"
           },
           {
-            "field": "Year",
-            "title": "Year"
-          },
-          {
-            "field": "VehicleType",
-            "title": "Vehicle Type"
+            "field": "Province",
+            "title": "Province"
           },
           {
             "field": "Color",
             "title": "Color"
           },
           {
-            "field": "Province",
-            "title": "Province"
+            "field": "Year",
+            "title": "Year"
+          },
+          {
+            "field": "TransportCategory",
+            "title": "Transport Category"
           },
           {
             "field": "Cargo_Height",
@@ -1200,52 +1300,8 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
             "title": "Capacity_Luggage"
           },
           {
-            "field": "CVOId",
-            "title": "CVOId"
-          },
-          {
-            "field": "CVOTitle",
-            "title": "CVOTitle"
-          },
-          {
-            "field": "CVOCity",
-            "title": "CVOCity"
-          },
-          {
-            "field": "CVOProvince",
-            "title": "CVOProvince"
-          },
-          {
-            "field": "DriverCount",
-            "title": "Driver Count"
-          },
-          {
-            "field": "ExpiredPermitCount",
-            "title": "Expired Permit Count"
-          },
-          {
-            "field": "ValidPermitCount",
-            "title": "Valid Permit Count"
-          },
-          {
-            "field": "TotalPermitCount",
-            "title": "Total Permit Count"
-          },
-          {
-            "field": "FeatureTitle",
-            "title": "Feature Title"
-          },
-          {
-            "field": "FeatureBadgesTop3",
-            "title": "Feature Badges Top3"
-          },
-          {
-            "field": "FeatureCount",
-            "title": "Feature Count"
-          },
-          {
-            "field": "InspectionStatus",
-            "title": "Inspection Status"
+            "field": "VehicleType",
+            "title": "Vehicle Type"
           },
           {
             "field": "RecordKey",
@@ -1256,19 +1312,44 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
             "title": "Created At_UTC"
           },
           {
+            "field": "CreatedBy",
+            "title": "Created By"
+          },
+          {
             "field": "ModifiedAt_UTC",
             "title": "Modified At_UTC"
           },
           {
+            "field": "ModifiedBy",
+            "title": "Modified By"
+          },
+          {
             "field": "RecordDeleted",
             "title": "Record Deleted"
+          },
+          {
+            "field": "CVOsCount",
+            "title": "CVOs Count"
+          },
+          {
+            "field": "PermitsCount",
+            "title": "Permits Count"
+          },
+          {
+            "field": "DriversCount",
+            "title": "Drivers Count"
+          },
+          {
+            "field": "FeaturesCount",
+            "title": "Features Count"
           }
         ]
       },
       "profile": {
         "area": "profile",
-        "view": "Vi_SPC_VehicleProfile",
-        "binding": "aligned"
+        "view": null,
+        "binding": "order",
+        "viewOrder": "Vi_SPC_VehicleProfile"
       },
       "familyTabs": [
         {
@@ -1337,7 +1418,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "gd",
-        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+        "sha256": "89e13da459f078bfe09fa8dc55904c4b5ecd55c0739adde986d265a61c1a22c6"
       }
     ]
   },
@@ -1571,9 +1652,8 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "backend": "core",
       "list": {
         "area": "list",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_AppClientListSummary",
+        "view": "Vi_SPC_AppClientListSummary",
+        "binding": "aligned",
         "columns": [
           {
             "field": "Id",
@@ -1586,10 +1666,6 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
           {
             "field": "ClientId",
             "title": "Client Id"
-          },
-          {
-            "field": "ClientSecret",
-            "title": "Client Secret"
           },
           {
             "field": "AppTypeId",
@@ -1618,14 +1694,17 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
           {
             "field": "RecordDeleted",
             "title": "Record Deleted"
+          },
+          {
+            "field": "AppTypeTitle",
+            "title": "App Type Title"
           }
         ]
       },
       "profile": {
         "area": "profile",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_AppClientProfile"
+        "view": "Vi_SPC_AppClientProfile",
+        "binding": "aligned"
       },
       "familyTabs": [],
       "permits": null
@@ -1655,7 +1734,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -1667,9 +1746,8 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "backend": "core",
       "list": {
         "area": "list",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_AppTypeListSummary",
+        "view": "Vi_SPC_AppTypeListSummary",
+        "binding": "aligned",
         "columns": [
           {
             "field": "Id",
@@ -1702,6 +1780,10 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
           {
             "field": "RecordDeleted",
             "title": "Record Deleted"
+          },
+          {
+            "field": "PermissionsCount",
+            "title": "Permissions Count"
           }
         ]
       },
@@ -1711,7 +1793,15 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
         "binding": "order",
         "viewOrder": "Vi_SPC_AppTypeProfile"
       },
-      "familyTabs": [],
+      "familyTabs": [
+        {
+          "area": "Permissions",
+          "view": "Vi_SPC_AppTypePermissions",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_AppTypePermissions"
+        }
+      ],
       "permits": null
     },
     "write": {
@@ -1723,7 +1813,8 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "render": {
       "archetype": "managed-list",
       "tabs": [
-        "Profile"
+        "Profile",
+        "Permissions"
       ],
       "headerActions": [],
       "rowActions": [
@@ -1739,7 +1830,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -1840,7 +1931,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -1959,7 +2050,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -2090,7 +2181,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "gd",
-        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+        "sha256": "89e13da459f078bfe09fa8dc55904c4b5ecd55c0739adde986d265a61c1a22c6"
       }
     ]
   },
@@ -2195,7 +2286,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -2306,9 +2397,8 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
       "backend": "gd",
       "list": {
         "area": "list",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_PermitIssuerListSummary",
+        "view": "Vi_SPC_PermitIssuerListSummary",
+        "binding": "aligned",
         "columns": [
           {
             "field": "Id",
@@ -2341,17 +2431,42 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
           {
             "field": "RecordDeleted",
             "title": "Record Deleted"
+          },
+          {
+            "field": "EntityTitle",
+            "title": "Entity Title"
+          },
+          {
+            "field": "PermitTypeIssuersCount",
+            "title": "Permit Type Issuers Count"
+          },
+          {
+            "field": "PermitsCount",
+            "title": "Permits Count"
           }
         ]
       },
       "profile": {
         "area": "profile",
-        "view": null,
-        "binding": "order",
-        "viewOrder": "Vi_SPC_PermitIssuerProfile"
+        "view": "Vi_SPC_PermitIssuerProfile",
+        "binding": "aligned"
       },
-      "familyTabs": [],
-      "permits": null
+      "familyTabs": [
+        {
+          "area": "PermitTypeIssuers",
+          "view": "Vi_SPC_PermitIssuerPermitTypeIssuers",
+          "binding": "aligned",
+          "dataSourceType": "view",
+          "dataSourceValue": "Vi_SPC_PermitIssuerPermitTypeIssuers"
+        }
+      ],
+      "permits": {
+        "area": "permits",
+        "view": "Vi_SPC_PermitIssuerPermits",
+        "binding": "aligned",
+        "dataSourceType": "view",
+        "dataSourceValue": "Vi_SPC_PermitIssuerPermits"
+      }
     },
     "write": {
       "backend": "gd",
@@ -2366,7 +2481,9 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "render": {
       "archetype": "managed-list",
       "tabs": [
-        "Profile"
+        "Profile",
+        "PermitTypeIssuers",
+        "Permits"
       ],
       "headerActions": [
         "New"
@@ -2385,7 +2502,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "gd",
-        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+        "sha256": "89e13da459f078bfe09fa8dc55904c4b5ecd55c0739adde986d265a61c1a22c6"
       }
     ]
   },
@@ -2494,7 +2611,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "gd",
-        "sha256": "1cc2cd3c4e3b08268de3eb61e01fe0b5bdf6ebd02571ae2e7534988f2d463fde"
+        "sha256": "89e13da459f078bfe09fa8dc55904c4b5ecd55c0739adde986d265a61c1a22c6"
       }
     ]
   },
@@ -2626,7 +2743,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -2807,7 +2924,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -2960,7 +3077,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -3157,7 +3274,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -3258,7 +3375,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -3385,7 +3502,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -3464,7 +3581,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -3536,7 +3653,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -3679,7 +3796,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -3782,7 +3899,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   },
@@ -3904,7 +4021,7 @@ export const surfaceContracts: Record<string, SurfaceContract> = {
     "citations": [
       {
         "source": "core",
-        "sha256": "dc1d8566904a2109b4b7ceeebceba1d1c614c609fc5dff94ad3a6ee3db89dda9"
+        "sha256": "36df708fd4ed20fce889320f65c633df5c7a49a3df8cf90b51c437174131f576"
       }
     ]
   }

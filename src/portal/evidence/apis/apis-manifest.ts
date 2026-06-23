@@ -9,23 +9,23 @@ export const apiManifest: ApiSourceManifest[] = [
     "source": "gd",
     "baseUrl": "https://gdapidev.fidaride.com/",
     "sha256": "9d6524b8d03a560c32ada1c41d2eccef70f49962a6c033ce985460ecd8a53ea8",
-    "capturedAt": "2026-06-13",
+    "capturedAt": "2026-06-23",
     "endpointCount": 98,
     "status": "ok"
   },
   {
     "source": "core",
     "baseUrl": "https://tmsapidev.fidaride.com/",
-    "sha256": "d26ffecb17eba68881149d3764aa970ab4fb10a81611406a87b2a63864e561fb",
-    "capturedAt": "2026-06-13",
-    "endpointCount": 145,
+    "sha256": "68463857b98fb0d2b5f9d7681d00e77d33ffe495c4abf1aef9e83ece5f2fc9c7",
+    "capturedAt": "2026-06-23",
+    "endpointCount": 146,
     "status": "ok"
   },
   {
     "source": "ntf",
     "baseUrl": "https://ntfapidev.fidaride.com/",
     "sha256": "7ce3820cd253652174f0d9cdf601e2047bf03cb83abc33ace9eeb7a90be41de2",
-    "capturedAt": "2026-06-13",
+    "capturedAt": "2026-06-23",
     "endpointCount": 47,
     "status": "ok"
   }

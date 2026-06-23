@@ -455,6 +455,13 @@
     "kind": "read"
   },
   {
+    "id": 401100760101,
+    "url": "/api/v5-m1/permit-types/Get",
+    "resource": "permit-types",
+    "action": "Get",
+    "kind": "read"
+  },
+  {
     "id": 401100330101,
     "url": "/api/v5-m1/permits/Get",
     "resource": "permits",

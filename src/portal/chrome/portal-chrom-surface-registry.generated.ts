@@ -27,7 +27,8 @@ export const generatedPortalSurfaces: readonly PortalSurface[] = [
     "section": "definitions",
     "surfaceKind": "managed-list",
     "implementationStatus": "contract-only",
-    "backendOwner": "core"
+    "backendOwner": "core",
+    "readModel": "Vi_SPC_ScenarioListSummary"
   },
   {
     "id": "definitions.access.users",
@@ -36,7 +37,8 @@ export const generatedPortalSurfaces: readonly PortalSurface[] = [
     "section": "definitions",
     "surfaceKind": "managed-list",
     "implementationStatus": "contract-only",
-    "backendOwner": "none"
+    "backendOwner": "none",
+    "readModel": "Vi_SPC_UserListSummary"
   },
   {
     "id": "definitions.customers",
@@ -54,7 +56,8 @@ export const generatedPortalSurfaces: readonly PortalSurface[] = [
     "section": "definitions",
     "surfaceKind": "managed-list",
     "implementationStatus": "contract-only",
-    "backendOwner": "gd"
+    "backendOwner": "gd",
+    "readModel": "Vi_SPC_CVOListSummary"
   },
   {
     "id": "definitions.distributors",
@@ -121,7 +124,8 @@ export const generatedPortalSurfaces: readonly PortalSurface[] = [
     "section": "system",
     "surfaceKind": "managed-list",
     "implementationStatus": "contract-only",
-    "backendOwner": "core"
+    "backendOwner": "core",
+    "readModel": "Vi_SPC_AppClientListSummary"
   },
   {
     "id": "system.app-registration.app-types",
@@ -130,7 +134,8 @@ export const generatedPortalSurfaces: readonly PortalSurface[] = [
     "section": "system",
     "surfaceKind": "managed-list",
     "implementationStatus": "contract-only",
-    "backendOwner": "core"
+    "backendOwner": "core",
+    "readModel": "Vi_SPC_AppTypeListSummary"
   },
   {
     "id": "system.configurations.action-config-bases",
@@ -184,7 +189,8 @@ export const generatedPortalSurfaces: readonly PortalSurface[] = [
     "section": "system",
     "surfaceKind": "managed-list",
     "implementationStatus": "contract-only",
-    "backendOwner": "gd"
+    "backendOwner": "gd",
+    "readModel": "Vi_SPC_PermitIssuerListSummary"
   },
   {
     "id": "system.permit-management.permit-types",

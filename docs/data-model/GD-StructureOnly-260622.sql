@@ -374,7 +374,7 @@ CREATE TABLE `H_AAA_Synced_UserInfo` (
   `RecordDeleted` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `RecordKey` (`RecordKey`)
-) ENGINE=InnoDB AUTO_INCREMENT=197 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -807,7 +807,7 @@ CREATE TABLE `H_CVOVehicles` (
   KEY `idx_19be519948e85178bb812a5a2898561f` (`VehicleId`),
   CONSTRAINT `fk_08c6eb5eaa095b15a97d062985588bfb` FOREIGN KEY (`VehicleId`) REFERENCES `H_VehicleProfile` (`Id`),
   CONSTRAINT `fk_b581910dabb9579eb5bd02488c5f12e4` FOREIGN KEY (`CVOId`) REFERENCES `H_CVOs` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -834,7 +834,7 @@ CREATE TABLE `H_CVOVehiclesLog` (
   PRIMARY KEY (`Id`),
   KEY `idx_cvovehicleslog_cvovehicleid` (`CVOVehicleId`),
   CONSTRAINT `fk_cvovehicleslog_cvovehicleid` FOREIGN KEY (`CVOVehicleId`) REFERENCES `H_CVOVehicles` (`Id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -857,7 +857,7 @@ CREATE TABLE `H_CVOs` (
   UNIQUE KEY `RecordKey` (`RecordKey`),
   KEY `idx_761ba4fc4acb5831ad163ae2c6f43c45` (`EntityId`),
   CONSTRAINT `fk_9971757059995e988401056f3a08d2cb` FOREIGN KEY (`EntityId`) REFERENCES `H_AAA_EntityProfile` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -933,7 +933,7 @@ CREATE TABLE `H_DP_ComponentsBases` (
   PRIMARY KEY (`Id`,`CodeName`,`Version`),
   UNIQUE KEY `unq_274bcffeacd7590c8debc2b510fe25ce` (`Type`,`CodeName`,`Version`),
   KEY `idx_3215abd1124b5f1dae5532558239939d` (`Type`,`CodeName`)
-) ENGINE=InnoDB AUTO_INCREMENT=155181 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=174167 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1150,7 +1150,7 @@ CREATE TABLE `H_Drivers` (
   KEY `idx_4967d98ee89d5c9d99bbc8664da5d081` (`UserId`),
   CONSTRAINT `fk_161f084815c157c485032c5e35c6e157` FOREIGN KEY (`UserId`) REFERENCES `H_AAA_Synced_UserInfo` (`Id`),
   CONSTRAINT `fk_87afd1c1c60e5f6b8496ef236dd4261c` FOREIGN KEY (`PersonCVOId`) REFERENCES `H_CVOs` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1221,6 +1221,21 @@ DROP TABLE IF EXISTS `H_ENUM_EventTypes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `H_ENUM_EventTypes` (
+  `ENUM` bigint unsigned NOT NULL,
+  `Title` varchar(128) NOT NULL,
+  PRIMARY KEY (`ENUM`),
+  UNIQUE KEY `Title` (`Title`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `H_ENUM_ParticipationCategories`
+--
+
+DROP TABLE IF EXISTS `H_ENUM_ParticipationCategories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `H_ENUM_ParticipationCategories` (
   `ENUM` bigint unsigned NOT NULL,
   `Title` varchar(128) NOT NULL,
   PRIMARY KEY (`ENUM`),
@@ -1616,7 +1631,7 @@ CREATE TABLE `H_PermitStatusVerifications` (
   KEY `idx_5d591f1cf73c5c7fb7b2c53c80e0cab7` (`RequestStatusId`),
   CONSTRAINT `fk_0f9e3e00a3cd515dab9130f6520153fc` FOREIGN KEY (`PermitStatusId`) REFERENCES `H_PermitStatuses` (`Id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_ac2f9638e1f65dc6acdfa2dbceddc8d9` FOREIGN KEY (`RequestStatusId`) REFERENCES `H_RequestStatuses` (`Id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=707 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1643,7 +1658,7 @@ CREATE TABLE `H_PermitStatuses` (
   UNIQUE KEY `RecordKey` (`RecordKey`),
   KEY `idx_6f0ae66e8f095a63aa98c23a7a63a413` (`PermitId`),
   CONSTRAINT `fk_bb958b31fa2f597cb058c81f0b36a5ba` FOREIGN KEY (`PermitId`) REFERENCES `H_Permits` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=527 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='The functionality of this table is infact a log and its name shoudl have been H_PermitStatusLog but due to the way that Hexa backends works with *log tables, the log soffix has not been added to its name.\n\nNever update a record in this table.';
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='The functionality of this table is infact a log and its name shoudl have been H_PermitStatusLog but due to the way that Hexa backends works with *log tables, the log soffix has not been added to its name.\n\nNever update a record in this table.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1694,7 +1709,7 @@ CREATE TABLE `H_PermitTypes` (
   `ModifiedBy` bigint unsigned DEFAULT NULL,
   `RecordDeleted` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5202 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1715,7 +1730,6 @@ CREATE TABLE `H_Permits` (
   `PermitIssuerId` bigint unsigned NOT NULL,
   `PermitTypeId` int unsigned NOT NULL,
   `Code` varchar(48) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ServiceCategory` tinyint DEFAULT NULL,
   `IssuedDate_UTC` datetime NOT NULL,
   `RecordKey` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -1741,7 +1755,36 @@ CREATE TABLE `H_Permits` (
   CONSTRAINT `fk_a9040a218add5aceb0d5094b1bc3a1d1` FOREIGN KEY (`DistributorId`) REFERENCES `H_Distributors` (`Id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_adbf7d50e99052b691fc1016e61470b2` FOREIGN KEY (`PermitTypeId`) REFERENCES `H_PermitTypes` (`Id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_ae736e21051c53098409ba22455e9dcd` FOREIGN KEY (`PermitIssuerId`) REFERENCES `H_PermitIssuers` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1911 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `H_PermitsBackup`
+--
+
+DROP TABLE IF EXISTS `H_PermitsBackup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `H_PermitsBackup` (
+  `Id` bigint unsigned NOT NULL DEFAULT '0',
+  `HUBId` bigint unsigned DEFAULT NULL,
+  `DistributorId` bigint unsigned DEFAULT NULL,
+  `CVOId` bigint unsigned DEFAULT NULL,
+  `VehicleId` bigint unsigned DEFAULT NULL,
+  `DriverId` bigint unsigned DEFAULT NULL,
+  `ActENUM` int unsigned NOT NULL,
+  `PermitIssuerId` bigint unsigned NOT NULL,
+  `PermitTypeId` int unsigned NOT NULL,
+  `Code` varchar(48) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ServiceCategory` tinyint DEFAULT NULL,
+  `IssuedDate_UTC` datetime NOT NULL,
+  `RecordKey` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `CreatedAt_UTC` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CreatedBy` bigint unsigned DEFAULT NULL,
+  `ModifiedAt_UTC` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ModifiedBy` bigint unsigned DEFAULT NULL,
+  `RecordDeleted` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1769,7 +1812,7 @@ CREATE TABLE `H_RequestBases` (
   KEY `idx_079c733e621e5384be078b2e2232a218` (`RequesterUserId`),
   CONSTRAINT `fk_82580eaaead452b28261d638cad4dff7` FOREIGN KEY (`RequesterUserId`) REFERENCES `H_AAA_Synced_UserInfo` (`Id`),
   CONSTRAINT `fk_8edcbf9ca0655f648cff5bbd1bc644ea` FOREIGN KEY (`RequesterEntityId`) REFERENCES `H_AAA_EntityProfile` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1826,7 +1869,7 @@ CREATE TABLE `H_RequestStatusesLog` (
   PRIMARY KEY (`Id`),
   KEY `idx_e7d258edb55c51f592c25aaaa18226b2` (`RequestStatusId`),
   CONSTRAINT `fk_09571931c77751ffad04b65f0b01cbff` FOREIGN KEY (`RequestStatusId`) REFERENCES `H_RequestStatuses` (`Id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=363 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=435 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2031,7 +2074,7 @@ CREATE TABLE `H_VehicleProfile` (
   UNIQUE KEY `RecordKey` (`RecordKey`),
   UNIQUE KEY `Plate` (`Plate`),
   UNIQUE KEY `VIN` (`VIN`)
-) ENGINE=InnoDB AUTO_INCREMENT=607 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=611 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2068,7 +2111,7 @@ CREATE TABLE `H_VehicleProfileLog` (
   PRIMARY KEY (`Id`),
   KEY `idx_a11885b76c9c501a8bc074f97ee28c59` (`VehicleProfileId`),
   CONSTRAINT `fk_30f616570e5055e1a760619ea0fe9c43` FOREIGN KEY (`VehicleProfileId`) REFERENCES `H_VehicleProfile` (`Id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2204,7 +2247,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `ActivityClassENUM`,
  1 AS `PermitPermitIssuerId`,
  1 AS `Code`,
- 1 AS `ServiceCategory`,
  1 AS `AllowedServiceCategories`,
  1 AS `Extendable`,
  1 AS `ProfileDependant`,
@@ -2545,68 +2587,6 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `Vi_DPA_CVOPermitsExtraDetail`
---
-
-DROP TABLE IF EXISTS `Vi_DPA_CVOPermitsExtraDetail`;
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_CVOPermitsExtraDetail`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_DPA_CVOPermitsExtraDetail` AS SELECT 
- 1 AS `CVOId`,
- 1 AS `CVOEntityId`,
- 1 AS `CVOEntityTitle`,
- 1 AS `CVOEntityAddress_fsx`,
- 1 AS `CVOEntityCity`,
- 1 AS `CVOEntityProvince`,
- 1 AS `CVOEntityCountry`,
- 1 AS `CVOEntityPostalCode_fsx`,
- 1 AS `CVOEntityPhone_fsx`,
- 1 AS `CVOEntityFaxNumber_fsx`,
- 1 AS `CVOEntityEmail_fsx`,
- 1 AS `CVOEntityDiscriminator`,
- 1 AS `HUBId`,
- 1 AS `DistributorId`,
- 1 AS `VehicleId`,
- 1 AS `DriverId`,
- 1 AS `ActENUM`,
- 1 AS `PermitIssuerId`,
- 1 AS `PermitTypeId`,
- 1 AS `Code`,
- 1 AS `ServiceCategory`,
- 1 AS `IssuedDate_UTC`,
- 1 AS `EntityScenarioEntityId`,
- 1 AS `EntityScenarioScenarioId`,
- 1 AS `EntityScenarioTitle`,
- 1 AS `EntityScenarioAddress_fsx`,
- 1 AS `EntityScenarioCity`,
- 1 AS `EntityScenarioProvince`,
- 1 AS `EntityScenarioCountry`,
- 1 AS `EntityScenarioPostalCode_fsx`,
- 1 AS `EntityScenarioPhone_fsx`,
- 1 AS `EntityScenarioFaxNumber_fsx`,
- 1 AS `EntityScenarioEmail_fsx`,
- 1 AS `EntityScenarioDiscriminator`,
- 1 AS `PermitTypeActENUM`,
- 1 AS `PermitTypeActivityClassENUM`,
- 1 AS `PermitTypeTitle`,
- 1 AS `PermitTypeAllowedServiceCategories`,
- 1 AS `PermitTypeExtendable`,
- 1 AS `PermitTypeProfileDependant`,
- 1 AS `PermitIssuerEntityId`,
- 1 AS `PermitIssuerTitle`,
- 1 AS `PermitIssuerAddress_fsx`,
- 1 AS `PermitIssuerCity`,
- 1 AS `PermitIssuerProvince`,
- 1 AS `PermitIssuerCountry`,
- 1 AS `PermitIssuerPostalCode_fsx`,
- 1 AS `PermitIssuerPhone_fsx`,
- 1 AS `PermitIssuerFaxNumber_fsx`,
- 1 AS `PermitIssuerEmail_fsx`,
- 1 AS `PermitIssuerDiscriminator`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Temporary view structure for view `Vi_DPA_CVOServicesSuperDetail`
 --
 
@@ -2810,68 +2790,6 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `Vi_DPA_DistributorPermitsExtraDetail`
---
-
-DROP TABLE IF EXISTS `Vi_DPA_DistributorPermitsExtraDetail`;
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_DistributorPermitsExtraDetail`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_DPA_DistributorPermitsExtraDetail` AS SELECT 
- 1 AS `DistributorId`,
- 1 AS `DistributorEntityId`,
- 1 AS `DistributorEntityTitle`,
- 1 AS `DistributorEntityAddress_fsx`,
- 1 AS `DistributorEntityCity`,
- 1 AS `DistributorEntityProvince`,
- 1 AS `DistributorEntityCountry`,
- 1 AS `DistributorEntityPostalCode_fsx`,
- 1 AS `DistributorEntityPhone_fsx`,
- 1 AS `DistributorEntityFaxNumber_fsx`,
- 1 AS `DistributorEntityEmail_fsx`,
- 1 AS `DistributorEntityDiscriminator`,
- 1 AS `HUBId`,
- 1 AS `CVOId`,
- 1 AS `VehicleId`,
- 1 AS `DriverId`,
- 1 AS `ActENUM`,
- 1 AS `PermitIssuerId`,
- 1 AS `PermitTypeId`,
- 1 AS `Code`,
- 1 AS `ServiceCategory`,
- 1 AS `IssuedDate_UTC`,
- 1 AS `EntityScenarioEntityId`,
- 1 AS `EntityScenarioScenarioId`,
- 1 AS `EntityScenarioTitle`,
- 1 AS `EntityScenarioAddress_fsx`,
- 1 AS `EntityScenarioCity`,
- 1 AS `EntityScenarioProvince`,
- 1 AS `EntityScenarioCountry`,
- 1 AS `EntityScenarioPostalCode_fsx`,
- 1 AS `EntityScenarioPhone_fsx`,
- 1 AS `EntityScenarioFaxNumber_fsx`,
- 1 AS `EntityScenarioEmail_fsx`,
- 1 AS `EntityScenarioDiscriminator`,
- 1 AS `PermitTypeActENUM`,
- 1 AS `PermitTypeActivityClassENUM`,
- 1 AS `PermitTypeTitle`,
- 1 AS `PermitTypeAllowedServiceCategories`,
- 1 AS `PermitTypeExtendable`,
- 1 AS `PermitTypeProfileDependant`,
- 1 AS `PermitIssuerEntityId`,
- 1 AS `PermitIssuerTitle`,
- 1 AS `PermitIssuerAddress_fsx`,
- 1 AS `PermitIssuerCity`,
- 1 AS `PermitIssuerProvince`,
- 1 AS `PermitIssuerCountry`,
- 1 AS `PermitIssuerPostalCode_fsx`,
- 1 AS `PermitIssuerPhone_fsx`,
- 1 AS `PermitIssuerFaxNumber_fsx`,
- 1 AS `PermitIssuerEmail_fsx`,
- 1 AS `PermitIssuerDiscriminator`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Temporary view structure for view `Vi_DPA_DistributorSummary`
 --
 
@@ -2941,72 +2859,8 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `PermitPermitIssuerId`,
  1 AS `PermitPermitTypeId`,
  1 AS `PermitCode`,
- 1 AS `PermitServiceCategory`,
  1 AS `PermitIssuedDate_UTC`,
  1 AS `VehicleType`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `Vi_DPA_DriverPermitsExtraDetail`
---
-
-DROP TABLE IF EXISTS `Vi_DPA_DriverPermitsExtraDetail`;
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_DriverPermitsExtraDetail`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_DPA_DriverPermitsExtraDetail` AS SELECT 
- 1 AS `DriverId`,
- 1 AS `DriverUserId`,
- 1 AS `DriverPersonCVOId`,
- 1 AS `DriverUserFirstname_fsx`,
- 1 AS `DriverUserLastname_fsx`,
- 1 AS `DriverUserUsername`,
- 1 AS `DriverUserEmail_fsx`,
- 1 AS `DriverUserEmail_hash`,
- 1 AS `DriverUserEmailConfirmed`,
- 1 AS `DriverUserCellPhone_fsx`,
- 1 AS `DriverUserCellPhone_hash`,
- 1 AS `DriverUserCellPhoneConfirmed`,
- 1 AS `DriverUserIssuedBy`,
- 1 AS `HUBId`,
- 1 AS `DistributorId`,
- 1 AS `CVOId`,
- 1 AS `VehicleId`,
- 1 AS `ActENUM`,
- 1 AS `PermitIssuerId`,
- 1 AS `PermitTypeId`,
- 1 AS `Code`,
- 1 AS `ServiceCategory`,
- 1 AS `IssuedDate_UTC`,
- 1 AS `EntityScenarioEntityId`,
- 1 AS `EntityScenarioScenarioId`,
- 1 AS `EntityScenarioTitle`,
- 1 AS `EntityScenarioAddress_fsx`,
- 1 AS `EntityScenarioCity`,
- 1 AS `EntityScenarioProvince`,
- 1 AS `EntityScenarioCountry`,
- 1 AS `EntityScenarioPostalCode_fsx`,
- 1 AS `EntityScenarioPhone_fsx`,
- 1 AS `EntityScenarioFaxNumber_fsx`,
- 1 AS `EntityScenarioEmail_fsx`,
- 1 AS `EntityScenarioDiscriminator`,
- 1 AS `PermitTypeActENUM`,
- 1 AS `PermitTypeActivityClassENUM`,
- 1 AS `PermitTypeTitle`,
- 1 AS `PermitTypeAllowedServiceCategories`,
- 1 AS `PermitTypeExtendable`,
- 1 AS `PermitTypeProfileDependant`,
- 1 AS `PermitIssuerEntityId`,
- 1 AS `PermitIssuerTitle`,
- 1 AS `PermitIssuerAddress_fsx`,
- 1 AS `PermitIssuerCity`,
- 1 AS `PermitIssuerProvince`,
- 1 AS `PermitIssuerCountry`,
- 1 AS `PermitIssuerPostalCode_fsx`,
- 1 AS `PermitIssuerPhone_fsx`,
- 1 AS `PermitIssuerFaxNumber_fsx`,
- 1 AS `PermitIssuerEmail_fsx`,
- 1 AS `PermitIssuerDiscriminator`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -3210,68 +3064,6 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `Vi_DPA_HUBPermitsExtraDetail`
---
-
-DROP TABLE IF EXISTS `Vi_DPA_HUBPermitsExtraDetail`;
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_HUBPermitsExtraDetail`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_DPA_HUBPermitsExtraDetail` AS SELECT 
- 1 AS `HUBId`,
- 1 AS `HUBEntityId`,
- 1 AS `HUBEntityTitle`,
- 1 AS `HUBEntityAddress_fsx`,
- 1 AS `HUBEntityCity`,
- 1 AS `HUBEntityProvince`,
- 1 AS `HUBEntityCountry`,
- 1 AS `HUBEntityPostalCode_fsx`,
- 1 AS `HUBEntityPhone_fsx`,
- 1 AS `HUBEntityFaxNumber_fsx`,
- 1 AS `HUBEntityEmail_fsx`,
- 1 AS `HUBEntityDiscriminator`,
- 1 AS `DistributorId`,
- 1 AS `CVOId`,
- 1 AS `VehicleId`,
- 1 AS `DriverId`,
- 1 AS `ActENUM`,
- 1 AS `PermitIssuerId`,
- 1 AS `PermitTypeId`,
- 1 AS `Code`,
- 1 AS `ServiceCategory`,
- 1 AS `IssuedDate_UTC`,
- 1 AS `EntityScenarioEntityId`,
- 1 AS `EntityScenarioScenarioId`,
- 1 AS `EntityScenarioTitle`,
- 1 AS `EntityScenarioAddress_fsx`,
- 1 AS `EntityScenarioCity`,
- 1 AS `EntityScenarioProvince`,
- 1 AS `EntityScenarioCountry`,
- 1 AS `EntityScenarioPostalCode_fsx`,
- 1 AS `EntityScenarioPhone_fsx`,
- 1 AS `EntityScenarioFaxNumber_fsx`,
- 1 AS `EntityScenarioEmail_fsx`,
- 1 AS `EntityScenarioDiscriminator`,
- 1 AS `PermitTypeActENUM`,
- 1 AS `PermitTypeActivityClassENUM`,
- 1 AS `PermitTypeTitle`,
- 1 AS `PermitTypeAllowedServiceCategories`,
- 1 AS `PermitTypeExtendable`,
- 1 AS `PermitTypeProfileDependant`,
- 1 AS `PermitIssuerEntityId`,
- 1 AS `PermitIssuerTitle`,
- 1 AS `PermitIssuerAddress_fsx`,
- 1 AS `PermitIssuerCity`,
- 1 AS `PermitIssuerProvince`,
- 1 AS `PermitIssuerCountry`,
- 1 AS `PermitIssuerPostalCode_fsx`,
- 1 AS `PermitIssuerPhone_fsx`,
- 1 AS `PermitIssuerFaxNumber_fsx`,
- 1 AS `PermitIssuerEmail_fsx`,
- 1 AS `PermitIssuerDiscriminator`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Temporary view structure for view `Vi_DPA_HUBSummary`
 --
 
@@ -3344,7 +3136,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `PermitIssuerId`,
  1 AS `PermitTypeId`,
  1 AS `Code`,
- 1 AS `ServiceCategory`,
  1 AS `IssuedDate_UTC`*/;
 SET character_set_client = @saved_cs_client;
 
@@ -3369,57 +3160,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `EntityFaxNumber_fsx`,
  1 AS `EntityEmail_fsx`,
  1 AS `EntityDiscriminator`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `Vi_DPA_PermitIssuerPermitsExtraDetail`
---
-
-DROP TABLE IF EXISTS `Vi_DPA_PermitIssuerPermitsExtraDetail`;
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_PermitIssuerPermitsExtraDetail`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_DPA_PermitIssuerPermitsExtraDetail` AS SELECT 
- 1 AS `PermitIssuerId`,
- 1 AS `PermitIssuerEntityId`,
- 1 AS `PermitIssuerEntityTitle`,
- 1 AS `PermitIssuerEntityAddress_fsx`,
- 1 AS `PermitIssuerEntityCity`,
- 1 AS `PermitIssuerEntityProvince`,
- 1 AS `PermitIssuerEntityCountry`,
- 1 AS `PermitIssuerEntityPostalCode_fsx`,
- 1 AS `PermitIssuerEntityPhone_fsx`,
- 1 AS `PermitIssuerEntityFaxNumber_fsx`,
- 1 AS `PermitIssuerEntityEmail_fsx`,
- 1 AS `PermitIssuerEntityDiscriminator`,
- 1 AS `HUBId`,
- 1 AS `DistributorId`,
- 1 AS `CVOId`,
- 1 AS `VehicleId`,
- 1 AS `DriverId`,
- 1 AS `ActENUM`,
- 1 AS `PermitTypeId`,
- 1 AS `Code`,
- 1 AS `ServiceCategory`,
- 1 AS `IssuedDate_UTC`,
- 1 AS `EntityScenarioEntityId`,
- 1 AS `EntityScenarioScenarioId`,
- 1 AS `EntityScenarioTitle`,
- 1 AS `EntityScenarioAddress_fsx`,
- 1 AS `EntityScenarioCity`,
- 1 AS `EntityScenarioProvince`,
- 1 AS `EntityScenarioCountry`,
- 1 AS `EntityScenarioPostalCode_fsx`,
- 1 AS `EntityScenarioPhone_fsx`,
- 1 AS `EntityScenarioFaxNumber_fsx`,
- 1 AS `EntityScenarioEmail_fsx`,
- 1 AS `EntityScenarioDiscriminator`,
- 1 AS `PermitTypeActENUM`,
- 1 AS `PermitTypeActivityClassENUM`,
- 1 AS `PermitTypeTitle`,
- 1 AS `PermitTypeAllowedServiceCategories`,
- 1 AS `PermitTypeExtendable`,
- 1 AS `PermitTypeProfileDependant`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -3466,7 +3206,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `PermitIssuerId`,
  1 AS `PermitTypeId`,
  1 AS `Code`,
- 1 AS `ServiceCategory`,
  1 AS `IssuedDate_UTC`,
  1 AS `DriverVehicleTypesCount`,
  1 AS `StatusesCount`*/;
@@ -3518,34 +3257,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `PermitIssuerFaxNumber_fsx`,
  1 AS `PermitIssuerEmail_fsx`,
  1 AS `PermitIssuerDiscriminator`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `Vi_DPA_PermitTypePermitsExtraDetail`
---
-
-DROP TABLE IF EXISTS `Vi_DPA_PermitTypePermitsExtraDetail`;
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_PermitTypePermitsExtraDetail`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_DPA_PermitTypePermitsExtraDetail` AS SELECT 
- 1 AS `PermitTypeId`,
- 1 AS `PermitTypeActENUM`,
- 1 AS `PermitTypeActivityClassENUM`,
- 1 AS `PermitTypeTitle`,
- 1 AS `PermitTypeAllowedServiceCategories`,
- 1 AS `PermitTypeExtendable`,
- 1 AS `PermitTypeProfileDependant`,
- 1 AS `HUBId`,
- 1 AS `DistributorId`,
- 1 AS `CVOId`,
- 1 AS `VehicleId`,
- 1 AS `DriverId`,
- 1 AS `ActENUM`,
- 1 AS `PermitIssuerId`,
- 1 AS `Code`,
- 1 AS `ServiceCategory`,
- 1 AS `IssuedDate_UTC`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -3771,71 +3482,6 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `Vi_DPA_VehiclePermitsExtraDetail`
---
-
-DROP TABLE IF EXISTS `Vi_DPA_VehiclePermitsExtraDetail`;
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_VehiclePermitsExtraDetail`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_DPA_VehiclePermitsExtraDetail` AS SELECT 
- 1 AS `VehicleProfileId`,
- 1 AS `VehicleProfilePlate`,
- 1 AS `VehicleProfileVIN`,
- 1 AS `VehicleProfileMake`,
- 1 AS `VehicleProfileModel`,
- 1 AS `VehicleProfileProvince`,
- 1 AS `VehicleProfileColor`,
- 1 AS `VehicleProfileYear`,
- 1 AS `VehicleProfileCargo_Height`,
- 1 AS `VehicleProfileCargo_Weight`,
- 1 AS `VehicleProfileCargo_Length`,
- 1 AS `VehicleProfileCargo_Width`,
- 1 AS `VehicleProfileCapacity_Passengers`,
- 1 AS `VehicleProfileCapacity_Luggage`,
- 1 AS `VehicleProfileVehicleType`,
- 1 AS `HUBId`,
- 1 AS `DistributorId`,
- 1 AS `CVOId`,
- 1 AS `DriverId`,
- 1 AS `ActENUM`,
- 1 AS `PermitIssuerId`,
- 1 AS `PermitTypeId`,
- 1 AS `Code`,
- 1 AS `ServiceCategory`,
- 1 AS `IssuedDate_UTC`,
- 1 AS `EntityScenarioEntityId`,
- 1 AS `EntityScenarioScenarioId`,
- 1 AS `EntityScenarioTitle`,
- 1 AS `EntityScenarioAddress_fsx`,
- 1 AS `EntityScenarioCity`,
- 1 AS `EntityScenarioProvince`,
- 1 AS `EntityScenarioCountry`,
- 1 AS `EntityScenarioPostalCode_fsx`,
- 1 AS `EntityScenarioPhone_fsx`,
- 1 AS `EntityScenarioFaxNumber_fsx`,
- 1 AS `EntityScenarioEmail_fsx`,
- 1 AS `EntityScenarioDiscriminator`,
- 1 AS `PermitTypeActENUM`,
- 1 AS `PermitTypeActivityClassENUM`,
- 1 AS `PermitTypeTitle`,
- 1 AS `PermitTypeAllowedServiceCategories`,
- 1 AS `PermitTypeExtendable`,
- 1 AS `PermitTypeProfileDependant`,
- 1 AS `PermitIssuerEntityId`,
- 1 AS `PermitIssuerTitle`,
- 1 AS `PermitIssuerAddress_fsx`,
- 1 AS `PermitIssuerCity`,
- 1 AS `PermitIssuerProvince`,
- 1 AS `PermitIssuerCountry`,
- 1 AS `PermitIssuerPostalCode_fsx`,
- 1 AS `PermitIssuerPhone_fsx`,
- 1 AS `PermitIssuerFaxNumber_fsx`,
- 1 AS `PermitIssuerEmail_fsx`,
- 1 AS `PermitIssuerDiscriminator`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Temporary view structure for view `Vi_DPA_VehicleProfile`
 --
 
@@ -3932,7 +3578,6 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `PermitIssuerId`,
  1 AS `PermitTypeId`,
  1 AS `Code`,
- 1 AS `ServiceCategory`,
  1 AS `IssuedDate_UTC`*/;
 SET character_set_client = @saved_cs_client;
 
@@ -4117,53 +3762,6 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `Vi_DPC_PermitRequestSuperDetail`
---
-
-DROP TABLE IF EXISTS `Vi_DPC_PermitRequestSuperDetail`;
-/*!50001 DROP VIEW IF EXISTS `Vi_DPC_PermitRequestSuperDetail`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_DPC_PermitRequestSuperDetail` AS SELECT 
- 1 AS `PermitId`,
- 1 AS `PermitCode`,
- 1 AS `IssuedDate_UTC`,
- 1 AS `ExpiryDate_UTC`,
- 1 AS `ConditionENUM`,
- 1 AS `ConditionEndDate_UTC`,
- 1 AS `MediaRecordKey`,
- 1 AS `PermitStatusId`,
- 1 AS `RequestStatusId`,
- 1 AS `RequestId`,
- 1 AS `RequesteeUserId`,
- 1 AS `RequesteeEntityId`,
- 1 AS `RequesteeActENUM`,
- 1 AS `RequestStatus`,
- 1 AS `RequestStatusReason`,
- 1 AS `RequesterUserId`,
- 1 AS `RequesterEntityId`,
- 1 AS `RequestType`,
- 1 AS `RequestExpiryTime`,
- 1 AS `HUBId`,
- 1 AS `DistributorId`,
- 1 AS `CVOId`,
- 1 AS `VehicleId`,
- 1 AS `DriverId`,
- 1 AS `PermitHolderActENUM`,
- 1 AS `PermitIssuerId`,
- 1 AS `PermitIssuerTitle`,
- 1 AS `PermitTypeId`,
- 1 AS `PermitTypeActENUM`,
- 1 AS `PermitTypeActivityClassENUM`,
- 1 AS `PermitTypeTitle`,
- 1 AS `PermiTypeAllowedServiceCategory`,
- 1 AS `IsPermitExtendable`,
- 1 AS `IsPermitProfileDependant`,
- 1 AS `PermitServiceCategory`,
- 1 AS `RecordDeleted`*/;
-SET character_set_client = @saved_cs_client;
-
---
 -- Temporary view structure for view `Vi_DPC_UserEntityRoleDetail`
 --
 
@@ -4196,6 +3794,91 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `Vi_SPC_CVODistributors`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_CVODistributors`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVODistributors`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_CVODistributors` AS SELECT 
+ 1 AS `LinkId`,
+ 1 AS `DistributorId`,
+ 1 AS `CVOId`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
+ 1 AS `EntityId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_CVODrivers`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_CVODrivers`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVODrivers`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_CVODrivers` AS SELECT 
+ 1 AS `LinkId`,
+ 1 AS `CVOId`,
+ 1 AS `DriverId`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
+ 1 AS `UserId`,
+ 1 AS `PersonCVOId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `Firstname_fsx`,
+ 1 AS `Lastname_fsx`,
+ 1 AS `Username`,
+ 1 AS `Email_fsx`,
+ 1 AS `CellPhone_fsx`,
+ 1 AS `PersonCVOTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_CVOListSummary`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_CVOListSummary`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVOListSummary`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_CVOListSummary` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `EntityId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`,
+ 1 AS `DriversCount`,
+ 1 AS `ServicesCount`,
+ 1 AS `VehiclesCount`,
+ 1 AS `DistributorsCount`,
+ 1 AS `PermitsCount`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `Vi_SPC_CVOPermits`
 --
 
@@ -4205,39 +3888,197 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_CVOPermits` AS SELECT 
  1 AS `Id`,
- 1 AS `CVOId`,
+ 1 AS `HUBId`,
  1 AS `DistributorId`,
+ 1 AS `CVOId`,
  1 AS `VehicleId`,
  1 AS `DriverId`,
- 1 AS `PermitTypeId`,
+ 1 AS `ActENUM`,
  1 AS `PermitIssuerId`,
- 1 AS `PermitCode`,
- 1 AS `ServiceCategory`,
- 1 AS `PermitIssuedDate`,
- 1 AS `PermitStatusId`,
- 1 AS `ExpiryDate_UTC`,
- 1 AS `PermitConditionENUM`,
- 1 AS `PermitConditionEndDate`,
- 1 AS `StatusCategory`,
- 1 AS `ConditionTitle`,
- 1 AS `DaysUntilExpiry`,
- 1 AS `IsExpiringSoon`,
- 1 AS `PermitTypeTitle`,
- 1 AS `ActivityClassENUM`,
- 1 AS `AllowedServiceCategories`,
- 1 AS `Extendable`,
- 1 AS `ProfileDependant`,
- 1 AS `IssuerEntityId`,
- 1 AS `IssuerTitle`,
- 1 AS `CVOTitle`,
- 1 AS `DistributorTitle`,
- 1 AS `VehiclePlate`,
- 1 AS `DriverFullName`,
- 1 AS `DriverLicense`,
+ 1 AS `PermitTypeId`,
+ 1 AS `Code`,
+ 1 AS `IssuedDate_UTC`,
  1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `HUBTitle`,
+ 1 AS `CVOTitle`,
+ 1 AS `DistributorTitle`,
+ 1 AS `PermitTypeTitle`,
+ 1 AS `PermitIssuerTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_CVOProfile`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_CVOProfile`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVOProfile`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_CVOProfile` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `EntityId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_CVOServices`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_CVOServices`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVOServices`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_CVOServices` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `CVOId`,
+ 1 AS `ServiceId`,
+ 1 AS `ServiceCategory`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `CVOTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_CVOVehicles`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_CVOVehicles`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVOVehicles`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_CVOVehicles` AS SELECT 
+ 1 AS `LinkId`,
+ 1 AS `CVOId`,
+ 1 AS `VehicleId`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
+ 1 AS `Plate`,
+ 1 AS `VIN`,
+ 1 AS `Make`,
+ 1 AS `Model`,
+ 1 AS `Province`,
+ 1 AS `Color`,
+ 1 AS `Year`,
+ 1 AS `TransportCategory`,
+ 1 AS `Cargo_Height`,
+ 1 AS `Cargo_Weight`,
+ 1 AS `Cargo_Length`,
+ 1 AS `Cargo_Width`,
+ 1 AS `Capacity_Passengers`,
+ 1 AS `Capacity_Luggage`,
+ 1 AS `VehicleType`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
  1 AS `RecordDeleted`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_DistributorCVOs`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_DistributorCVOs`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_DistributorCVOs`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_DistributorCVOs` AS SELECT 
+ 1 AS `LinkId`,
+ 1 AS `DistributorId`,
+ 1 AS `CVOId`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
+ 1 AS `EntityId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_DistributorDrivers`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_DistributorDrivers`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_DistributorDrivers`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_DistributorDrivers` AS SELECT 
+ 1 AS `LinkId`,
+ 1 AS `DistributorId`,
+ 1 AS `DriverId`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
+ 1 AS `UserId`,
+ 1 AS `PersonCVOId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `Firstname_fsx`,
+ 1 AS `Lastname_fsx`,
+ 1 AS `Username`,
+ 1 AS `Email_fsx`,
+ 1 AS `CellPhone_fsx`,
+ 1 AS `PersonCVOTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_DistributorHUBs`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_DistributorHUBs`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_DistributorHUBs`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_DistributorHUBs` AS SELECT 
+ 1 AS `LinkId`,
+ 1 AS `DistributorId`,
+ 1 AS `HUBId`,
+ 1 AS `ParticipationCategory`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
+ 1 AS `EntityId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4251,22 +4092,17 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50001 CREATE VIEW `Vi_SPC_DistributorListSummary` AS SELECT 
  1 AS `Id`,
  1 AS `EntityId`,
- 1 AS `EntityTitle`,
- 1 AS `City`,
- 1 AS `Province`,
- 1 AS `Phone_fsx`,
- 1 AS `Email_fsx`,
- 1 AS `CVOCount`,
- 1 AS `DriverCount`,
- 1 AS `HUBCount`,
- 1 AS `TotalPermitCount`,
- 1 AS `ExpiredPermitCount`,
- 1 AS `ValidPermitCount`,
- 1 AS `SuspendedPermitCount`,
- 1 AS `RevokedPermitCount`,
  1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
- 1 AS `ModifiedAt_UTC`*/;
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`,
+ 1 AS `CVOsCount`,
+ 1 AS `DriversCount`,
+ 1 AS `HUBsCount`,
+ 1 AS `PermitsCount`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4279,39 +4115,47 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_DistributorPermits` AS SELECT 
  1 AS `Id`,
+ 1 AS `HUBId`,
  1 AS `DistributorId`,
  1 AS `CVOId`,
  1 AS `VehicleId`,
  1 AS `DriverId`,
- 1 AS `PermitTypeId`,
+ 1 AS `ActENUM`,
  1 AS `PermitIssuerId`,
- 1 AS `PermitCode`,
- 1 AS `ServiceCategory`,
- 1 AS `PermitIssuedDate`,
- 1 AS `PermitStatusId`,
- 1 AS `ExpiryDate_UTC`,
- 1 AS `PermitConditionENUM`,
- 1 AS `PermitConditionEndDate`,
- 1 AS `StatusCategory`,
- 1 AS `ConditionTitle`,
- 1 AS `DaysUntilExpiry`,
- 1 AS `IsExpiringSoon`,
- 1 AS `PermitTypeTitle`,
- 1 AS `ActivityClassENUM`,
- 1 AS `AllowedServiceCategories`,
- 1 AS `Extendable`,
- 1 AS `ProfileDependant`,
- 1 AS `IssuerEntityId`,
- 1 AS `IssuerTitle`,
- 1 AS `DistributorTitle`,
- 1 AS `CVOTitle`,
- 1 AS `VehiclePlate`,
- 1 AS `DriverFullName`,
- 1 AS `DriverLicense`,
+ 1 AS `PermitTypeId`,
+ 1 AS `Code`,
+ 1 AS `IssuedDate_UTC`,
  1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `HUBTitle`,
+ 1 AS `CVOTitle`,
+ 1 AS `DistributorTitle`,
+ 1 AS `PermitTypeTitle`,
+ 1 AS `PermitIssuerTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_DistributorProfile`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_DistributorProfile`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_DistributorProfile`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_DistributorProfile` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `EntityId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4323,50 +4167,22 @@ DROP TABLE IF EXISTS `Vi_SPC_DriverCVOs`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_DriverCVOs` AS SELECT 
- 1 AS `AssignmentId`,
- 1 AS `DriverId`,
+ 1 AS `LinkId`,
  1 AS `CVOId`,
- 1 AS `AssignmentStartDate`,
- 1 AS `AssignmentEndDate`,
- 1 AS `HasRule`,
- 1 AS `AssignmentRecordKey`,
- 1 AS `AssignmentStatus`,
- 1 AS `IsPrimaryCVO`,
- 1 AS `CVOEntityId`,
- 1 AS `CVOTitle`,
- 1 AS `CVOCity`,
- 1 AS `CVOProvince`,
- 1 AS `CVOPhone`,
- 1 AS `CVOEmail`,
- 1 AS `DriverFullName`,
- 1 AS `CreatedAt_UTC`,
- 1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `Vi_SPC_DriverDLVC`
---
-
-DROP TABLE IF EXISTS `Vi_SPC_DriverDLVC`;
-/*!50001 DROP VIEW IF EXISTS `Vi_SPC_DriverDLVC`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_SPC_DriverDLVC` AS SELECT 
- 1 AS `Id`,
  1 AS `DriverId`,
- 1 AS `VehicleTypeENUM`,
- 1 AS `VehicleTypeTitle`,
- 1 AS `PermitId`,
- 1 AS `PermitCode`,
- 1 AS `PermitTypeTitle`,
- 1 AS `PermitExpiryDate`,
- 1 AS `PermitConditionENUM`,
- 1 AS `PermitStatus`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
+ 1 AS `EntityId`,
  1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4378,23 +4194,22 @@ DROP TABLE IF EXISTS `Vi_SPC_DriverDistributors`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_DriverDistributors` AS SELECT 
- 1 AS `AssignmentId`,
- 1 AS `DriverId`,
+ 1 AS `LinkId`,
  1 AS `DistributorId`,
- 1 AS `AssignmentStartDate`,
- 1 AS `AssignmentEndDate`,
- 1 AS `AssignmentRecordKey`,
- 1 AS `AssignmentStatus`,
- 1 AS `DistributorEntityId`,
- 1 AS `DistributorTitle`,
- 1 AS `DistributorCity`,
- 1 AS `DistributorProvince`,
- 1 AS `DistributorPhone`,
- 1 AS `DistributorEmail`,
- 1 AS `PermitCount`,
+ 1 AS `DriverId`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
+ 1 AS `EntityId`,
+ 1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4415,31 +4230,24 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `ModifiedAt_UTC`,
  1 AS `ModifiedBy`,
  1 AS `RecordDeleted`,
- 1 AS `FullName`,
- 1 AS `Firstname`,
- 1 AS `Lastname`,
+ 1 AS `Firstname_fsx`,
+ 1 AS `Lastname_fsx`,
  1 AS `Username`,
- 1 AS `Email`,
- 1 AS `CellPhone`,
+ 1 AS `Email_fsx`,
+ 1 AS `CellPhone_fsx`,
+ 1 AS `PersonCVOTitle`,
+ 1 AS `CVOsCount`,
+ 1 AS `DistributorsCount`,
+ 1 AS `PermitsCount`,
+ 1 AS `VehiclesCount`,
  1 AS `DriverLicense`,
  1 AS `DriverLicenseExpiry`,
  1 AS `DriverLicenseStatus`,
- 1 AS `DriverLicenseConditionENUM`,
- 1 AS `UserFullName`,
- 1 AS `UserEmail`,
- 1 AS `UserUsername`,
- 1 AS `PrimaryCVOTitle`,
- 1 AS `PrimaryCVOCity`,
- 1 AS `TotalPermitCount`,
  1 AS `ValidPermitCount`,
  1 AS `ExpiredPermitCount`,
  1 AS `SuspendedPermitCount`,
  1 AS `RevokedPermitCount`,
  1 AS `NextValidPermitExpiry`,
- 1 AS `VehicleCount`,
- 1 AS `DistributorCount`,
- 1 AS `CVOCount`,
- 1 AS `LicensedVehicleTypeCount`,
  1 AS `LicensedVehicleTypeBadges`*/;
 SET character_set_client = @saved_cs_client;
 
@@ -4453,44 +4261,27 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_DriverPermits` AS SELECT 
  1 AS `Id`,
- 1 AS `DriverId`,
- 1 AS `PermitCode`,
- 1 AS `ServiceCategory`,
- 1 AS `PermitIssuedDate`,
- 1 AS `PermitStatusId`,
- 1 AS `ExpiryDate_UTC`,
- 1 AS `PermitConditionENUM`,
- 1 AS `PermitConditionEndDate`,
- 1 AS `StatusCategory`,
- 1 AS `ConditionTitle`,
- 1 AS `DaysUntilExpiry`,
- 1 AS `IsExpiringSoon`,
- 1 AS `PermitTypeId`,
- 1 AS `PermitTypeTitle`,
- 1 AS `ActivityClassENUM`,
- 1 AS `AllowedServiceCategories`,
- 1 AS `Extendable`,
- 1 AS `ProfileDependant`,
- 1 AS `PermitIssuerId`,
- 1 AS `IssuerEntityId`,
- 1 AS `IssuerTitle`,
- 1 AS `VehicleId`,
- 1 AS `VehiclePlate`,
- 1 AS `VehicleMake`,
- 1 AS `VehicleModel`,
- 1 AS `CVOId`,
- 1 AS `CVOEntityId`,
- 1 AS `CVOTitle`,
- 1 AS `DistributorId`,
- 1 AS `DistributorEntityId`,
- 1 AS `DistributorTitle`,
  1 AS `HUBId`,
- 1 AS `HUBEntityId`,
- 1 AS `HUBTitle`,
+ 1 AS `DistributorId`,
+ 1 AS `CVOId`,
+ 1 AS `VehicleId`,
+ 1 AS `DriverId`,
+ 1 AS `ActENUM`,
+ 1 AS `PermitIssuerId`,
+ 1 AS `PermitTypeId`,
+ 1 AS `Code`,
+ 1 AS `IssuedDate_UTC`,
  1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `HUBTitle`,
+ 1 AS `CVOTitle`,
+ 1 AS `DistributorTitle`,
+ 1 AS `PermitTypeTitle`,
+ 1 AS `PermitIssuerTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4511,33 +4302,12 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `ModifiedAt_UTC`,
  1 AS `ModifiedBy`,
  1 AS `RecordDeleted`,
- 1 AS `FullName`,
- 1 AS `DriverLicense`,
- 1 AS `DriverLicenseStatus`,
- 1 AS `DriverLicenseExpiry`,
- 1 AS `DriverLicenseConditionENUM`,
- 1 AS `UserFirstname`,
- 1 AS `UserLastname`,
- 1 AS `UserUsername`,
- 1 AS `UserEmail`,
- 1 AS `UserCellPhone`,
- 1 AS `UserEmailConfirmed`,
- 1 AS `UserCellPhoneConfirmed`,
- 1 AS `PrimaryCVOEntityId`,
- 1 AS `PrimaryCVOTitle`,
- 1 AS `PrimaryCVOCity`,
- 1 AS `PrimaryCVOProvince`,
- 1 AS `PrimaryCVOPhone`,
- 1 AS `PrimaryCVOEmail`,
- 1 AS `TotalPermitCount`,
- 1 AS `ValidPermitCount`,
- 1 AS `ExpiredPermitCount`,
- 1 AS `SuspendedPermitCount`,
- 1 AS `RevokedPermitCount`,
- 1 AS `VehicleCount`,
- 1 AS `DistributorCount`,
- 1 AS `CVOCount`,
- 1 AS `LicensedVehicleTypeCount`*/;
+ 1 AS `Firstname_fsx`,
+ 1 AS `Lastname_fsx`,
+ 1 AS `Username`,
+ 1 AS `Email_fsx`,
+ 1 AS `CellPhone_fsx`,
+ 1 AS `PersonCVOTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4549,27 +4319,105 @@ DROP TABLE IF EXISTS `Vi_SPC_DriverVehicles`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_DriverVehicles` AS SELECT 
- 1 AS `AssignmentId`,
- 1 AS `DriverId`,
+ 1 AS `LinkId`,
  1 AS `VehicleId`,
- 1 AS `AssignmentStartDate`,
- 1 AS `AssignmentEndDate`,
- 1 AS `AssignmentRecordKey`,
- 1 AS `AssignmentStatus`,
- 1 AS `DaysUntilExpiry`,
- 1 AS `VehiclePlate`,
- 1 AS `VehicleVIN`,
- 1 AS `VehicleMake`,
- 1 AS `VehicleModel`,
- 1 AS `VehicleYear`,
- 1 AS `VehicleType`,
+ 1 AS `DriverId`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
+ 1 AS `Plate`,
+ 1 AS `VIN`,
+ 1 AS `Make`,
+ 1 AS `Model`,
+ 1 AS `Province`,
  1 AS `Color`,
- 1 AS `VehicleCVOId`,
- 1 AS `VehicleCVOTitle`,
- 1 AS `VehiclePermitCount`,
+ 1 AS `Year`,
+ 1 AS `TransportCategory`,
+ 1 AS `Cargo_Height`,
+ 1 AS `Cargo_Weight`,
+ 1 AS `Cargo_Length`,
+ 1 AS `Cargo_Width`,
+ 1 AS `Capacity_Passengers`,
+ 1 AS `Capacity_Luggage`,
+ 1 AS `VehicleType`,
+ 1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
  1 AS `RecordDeleted`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_EntityConfigListSummary`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_EntityConfigListSummary`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_EntityConfigListSummary`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_EntityConfigListSummary` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `PermitIssuerId`,
+ 1 AS `HUBId`,
+ 1 AS `DistributorId`,
+ 1 AS `CVOId`,
+ 1 AS `VehicleId`,
+ 1 AS `DriverId`,
+ 1 AS `ActENUM`,
+ 1 AS `ScenarioId`,
+ 1 AS `ConfigBaseId`,
+ 1 AS `Value`,
+ 1 AS `IsOverridable`,
+ 1 AS `Signature`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `PermitIssuerTitle`,
+ 1 AS `ConfigBaseCode`,
+ 1 AS `DistributorTitle`,
+ 1 AS `ScenarioTitle`,
+ 1 AS `CVOTitle`,
+ 1 AS `HUBTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_EntityConfigProfile`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_EntityConfigProfile`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_EntityConfigProfile`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_EntityConfigProfile` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `PermitIssuerId`,
+ 1 AS `HUBId`,
+ 1 AS `DistributorId`,
+ 1 AS `CVOId`,
+ 1 AS `VehicleId`,
+ 1 AS `DriverId`,
+ 1 AS `ActENUM`,
+ 1 AS `ScenarioId`,
+ 1 AS `ConfigBaseId`,
+ 1 AS `Value`,
+ 1 AS `IsOverridable`,
+ 1 AS `Signature`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `PermitIssuerTitle`,
+ 1 AS `ConfigBaseCode`,
+ 1 AS `DistributorTitle`,
+ 1 AS `ScenarioTitle`,
+ 1 AS `CVOTitle`,
+ 1 AS `HUBTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4581,26 +4429,23 @@ DROP TABLE IF EXISTS `Vi_SPC_HUBDistributors`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_HUBDistributors` AS SELECT 
- 1 AS `AssignmentId`,
- 1 AS `HUBId`,
+ 1 AS `LinkId`,
  1 AS `DistributorId`,
+ 1 AS `HUBId`,
  1 AS `ParticipationCategory`,
  1 AS `HasRule`,
- 1 AS `AssignmentStartDate`,
- 1 AS `AssignmentEndDate`,
- 1 AS `AssignmentStatus`,
- 1 AS `DistributorEntityId`,
- 1 AS `DistributorTitle`,
- 1 AS `DistributorCity`,
- 1 AS `DistributorProvince`,
- 1 AS `DistributorPhone`,
- 1 AS `DistributorEmail`,
- 1 AS `DistributorCVOCount`,
- 1 AS `DistributorPermitCount`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
+ 1 AS `EntityId`,
  1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4614,27 +4459,15 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50001 CREATE VIEW `Vi_SPC_HUBListSummary` AS SELECT 
  1 AS `Id`,
  1 AS `EntityId`,
- 1 AS `PartyCode`,
- 1 AS `EntityTitle`,
- 1 AS `Address_fsx`,
- 1 AS `City`,
- 1 AS `Province`,
- 1 AS `Country`,
- 1 AS `PostalCode_fsx`,
- 1 AS `Phone_fsx`,
- 1 AS `FaxNumber_fsx`,
- 1 AS `Email_fsx`,
- 1 AS `DistributorCount`,
- 1 AS `TotalPermitCount`,
- 1 AS `ExpiredPermitCount`,
- 1 AS `ValidPermitCount`,
- 1 AS `SuspendedPermitCount`,
- 1 AS `RevokedPermitCount`,
- 1 AS `CVOLinkCount`,
  1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`,
+ 1 AS `DistributorsCount`,
+ 1 AS `PermitsCount`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4652,37 +4485,22 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `CVOId`,
  1 AS `VehicleId`,
  1 AS `DriverId`,
- 1 AS `PermitTypeId`,
- 1 AS `PermitIssuerId`,
- 1 AS `PermitCode`,
- 1 AS `ServiceCategory`,
- 1 AS `PermitIssuedDate`,
- 1 AS `PermitStatusId`,
- 1 AS `ExpiryDate_UTC`,
- 1 AS `PermitConditionENUM`,
- 1 AS `PermitConditionEndDate`,
- 1 AS `StatusCategory`,
- 1 AS `ConditionTitle`,
- 1 AS `DaysUntilExpiry`,
- 1 AS `IsExpiringSoon`,
- 1 AS `PermitTypeTitle`,
- 1 AS `ActivityClassENUM`,
- 1 AS `AllowedServiceCategories`,
- 1 AS `Extendable`,
- 1 AS `ProfileDependant`,
- 1 AS `IssuerEntityId`,
- 1 AS `IssuerTitle`,
  1 AS `ActENUM`,
- 1 AS `ScenarioId`,
- 1 AS `ScenarioDescription`,
- 1 AS `HUBName`,
- 1 AS `VehiclePlate`,
- 1 AS `DriverFullName`,
- 1 AS `DriverLicense`,
+ 1 AS `PermitIssuerId`,
+ 1 AS `PermitTypeId`,
+ 1 AS `Code`,
+ 1 AS `IssuedDate_UTC`,
  1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `HUBTitle`,
+ 1 AS `CVOTitle`,
+ 1 AS `DistributorTitle`,
+ 1 AS `PermitTypeTitle`,
+ 1 AS `PermitIssuerTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4702,23 +4520,104 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `ModifiedAt_UTC`,
  1 AS `ModifiedBy`,
  1 AS `RecordDeleted`,
- 1 AS `PartyCode`,
+ 1 AS `EntityTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_PermitIssuerListSummary`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_PermitIssuerListSummary`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_PermitIssuerListSummary`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_PermitIssuerListSummary` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `EntityId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
  1 AS `EntityTitle`,
- 1 AS `Address_fsx`,
- 1 AS `City`,
- 1 AS `Province`,
- 1 AS `Country`,
- 1 AS `PostalCode_fsx`,
- 1 AS `Phone_fsx`,
- 1 AS `FaxNumber_fsx`,
- 1 AS `Email_fsx`,
- 1 AS `Discriminator`,
- 1 AS `DistributorCount`,
- 1 AS `PermitCount`,
- 1 AS `ValidPermitCount`,
- 1 AS `ExpiredPermitCount`,
- 1 AS `SuspendedPermitCount`,
- 1 AS `RevokedPermitCount`*/;
+ 1 AS `PermitTypeIssuersCount`,
+ 1 AS `PermitsCount`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_PermitIssuerPermitTypeIssuers`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_PermitIssuerPermitTypeIssuers`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_PermitIssuerPermitTypeIssuers`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_PermitIssuerPermitTypeIssuers` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `PermitIssuerId`,
+ 1 AS `PermitTypeId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `PermitIssuerTitle`,
+ 1 AS `PermitTypeTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_PermitIssuerPermits`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_PermitIssuerPermits`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_PermitIssuerPermits`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_PermitIssuerPermits` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `HUBId`,
+ 1 AS `DistributorId`,
+ 1 AS `CVOId`,
+ 1 AS `VehicleId`,
+ 1 AS `DriverId`,
+ 1 AS `ActENUM`,
+ 1 AS `PermitIssuerId`,
+ 1 AS `PermitTypeId`,
+ 1 AS `Code`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `HUBTitle`,
+ 1 AS `CVOTitle`,
+ 1 AS `DistributorTitle`,
+ 1 AS `PermitTypeTitle`,
+ 1 AS `PermitIssuerTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_PermitIssuerProfile`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_PermitIssuerProfile`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_PermitIssuerProfile`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_PermitIssuerProfile` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `EntityId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4749,6 +4648,140 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `Vi_SPC_RequestsApprovalListSummary`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_RequestsApprovalListSummary`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_RequestsApprovalListSummary`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_RequestsApprovalListSummary` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `RequestId`,
+ 1 AS `RequesteeUserId`,
+ 1 AS `RequesteeEntityId`,
+ 1 AS `RequesteeActENUM`,
+ 1 AS `Status`,
+ 1 AS `StatusReason`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `RequesteeEntityTitle`,
+ 1 AS `Firstname_fsx`,
+ 1 AS `Lastname_fsx`,
+ 1 AS `Username`,
+ 1 AS `Email_fsx`,
+ 1 AS `CellPhone_fsx`,
+ 1 AS `RequestTitle`,
+ 1 AS `PermitStatusVerificationsCount`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_RequestsApprovalPermitStatusVerifications`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_RequestsApprovalPermitStatusVerifications`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_RequestsApprovalPermitStatusVerifications`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_RequestsApprovalPermitStatusVerifications` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `PermitStatusId`,
+ 1 AS `RequestStatusId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `RequestStatusTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_RequestsApprovalProfile`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_RequestsApprovalProfile`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_RequestsApprovalProfile`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_RequestsApprovalProfile` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `RequestId`,
+ 1 AS `RequesteeUserId`,
+ 1 AS `RequesteeEntityId`,
+ 1 AS `RequesteeActENUM`,
+ 1 AS `Status`,
+ 1 AS `StatusReason`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `RequesteeEntityTitle`,
+ 1 AS `Firstname_fsx`,
+ 1 AS `Lastname_fsx`,
+ 1 AS `Username`,
+ 1 AS `Email_fsx`,
+ 1 AS `CellPhone_fsx`,
+ 1 AS `RequestTitle`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_UserEntityRoles`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_UserEntityRoles`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_UserEntityRoles`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_UserEntityRoles` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `UserId`,
+ 1 AS `EntityRoleId`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityRoleTitle`,
+ 1 AS `Firstname_fsx`,
+ 1 AS `Lastname_fsx`,
+ 1 AS `Username`,
+ 1 AS `Email_fsx`,
+ 1 AS `CellPhone_fsx`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_UserListSummary`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_UserListSummary`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_UserListSummary`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_UserListSummary` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `Firstname_fsx`,
+ 1 AS `Lastname_fsx`,
+ 1 AS `Username`,
+ 1 AS `Email_fsx`,
+ 1 AS `EmailConfirmed`,
+ 1 AS `CellPhone_fsx`,
+ 1 AS `CellPhoneConfirmed`,
+ 1 AS `IssuedBy`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityRolesCount`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `Vi_SPC_VehicleCVOs`
 --
 
@@ -4757,24 +4790,22 @@ DROP TABLE IF EXISTS `Vi_SPC_VehicleCVOs`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_VehicleCVOs` AS SELECT 
- 1 AS `AssignmentId`,
- 1 AS `VehicleId`,
+ 1 AS `LinkId`,
  1 AS `CVOId`,
- 1 AS `AssignmentStartDate`,
- 1 AS `AssignmentEndDate`,
- 1 AS `AssignmentRecordKey`,
- 1 AS `AssignmentStatus`,
+ 1 AS `VehicleId`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
  1 AS `EntityId`,
- 1 AS `CVOTitle`,
- 1 AS `CVOPartyCode`,
- 1 AS `CVOCity`,
- 1 AS `CVOProvince`,
- 1 AS `CVOCountry`,
- 1 AS `CVOPhone`,
- 1 AS `CVOEmail`,
+ 1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `EntityTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4786,29 +4817,28 @@ DROP TABLE IF EXISTS `Vi_SPC_VehicleDrivers`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_VehicleDrivers` AS SELECT 
- 1 AS `AssignmentId`,
+ 1 AS `LinkId`,
  1 AS `VehicleId`,
  1 AS `DriverId`,
- 1 AS `AssignmentStartDate`,
- 1 AS `AssignmentEndDate`,
- 1 AS `AssignmentRecordKey`,
- 1 AS `AssignmentStatus`,
- 1 AS `Firstname`,
- 1 AS `Lastname`,
- 1 AS `FullName`,
- 1 AS `Username`,
- 1 AS `Email`,
- 1 AS `CellPhone`,
- 1 AS `DriverLicense`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `LinkRecordKey`,
+ 1 AS `Id`,
  1 AS `UserId`,
- 1 AS `UserFullName`,
- 1 AS `UserEmail`,
- 1 AS `DriverCVOId`,
- 1 AS `DriverCVOTitle`,
- 1 AS `DriverCVOCity`,
+ 1 AS `PersonCVOId`,
+ 1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `Firstname_fsx`,
+ 1 AS `Lastname_fsx`,
+ 1 AS `Username`,
+ 1 AS `Email_fsx`,
+ 1 AS `CellPhone_fsx`,
+ 1 AS `PersonCVOTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4820,19 +4850,19 @@ DROP TABLE IF EXISTS `Vi_SPC_VehicleFeatures`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_VehicleFeatures` AS SELECT 
- 1 AS `AssignmentId`,
- 1 AS `VehicleId`,
+ 1 AS `Id`,
  1 AS `FeatureId`,
- 1 AS `FeatureTitle`,
- 1 AS `FeatureRecordKey`,
- 1 AS `AssignmentStartDate`,
- 1 AS `AssignmentEndDate`,
- 1 AS `AssignmentStatus`,
- 1 AS `AssignmentRecordKey`,
- 1 AS `FeatureUsageCount`,
+ 1 AS `VehicleId`,
+ 1 AS `HasRule`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `RecordKey`,
  1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
  1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `FeatureTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4844,82 +4874,6 @@ DROP TABLE IF EXISTS `Vi_SPC_VehicleListSummary`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `Vi_SPC_VehicleListSummary` AS SELECT 
- 1 AS `Id`,
- 1 AS `Plate`,
- 1 AS `VIN`,
- 1 AS `Make`,
- 1 AS `Model`,
- 1 AS `Year`,
- 1 AS `VehicleType`,
- 1 AS `Color`,
- 1 AS `Province`,
- 1 AS `Cargo_Height`,
- 1 AS `Cargo_Weight`,
- 1 AS `Cargo_Length`,
- 1 AS `Cargo_Width`,
- 1 AS `Capacity_Passengers`,
- 1 AS `Capacity_Luggage`,
- 1 AS `CVOId`,
- 1 AS `CVOTitle`,
- 1 AS `CVOCity`,
- 1 AS `CVOProvince`,
- 1 AS `DriverCount`,
- 1 AS `ExpiredPermitCount`,
- 1 AS `ValidPermitCount`,
- 1 AS `TotalPermitCount`,
- 1 AS `FeatureBadgesTop3`,
- 1 AS `FeatureCount`,
- 1 AS `InspectionStatus`,
- 1 AS `RecordKey`,
- 1 AS `CreatedAt_UTC`,
- 1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `Vi_SPC_VehiclePermits`
---
-
-DROP TABLE IF EXISTS `Vi_SPC_VehiclePermits`;
-/*!50001 DROP VIEW IF EXISTS `Vi_SPC_VehiclePermits`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_SPC_VehiclePermits` AS SELECT 
- 1 AS `Id`,
- 1 AS `VehicleId`,
- 1 AS `PermitTypeId`,
- 1 AS `PermitTypeTitle`,
- 1 AS `ActivityClassENUM`,
- 1 AS `AllowedServiceCategories`,
- 1 AS `Extendable`,
- 1 AS `ProfileDependant`,
- 1 AS `PermitIssuerId`,
- 1 AS `PermitIssuerEntityId`,
- 1 AS `PermitIssuerTitle`,
- 1 AS `PermitStatusId`,
- 1 AS `ExpiryDate_UTC`,
- 1 AS `PermitConditionENUM`,
- 1 AS `PermitConditionEndDate`,
- 1 AS `StatusCategory`,
- 1 AS `ConditionTitle`,
- 1 AS `DaysUntilExpiry`,
- 1 AS `IsExpiringSoon`,
- 1 AS `PermitCode`,
- 1 AS `RecordKey`,
- 1 AS `CreatedAt_UTC`,
- 1 AS `ModifiedAt_UTC`,
- 1 AS `RecordDeleted`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `Vi_SPC_VehicleProfile`
---
-
-DROP TABLE IF EXISTS `Vi_SPC_VehicleProfile`;
-/*!50001 DROP VIEW IF EXISTS `Vi_SPC_VehicleProfile`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `Vi_SPC_VehicleProfile` AS SELECT 
  1 AS `Id`,
  1 AS `Plate`,
  1 AS `VIN`,
@@ -4942,17 +4896,43 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `ModifiedAt_UTC`,
  1 AS `ModifiedBy`,
  1 AS `RecordDeleted`,
- 1 AS `PrimaryCVOId`,
- 1 AS `PrimaryCVOTitle`,
- 1 AS `PrimaryCVORecordKey`,
- 1 AS `CVOEntityId`,
- 1 AS `CVOEntityTitle`,
- 1 AS `ExpiredPermitCount`,
- 1 AS `ValidPermitCount`,
- 1 AS `TotalPermitCount`,
- 1 AS `NextPermitExpiry`,
- 1 AS `DriverCount`,
- 1 AS `FeatureCount`*/;
+ 1 AS `CVOsCount`,
+ 1 AS `PermitsCount`,
+ 1 AS `DriversCount`,
+ 1 AS `FeaturesCount`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SPC_VehiclePermits`
+--
+
+DROP TABLE IF EXISTS `Vi_SPC_VehiclePermits`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_VehiclePermits`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SPC_VehiclePermits` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `HUBId`,
+ 1 AS `DistributorId`,
+ 1 AS `CVOId`,
+ 1 AS `VehicleId`,
+ 1 AS `DriverId`,
+ 1 AS `ActENUM`,
+ 1 AS `PermitIssuerId`,
+ 1 AS `PermitTypeId`,
+ 1 AS `Code`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`,
+ 1 AS `HUBTitle`,
+ 1 AS `CVOTitle`,
+ 1 AS `DistributorTitle`,
+ 1 AS `PermitTypeTitle`,
+ 1 AS `PermitIssuerTitle`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -4986,6 +4966,101 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `PasswordTemp`,
  1 AS `PasswordTempExpires`,
  1 AS `PasswordTempFor`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SYNC_ApprovedDrivers`
+--
+
+DROP TABLE IF EXISTS `Vi_SYNC_ApprovedDrivers`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SYNC_ApprovedDrivers`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SYNC_ApprovedDrivers` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `UserId`,
+ 1 AS `PersonCVOId`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SYNC_ApprovedPermitStatusVerifications`
+--
+
+DROP TABLE IF EXISTS `Vi_SYNC_ApprovedPermitStatusVerifications`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SYNC_ApprovedPermitStatusVerifications`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SYNC_ApprovedPermitStatusVerifications` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `PermitStatusId`,
+ 1 AS `ApproverUserId`,
+ 1 AS `ApproverEntityId`,
+ 1 AS `ApproverActENUM`,
+ 1 AS `ApprovalStatus`,
+ 1 AS `ApprovalStatusReason`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SYNC_ApprovedPermitStatuses`
+--
+
+DROP TABLE IF EXISTS `Vi_SYNC_ApprovedPermitStatuses`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SYNC_ApprovedPermitStatuses`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SYNC_ApprovedPermitStatuses` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `PermitId`,
+ 1 AS `ExpiryDate_UTC`,
+ 1 AS `ConditionENUM`,
+ 1 AS `ConditionEndDate_UTC`,
+ 1 AS `MediaRecordKey`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `Vi_SYNC_ApprovedPermits`
+--
+
+DROP TABLE IF EXISTS `Vi_SYNC_ApprovedPermits`;
+/*!50001 DROP VIEW IF EXISTS `Vi_SYNC_ApprovedPermits`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `Vi_SYNC_ApprovedPermits` AS SELECT 
+ 1 AS `Id`,
+ 1 AS `HUBId`,
+ 1 AS `DistributorId`,
+ 1 AS `CVOId`,
+ 1 AS `VehicleId`,
+ 1 AS `DriverId`,
+ 1 AS `ActENUM`,
+ 1 AS `PermitIssuerId`,
+ 1 AS `PermitTypeId`,
+ 1 AS `Code`,
+ 1 AS `IssuedDate_UTC`,
+ 1 AS `RecordKey`,
+ 1 AS `CreatedAt_UTC`,
+ 1 AS `CreatedBy`,
+ 1 AS `ModifiedAt_UTC`,
+ 1 AS `ModifiedBy`,
+ 1 AS `RecordDeleted`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -5133,7 +5208,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_BK_PermitStatusCheck` AS select `PS`.`Id` AS `Id`,`PT`.`Id` AS `PermitTypeId`,`P`.`Id` AS `PermitId`,`P`.`HUBId` AS `PermitHUBId`,`P`.`DistributorId` AS `PermitDistributorId`,`P`.`CVOId` AS `PermitCVOId`,`P`.`VehicleId` AS `PermitVehicleId`,`P`.`DriverId` AS `PermitDriverId`,`PT`.`ActivityClassENUM` AS `ActivityClassENUM`,`P`.`PermitIssuerId` AS `PermitPermitIssuerId`,`P`.`Code` AS `Code`,`P`.`ServiceCategory` AS `ServiceCategory`,`PT`.`AllowedServiceCategories` AS `AllowedServiceCategories`,`PT`.`Extendable` AS `Extendable`,`PT`.`ProfileDependant` AS `ProfileDependant`,`PSMED`.`ExpiryDate_UTC` AS `ExpiryDate_UTC` from (((((select max(`H_Permits`.`Id`) AS `PermitId` from `H_Permits` group by `H_Permits`.`HUBId`,`H_Permits`.`DistributorId`,`H_Permits`.`CVOId`,`H_Permits`.`VehicleId`,`H_Permits`.`DriverId`,`H_Permits`.`PermitTypeId`) `PMI` join `H_Permits` `P` on((`PMI`.`PermitId` = `P`.`Id`))) join `H_PermitTypes` `PT` on((`P`.`PermitTypeId` = `PT`.`Id`))) join (select `H_PermitStatuses`.`PermitId` AS `PermitId`,max(`H_PermitStatuses`.`ExpiryDate_UTC`) AS `ExpiryDate_UTC` from `H_PermitStatuses` group by `H_PermitStatuses`.`PermitId`) `PSMED` on((`PSMED`.`PermitId` = `P`.`Id`))) join `H_PermitStatuses` `PS` on(((`PSMED`.`PermitId` = `PS`.`PermitId`) and (`PSMED`.`ExpiryDate_UTC` = `PS`.`ExpiryDate_UTC`)))) */;
+/*!50001 VIEW `Vi_BK_PermitStatusCheck` AS select `PS`.`Id` AS `Id`,`PT`.`Id` AS `PermitTypeId`,`P`.`Id` AS `PermitId`,`P`.`HUBId` AS `PermitHUBId`,`P`.`DistributorId` AS `PermitDistributorId`,`P`.`CVOId` AS `PermitCVOId`,`P`.`VehicleId` AS `PermitVehicleId`,`P`.`DriverId` AS `PermitDriverId`,`PT`.`ActivityClassENUM` AS `ActivityClassENUM`,`P`.`PermitIssuerId` AS `PermitPermitIssuerId`,`P`.`Code` AS `Code`,`PT`.`AllowedServiceCategories` AS `AllowedServiceCategories`,`PT`.`Extendable` AS `Extendable`,`PT`.`ProfileDependant` AS `ProfileDependant`,`PSMED`.`ExpiryDate_UTC` AS `ExpiryDate_UTC` from (((((select max(`H_Permits`.`Id`) AS `PermitId` from `H_Permits` group by `H_Permits`.`HUBId`,`H_Permits`.`DistributorId`,`H_Permits`.`CVOId`,`H_Permits`.`VehicleId`,`H_Permits`.`DriverId`,`H_Permits`.`PermitTypeId`) `PMI` join `H_Permits` `P` on((`PMI`.`PermitId` = `P`.`Id`))) join `H_PermitTypes` `PT` on((`P`.`PermitTypeId` = `PT`.`Id`))) join (select `H_PermitStatuses`.`PermitId` AS `PermitId`,max(`H_PermitStatuses`.`ExpiryDate_UTC`) AS `ExpiryDate_UTC` from `H_PermitStatuses` group by `H_PermitStatuses`.`PermitId`) `PSMED` on((`PSMED`.`PermitId` = `P`.`Id`))) join `H_PermitStatuses` `PS` on(((`PSMED`.`PermitId` = `PS`.`PermitId`) and (`PSMED`.`ExpiryDate_UTC` = `PS`.`ExpiryDate_UTC`)))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5151,7 +5226,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_BK_RequestStatusCheck` AS select `RS`.`Id` AS `Id`,`RS`.`RequestId` AS `RequestId`,`RB`.`RequesterUserId` AS `RequesterUserId`,`RB`.`RequesterEntityId` AS `RequesterEntityId`,`RB`.`RequesterActENUM` AS `RequesterActENUM`,`RS`.`RequesteeUserId` AS `RequesteeUserId`,`RS`.`RequesteeEntityId` AS `RequesteeEntityId`,`RS`.`RequesteeActENUM` AS `RequesteeActENUM`,`RB`.`RequestType` AS `RequestType`,`RB`.`MetaData` AS `MetaData`,`RB`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`RB`.`Expiry_UTC` AS `ExpiryDate_UTC`,`RS`.`Status` AS `Status`,`RS`.`StatusReason` AS `StatusReason` from (`H_RequestBases` `RB` join `H_RequestStatuses` `RS` on((`RS`.`RequestId` = `RB`.`Id`))) where (((0 <> `RB`.`RecordDeleted`) is not true) and ((0 <> `RS`.`RecordDeleted`) is not true)) */;
+/*!50001 VIEW `Vi_BK_RequestStatusCheck` AS select `RS`.`Id` AS `Id`,`RB`.`Id` AS `RequestId`,`RB`.`RequesterUserId` AS `RequesterUserId`,`RB`.`RequesterEntityId` AS `RequesterEntityId`,`RB`.`RequesterActENUM` AS `RequesterActENUM`,`RS`.`RequesteeUserId` AS `RequesteeUserId`,`RS`.`RequesteeEntityId` AS `RequesteeEntityId`,`RS`.`RequesteeActENUM` AS `RequesteeActENUM`,`RB`.`RequestType` AS `RequestType`,`RB`.`MetaData` AS `MetaData`,`RB`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`RB`.`Expiry_UTC` AS `ExpiryDate_UTC`,coalesce(`RS`.`Status`,1) AS `Status`,`RS`.`StatusReason` AS `StatusReason` from (`H_RequestBases` `RB` left join `H_RequestStatuses` `RS` on(((`RS`.`RequestId` = `RB`.`Id`) and ((0 <> `RS`.`RecordDeleted`) is not true)))) where ((0 <> `RB`.`RecordDeleted`) is not true) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5427,24 +5502,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `Vi_DPA_CVOPermitsExtraDetail`
---
-
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_CVOPermitsExtraDetail`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_CVOPermitsExtraDetail` AS select `BaseTable`.`Id` AS `CVOId`,`BaseTable`.`EntityId` AS `CVOEntityId`,`AP`.`Title` AS `CVOEntityTitle`,`AP`.`Address_fsx` AS `CVOEntityAddress_fsx`,`AP`.`City` AS `CVOEntityCity`,`AP`.`Province` AS `CVOEntityProvince`,`AP`.`Country` AS `CVOEntityCountry`,`AP`.`PostalCode_fsx` AS `CVOEntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `CVOEntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `CVOEntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `CVOEntityEmail_fsx`,`AP`.`Discriminator` AS `CVOEntityDiscriminator`,`RJT`.`HUBId` AS `HUBId`,`RJT`.`DistributorId` AS `DistributorId`,`RJT`.`VehicleId` AS `VehicleId`,`RJT`.`DriverId` AS `DriverId`,`RJT`.`ActENUM` AS `ActENUM`,`RJT`.`PermitIssuerId` AS `PermitIssuerId`,`RJT`.`PermitTypeId` AS `PermitTypeId`,`RJT`.`Code` AS `Code`,`RJT`.`ServiceCategory` AS `ServiceCategory`,`RJT`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`PJT0`.`EntityId` AS `EntityScenarioEntityId`,`PJT0`.`ScenarioId` AS `EntityScenarioScenarioId`,`PEP_0_0`.`Title` AS `EntityScenarioTitle`,`PEP_0_0`.`Address_fsx` AS `EntityScenarioAddress_fsx`,`PEP_0_0`.`City` AS `EntityScenarioCity`,`PEP_0_0`.`Province` AS `EntityScenarioProvince`,`PEP_0_0`.`Country` AS `EntityScenarioCountry`,`PEP_0_0`.`PostalCode_fsx` AS `EntityScenarioPostalCode_fsx`,`PEP_0_0`.`Phone_fsx` AS `EntityScenarioPhone_fsx`,`PEP_0_0`.`FaxNumber_fsx` AS `EntityScenarioFaxNumber_fsx`,`PEP_0_0`.`Email_fsx` AS `EntityScenarioEmail_fsx`,`PEP_0_0`.`Discriminator` AS `EntityScenarioDiscriminator`,`PJT1`.`ActENUM` AS `PermitTypeActENUM`,`PJT1`.`ActivityClassENUM` AS `PermitTypeActivityClassENUM`,`PJT1`.`Title` AS `PermitTypeTitle`,`PJT1`.`AllowedServiceCategories` AS `PermitTypeAllowedServiceCategories`,`PJT1`.`Extendable` AS `PermitTypeExtendable`,`PJT1`.`ProfileDependant` AS `PermitTypeProfileDependant`,`PJT2`.`EntityId` AS `PermitIssuerEntityId`,`PEP_2_0`.`Title` AS `PermitIssuerTitle`,`PEP_2_0`.`Address_fsx` AS `PermitIssuerAddress_fsx`,`PEP_2_0`.`City` AS `PermitIssuerCity`,`PEP_2_0`.`Province` AS `PermitIssuerProvince`,`PEP_2_0`.`Country` AS `PermitIssuerCountry`,`PEP_2_0`.`PostalCode_fsx` AS `PermitIssuerPostalCode_fsx`,`PEP_2_0`.`Phone_fsx` AS `PermitIssuerPhone_fsx`,`PEP_2_0`.`FaxNumber_fsx` AS `PermitIssuerFaxNumber_fsx`,`PEP_2_0`.`Email_fsx` AS `PermitIssuerEmail_fsx`,`PEP_2_0`.`Discriminator` AS `PermitIssuerDiscriminator` from (((((((`H_CVOs` `BaseTable` join `H_AAA_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) join `H_Permits` `RJT` on(((`RJT`.`CVOId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_EntityScenarios` `PJT0` on(((`RJT`.`ActENUM` = `PJT0`.`PermittedActENUM`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_0_0` on(((`PJT0`.`EntityId` = `PEP_0_0`.`Id`) and ((0 <> `PEP_0_0`.`RecordDeleted`) is not true)))) join `H_PermitTypes` `PJT1` on(((`RJT`.`PermitTypeId` = `PJT1`.`Id`) and ((0 <> `PJT1`.`RecordDeleted`) is not true)))) join `H_PermitIssuers` `PJT2` on(((`RJT`.`PermitIssuerId` = `PJT2`.`Id`) and ((0 <> `PJT2`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_2_0` on(((`PJT2`.`EntityId` = `PEP_2_0`.`Id`) and ((0 <> `PEP_2_0`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `Vi_DPA_CVOServicesSuperDetail`
 --
 
@@ -5553,24 +5610,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `Vi_DPA_DistributorPermitsExtraDetail`
---
-
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_DistributorPermitsExtraDetail`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_DistributorPermitsExtraDetail` AS select `BaseTable`.`Id` AS `DistributorId`,`BaseTable`.`EntityId` AS `DistributorEntityId`,`AP`.`Title` AS `DistributorEntityTitle`,`AP`.`Address_fsx` AS `DistributorEntityAddress_fsx`,`AP`.`City` AS `DistributorEntityCity`,`AP`.`Province` AS `DistributorEntityProvince`,`AP`.`Country` AS `DistributorEntityCountry`,`AP`.`PostalCode_fsx` AS `DistributorEntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `DistributorEntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `DistributorEntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `DistributorEntityEmail_fsx`,`AP`.`Discriminator` AS `DistributorEntityDiscriminator`,`RJT`.`HUBId` AS `HUBId`,`RJT`.`CVOId` AS `CVOId`,`RJT`.`VehicleId` AS `VehicleId`,`RJT`.`DriverId` AS `DriverId`,`RJT`.`ActENUM` AS `ActENUM`,`RJT`.`PermitIssuerId` AS `PermitIssuerId`,`RJT`.`PermitTypeId` AS `PermitTypeId`,`RJT`.`Code` AS `Code`,`RJT`.`ServiceCategory` AS `ServiceCategory`,`RJT`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`PJT0`.`EntityId` AS `EntityScenarioEntityId`,`PJT0`.`ScenarioId` AS `EntityScenarioScenarioId`,`PEP_0_0`.`Title` AS `EntityScenarioTitle`,`PEP_0_0`.`Address_fsx` AS `EntityScenarioAddress_fsx`,`PEP_0_0`.`City` AS `EntityScenarioCity`,`PEP_0_0`.`Province` AS `EntityScenarioProvince`,`PEP_0_0`.`Country` AS `EntityScenarioCountry`,`PEP_0_0`.`PostalCode_fsx` AS `EntityScenarioPostalCode_fsx`,`PEP_0_0`.`Phone_fsx` AS `EntityScenarioPhone_fsx`,`PEP_0_0`.`FaxNumber_fsx` AS `EntityScenarioFaxNumber_fsx`,`PEP_0_0`.`Email_fsx` AS `EntityScenarioEmail_fsx`,`PEP_0_0`.`Discriminator` AS `EntityScenarioDiscriminator`,`PJT1`.`ActENUM` AS `PermitTypeActENUM`,`PJT1`.`ActivityClassENUM` AS `PermitTypeActivityClassENUM`,`PJT1`.`Title` AS `PermitTypeTitle`,`PJT1`.`AllowedServiceCategories` AS `PermitTypeAllowedServiceCategories`,`PJT1`.`Extendable` AS `PermitTypeExtendable`,`PJT1`.`ProfileDependant` AS `PermitTypeProfileDependant`,`PJT2`.`EntityId` AS `PermitIssuerEntityId`,`PEP_2_0`.`Title` AS `PermitIssuerTitle`,`PEP_2_0`.`Address_fsx` AS `PermitIssuerAddress_fsx`,`PEP_2_0`.`City` AS `PermitIssuerCity`,`PEP_2_0`.`Province` AS `PermitIssuerProvince`,`PEP_2_0`.`Country` AS `PermitIssuerCountry`,`PEP_2_0`.`PostalCode_fsx` AS `PermitIssuerPostalCode_fsx`,`PEP_2_0`.`Phone_fsx` AS `PermitIssuerPhone_fsx`,`PEP_2_0`.`FaxNumber_fsx` AS `PermitIssuerFaxNumber_fsx`,`PEP_2_0`.`Email_fsx` AS `PermitIssuerEmail_fsx`,`PEP_2_0`.`Discriminator` AS `PermitIssuerDiscriminator` from (((((((`H_Distributors` `BaseTable` join `H_AAA_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) join `H_Permits` `RJT` on(((`RJT`.`DistributorId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_EntityScenarios` `PJT0` on(((`RJT`.`ActENUM` = `PJT0`.`PermittedActENUM`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_0_0` on(((`PJT0`.`EntityId` = `PEP_0_0`.`Id`) and ((0 <> `PEP_0_0`.`RecordDeleted`) is not true)))) join `H_PermitTypes` `PJT1` on(((`RJT`.`PermitTypeId` = `PJT1`.`Id`) and ((0 <> `PJT1`.`RecordDeleted`) is not true)))) join `H_PermitIssuers` `PJT2` on(((`RJT`.`PermitIssuerId` = `PJT2`.`Id`) and ((0 <> `PJT2`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_2_0` on(((`PJT2`.`EntityId` = `PEP_2_0`.`Id`) and ((0 <> `PEP_2_0`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `Vi_DPA_DistributorSummary`
 --
 
@@ -5619,25 +5658,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_DriverPermitVehicleTypesDetail` AS select `BaseTable`.`Id` AS `PermitId`,`BaseTable`.`HUBId` AS `PermitHUBId`,`BaseTable`.`DistributorId` AS `PermitDistributorId`,`BaseTable`.`CVOId` AS `PermitCVOId`,`BaseTable`.`VehicleId` AS `PermitVehicleId`,`BaseTable`.`DriverId` AS `PermitDriverId`,`BaseTable`.`ActENUM` AS `PermitActENUM`,`BaseTable`.`PermitIssuerId` AS `PermitPermitIssuerId`,`BaseTable`.`PermitTypeId` AS `PermitPermitTypeId`,`BaseTable`.`Code` AS `PermitCode`,`BaseTable`.`ServiceCategory` AS `PermitServiceCategory`,`BaseTable`.`IssuedDate_UTC` AS `PermitIssuedDate_UTC`,`RJT`.`VehicleType` AS `VehicleType` from (`H_Permits` `BaseTable` join `H_DriverPermitVehicleTypes` `RJT` on(((`RJT`.`PermitId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `Vi_DPA_DriverPermitsExtraDetail`
---
-
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_DriverPermitsExtraDetail`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_DriverPermitsExtraDetail` AS select `BaseTable`.`Id` AS `DriverId`,`BaseTable`.`UserId` AS `DriverUserId`,`BaseTable`.`PersonCVOId` AS `DriverPersonCVOId`,`UI`.`Firstname_fsx` AS `DriverUserFirstname_fsx`,`UI`.`Lastname_fsx` AS `DriverUserLastname_fsx`,`UI`.`Username` AS `DriverUserUsername`,`UI`.`Email_fsx` AS `DriverUserEmail_fsx`,`UI`.`Email_hash` AS `DriverUserEmail_hash`,`UI`.`EmailConfirmed` AS `DriverUserEmailConfirmed`,`UI`.`CellPhone_fsx` AS `DriverUserCellPhone_fsx`,`UI`.`CellPhone_hash` AS `DriverUserCellPhone_hash`,`UI`.`CellPhoneConfirmed` AS `DriverUserCellPhoneConfirmed`,`UI`.`IssuedBy` AS `DriverUserIssuedBy`,`RJT`.`HUBId` AS `HUBId`,`RJT`.`DistributorId` AS `DistributorId`,`RJT`.`CVOId` AS `CVOId`,`RJT`.`VehicleId` AS `VehicleId`,`RJT`.`ActENUM` AS `ActENUM`,`RJT`.`PermitIssuerId` AS `PermitIssuerId`,`RJT`.`PermitTypeId` AS `PermitTypeId`,`RJT`.`Code` AS `Code`,`RJT`.`ServiceCategory` AS `ServiceCategory`,`RJT`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`PJT0`.`EntityId` AS `EntityScenarioEntityId`,`PJT0`.`ScenarioId` AS `EntityScenarioScenarioId`,`PEP_0_0`.`Title` AS `EntityScenarioTitle`,`PEP_0_0`.`Address_fsx` AS `EntityScenarioAddress_fsx`,`PEP_0_0`.`City` AS `EntityScenarioCity`,`PEP_0_0`.`Province` AS `EntityScenarioProvince`,`PEP_0_0`.`Country` AS `EntityScenarioCountry`,`PEP_0_0`.`PostalCode_fsx` AS `EntityScenarioPostalCode_fsx`,`PEP_0_0`.`Phone_fsx` AS `EntityScenarioPhone_fsx`,`PEP_0_0`.`FaxNumber_fsx` AS `EntityScenarioFaxNumber_fsx`,`PEP_0_0`.`Email_fsx` AS `EntityScenarioEmail_fsx`,`PEP_0_0`.`Discriminator` AS `EntityScenarioDiscriminator`,`PJT1`.`ActENUM` AS `PermitTypeActENUM`,`PJT1`.`ActivityClassENUM` AS `PermitTypeActivityClassENUM`,`PJT1`.`Title` AS `PermitTypeTitle`,`PJT1`.`AllowedServiceCategories` AS `PermitTypeAllowedServiceCategories`,`PJT1`.`Extendable` AS `PermitTypeExtendable`,`PJT1`.`ProfileDependant` AS `PermitTypeProfileDependant`,`PJT2`.`EntityId` AS `PermitIssuerEntityId`,`PEP_2_0`.`Title` AS `PermitIssuerTitle`,`PEP_2_0`.`Address_fsx` AS `PermitIssuerAddress_fsx`,`PEP_2_0`.`City` AS `PermitIssuerCity`,`PEP_2_0`.`Province` AS `PermitIssuerProvince`,`PEP_2_0`.`Country` AS `PermitIssuerCountry`,`PEP_2_0`.`PostalCode_fsx` AS `PermitIssuerPostalCode_fsx`,`PEP_2_0`.`Phone_fsx` AS `PermitIssuerPhone_fsx`,`PEP_2_0`.`FaxNumber_fsx` AS `PermitIssuerFaxNumber_fsx`,`PEP_2_0`.`Email_fsx` AS `PermitIssuerEmail_fsx`,`PEP_2_0`.`Discriminator` AS `PermitIssuerDiscriminator` from (((((((`H_Drivers` `BaseTable` join `H_AAA_Synced_UserInfo` `UI` on(((`BaseTable`.`UserId` = `UI`.`Id`) and ((0 <> `UI`.`RecordDeleted`) is not true)))) join `H_Permits` `RJT` on(((`RJT`.`DriverId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_EntityScenarios` `PJT0` on(((`RJT`.`ActENUM` = `PJT0`.`PermittedActENUM`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_0_0` on(((`PJT0`.`EntityId` = `PEP_0_0`.`Id`) and ((0 <> `PEP_0_0`.`RecordDeleted`) is not true)))) join `H_PermitTypes` `PJT1` on(((`RJT`.`PermitTypeId` = `PJT1`.`Id`) and ((0 <> `PJT1`.`RecordDeleted`) is not true)))) join `H_PermitIssuers` `PJT2` on(((`RJT`.`PermitIssuerId` = `PJT2`.`Id`) and ((0 <> `PJT2`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_2_0` on(((`PJT2`.`EntityId` = `PEP_2_0`.`Id`) and ((0 <> `PEP_2_0`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
+/*!50001 VIEW `Vi_DPA_DriverPermitVehicleTypesDetail` AS select `BaseTable`.`Id` AS `PermitId`,`BaseTable`.`HUBId` AS `PermitHUBId`,`BaseTable`.`DistributorId` AS `PermitDistributorId`,`BaseTable`.`CVOId` AS `PermitCVOId`,`BaseTable`.`VehicleId` AS `PermitVehicleId`,`BaseTable`.`DriverId` AS `PermitDriverId`,`BaseTable`.`ActENUM` AS `PermitActENUM`,`BaseTable`.`PermitIssuerId` AS `PermitPermitIssuerId`,`BaseTable`.`PermitTypeId` AS `PermitPermitTypeId`,`BaseTable`.`Code` AS `PermitCode`,`BaseTable`.`IssuedDate_UTC` AS `PermitIssuedDate_UTC`,`RJT`.`VehicleType` AS `VehicleType` from (`H_Permits` `BaseTable` join `H_DriverPermitVehicleTypes` `RJT` on(((`RJT`.`PermitId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5787,24 +5808,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `Vi_DPA_HUBPermitsExtraDetail`
---
-
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_HUBPermitsExtraDetail`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_HUBPermitsExtraDetail` AS select `BaseTable`.`Id` AS `HUBId`,`BaseTable`.`EntityId` AS `HUBEntityId`,`AP`.`Title` AS `HUBEntityTitle`,`AP`.`Address_fsx` AS `HUBEntityAddress_fsx`,`AP`.`City` AS `HUBEntityCity`,`AP`.`Province` AS `HUBEntityProvince`,`AP`.`Country` AS `HUBEntityCountry`,`AP`.`PostalCode_fsx` AS `HUBEntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `HUBEntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `HUBEntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `HUBEntityEmail_fsx`,`AP`.`Discriminator` AS `HUBEntityDiscriminator`,`RJT`.`DistributorId` AS `DistributorId`,`RJT`.`CVOId` AS `CVOId`,`RJT`.`VehicleId` AS `VehicleId`,`RJT`.`DriverId` AS `DriverId`,`RJT`.`ActENUM` AS `ActENUM`,`RJT`.`PermitIssuerId` AS `PermitIssuerId`,`RJT`.`PermitTypeId` AS `PermitTypeId`,`RJT`.`Code` AS `Code`,`RJT`.`ServiceCategory` AS `ServiceCategory`,`RJT`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`PJT0`.`EntityId` AS `EntityScenarioEntityId`,`PJT0`.`ScenarioId` AS `EntityScenarioScenarioId`,`PEP_0_0`.`Title` AS `EntityScenarioTitle`,`PEP_0_0`.`Address_fsx` AS `EntityScenarioAddress_fsx`,`PEP_0_0`.`City` AS `EntityScenarioCity`,`PEP_0_0`.`Province` AS `EntityScenarioProvince`,`PEP_0_0`.`Country` AS `EntityScenarioCountry`,`PEP_0_0`.`PostalCode_fsx` AS `EntityScenarioPostalCode_fsx`,`PEP_0_0`.`Phone_fsx` AS `EntityScenarioPhone_fsx`,`PEP_0_0`.`FaxNumber_fsx` AS `EntityScenarioFaxNumber_fsx`,`PEP_0_0`.`Email_fsx` AS `EntityScenarioEmail_fsx`,`PEP_0_0`.`Discriminator` AS `EntityScenarioDiscriminator`,`PJT1`.`ActENUM` AS `PermitTypeActENUM`,`PJT1`.`ActivityClassENUM` AS `PermitTypeActivityClassENUM`,`PJT1`.`Title` AS `PermitTypeTitle`,`PJT1`.`AllowedServiceCategories` AS `PermitTypeAllowedServiceCategories`,`PJT1`.`Extendable` AS `PermitTypeExtendable`,`PJT1`.`ProfileDependant` AS `PermitTypeProfileDependant`,`PJT2`.`EntityId` AS `PermitIssuerEntityId`,`PEP_2_0`.`Title` AS `PermitIssuerTitle`,`PEP_2_0`.`Address_fsx` AS `PermitIssuerAddress_fsx`,`PEP_2_0`.`City` AS `PermitIssuerCity`,`PEP_2_0`.`Province` AS `PermitIssuerProvince`,`PEP_2_0`.`Country` AS `PermitIssuerCountry`,`PEP_2_0`.`PostalCode_fsx` AS `PermitIssuerPostalCode_fsx`,`PEP_2_0`.`Phone_fsx` AS `PermitIssuerPhone_fsx`,`PEP_2_0`.`FaxNumber_fsx` AS `PermitIssuerFaxNumber_fsx`,`PEP_2_0`.`Email_fsx` AS `PermitIssuerEmail_fsx`,`PEP_2_0`.`Discriminator` AS `PermitIssuerDiscriminator` from (((((((`H_HUBs` `BaseTable` join `H_AAA_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) join `H_Permits` `RJT` on(((`RJT`.`HUBId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_EntityScenarios` `PJT0` on(((`RJT`.`ActENUM` = `PJT0`.`PermittedActENUM`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_0_0` on(((`PJT0`.`EntityId` = `PEP_0_0`.`Id`) and ((0 <> `PEP_0_0`.`RecordDeleted`) is not true)))) join `H_PermitTypes` `PJT1` on(((`RJT`.`PermitTypeId` = `PJT1`.`Id`) and ((0 <> `PJT1`.`RecordDeleted`) is not true)))) join `H_PermitIssuers` `PJT2` on(((`RJT`.`PermitIssuerId` = `PJT2`.`Id`) and ((0 <> `PJT2`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_2_0` on(((`PJT2`.`EntityId` = `PEP_2_0`.`Id`) and ((0 <> `PEP_2_0`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `Vi_DPA_HUBSummary`
 --
 
@@ -5871,7 +5874,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_Permit` AS select `BaseTable`.`Id` AS `Id`,`BaseTable`.`HUBId` AS `HUBId`,`BaseTable`.`DistributorId` AS `DistributorId`,`BaseTable`.`CVOId` AS `CVOId`,`BaseTable`.`VehicleId` AS `VehicleId`,`BaseTable`.`DriverId` AS `DriverId`,`BaseTable`.`ActENUM` AS `ActENUM`,`BaseTable`.`PermitIssuerId` AS `PermitIssuerId`,`BaseTable`.`PermitTypeId` AS `PermitTypeId`,`BaseTable`.`Code` AS `Code`,`BaseTable`.`ServiceCategory` AS `ServiceCategory`,`BaseTable`.`IssuedDate_UTC` AS `IssuedDate_UTC` from `H_Permits` `BaseTable` where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
+/*!50001 VIEW `Vi_DPA_Permit` AS select `BaseTable`.`Id` AS `Id`,`BaseTable`.`HUBId` AS `HUBId`,`BaseTable`.`DistributorId` AS `DistributorId`,`BaseTable`.`CVOId` AS `CVOId`,`BaseTable`.`VehicleId` AS `VehicleId`,`BaseTable`.`DriverId` AS `DriverId`,`BaseTable`.`ActENUM` AS `ActENUM`,`BaseTable`.`PermitIssuerId` AS `PermitIssuerId`,`BaseTable`.`PermitTypeId` AS `PermitTypeId`,`BaseTable`.`Code` AS `Code`,`BaseTable`.`IssuedDate_UTC` AS `IssuedDate_UTC` from `H_Permits` `BaseTable` where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5890,24 +5893,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `Vi_DPA_PermitIssuer` AS select `BaseTable`.`Id` AS `Id`,`BaseTable`.`EntityId` AS `EntityId`,`AP`.`Title` AS `EntityTitle`,`AP`.`Address_fsx` AS `EntityAddress_fsx`,`AP`.`City` AS `EntityCity`,`AP`.`Province` AS `EntityProvince`,`AP`.`Country` AS `EntityCountry`,`AP`.`PostalCode_fsx` AS `EntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `EntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `EntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `EntityEmail_fsx`,`AP`.`Discriminator` AS `EntityDiscriminator` from (`H_PermitIssuers` `BaseTable` join `H_AAA_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `Vi_DPA_PermitIssuerPermitsExtraDetail`
---
-
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_PermitIssuerPermitsExtraDetail`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_PermitIssuerPermitsExtraDetail` AS select `BaseTable`.`Id` AS `PermitIssuerId`,`BaseTable`.`EntityId` AS `PermitIssuerEntityId`,`AP`.`Title` AS `PermitIssuerEntityTitle`,`AP`.`Address_fsx` AS `PermitIssuerEntityAddress_fsx`,`AP`.`City` AS `PermitIssuerEntityCity`,`AP`.`Province` AS `PermitIssuerEntityProvince`,`AP`.`Country` AS `PermitIssuerEntityCountry`,`AP`.`PostalCode_fsx` AS `PermitIssuerEntityPostalCode_fsx`,`AP`.`Phone_fsx` AS `PermitIssuerEntityPhone_fsx`,`AP`.`FaxNumber_fsx` AS `PermitIssuerEntityFaxNumber_fsx`,`AP`.`Email_fsx` AS `PermitIssuerEntityEmail_fsx`,`AP`.`Discriminator` AS `PermitIssuerEntityDiscriminator`,`RJT`.`HUBId` AS `HUBId`,`RJT`.`DistributorId` AS `DistributorId`,`RJT`.`CVOId` AS `CVOId`,`RJT`.`VehicleId` AS `VehicleId`,`RJT`.`DriverId` AS `DriverId`,`RJT`.`ActENUM` AS `ActENUM`,`RJT`.`PermitTypeId` AS `PermitTypeId`,`RJT`.`Code` AS `Code`,`RJT`.`ServiceCategory` AS `ServiceCategory`,`RJT`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`PJT0`.`EntityId` AS `EntityScenarioEntityId`,`PJT0`.`ScenarioId` AS `EntityScenarioScenarioId`,`PEP_0_0`.`Title` AS `EntityScenarioTitle`,`PEP_0_0`.`Address_fsx` AS `EntityScenarioAddress_fsx`,`PEP_0_0`.`City` AS `EntityScenarioCity`,`PEP_0_0`.`Province` AS `EntityScenarioProvince`,`PEP_0_0`.`Country` AS `EntityScenarioCountry`,`PEP_0_0`.`PostalCode_fsx` AS `EntityScenarioPostalCode_fsx`,`PEP_0_0`.`Phone_fsx` AS `EntityScenarioPhone_fsx`,`PEP_0_0`.`FaxNumber_fsx` AS `EntityScenarioFaxNumber_fsx`,`PEP_0_0`.`Email_fsx` AS `EntityScenarioEmail_fsx`,`PEP_0_0`.`Discriminator` AS `EntityScenarioDiscriminator`,`PJT1`.`ActENUM` AS `PermitTypeActENUM`,`PJT1`.`ActivityClassENUM` AS `PermitTypeActivityClassENUM`,`PJT1`.`Title` AS `PermitTypeTitle`,`PJT1`.`AllowedServiceCategories` AS `PermitTypeAllowedServiceCategories`,`PJT1`.`Extendable` AS `PermitTypeExtendable`,`PJT1`.`ProfileDependant` AS `PermitTypeProfileDependant` from (((((`H_PermitIssuers` `BaseTable` join `H_AAA_EntityProfile` `AP` on(((`BaseTable`.`EntityId` = `AP`.`Id`) and ((0 <> `AP`.`RecordDeleted`) is not true)))) join `H_Permits` `RJT` on(((`RJT`.`PermitIssuerId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_EntityScenarios` `PJT0` on(((`RJT`.`ActENUM` = `PJT0`.`PermittedActENUM`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_0_0` on(((`PJT0`.`EntityId` = `PEP_0_0`.`Id`) and ((0 <> `PEP_0_0`.`RecordDeleted`) is not true)))) join `H_PermitTypes` `PJT1` on(((`RJT`.`PermitTypeId` = `PJT1`.`Id`) and ((0 <> `PJT1`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5943,7 +5928,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_PermitSummary` AS select `BaseTable`.`Id` AS `Id`,`BaseTable`.`HUBId` AS `HUBId`,`BaseTable`.`DistributorId` AS `DistributorId`,`BaseTable`.`CVOId` AS `CVOId`,`BaseTable`.`VehicleId` AS `VehicleId`,`BaseTable`.`DriverId` AS `DriverId`,`BaseTable`.`ActENUM` AS `ActENUM`,`BaseTable`.`PermitIssuerId` AS `PermitIssuerId`,`BaseTable`.`PermitTypeId` AS `PermitTypeId`,`BaseTable`.`Code` AS `Code`,`BaseTable`.`ServiceCategory` AS `ServiceCategory`,`BaseTable`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`TempQuery0`.`RelatedEntityCount` AS `DriverVehicleTypesCount`,`TempQuery1`.`RelatedEntityCount` AS `StatusesCount` from ((`H_Permits` `BaseTable` left join (select `RT0`.`PermitId` AS `PermitId`,count(`RT0`.`PermitId`) AS `RelatedEntityCount` from `H_DriverPermitVehicleTypes` `RT0` where ((0 <> `RT0`.`RecordDeleted`) is not true) group by `RT0`.`PermitId`) `TempQuery0` on((`TempQuery0`.`PermitId` = `BaseTable`.`Id`))) left join (select `RT1`.`PermitId` AS `PermitId`,count(`RT1`.`PermitId`) AS `RelatedEntityCount` from `H_PermitStatuses` `RT1` where ((0 <> `RT1`.`RecordDeleted`) is not true) group by `RT1`.`PermitId`) `TempQuery1` on((`TempQuery1`.`PermitId` = `BaseTable`.`Id`))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
+/*!50001 VIEW `Vi_DPA_PermitSummary` AS select `BaseTable`.`Id` AS `Id`,`BaseTable`.`HUBId` AS `HUBId`,`BaseTable`.`DistributorId` AS `DistributorId`,`BaseTable`.`CVOId` AS `CVOId`,`BaseTable`.`VehicleId` AS `VehicleId`,`BaseTable`.`DriverId` AS `DriverId`,`BaseTable`.`ActENUM` AS `ActENUM`,`BaseTable`.`PermitIssuerId` AS `PermitIssuerId`,`BaseTable`.`PermitTypeId` AS `PermitTypeId`,`BaseTable`.`Code` AS `Code`,`BaseTable`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`TempQuery0`.`RelatedEntityCount` AS `DriverVehicleTypesCount`,`TempQuery1`.`RelatedEntityCount` AS `StatusesCount` from ((`H_Permits` `BaseTable` left join (select `RT0`.`PermitId` AS `PermitId`,count(`RT0`.`PermitId`) AS `RelatedEntityCount` from `H_DriverPermitVehicleTypes` `RT0` where ((0 <> `RT0`.`RecordDeleted`) is not true) group by `RT0`.`PermitId`) `TempQuery0` on((`TempQuery0`.`PermitId` = `BaseTable`.`Id`))) left join (select `RT1`.`PermitId` AS `PermitId`,count(`RT1`.`PermitId`) AS `RelatedEntityCount` from `H_PermitStatuses` `RT1` where ((0 <> `RT1`.`RecordDeleted`) is not true) group by `RT1`.`PermitId`) `TempQuery1` on((`TempQuery1`.`PermitId` = `BaseTable`.`Id`))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5980,24 +5965,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `Vi_DPA_PermitTypeIssuersSuperDetail` AS select `BaseTable`.`Id` AS `PermitTypeId`,`BaseTable`.`ActENUM` AS `PermitTypeActENUM`,`BaseTable`.`ActivityClassENUM` AS `PermitTypeActivityClassENUM`,`BaseTable`.`Title` AS `PermitTypeTitle`,`BaseTable`.`AllowedServiceCategories` AS `PermitTypeAllowedServiceCategories`,`BaseTable`.`Extendable` AS `PermitTypeExtendable`,`BaseTable`.`ProfileDependant` AS `PermitTypeProfileDependant`,`RJT`.`PermitIssuerId` AS `PermitIssuerId`,`PJT0`.`EntityId` AS `PermitIssuerEntityId`,`PEP_0_0`.`Title` AS `PermitIssuerTitle`,`PEP_0_0`.`Address_fsx` AS `PermitIssuerAddress_fsx`,`PEP_0_0`.`City` AS `PermitIssuerCity`,`PEP_0_0`.`Province` AS `PermitIssuerProvince`,`PEP_0_0`.`Country` AS `PermitIssuerCountry`,`PEP_0_0`.`PostalCode_fsx` AS `PermitIssuerPostalCode_fsx`,`PEP_0_0`.`Phone_fsx` AS `PermitIssuerPhone_fsx`,`PEP_0_0`.`FaxNumber_fsx` AS `PermitIssuerFaxNumber_fsx`,`PEP_0_0`.`Email_fsx` AS `PermitIssuerEmail_fsx`,`PEP_0_0`.`Discriminator` AS `PermitIssuerDiscriminator` from (((`H_PermitTypes` `BaseTable` join `H_PermitTypeIssuers` `RJT` on(((`RJT`.`PermitTypeId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_PermitIssuers` `PJT0` on(((`RJT`.`PermitIssuerId` = `PJT0`.`Id`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_0_0` on(((`PJT0`.`EntityId` = `PEP_0_0`.`Id`) and ((0 <> `PEP_0_0`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `Vi_DPA_PermitTypePermitsExtraDetail`
---
-
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_PermitTypePermitsExtraDetail`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_PermitTypePermitsExtraDetail` AS select `BaseTable`.`Id` AS `PermitTypeId`,`BaseTable`.`ActENUM` AS `PermitTypeActENUM`,`BaseTable`.`ActivityClassENUM` AS `PermitTypeActivityClassENUM`,`BaseTable`.`Title` AS `PermitTypeTitle`,`BaseTable`.`AllowedServiceCategories` AS `PermitTypeAllowedServiceCategories`,`BaseTable`.`Extendable` AS `PermitTypeExtendable`,`BaseTable`.`ProfileDependant` AS `PermitTypeProfileDependant`,`RJT`.`HUBId` AS `HUBId`,`RJT`.`DistributorId` AS `DistributorId`,`RJT`.`CVOId` AS `CVOId`,`RJT`.`VehicleId` AS `VehicleId`,`RJT`.`DriverId` AS `DriverId`,`RJT`.`ActENUM` AS `ActENUM`,`RJT`.`PermitIssuerId` AS `PermitIssuerId`,`RJT`.`Code` AS `Code`,`RJT`.`ServiceCategory` AS `ServiceCategory`,`RJT`.`IssuedDate_UTC` AS `IssuedDate_UTC` from (`H_PermitTypes` `BaseTable` join `H_Permits` `RJT` on(((`RJT`.`PermitTypeId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6147,24 +6114,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `Vi_DPA_VehiclePermitsExtraDetail`
---
-
-/*!50001 DROP VIEW IF EXISTS `Vi_DPA_VehiclePermitsExtraDetail`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_VehiclePermitsExtraDetail` AS select `BaseTable`.`Id` AS `VehicleProfileId`,`BaseTable`.`Plate` AS `VehicleProfilePlate`,`BaseTable`.`VIN` AS `VehicleProfileVIN`,`BaseTable`.`Make` AS `VehicleProfileMake`,`BaseTable`.`Model` AS `VehicleProfileModel`,`BaseTable`.`Province` AS `VehicleProfileProvince`,`BaseTable`.`Color` AS `VehicleProfileColor`,`BaseTable`.`Year` AS `VehicleProfileYear`,`BaseTable`.`Cargo_Height` AS `VehicleProfileCargo_Height`,`BaseTable`.`Cargo_Weight` AS `VehicleProfileCargo_Weight`,`BaseTable`.`Cargo_Length` AS `VehicleProfileCargo_Length`,`BaseTable`.`Cargo_Width` AS `VehicleProfileCargo_Width`,`BaseTable`.`Capacity_Passengers` AS `VehicleProfileCapacity_Passengers`,`BaseTable`.`Capacity_Luggage` AS `VehicleProfileCapacity_Luggage`,`BaseTable`.`VehicleType` AS `VehicleProfileVehicleType`,`RJT`.`HUBId` AS `HUBId`,`RJT`.`DistributorId` AS `DistributorId`,`RJT`.`CVOId` AS `CVOId`,`RJT`.`DriverId` AS `DriverId`,`RJT`.`ActENUM` AS `ActENUM`,`RJT`.`PermitIssuerId` AS `PermitIssuerId`,`RJT`.`PermitTypeId` AS `PermitTypeId`,`RJT`.`Code` AS `Code`,`RJT`.`ServiceCategory` AS `ServiceCategory`,`RJT`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`PJT0`.`EntityId` AS `EntityScenarioEntityId`,`PJT0`.`ScenarioId` AS `EntityScenarioScenarioId`,`PEP_0_0`.`Title` AS `EntityScenarioTitle`,`PEP_0_0`.`Address_fsx` AS `EntityScenarioAddress_fsx`,`PEP_0_0`.`City` AS `EntityScenarioCity`,`PEP_0_0`.`Province` AS `EntityScenarioProvince`,`PEP_0_0`.`Country` AS `EntityScenarioCountry`,`PEP_0_0`.`PostalCode_fsx` AS `EntityScenarioPostalCode_fsx`,`PEP_0_0`.`Phone_fsx` AS `EntityScenarioPhone_fsx`,`PEP_0_0`.`FaxNumber_fsx` AS `EntityScenarioFaxNumber_fsx`,`PEP_0_0`.`Email_fsx` AS `EntityScenarioEmail_fsx`,`PEP_0_0`.`Discriminator` AS `EntityScenarioDiscriminator`,`PJT1`.`ActENUM` AS `PermitTypeActENUM`,`PJT1`.`ActivityClassENUM` AS `PermitTypeActivityClassENUM`,`PJT1`.`Title` AS `PermitTypeTitle`,`PJT1`.`AllowedServiceCategories` AS `PermitTypeAllowedServiceCategories`,`PJT1`.`Extendable` AS `PermitTypeExtendable`,`PJT1`.`ProfileDependant` AS `PermitTypeProfileDependant`,`PJT2`.`EntityId` AS `PermitIssuerEntityId`,`PEP_2_0`.`Title` AS `PermitIssuerTitle`,`PEP_2_0`.`Address_fsx` AS `PermitIssuerAddress_fsx`,`PEP_2_0`.`City` AS `PermitIssuerCity`,`PEP_2_0`.`Province` AS `PermitIssuerProvince`,`PEP_2_0`.`Country` AS `PermitIssuerCountry`,`PEP_2_0`.`PostalCode_fsx` AS `PermitIssuerPostalCode_fsx`,`PEP_2_0`.`Phone_fsx` AS `PermitIssuerPhone_fsx`,`PEP_2_0`.`FaxNumber_fsx` AS `PermitIssuerFaxNumber_fsx`,`PEP_2_0`.`Email_fsx` AS `PermitIssuerEmail_fsx`,`PEP_2_0`.`Discriminator` AS `PermitIssuerDiscriminator` from ((((((`H_VehicleProfile` `BaseTable` join `H_Permits` `RJT` on(((`RJT`.`VehicleId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) join `H_AAA_EntityScenarios` `PJT0` on(((`RJT`.`ActENUM` = `PJT0`.`PermittedActENUM`) and ((0 <> `PJT0`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_0_0` on(((`PJT0`.`EntityId` = `PEP_0_0`.`Id`) and ((0 <> `PEP_0_0`.`RecordDeleted`) is not true)))) join `H_PermitTypes` `PJT1` on(((`RJT`.`PermitTypeId` = `PJT1`.`Id`) and ((0 <> `PJT1`.`RecordDeleted`) is not true)))) join `H_PermitIssuers` `PJT2` on(((`RJT`.`PermitIssuerId` = `PJT2`.`Id`) and ((0 <> `PJT2`.`RecordDeleted`) is not true)))) join `H_AAA_EntityProfile` `PEP_2_0` on(((`PJT2`.`EntityId` = `PEP_2_0`.`Id`) and ((0 <> `PEP_2_0`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `Vi_DPA_VehicleProfile`
 --
 
@@ -6213,7 +6162,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPA_VehicleProfilePermitsExtraDetail` AS select `BaseTable`.`Id` AS `VehicleProfileId`,`BaseTable`.`Plate` AS `VehicleProfilePlate`,`BaseTable`.`VIN` AS `VehicleProfileVIN`,`BaseTable`.`Make` AS `VehicleProfileMake`,`BaseTable`.`Model` AS `VehicleProfileModel`,`BaseTable`.`Province` AS `VehicleProfileProvince`,`BaseTable`.`Color` AS `VehicleProfileColor`,`BaseTable`.`Year` AS `VehicleProfileYear`,`BaseTable`.`TransportCategory` AS `VehicleProfileTransportCategory`,`BaseTable`.`Cargo_Height` AS `VehicleProfileCargo_Height`,`BaseTable`.`Cargo_Weight` AS `VehicleProfileCargo_Weight`,`BaseTable`.`Cargo_Length` AS `VehicleProfileCargo_Length`,`BaseTable`.`Cargo_Width` AS `VehicleProfileCargo_Width`,`BaseTable`.`Capacity_Passengers` AS `VehicleProfileCapacity_Passengers`,`BaseTable`.`Capacity_Luggage` AS `VehicleProfileCapacity_Luggage`,`BaseTable`.`VehicleType` AS `VehicleProfileVehicleType`,`RJT`.`HUBId` AS `HUBId`,`RJT`.`DistributorId` AS `DistributorId`,`RJT`.`CVOId` AS `CVOId`,`RJT`.`DriverId` AS `DriverId`,`RJT`.`ActENUM` AS `ActENUM`,`RJT`.`PermitIssuerId` AS `PermitIssuerId`,`RJT`.`PermitTypeId` AS `PermitTypeId`,`RJT`.`Code` AS `Code`,`RJT`.`ServiceCategory` AS `ServiceCategory`,`RJT`.`IssuedDate_UTC` AS `IssuedDate_UTC` from (`H_VehicleProfile` `BaseTable` join `H_Permits` `RJT` on(((`RJT`.`VehicleId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
+/*!50001 VIEW `Vi_DPA_VehicleProfilePermitsExtraDetail` AS select `BaseTable`.`Id` AS `VehicleProfileId`,`BaseTable`.`Plate` AS `VehicleProfilePlate`,`BaseTable`.`VIN` AS `VehicleProfileVIN`,`BaseTable`.`Make` AS `VehicleProfileMake`,`BaseTable`.`Model` AS `VehicleProfileModel`,`BaseTable`.`Province` AS `VehicleProfileProvince`,`BaseTable`.`Color` AS `VehicleProfileColor`,`BaseTable`.`Year` AS `VehicleProfileYear`,`BaseTable`.`TransportCategory` AS `VehicleProfileTransportCategory`,`BaseTable`.`Cargo_Height` AS `VehicleProfileCargo_Height`,`BaseTable`.`Cargo_Weight` AS `VehicleProfileCargo_Weight`,`BaseTable`.`Cargo_Length` AS `VehicleProfileCargo_Length`,`BaseTable`.`Cargo_Width` AS `VehicleProfileCargo_Width`,`BaseTable`.`Capacity_Passengers` AS `VehicleProfileCapacity_Passengers`,`BaseTable`.`Capacity_Luggage` AS `VehicleProfileCapacity_Luggage`,`BaseTable`.`VehicleType` AS `VehicleProfileVehicleType`,`RJT`.`HUBId` AS `HUBId`,`RJT`.`DistributorId` AS `DistributorId`,`RJT`.`CVOId` AS `CVOId`,`RJT`.`DriverId` AS `DriverId`,`RJT`.`ActENUM` AS `ActENUM`,`RJT`.`PermitIssuerId` AS `PermitIssuerId`,`RJT`.`PermitTypeId` AS `PermitTypeId`,`RJT`.`Code` AS `Code`,`RJT`.`IssuedDate_UTC` AS `IssuedDate_UTC` from (`H_VehicleProfile` `BaseTable` join `H_Permits` `RJT` on(((`RJT`.`VehicleId` = `BaseTable`.`Id`) and ((0 <> `RJT`.`RecordDeleted`) is not true)))) where ((0 <> `BaseTable`.`RecordDeleted`) is not true) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6381,24 +6330,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `Vi_DPC_PermitRequestSuperDetail`
---
-
-/*!50001 DROP VIEW IF EXISTS `Vi_DPC_PermitRequestSuperDetail`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_DPC_PermitRequestSuperDetail` AS select `P`.`Id` AS `PermitId`,`P`.`Code` AS `PermitCode`,`P`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`PS`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`PS`.`ConditionENUM` AS `ConditionENUM`,`PS`.`ConditionEndDate_UTC` AS `ConditionEndDate_UTC`,`PS`.`MediaRecordKey` AS `MediaRecordKey`,`PSV`.`PermitStatusId` AS `PermitStatusId`,`PSV`.`RequestStatusId` AS `RequestStatusId`,`RS`.`RequestId` AS `RequestId`,`RS`.`RequesteeUserId` AS `RequesteeUserId`,`RS`.`RequesteeEntityId` AS `RequesteeEntityId`,`RS`.`RequesteeActENUM` AS `RequesteeActENUM`,`RS`.`Status` AS `RequestStatus`,`RS`.`StatusReason` AS `RequestStatusReason`,`R`.`RequesterUserId` AS `RequesterUserId`,`R`.`RequesterEntityId` AS `RequesterEntityId`,`R`.`RequestType` AS `RequestType`,`R`.`Expiry_UTC` AS `RequestExpiryTime`,`P`.`HUBId` AS `HUBId`,`P`.`DistributorId` AS `DistributorId`,`P`.`CVOId` AS `CVOId`,`P`.`VehicleId` AS `VehicleId`,`P`.`DriverId` AS `DriverId`,`P`.`ActENUM` AS `PermitHolderActENUM`,`P`.`PermitIssuerId` AS `PermitIssuerId`,`EP`.`Title` AS `PermitIssuerTitle`,`P`.`PermitTypeId` AS `PermitTypeId`,`PT`.`ActENUM` AS `PermitTypeActENUM`,`PT`.`ActivityClassENUM` AS `PermitTypeActivityClassENUM`,`PT`.`Title` AS `PermitTypeTitle`,`PT`.`AllowedServiceCategories` AS `PermiTypeAllowedServiceCategory`,`PT`.`Extendable` AS `IsPermitExtendable`,`PT`.`ProfileDependant` AS `IsPermitProfileDependant`,`P`.`ServiceCategory` AS `PermitServiceCategory`,`P`.`RecordDeleted` AS `RecordDeleted` from (((((((`H_Permits` `P` join `H_PermitTypes` `PT` on((`PT`.`Id` = `P`.`PermitTypeId`))) join `H_PermitIssuers` `PI` on((`PI`.`Id` = `P`.`PermitIssuerId`))) join `H_AAA_EntityProfile` `EP` on((`EP`.`Id` = `PI`.`EntityId`))) left join `H_PermitStatuses` `PS` on((`P`.`Id` = `PS`.`PermitId`))) left join `H_PermitStatusVerifications` `PSV` on((`PS`.`Id` = `PSV`.`PermitStatusId`))) left join `H_RequestStatuses` `RS` on((`RS`.`Id` = `PSV`.`RequestStatusId`))) left join `H_RequestBases` `R` on((`R`.`Id` = `RS`.`RequestId`))) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `Vi_DPC_UserEntityRoleDetail`
 --
 
@@ -6435,6 +6366,60 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `Vi_SPC_CVODistributors`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVODistributors`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_CVODistributors` AS select `j`.`Id` AS `LinkId`,`j`.`DistributorId` AS `DistributorId`,`j`.`CVOId` AS `CVOId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`EntityId` AS `EntityId`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted`,`rh0`.`Title` AS `EntityTitle` from ((`H_DistributorCVOs` `j` join `H_Distributors` `rel` on((`rel`.`Id` = `j`.`DistributorId`))) left join `H_AAA_EntityProfile` `rh0` on((`rh0`.`Id` = `rel`.`EntityId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_CVODrivers`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVODrivers`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_CVODrivers` AS select `j`.`Id` AS `LinkId`,`j`.`CVOId` AS `CVOId`,`j`.`DriverId` AS `DriverId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`UserId` AS `UserId`,`rel`.`PersonCVOId` AS `PersonCVOId`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted`,`rh0`.`Firstname_fsx` AS `Firstname_fsx`,`rh0`.`Lastname_fsx` AS `Lastname_fsx`,`rh0`.`Username` AS `Username`,`rh0`.`Email_fsx` AS `Email_fsx`,`rh0`.`CellPhone_fsx` AS `CellPhone_fsx`,`rh1e`.`Title` AS `PersonCVOTitle` from ((((`H_CVODrivers` `j` join `H_Drivers` `rel` on((`rel`.`Id` = `j`.`DriverId`))) left join `H_AAA_Synced_UserInfo` `rh0` on((`rh0`.`Id` = `rel`.`UserId`))) left join `H_CVOs` `rh1` on((`rh1`.`Id` = `rel`.`PersonCVOId`))) left join `H_AAA_EntityProfile` `rh1e` on((`rh1e`.`Id` = `rh1`.`EntityId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_CVOListSummary`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVOListSummary`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_CVOListSummary` AS select `m`.`Id` AS `Id`,`m`.`EntityId` AS `EntityId`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `EntityTitle`,(select count(0) from `H_CVODrivers` `cc` where ((`cc`.`CVOId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `DriversCount`,(select count(0) from `H_CVOServices` `cc` where ((`cc`.`CVOId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `ServicesCount`,(select count(0) from `H_CVOVehicles` `cc` where ((`cc`.`CVOId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `VehiclesCount`,(select count(0) from `H_DistributorCVOs` `cc` where ((`cc`.`CVOId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `DistributorsCount`,(select count(0) from `H_Permits` `cc` where ((`cc`.`CVOId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `PermitsCount` from (`H_CVOs` `m` left join `H_AAA_EntityProfile` `h0` on((`h0`.`Id` = `m`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `Vi_SPC_CVOPermits`
 --
 
@@ -6447,7 +6432,115 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_CVOPermits` AS select `p`.`Id` AS `Id`,`p`.`CVOId` AS `CVOId`,`p`.`DistributorId` AS `DistributorId`,`p`.`VehicleId` AS `VehicleId`,`p`.`DriverId` AS `DriverId`,`p`.`PermitTypeId` AS `PermitTypeId`,`p`.`PermitIssuerId` AS `PermitIssuerId`,`p`.`Code` AS `PermitCode`,`p`.`ServiceCategory` AS `ServiceCategory`,`p`.`IssuedDate_UTC` AS `PermitIssuedDate`,`pls`.`PermitStatusId` AS `PermitStatusId`,`pls`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`pls`.`ConditionENUM` AS `PermitConditionENUM`,`pls`.`ConditionEndDate_UTC` AS `PermitConditionEndDate`,coalesce(`pls`.`StatusCategory`,'Unknown') AS `StatusCategory`,coalesce(`pls`.`ConditionTitle`,'Normal') AS `ConditionTitle`,`pls`.`DaysUntilExpiry` AS `DaysUntilExpiry`,`pls`.`IsExpiringSoon` AS `IsExpiringSoon`,`pt`.`Title` AS `PermitTypeTitle`,`pt`.`ActivityClassENUM` AS `ActivityClassENUM`,`pt`.`AllowedServiceCategories` AS `AllowedServiceCategories`,`pt`.`Extendable` AS `Extendable`,`pt`.`ProfileDependant` AS `ProfileDependant`,`pi`.`EntityId` AS `IssuerEntityId`,`issuer_ep`.`Title` AS `IssuerTitle`,`cvo_ep`.`Title` AS `CVOTitle`,`dist_ep`.`Title` AS `DistributorTitle`,coalesce(`v`.`Plate`,'N/A') AS `VehiclePlate`,concat_ws(' ',`ui`.`Firstname_fsx`,`ui`.`Lastname_fsx`) AS `DriverFullName`,(select `pdl`.`Code` from `H_Permits` `pdl` where ((`pdl`.`DriverId` = `p`.`DriverId`) and (`pdl`.`PermitTypeId` = 5001) and (`pdl`.`RecordDeleted` is null)) order by `pdl`.`IssuedDate_UTC` desc,`pdl`.`Id` desc limit 1) AS `DriverLicense`,`p`.`RecordKey` AS `RecordKey`,`p`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`p`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`p`.`RecordDeleted` AS `RecordDeleted` from (((((((((((`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) left join `H_PermitTypes` `pt` on((`pt`.`Id` = `p`.`PermitTypeId`))) left join `H_PermitIssuers` `pi` on((`pi`.`Id` = `p`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `issuer_ep` on((`issuer_ep`.`Id` = `pi`.`EntityId`))) left join `H_CVOs` `cvo` on((`cvo`.`Id` = `p`.`CVOId`))) left join `H_AAA_EntityProfile` `cvo_ep` on((`cvo_ep`.`Id` = `cvo`.`EntityId`))) left join `H_Distributors` `dist` on((`dist`.`Id` = `p`.`DistributorId`))) left join `H_AAA_EntityProfile` `dist_ep` on((`dist_ep`.`Id` = `dist`.`EntityId`))) left join `H_VehicleProfile` `v` on((`v`.`Id` = `p`.`VehicleId`))) left join `H_Drivers` `d` on((`d`.`Id` = `p`.`DriverId`))) left join `H_AAA_Synced_UserInfo` `ui` on((`ui`.`Id` = `d`.`UserId`))) where ((`p`.`CVOId` is not null) and (`p`.`RecordDeleted` is null)) */;
+/*!50001 VIEW `Vi_SPC_CVOPermits` AS select `j`.`Id` AS `Id`,`j`.`HUBId` AS `HUBId`,`j`.`DistributorId` AS `DistributorId`,`j`.`CVOId` AS `CVOId`,`j`.`VehicleId` AS `VehicleId`,`j`.`DriverId` AS `DriverId`,`j`.`ActENUM` AS `ActENUM`,`j`.`PermitIssuerId` AS `PermitIssuerId`,`j`.`PermitTypeId` AS `PermitTypeId`,`j`.`Code` AS `Code`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`RecordKey` AS `RecordKey`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h2e`.`Title` AS `HUBTitle`,`h3e`.`Title` AS `CVOTitle`,`h5e`.`Title` AS `DistributorTitle`,`h6`.`Title` AS `PermitTypeTitle`,`h7e`.`Title` AS `PermitIssuerTitle` from (((((((((`H_Permits` `j` left join `H_HUBs` `h2` on((`h2`.`Id` = `j`.`HUBId`))) left join `H_AAA_EntityProfile` `h2e` on((`h2e`.`Id` = `h2`.`EntityId`))) left join `H_CVOs` `h3` on((`h3`.`Id` = `j`.`CVOId`))) left join `H_AAA_EntityProfile` `h3e` on((`h3e`.`Id` = `h3`.`EntityId`))) left join `H_Distributors` `h5` on((`h5`.`Id` = `j`.`DistributorId`))) left join `H_AAA_EntityProfile` `h5e` on((`h5e`.`Id` = `h5`.`EntityId`))) left join `H_PermitTypes` `h6` on((`h6`.`Id` = `j`.`PermitTypeId`))) left join `H_PermitIssuers` `h7` on((`h7`.`Id` = `j`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `h7e` on((`h7e`.`Id` = `h7`.`EntityId`))) where (`j`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_CVOProfile`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVOProfile`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_CVOProfile` AS select `m`.`Id` AS `Id`,`m`.`EntityId` AS `EntityId`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `EntityTitle` from (`H_CVOs` `m` left join `H_AAA_EntityProfile` `h0` on((`h0`.`Id` = `m`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_CVOServices`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVOServices`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_CVOServices` AS select `j`.`Id` AS `Id`,`j`.`CVOId` AS `CVOId`,`j`.`ServiceId` AS `ServiceId`,`j`.`ServiceCategory` AS `ServiceCategory`,`j`.`RecordKey` AS `RecordKey`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h1e`.`Title` AS `CVOTitle` from ((`H_CVOServices` `j` left join `H_CVOs` `h1` on((`h1`.`Id` = `j`.`CVOId`))) left join `H_AAA_EntityProfile` `h1e` on((`h1e`.`Id` = `h1`.`EntityId`))) where (`j`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_CVOVehicles`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_CVOVehicles`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_CVOVehicles` AS select `j`.`Id` AS `LinkId`,`j`.`CVOId` AS `CVOId`,`j`.`VehicleId` AS `VehicleId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`Plate` AS `Plate`,`rel`.`VIN` AS `VIN`,`rel`.`Make` AS `Make`,`rel`.`Model` AS `Model`,`rel`.`Province` AS `Province`,`rel`.`Color` AS `Color`,`rel`.`Year` AS `Year`,`rel`.`TransportCategory` AS `TransportCategory`,`rel`.`Cargo_Height` AS `Cargo_Height`,`rel`.`Cargo_Weight` AS `Cargo_Weight`,`rel`.`Cargo_Length` AS `Cargo_Length`,`rel`.`Cargo_Width` AS `Cargo_Width`,`rel`.`Capacity_Passengers` AS `Capacity_Passengers`,`rel`.`Capacity_Luggage` AS `Capacity_Luggage`,`rel`.`VehicleType` AS `VehicleType`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted` from (`H_CVOVehicles` `j` join `H_VehicleProfile` `rel` on((`rel`.`Id` = `j`.`VehicleId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_DistributorCVOs`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_DistributorCVOs`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_DistributorCVOs` AS select `j`.`Id` AS `LinkId`,`j`.`DistributorId` AS `DistributorId`,`j`.`CVOId` AS `CVOId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`EntityId` AS `EntityId`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted`,`rh0`.`Title` AS `EntityTitle` from ((`H_DistributorCVOs` `j` join `H_CVOs` `rel` on((`rel`.`Id` = `j`.`CVOId`))) left join `H_AAA_EntityProfile` `rh0` on((`rh0`.`Id` = `rel`.`EntityId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_DistributorDrivers`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_DistributorDrivers`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_DistributorDrivers` AS select `j`.`Id` AS `LinkId`,`j`.`DistributorId` AS `DistributorId`,`j`.`DriverId` AS `DriverId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`UserId` AS `UserId`,`rel`.`PersonCVOId` AS `PersonCVOId`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted`,`rh0`.`Firstname_fsx` AS `Firstname_fsx`,`rh0`.`Lastname_fsx` AS `Lastname_fsx`,`rh0`.`Username` AS `Username`,`rh0`.`Email_fsx` AS `Email_fsx`,`rh0`.`CellPhone_fsx` AS `CellPhone_fsx`,`rh1e`.`Title` AS `PersonCVOTitle` from ((((`H_DistributorDrivers` `j` join `H_Drivers` `rel` on((`rel`.`Id` = `j`.`DriverId`))) left join `H_AAA_Synced_UserInfo` `rh0` on((`rh0`.`Id` = `rel`.`UserId`))) left join `H_CVOs` `rh1` on((`rh1`.`Id` = `rel`.`PersonCVOId`))) left join `H_AAA_EntityProfile` `rh1e` on((`rh1e`.`Id` = `rh1`.`EntityId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_DistributorHUBs`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_DistributorHUBs`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_DistributorHUBs` AS select `j`.`Id` AS `LinkId`,`j`.`DistributorId` AS `DistributorId`,`j`.`HUBId` AS `HUBId`,`j`.`ParticipationCategory` AS `ParticipationCategory`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`EntityId` AS `EntityId`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted`,`rh0`.`Title` AS `EntityTitle` from ((`H_HUBDistributors` `j` join `H_HUBs` `rel` on((`rel`.`Id` = `j`.`HUBId`))) left join `H_AAA_EntityProfile` `rh0` on((`rh0`.`Id` = `rel`.`EntityId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6465,7 +6558,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_DistributorListSummary` AS select `d`.`Id` AS `Id`,`d`.`EntityId` AS `EntityId`,`ep`.`Title` AS `EntityTitle`,`ep`.`City` AS `City`,`ep`.`Province` AS `Province`,`ep`.`Phone_fsx` AS `Phone_fsx`,`ep`.`Email_fsx` AS `Email_fsx`,(select count(0) from `H_DistributorCVOs` `dc` where ((`dc`.`DistributorId` = `d`.`Id`) and (`dc`.`RecordDeleted` is null))) AS `CVOCount`,(select count(0) from `H_DistributorDrivers` `dd` where ((`dd`.`DistributorId` = `d`.`Id`) and (`dd`.`RecordDeleted` is null))) AS `DriverCount`,(select count(0) from `H_HUBDistributors` `hd` where ((`hd`.`DistributorId` = `d`.`Id`) and (`hd`.`RecordDeleted` is null))) AS `HUBCount`,count(distinct `p`.`Id`) AS `TotalPermitCount`,count(distinct (case when (`pls`.`StatusCategory` = 'Expired') then `p`.`Id` end)) AS `ExpiredPermitCount`,count(distinct (case when (`pls`.`IsCurrentlyValid` = true) then `p`.`Id` end)) AS `ValidPermitCount`,count(distinct (case when (`pls`.`StatusCategory` = 'Suspended') then `p`.`Id` end)) AS `SuspendedPermitCount`,count(distinct (case when (`pls`.`StatusCategory` = 'Revoked') then `p`.`Id` end)) AS `RevokedPermitCount`,`d`.`RecordKey` AS `RecordKey`,`d`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`d`.`ModifiedAt_UTC` AS `ModifiedAt_UTC` from (((`H_Distributors` `d` join `H_AAA_EntityProfile` `ep` on((`ep`.`Id` = `d`.`EntityId`))) left join `H_Permits` `p` on(((`p`.`DistributorId` = `d`.`Id`) and (`p`.`RecordDeleted` is null)))) left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where (`d`.`RecordDeleted` is null) group by `d`.`Id`,`d`.`EntityId`,`ep`.`Title`,`ep`.`City`,`ep`.`Province`,`ep`.`Phone_fsx`,`ep`.`Email_fsx`,`d`.`RecordKey`,`d`.`CreatedAt_UTC`,`d`.`ModifiedAt_UTC` */;
+/*!50001 VIEW `Vi_SPC_DistributorListSummary` AS select `m`.`Id` AS `Id`,`m`.`EntityId` AS `EntityId`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `EntityTitle`,(select count(0) from `H_DistributorCVOs` `cc` where ((`cc`.`DistributorId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `CVOsCount`,(select count(0) from `H_DistributorDrivers` `cc` where ((`cc`.`DistributorId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `DriversCount`,(select count(0) from `H_HUBDistributors` `cc` where ((`cc`.`DistributorId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `HUBsCount`,(select count(0) from `H_Permits` `cc` where ((`cc`.`DistributorId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `PermitsCount` from (`H_Distributors` `m` left join `H_AAA_EntityProfile` `h0` on((`h0`.`Id` = `m`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6483,7 +6576,25 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_DistributorPermits` AS select `p`.`Id` AS `Id`,`p`.`DistributorId` AS `DistributorId`,`p`.`CVOId` AS `CVOId`,`p`.`VehicleId` AS `VehicleId`,`p`.`DriverId` AS `DriverId`,`p`.`PermitTypeId` AS `PermitTypeId`,`p`.`PermitIssuerId` AS `PermitIssuerId`,`p`.`Code` AS `PermitCode`,`p`.`ServiceCategory` AS `ServiceCategory`,`p`.`IssuedDate_UTC` AS `PermitIssuedDate`,`pls`.`PermitStatusId` AS `PermitStatusId`,`pls`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`pls`.`ConditionENUM` AS `PermitConditionENUM`,`pls`.`ConditionEndDate_UTC` AS `PermitConditionEndDate`,coalesce(`pls`.`StatusCategory`,'Unknown') AS `StatusCategory`,coalesce(`pls`.`ConditionTitle`,'Normal') AS `ConditionTitle`,`pls`.`DaysUntilExpiry` AS `DaysUntilExpiry`,`pls`.`IsExpiringSoon` AS `IsExpiringSoon`,`pt`.`Title` AS `PermitTypeTitle`,`pt`.`ActivityClassENUM` AS `ActivityClassENUM`,`pt`.`AllowedServiceCategories` AS `AllowedServiceCategories`,`pt`.`Extendable` AS `Extendable`,`pt`.`ProfileDependant` AS `ProfileDependant`,`pi`.`EntityId` AS `IssuerEntityId`,`issuer_ep`.`Title` AS `IssuerTitle`,`dist_ep`.`Title` AS `DistributorTitle`,`cvo_ep`.`Title` AS `CVOTitle`,coalesce(`v`.`Plate`,'N/A') AS `VehiclePlate`,concat_ws(' ',`ui`.`Firstname_fsx`,`ui`.`Lastname_fsx`) AS `DriverFullName`,(select `pdl`.`Code` from `H_Permits` `pdl` where ((`pdl`.`DriverId` = `p`.`DriverId`) and (`pdl`.`PermitTypeId` = 5001) and (`pdl`.`RecordDeleted` is null)) order by `pdl`.`IssuedDate_UTC` desc,`pdl`.`Id` desc limit 1) AS `DriverLicense`,`p`.`RecordKey` AS `RecordKey`,`p`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`p`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`p`.`RecordDeleted` AS `RecordDeleted` from (((((((((((`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) left join `H_PermitTypes` `pt` on((`pt`.`Id` = `p`.`PermitTypeId`))) left join `H_PermitIssuers` `pi` on((`pi`.`Id` = `p`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `issuer_ep` on((`issuer_ep`.`Id` = `pi`.`EntityId`))) left join `H_Distributors` `dist` on((`dist`.`Id` = `p`.`DistributorId`))) left join `H_AAA_EntityProfile` `dist_ep` on((`dist_ep`.`Id` = `dist`.`EntityId`))) left join `H_CVOs` `cvo` on((`cvo`.`Id` = `p`.`CVOId`))) left join `H_AAA_EntityProfile` `cvo_ep` on((`cvo_ep`.`Id` = `cvo`.`EntityId`))) left join `H_VehicleProfile` `v` on((`v`.`Id` = `p`.`VehicleId`))) left join `H_Drivers` `d` on((`d`.`Id` = `p`.`DriverId`))) left join `H_AAA_Synced_UserInfo` `ui` on((`ui`.`Id` = `d`.`UserId`))) where ((`p`.`DistributorId` is not null) and (`p`.`RecordDeleted` is null)) */;
+/*!50001 VIEW `Vi_SPC_DistributorPermits` AS select `j`.`Id` AS `Id`,`j`.`HUBId` AS `HUBId`,`j`.`DistributorId` AS `DistributorId`,`j`.`CVOId` AS `CVOId`,`j`.`VehicleId` AS `VehicleId`,`j`.`DriverId` AS `DriverId`,`j`.`ActENUM` AS `ActENUM`,`j`.`PermitIssuerId` AS `PermitIssuerId`,`j`.`PermitTypeId` AS `PermitTypeId`,`j`.`Code` AS `Code`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`RecordKey` AS `RecordKey`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h2e`.`Title` AS `HUBTitle`,`h3e`.`Title` AS `CVOTitle`,`h5e`.`Title` AS `DistributorTitle`,`h6`.`Title` AS `PermitTypeTitle`,`h7e`.`Title` AS `PermitIssuerTitle` from (((((((((`H_Permits` `j` left join `H_HUBs` `h2` on((`h2`.`Id` = `j`.`HUBId`))) left join `H_AAA_EntityProfile` `h2e` on((`h2e`.`Id` = `h2`.`EntityId`))) left join `H_CVOs` `h3` on((`h3`.`Id` = `j`.`CVOId`))) left join `H_AAA_EntityProfile` `h3e` on((`h3e`.`Id` = `h3`.`EntityId`))) left join `H_Distributors` `h5` on((`h5`.`Id` = `j`.`DistributorId`))) left join `H_AAA_EntityProfile` `h5e` on((`h5e`.`Id` = `h5`.`EntityId`))) left join `H_PermitTypes` `h6` on((`h6`.`Id` = `j`.`PermitTypeId`))) left join `H_PermitIssuers` `h7` on((`h7`.`Id` = `j`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `h7e` on((`h7e`.`Id` = `h7`.`EntityId`))) where (`j`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_DistributorProfile`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_DistributorProfile`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_DistributorProfile` AS select `m`.`Id` AS `Id`,`m`.`EntityId` AS `EntityId`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `EntityTitle` from (`H_Distributors` `m` left join `H_AAA_EntityProfile` `h0` on((`h0`.`Id` = `m`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6501,25 +6612,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_DriverCVOs` AS select `cd`.`Id` AS `AssignmentId`,`cd`.`DriverId` AS `DriverId`,`cd`.`CVOId` AS `CVOId`,`cd`.`IssuedDate_UTC` AS `AssignmentStartDate`,`cd`.`ExpiryDate_UTC` AS `AssignmentEndDate`,`cd`.`HasRule` AS `HasRule`,`cd`.`RecordKey` AS `AssignmentRecordKey`,(case when (`cd`.`ExpiryDate_UTC` is null) then 'Active' when (`cd`.`ExpiryDate_UTC` < utc_timestamp()) then 'Expired' else 'Active' end) AS `AssignmentStatus`,(case when (`d`.`PersonCVOId` = `cd`.`CVOId`) then true else false end) AS `IsPrimaryCVO`,`cvo`.`EntityId` AS `CVOEntityId`,`cvo_ep`.`Title` AS `CVOTitle`,`cvo_ep`.`City` AS `CVOCity`,`cvo_ep`.`Province` AS `CVOProvince`,`cvo_ep`.`Phone_fsx` AS `CVOPhone`,`cvo_ep`.`Email_fsx` AS `CVOEmail`,concat_ws(' ',`ui`.`Firstname_fsx`,`ui`.`Lastname_fsx`) AS `DriverFullName`,`cd`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`cd`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`cd`.`RecordDeleted` AS `RecordDeleted` from ((((`H_CVODrivers` `cd` join `H_CVOs` `cvo` on((`cvo`.`Id` = `cd`.`CVOId`))) join `H_AAA_EntityProfile` `cvo_ep` on((`cvo_ep`.`Id` = `cvo`.`EntityId`))) join `H_Drivers` `d` on((`d`.`Id` = `cd`.`DriverId`))) left join `H_AAA_Synced_UserInfo` `ui` on((`ui`.`Id` = `d`.`UserId`))) where (`cd`.`RecordDeleted` is null) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `Vi_SPC_DriverDLVC`
---
-
-/*!50001 DROP VIEW IF EXISTS `Vi_SPC_DriverDLVC`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_DriverDLVC` AS select `dpvt`.`Id` AS `Id`,`p`.`DriverId` AS `DriverId`,`dpvt`.`VehicleType` AS `VehicleTypeENUM`,`evt`.`Title` AS `VehicleTypeTitle`,`p`.`Id` AS `PermitId`,`p`.`Code` AS `PermitCode`,`pt`.`Title` AS `PermitTypeTitle`,`pls`.`ExpiryDate_UTC` AS `PermitExpiryDate`,`pls`.`ConditionENUM` AS `PermitConditionENUM`,coalesce(`pls`.`StatusCategory`,'Unknown') AS `PermitStatus`,`dpvt`.`RecordKey` AS `RecordKey`,`dpvt`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`dpvt`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`dpvt`.`RecordDeleted` AS `RecordDeleted` from ((((`H_DriverPermitVehicleTypes` `dpvt` join `H_Permits` `p` on((`p`.`Id` = `dpvt`.`PermitId`))) left join `H_PermitTypes` `pt` on((`pt`.`Id` = `p`.`PermitTypeId`))) left join `H_ENUM_VehicleTypes` `evt` on((`evt`.`ENUM` = `dpvt`.`VehicleType`))) left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`PermitTypeId` = 5001) and (`p`.`DriverId` is not null) and (`dpvt`.`RecordDeleted` is null) and (`p`.`RecordDeleted` is null)) */;
+/*!50001 VIEW `Vi_SPC_DriverCVOs` AS select `j`.`Id` AS `LinkId`,`j`.`CVOId` AS `CVOId`,`j`.`DriverId` AS `DriverId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`EntityId` AS `EntityId`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted`,`rh0`.`Title` AS `EntityTitle` from ((`H_CVODrivers` `j` join `H_CVOs` `rel` on((`rel`.`Id` = `j`.`CVOId`))) left join `H_AAA_EntityProfile` `rh0` on((`rh0`.`Id` = `rel`.`EntityId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6537,7 +6630,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_DriverDistributors` AS select `dd`.`Id` AS `AssignmentId`,`dd`.`DriverId` AS `DriverId`,`dd`.`DistributorId` AS `DistributorId`,`dd`.`IssuedDate_UTC` AS `AssignmentStartDate`,`dd`.`ExpiryDate_UTC` AS `AssignmentEndDate`,`dd`.`RecordKey` AS `AssignmentRecordKey`,(case when (`dd`.`ExpiryDate_UTC` is null) then 'Active' when (`dd`.`ExpiryDate_UTC` < utc_timestamp()) then 'Expired' else 'Active' end) AS `AssignmentStatus`,`d`.`EntityId` AS `DistributorEntityId`,`dist_ep`.`Title` AS `DistributorTitle`,`dist_ep`.`City` AS `DistributorCity`,`dist_ep`.`Province` AS `DistributorProvince`,`dist_ep`.`Phone_fsx` AS `DistributorPhone`,`dist_ep`.`Email_fsx` AS `DistributorEmail`,(select count(0) from `H_Permits` `p` where ((`p`.`DriverId` = `dd`.`DriverId`) and (`p`.`DistributorId` = `dd`.`DistributorId`) and (`p`.`RecordDeleted` is null))) AS `PermitCount`,`dd`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`dd`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`dd`.`RecordDeleted` AS `RecordDeleted` from ((`H_DistributorDrivers` `dd` join `H_Distributors` `d` on((`d`.`Id` = `dd`.`DistributorId`))) join `H_AAA_EntityProfile` `dist_ep` on((`dist_ep`.`Id` = `d`.`EntityId`))) where (`dd`.`RecordDeleted` is null) */;
+/*!50001 VIEW `Vi_SPC_DriverDistributors` AS select `j`.`Id` AS `LinkId`,`j`.`DistributorId` AS `DistributorId`,`j`.`DriverId` AS `DriverId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`EntityId` AS `EntityId`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted`,`rh0`.`Title` AS `EntityTitle` from ((`H_DistributorDrivers` `j` join `H_Distributors` `rel` on((`rel`.`Id` = `j`.`DistributorId`))) left join `H_AAA_EntityProfile` `rh0` on((`rh0`.`Id` = `rel`.`EntityId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6555,7 +6648,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_DriverListSummary` AS select `d`.`Id` AS `Id`,`d`.`UserId` AS `UserId`,`d`.`PersonCVOId` AS `PersonCVOId`,`d`.`RecordKey` AS `RecordKey`,`d`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`d`.`CreatedBy` AS `CreatedBy`,`d`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`d`.`ModifiedBy` AS `ModifiedBy`,`d`.`RecordDeleted` AS `RecordDeleted`,concat_ws(' ',`ui`.`Firstname_fsx`,`ui`.`Lastname_fsx`) AS `FullName`,`ui`.`Firstname_fsx` AS `Firstname`,`ui`.`Lastname_fsx` AS `Lastname`,`ui`.`Username` AS `Username`,`ui`.`Email_fsx` AS `Email`,`ui`.`CellPhone_fsx` AS `CellPhone`,(select `p`.`Code` from `H_Permits` `p` where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicense`,(select `pls`.`ExpiryDate_UTC` from (`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicenseExpiry`,(select coalesce(`pls`.`StatusCategory`,'Unknown') from (`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicenseStatus`,(select `pls`.`ConditionENUM` from (`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicenseConditionENUM`,concat_ws(' ',`ui`.`Firstname_fsx`,`ui`.`Lastname_fsx`) AS `UserFullName`,`ui`.`Email_fsx` AS `UserEmail`,`ui`.`Username` AS `UserUsername`,`cvo_ep`.`Title` AS `PrimaryCVOTitle`,`cvo_ep`.`City` AS `PrimaryCVOCity`,(select count(0) from `H_Permits` `p` where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`RecordDeleted` is null))) AS `TotalPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`pls`.`IsCurrentlyValid` = true) and (`p`.`RecordDeleted` is null))) AS `ValidPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`pls`.`StatusCategory` = 'Expired') and (`p`.`RecordDeleted` is null))) AS `ExpiredPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`pls`.`StatusCategory` = 'Suspended') and (`p`.`RecordDeleted` is null))) AS `SuspendedPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`pls`.`StatusCategory` = 'Revoked') and (`p`.`RecordDeleted` is null))) AS `RevokedPermitCount`,(select max(`pls`.`ExpiryDate_UTC`) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`pls`.`IsCurrentlyValid` = true) and (`p`.`RecordDeleted` is null))) AS `NextValidPermitExpiry`,(select count(0) from `H_VehicleDrivers` `vd` where ((`vd`.`DriverId` = `d`.`Id`) and (`vd`.`RecordDeleted` is null))) AS `VehicleCount`,(select count(0) from `H_DistributorDrivers` `dd` where ((`dd`.`DriverId` = `d`.`Id`) and (`dd`.`RecordDeleted` is null))) AS `DistributorCount`,(select count(0) from `H_CVODrivers` `cd` where ((`cd`.`DriverId` = `d`.`Id`) and (`cd`.`RecordDeleted` is null))) AS `CVOCount`,(select count(distinct `dpvt`.`VehicleType`) from (`H_DriverPermitVehicleTypes` `dpvt` join `H_Permits` `p` on((`p`.`Id` = `dpvt`.`PermitId`))) where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`dpvt`.`RecordDeleted` is null) and (`p`.`RecordDeleted` is null))) AS `LicensedVehicleTypeCount`,(select json_arrayagg(`dlvc_badges`.`VehicleTypeTitle`) from (select `vt`.`Title` AS `VehicleTypeTitle` from ((`H_DriverPermitVehicleTypes` `dpvt` join `H_Permits` `p` on((`p`.`Id` = `dpvt`.`PermitId`))) join `H_ENUM_VehicleTypes` `vt` on((`vt`.`ENUM` = `dpvt`.`VehicleType`))) where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`dpvt`.`RecordDeleted` is null) and (`p`.`RecordDeleted` is null)) order by `vt`.`Title`,`dpvt`.`Id` limit 3) `dlvc_badges`) AS `LicensedVehicleTypeBadges` from (((`H_Drivers` `d` left join `H_AAA_Synced_UserInfo` `ui` on((`ui`.`Id` = `d`.`UserId`))) left join `H_CVOs` `cvo` on((`cvo`.`Id` = `d`.`PersonCVOId`))) left join `H_AAA_EntityProfile` `cvo_ep` on((`cvo_ep`.`Id` = `cvo`.`EntityId`))) where (`d`.`RecordDeleted` is null) */;
+/*!50001 VIEW `Vi_SPC_DriverListSummary` AS select `m`.`Id` AS `Id`,`m`.`UserId` AS `UserId`,`m`.`PersonCVOId` AS `PersonCVOId`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Firstname_fsx` AS `Firstname_fsx`,`h0`.`Lastname_fsx` AS `Lastname_fsx`,`h0`.`Username` AS `Username`,`h0`.`Email_fsx` AS `Email_fsx`,`h0`.`CellPhone_fsx` AS `CellPhone_fsx`,`h1e`.`Title` AS `PersonCVOTitle`,(select count(0) from `H_CVODrivers` `cc` where ((`cc`.`DriverId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `CVOsCount`,(select count(0) from `H_DistributorDrivers` `cc` where ((`cc`.`DriverId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `DistributorsCount`,(select count(0) from `H_Permits` `cc` where ((`cc`.`DriverId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `PermitsCount`,(select count(0) from `H_VehicleDrivers` `cc` where ((`cc`.`DriverId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `VehiclesCount`,(select `p`.`Code` from `H_Permits` `p` where ((`p`.`DriverId` = `m`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicense`,(select `pls`.`ExpiryDate_UTC` from (`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `m`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicenseExpiry`,(select coalesce(`pls`.`StatusCategory`,'Unknown') from (`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `m`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicenseStatus`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `m`.`Id`) and (`pls`.`IsCurrentlyValid` = true) and (`p`.`RecordDeleted` is null))) AS `ValidPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `m`.`Id`) and (`pls`.`StatusCategory` = 'Expired') and (`p`.`RecordDeleted` is null))) AS `ExpiredPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `m`.`Id`) and (`pls`.`StatusCategory` = 'Suspended') and (`p`.`RecordDeleted` is null))) AS `SuspendedPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `m`.`Id`) and (`pls`.`StatusCategory` = 'Revoked') and (`p`.`RecordDeleted` is null))) AS `RevokedPermitCount`,(select max(`pls`.`ExpiryDate_UTC`) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `m`.`Id`) and (`pls`.`IsCurrentlyValid` = true) and (`p`.`RecordDeleted` is null))) AS `NextValidPermitExpiry`,(select json_arrayagg(`b`.`VehicleTypeTitle`) from (select `vt`.`Title` AS `VehicleTypeTitle` from ((`H_DriverPermitVehicleTypes` `dpvt` join `H_Permits` `p` on((`p`.`Id` = `dpvt`.`PermitId`))) join `H_ENUM_VehicleTypes` `vt` on((`vt`.`ENUM` = `dpvt`.`VehicleType`))) where ((`p`.`DriverId` = `m`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`dpvt`.`RecordDeleted` is null) and (`p`.`RecordDeleted` is null)) order by `vt`.`Title`,`dpvt`.`Id` limit 3) `b`) AS `LicensedVehicleTypeBadges` from (((`H_Drivers` `m` left join `H_AAA_Synced_UserInfo` `h0` on((`h0`.`Id` = `m`.`UserId`))) left join `H_CVOs` `h1` on((`h1`.`Id` = `m`.`PersonCVOId`))) left join `H_AAA_EntityProfile` `h1e` on((`h1e`.`Id` = `h1`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6573,7 +6666,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_DriverPermits` AS select `p`.`Id` AS `Id`,`p`.`DriverId` AS `DriverId`,`p`.`Code` AS `PermitCode`,`p`.`ServiceCategory` AS `ServiceCategory`,`p`.`IssuedDate_UTC` AS `PermitIssuedDate`,`pls`.`PermitStatusId` AS `PermitStatusId`,`pls`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`pls`.`ConditionENUM` AS `PermitConditionENUM`,`pls`.`ConditionEndDate_UTC` AS `PermitConditionEndDate`,coalesce(`pls`.`StatusCategory`,'Unknown') AS `StatusCategory`,coalesce(`pls`.`ConditionTitle`,'Normal') AS `ConditionTitle`,`pls`.`DaysUntilExpiry` AS `DaysUntilExpiry`,`pls`.`IsExpiringSoon` AS `IsExpiringSoon`,`p`.`PermitTypeId` AS `PermitTypeId`,`pt`.`Title` AS `PermitTypeTitle`,`pt`.`ActivityClassENUM` AS `ActivityClassENUM`,`pt`.`AllowedServiceCategories` AS `AllowedServiceCategories`,`pt`.`Extendable` AS `Extendable`,`pt`.`ProfileDependant` AS `ProfileDependant`,`p`.`PermitIssuerId` AS `PermitIssuerId`,`pi`.`EntityId` AS `IssuerEntityId`,`issuer_ep`.`Title` AS `IssuerTitle`,`p`.`VehicleId` AS `VehicleId`,coalesce(`v`.`Plate`,'N/A') AS `VehiclePlate`,coalesce(`v`.`Make`,'') AS `VehicleMake`,coalesce(`v`.`Model`,'') AS `VehicleModel`,`p`.`CVOId` AS `CVOId`,`cvo`.`EntityId` AS `CVOEntityId`,`cvo_ep`.`Title` AS `CVOTitle`,`p`.`DistributorId` AS `DistributorId`,`dist`.`EntityId` AS `DistributorEntityId`,`dist_ep`.`Title` AS `DistributorTitle`,`p`.`HUBId` AS `HUBId`,`hub`.`EntityId` AS `HUBEntityId`,`hub_ep`.`Title` AS `HUBTitle`,`p`.`RecordKey` AS `RecordKey`,`p`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`p`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`p`.`RecordDeleted` AS `RecordDeleted` from (((((((((((`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) left join `H_PermitTypes` `pt` on((`pt`.`Id` = `p`.`PermitTypeId`))) left join `H_PermitIssuers` `pi` on((`pi`.`Id` = `p`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `issuer_ep` on((`issuer_ep`.`Id` = `pi`.`EntityId`))) left join `H_VehicleProfile` `v` on((`v`.`Id` = `p`.`VehicleId`))) left join `H_CVOs` `cvo` on((`cvo`.`Id` = `p`.`CVOId`))) left join `H_AAA_EntityProfile` `cvo_ep` on((`cvo_ep`.`Id` = `cvo`.`EntityId`))) left join `H_Distributors` `dist` on((`dist`.`Id` = `p`.`DistributorId`))) left join `H_AAA_EntityProfile` `dist_ep` on((`dist_ep`.`Id` = `dist`.`EntityId`))) left join `H_HUBs` `hub` on((`hub`.`Id` = `p`.`HUBId`))) left join `H_AAA_EntityProfile` `hub_ep` on((`hub_ep`.`Id` = `hub`.`EntityId`))) where ((`p`.`DriverId` is not null) and (`p`.`RecordDeleted` is null)) */;
+/*!50001 VIEW `Vi_SPC_DriverPermits` AS select `j`.`Id` AS `Id`,`j`.`HUBId` AS `HUBId`,`j`.`DistributorId` AS `DistributorId`,`j`.`CVOId` AS `CVOId`,`j`.`VehicleId` AS `VehicleId`,`j`.`DriverId` AS `DriverId`,`j`.`ActENUM` AS `ActENUM`,`j`.`PermitIssuerId` AS `PermitIssuerId`,`j`.`PermitTypeId` AS `PermitTypeId`,`j`.`Code` AS `Code`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`RecordKey` AS `RecordKey`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h2e`.`Title` AS `HUBTitle`,`h3e`.`Title` AS `CVOTitle`,`h5e`.`Title` AS `DistributorTitle`,`h6`.`Title` AS `PermitTypeTitle`,`h7e`.`Title` AS `PermitIssuerTitle` from (((((((((`H_Permits` `j` left join `H_HUBs` `h2` on((`h2`.`Id` = `j`.`HUBId`))) left join `H_AAA_EntityProfile` `h2e` on((`h2e`.`Id` = `h2`.`EntityId`))) left join `H_CVOs` `h3` on((`h3`.`Id` = `j`.`CVOId`))) left join `H_AAA_EntityProfile` `h3e` on((`h3e`.`Id` = `h3`.`EntityId`))) left join `H_Distributors` `h5` on((`h5`.`Id` = `j`.`DistributorId`))) left join `H_AAA_EntityProfile` `h5e` on((`h5e`.`Id` = `h5`.`EntityId`))) left join `H_PermitTypes` `h6` on((`h6`.`Id` = `j`.`PermitTypeId`))) left join `H_PermitIssuers` `h7` on((`h7`.`Id` = `j`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `h7e` on((`h7e`.`Id` = `h7`.`EntityId`))) where (`j`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6591,7 +6684,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_DriverProfile` AS select `d`.`Id` AS `Id`,`d`.`UserId` AS `UserId`,`d`.`PersonCVOId` AS `PersonCVOId`,`d`.`RecordKey` AS `RecordKey`,`d`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`d`.`CreatedBy` AS `CreatedBy`,`d`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`d`.`ModifiedBy` AS `ModifiedBy`,`d`.`RecordDeleted` AS `RecordDeleted`,concat_ws(' ',`ui`.`Firstname_fsx`,`ui`.`Lastname_fsx`) AS `FullName`,(select `p`.`Code` from `H_Permits` `p` where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicense`,(select coalesce(`pls`.`StatusCategory`,'Unknown') from (`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicenseStatus`,(select `pls`.`ExpiryDate_UTC` from (`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicenseExpiry`,(select `pls`.`ConditionENUM` from (`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicenseConditionENUM`,`ui`.`Firstname_fsx` AS `UserFirstname`,`ui`.`Lastname_fsx` AS `UserLastname`,`ui`.`Username` AS `UserUsername`,`ui`.`Email_fsx` AS `UserEmail`,`ui`.`CellPhone_fsx` AS `UserCellPhone`,`ui`.`EmailConfirmed` AS `UserEmailConfirmed`,`ui`.`CellPhoneConfirmed` AS `UserCellPhoneConfirmed`,`cvo`.`EntityId` AS `PrimaryCVOEntityId`,`cvo_ep`.`Title` AS `PrimaryCVOTitle`,`cvo_ep`.`City` AS `PrimaryCVOCity`,`cvo_ep`.`Province` AS `PrimaryCVOProvince`,`cvo_ep`.`Phone_fsx` AS `PrimaryCVOPhone`,`cvo_ep`.`Email_fsx` AS `PrimaryCVOEmail`,(select count(0) from `H_Permits` `p` where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`RecordDeleted` is null))) AS `TotalPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`pls`.`IsCurrentlyValid` = true) and (`p`.`RecordDeleted` is null))) AS `ValidPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`pls`.`StatusCategory` = 'Expired') and (`p`.`RecordDeleted` is null))) AS `ExpiredPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`pls`.`StatusCategory` = 'Suspended') and (`p`.`RecordDeleted` is null))) AS `SuspendedPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`DriverId` = `d`.`Id`) and (`pls`.`StatusCategory` = 'Revoked') and (`p`.`RecordDeleted` is null))) AS `RevokedPermitCount`,(select count(0) from `H_VehicleDrivers` `vd` where ((`vd`.`DriverId` = `d`.`Id`) and (`vd`.`RecordDeleted` is null))) AS `VehicleCount`,(select count(0) from `H_DistributorDrivers` `dd` where ((`dd`.`DriverId` = `d`.`Id`) and (`dd`.`RecordDeleted` is null))) AS `DistributorCount`,(select count(0) from `H_CVODrivers` `cd` where ((`cd`.`DriverId` = `d`.`Id`) and (`cd`.`RecordDeleted` is null))) AS `CVOCount`,(select count(distinct `dpvt`.`VehicleType`) from (`H_DriverPermitVehicleTypes` `dpvt` join `H_Permits` `p` on((`p`.`Id` = `dpvt`.`PermitId`))) where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`dpvt`.`RecordDeleted` is null) and (`p`.`RecordDeleted` is null))) AS `LicensedVehicleTypeCount` from (((`H_Drivers` `d` left join `H_AAA_Synced_UserInfo` `ui` on((`ui`.`Id` = `d`.`UserId`))) left join `H_CVOs` `cvo` on((`cvo`.`Id` = `d`.`PersonCVOId`))) left join `H_AAA_EntityProfile` `cvo_ep` on((`cvo_ep`.`Id` = `cvo`.`EntityId`))) where (`d`.`RecordDeleted` is null) */;
+/*!50001 VIEW `Vi_SPC_DriverProfile` AS select `m`.`Id` AS `Id`,`m`.`UserId` AS `UserId`,`m`.`PersonCVOId` AS `PersonCVOId`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Firstname_fsx` AS `Firstname_fsx`,`h0`.`Lastname_fsx` AS `Lastname_fsx`,`h0`.`Username` AS `Username`,`h0`.`Email_fsx` AS `Email_fsx`,`h0`.`CellPhone_fsx` AS `CellPhone_fsx`,`h1e`.`Title` AS `PersonCVOTitle` from (((`H_Drivers` `m` left join `H_AAA_Synced_UserInfo` `h0` on((`h0`.`Id` = `m`.`UserId`))) left join `H_CVOs` `h1` on((`h1`.`Id` = `m`.`PersonCVOId`))) left join `H_AAA_EntityProfile` `h1e` on((`h1e`.`Id` = `h1`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6609,7 +6702,43 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_DriverVehicles` AS select `vd`.`Id` AS `AssignmentId`,`vd`.`DriverId` AS `DriverId`,`vd`.`VehicleId` AS `VehicleId`,`vd`.`IssuedDate_UTC` AS `AssignmentStartDate`,`vd`.`ExpiryDate_UTC` AS `AssignmentEndDate`,`vd`.`RecordKey` AS `AssignmentRecordKey`,(case when (`vd`.`ExpiryDate_UTC` is null) then 'Active' when (`vd`.`ExpiryDate_UTC` < utc_timestamp()) then 'Expired' else 'Active' end) AS `AssignmentStatus`,(to_days(`vd`.`ExpiryDate_UTC`) - to_days(utc_timestamp())) AS `DaysUntilExpiry`,`v`.`Plate` AS `VehiclePlate`,`v`.`VIN` AS `VehicleVIN`,`v`.`Make` AS `VehicleMake`,`v`.`Model` AS `VehicleModel`,`v`.`Year` AS `VehicleYear`,`v`.`VehicleType` AS `VehicleType`,`v`.`Color` AS `Color`,`cv`.`CVOId` AS `VehicleCVOId`,`cvo_ep`.`Title` AS `VehicleCVOTitle`,(select count(0) from `H_Permits` `p` where ((`p`.`VehicleId` = `v`.`Id`) and (`p`.`DriverId` = `vd`.`DriverId`) and (`p`.`RecordDeleted` is null))) AS `VehiclePermitCount`,`vd`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`vd`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`vd`.`RecordDeleted` AS `RecordDeleted` from ((((`H_VehicleDrivers` `vd` join `H_VehicleProfile` `v` on(((`v`.`Id` = `vd`.`VehicleId`) and (`v`.`RecordDeleted` is null)))) left join `H_CVOVehicles` `cv` on(((`cv`.`VehicleId` = `v`.`Id`) and (`cv`.`RecordDeleted` is null)))) left join `H_CVOs` `cvo` on((`cvo`.`Id` = `cv`.`CVOId`))) left join `H_AAA_EntityProfile` `cvo_ep` on((`cvo_ep`.`Id` = `cvo`.`EntityId`))) where (`vd`.`RecordDeleted` is null) */;
+/*!50001 VIEW `Vi_SPC_DriverVehicles` AS select `j`.`Id` AS `LinkId`,`j`.`VehicleId` AS `VehicleId`,`j`.`DriverId` AS `DriverId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`Plate` AS `Plate`,`rel`.`VIN` AS `VIN`,`rel`.`Make` AS `Make`,`rel`.`Model` AS `Model`,`rel`.`Province` AS `Province`,`rel`.`Color` AS `Color`,`rel`.`Year` AS `Year`,`rel`.`TransportCategory` AS `TransportCategory`,`rel`.`Cargo_Height` AS `Cargo_Height`,`rel`.`Cargo_Weight` AS `Cargo_Weight`,`rel`.`Cargo_Length` AS `Cargo_Length`,`rel`.`Cargo_Width` AS `Cargo_Width`,`rel`.`Capacity_Passengers` AS `Capacity_Passengers`,`rel`.`Capacity_Luggage` AS `Capacity_Luggage`,`rel`.`VehicleType` AS `VehicleType`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted` from (`H_VehicleDrivers` `j` join `H_VehicleProfile` `rel` on((`rel`.`Id` = `j`.`VehicleId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_EntityConfigListSummary`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_EntityConfigListSummary`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_EntityConfigListSummary` AS select `m`.`Id` AS `Id`,`m`.`PermitIssuerId` AS `PermitIssuerId`,`m`.`HUBId` AS `HUBId`,`m`.`DistributorId` AS `DistributorId`,`m`.`CVOId` AS `CVOId`,`m`.`VehicleId` AS `VehicleId`,`m`.`DriverId` AS `DriverId`,`m`.`ActENUM` AS `ActENUM`,`m`.`ScenarioId` AS `ScenarioId`,`m`.`ConfigBaseId` AS `ConfigBaseId`,`m`.`Value` AS `Value`,`m`.`IsOverridable` AS `IsOverridable`,`m`.`Signature` AS `Signature`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0e`.`Title` AS `PermitIssuerTitle`,`h1`.`Code` AS `ConfigBaseCode`,`h2e`.`Title` AS `DistributorTitle`,`h3e`.`Title` AS `ScenarioTitle`,`h5e`.`Title` AS `CVOTitle`,`h6e`.`Title` AS `HUBTitle` from (((((((((((`H_CFG_EntityConfigs` `m` left join `H_PermitIssuers` `h0` on((`h0`.`Id` = `m`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `h0e` on((`h0e`.`Id` = `h0`.`EntityId`))) left join `H_CFG_ActionConfigBases` `h1` on((`h1`.`Id` = `m`.`ConfigBaseId`))) left join `H_Distributors` `h2` on((`h2`.`Id` = `m`.`DistributorId`))) left join `H_AAA_EntityProfile` `h2e` on((`h2e`.`Id` = `h2`.`EntityId`))) left join `H_AAA_EntityScenarios` `h3` on((`h3`.`Id` = `m`.`ScenarioId`))) left join `H_AAA_EntityProfile` `h3e` on((`h3e`.`Id` = `h3`.`EntityId`))) left join `H_CVOs` `h5` on((`h5`.`Id` = `m`.`CVOId`))) left join `H_AAA_EntityProfile` `h5e` on((`h5e`.`Id` = `h5`.`EntityId`))) left join `H_HUBs` `h6` on((`h6`.`Id` = `m`.`HUBId`))) left join `H_AAA_EntityProfile` `h6e` on((`h6e`.`Id` = `h6`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_EntityConfigProfile`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_EntityConfigProfile`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_EntityConfigProfile` AS select `m`.`Id` AS `Id`,`m`.`PermitIssuerId` AS `PermitIssuerId`,`m`.`HUBId` AS `HUBId`,`m`.`DistributorId` AS `DistributorId`,`m`.`CVOId` AS `CVOId`,`m`.`VehicleId` AS `VehicleId`,`m`.`DriverId` AS `DriverId`,`m`.`ActENUM` AS `ActENUM`,`m`.`ScenarioId` AS `ScenarioId`,`m`.`ConfigBaseId` AS `ConfigBaseId`,`m`.`Value` AS `Value`,`m`.`IsOverridable` AS `IsOverridable`,`m`.`Signature` AS `Signature`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0e`.`Title` AS `PermitIssuerTitle`,`h1`.`Code` AS `ConfigBaseCode`,`h2e`.`Title` AS `DistributorTitle`,`h3e`.`Title` AS `ScenarioTitle`,`h5e`.`Title` AS `CVOTitle`,`h6e`.`Title` AS `HUBTitle` from (((((((((((`H_CFG_EntityConfigs` `m` left join `H_PermitIssuers` `h0` on((`h0`.`Id` = `m`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `h0e` on((`h0e`.`Id` = `h0`.`EntityId`))) left join `H_CFG_ActionConfigBases` `h1` on((`h1`.`Id` = `m`.`ConfigBaseId`))) left join `H_Distributors` `h2` on((`h2`.`Id` = `m`.`DistributorId`))) left join `H_AAA_EntityProfile` `h2e` on((`h2e`.`Id` = `h2`.`EntityId`))) left join `H_AAA_EntityScenarios` `h3` on((`h3`.`Id` = `m`.`ScenarioId`))) left join `H_AAA_EntityProfile` `h3e` on((`h3e`.`Id` = `h3`.`EntityId`))) left join `H_CVOs` `h5` on((`h5`.`Id` = `m`.`CVOId`))) left join `H_AAA_EntityProfile` `h5e` on((`h5e`.`Id` = `h5`.`EntityId`))) left join `H_HUBs` `h6` on((`h6`.`Id` = `m`.`HUBId`))) left join `H_AAA_EntityProfile` `h6e` on((`h6e`.`Id` = `h6`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6627,7 +6756,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_HUBDistributors` AS select `hd`.`Id` AS `AssignmentId`,`hd`.`HUBId` AS `HUBId`,`hd`.`DistributorId` AS `DistributorId`,`hd`.`ParticipationCategory` AS `ParticipationCategory`,`hd`.`HasRule` AS `HasRule`,`hd`.`IssuedDate_UTC` AS `AssignmentStartDate`,`hd`.`ExpiryDate_UTC` AS `AssignmentEndDate`,(case when (`hd`.`ExpiryDate_UTC` is null) then 'Active' when (`hd`.`ExpiryDate_UTC` < utc_timestamp()) then 'Expired' else 'Active' end) AS `AssignmentStatus`,`d`.`EntityId` AS `DistributorEntityId`,`ep`.`Title` AS `DistributorTitle`,`ep`.`City` AS `DistributorCity`,`ep`.`Province` AS `DistributorProvince`,`ep`.`Phone_fsx` AS `DistributorPhone`,`ep`.`Email_fsx` AS `DistributorEmail`,(select count(0) from `H_DistributorCVOs` `dc` where ((`dc`.`DistributorId` = `d`.`Id`) and (`dc`.`RecordDeleted` is null))) AS `DistributorCVOCount`,(select count(0) from `H_Permits` `p` where ((`p`.`DistributorId` = `d`.`Id`) and (`p`.`RecordDeleted` is null))) AS `DistributorPermitCount`,`hd`.`RecordKey` AS `RecordKey`,`hd`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`hd`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`hd`.`RecordDeleted` AS `RecordDeleted` from ((`H_HUBDistributors` `hd` join `H_Distributors` `d` on((`d`.`Id` = `hd`.`DistributorId`))) join `H_AAA_EntityProfile` `ep` on((`ep`.`Id` = `d`.`EntityId`))) where (`hd`.`RecordDeleted` is null) */;
+/*!50001 VIEW `Vi_SPC_HUBDistributors` AS select `j`.`Id` AS `LinkId`,`j`.`DistributorId` AS `DistributorId`,`j`.`HUBId` AS `HUBId`,`j`.`ParticipationCategory` AS `ParticipationCategory`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`EntityId` AS `EntityId`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted`,`rh0`.`Title` AS `EntityTitle` from ((`H_HUBDistributors` `j` join `H_Distributors` `rel` on((`rel`.`Id` = `j`.`DistributorId`))) left join `H_AAA_EntityProfile` `rh0` on((`rh0`.`Id` = `rel`.`EntityId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6645,7 +6774,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_HUBListSummary` AS select `h`.`Id` AS `Id`,`h`.`EntityId` AS `EntityId`,`ep`.`PartyCode` AS `PartyCode`,`ep`.`Title` AS `EntityTitle`,`ep`.`Address_fsx` AS `Address_fsx`,`ep`.`City` AS `City`,`ep`.`Province` AS `Province`,`ep`.`Country` AS `Country`,`ep`.`PostalCode_fsx` AS `PostalCode_fsx`,`ep`.`Phone_fsx` AS `Phone_fsx`,`ep`.`FaxNumber_fsx` AS `FaxNumber_fsx`,`ep`.`Email_fsx` AS `Email_fsx`,count(distinct `hd`.`DistributorId`) AS `DistributorCount`,count(distinct `p`.`Id`) AS `TotalPermitCount`,count(distinct (case when (`pls`.`StatusCategory` = 'Expired') then `p`.`Id` end)) AS `ExpiredPermitCount`,count(distinct (case when (`pls`.`IsCurrentlyValid` = true) then `p`.`Id` end)) AS `ValidPermitCount`,count(distinct (case when (`pls`.`StatusCategory` = 'Suspended') then `p`.`Id` end)) AS `SuspendedPermitCount`,count(distinct (case when (`pls`.`StatusCategory` = 'Revoked') then `p`.`Id` end)) AS `RevokedPermitCount`,(select count(distinct `cv`.`CVOId`) from (`H_CVOVehicles` `cv` join `H_Permits` `p2` on((`p2`.`VehicleId` = `cv`.`VehicleId`))) where ((`p2`.`HUBId` = `h`.`Id`) and (`p2`.`RecordDeleted` is null))) AS `CVOLinkCount`,`h`.`RecordKey` AS `RecordKey`,`h`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`h`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`h`.`RecordDeleted` AS `RecordDeleted` from ((((`H_HUBs` `h` join `H_AAA_EntityProfile` `ep` on((`ep`.`Id` = `h`.`EntityId`))) left join `H_HUBDistributors` `hd` on(((`hd`.`HUBId` = `h`.`Id`) and (`hd`.`RecordDeleted` is null)))) left join `H_Permits` `p` on(((`p`.`HUBId` = `h`.`Id`) and (`p`.`RecordDeleted` is null)))) left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where (`h`.`RecordDeleted` is null) group by `h`.`Id`,`h`.`EntityId`,`ep`.`PartyCode`,`ep`.`Title`,`ep`.`Address_fsx`,`ep`.`City`,`ep`.`Province`,`ep`.`Country`,`ep`.`PostalCode_fsx`,`ep`.`Phone_fsx`,`ep`.`FaxNumber_fsx`,`ep`.`Email_fsx`,`h`.`RecordKey`,`h`.`CreatedAt_UTC`,`h`.`ModifiedAt_UTC`,`h`.`RecordDeleted` */;
+/*!50001 VIEW `Vi_SPC_HUBListSummary` AS select `m`.`Id` AS `Id`,`m`.`EntityId` AS `EntityId`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `EntityTitle`,(select count(0) from `H_HUBDistributors` `cc` where ((`cc`.`HUBId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `DistributorsCount`,(select count(0) from `H_Permits` `cc` where ((`cc`.`HUBId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `PermitsCount` from (`H_HUBs` `m` left join `H_AAA_EntityProfile` `h0` on((`h0`.`Id` = `m`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6663,7 +6792,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_HUBPermits` AS select `p`.`Id` AS `Id`,`p`.`HUBId` AS `HUBId`,`p`.`DistributorId` AS `DistributorId`,`p`.`CVOId` AS `CVOId`,`p`.`VehicleId` AS `VehicleId`,`p`.`DriverId` AS `DriverId`,`p`.`PermitTypeId` AS `PermitTypeId`,`p`.`PermitIssuerId` AS `PermitIssuerId`,`p`.`Code` AS `PermitCode`,`p`.`ServiceCategory` AS `ServiceCategory`,`p`.`IssuedDate_UTC` AS `PermitIssuedDate`,`pls`.`PermitStatusId` AS `PermitStatusId`,`pls`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`pls`.`ConditionENUM` AS `PermitConditionENUM`,`pls`.`ConditionEndDate_UTC` AS `PermitConditionEndDate`,coalesce(`pls`.`StatusCategory`,'Unknown') AS `StatusCategory`,coalesce(`pls`.`ConditionTitle`,'Normal') AS `ConditionTitle`,`pls`.`DaysUntilExpiry` AS `DaysUntilExpiry`,`pls`.`IsExpiringSoon` AS `IsExpiringSoon`,`pt`.`Title` AS `PermitTypeTitle`,`pt`.`ActivityClassENUM` AS `ActivityClassENUM`,`pt`.`AllowedServiceCategories` AS `AllowedServiceCategories`,`pt`.`Extendable` AS `Extendable`,`pt`.`ProfileDependant` AS `ProfileDependant`,`pi`.`EntityId` AS `IssuerEntityId`,`issuer_ep`.`Title` AS `IssuerTitle`,`p`.`ActENUM` AS `ActENUM`,`es`.`ScenarioId` AS `ScenarioId`,`sc`.`Description` AS `ScenarioDescription`,`hub_ep`.`Title` AS `HUBName`,coalesce(`v`.`Plate`,'N/A') AS `VehiclePlate`,concat_ws(' ',`ui`.`Firstname_fsx`,`ui`.`Lastname_fsx`) AS `DriverFullName`,(select `pdl`.`Code` from `H_Permits` `pdl` where ((`pdl`.`DriverId` = `p`.`DriverId`) and (`pdl`.`PermitTypeId` = 5001) and (`pdl`.`RecordDeleted` is null)) order by `pdl`.`IssuedDate_UTC` desc,`pdl`.`Id` desc limit 1) AS `DriverLicense`,`p`.`RecordKey` AS `RecordKey`,`p`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`p`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`p`.`RecordDeleted` AS `RecordDeleted` from (((((((((((`H_Permits` `p` left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) left join `H_PermitTypes` `pt` on((`pt`.`Id` = `p`.`PermitTypeId`))) left join `H_PermitIssuers` `pi` on((`pi`.`Id` = `p`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `issuer_ep` on((`issuer_ep`.`Id` = `pi`.`EntityId`))) left join `H_HUBs` `h` on((`h`.`Id` = `p`.`HUBId`))) left join `H_AAA_EntityScenarios` `es` on(((`es`.`EntityId` = `h`.`EntityId`) and (`es`.`PermittedActENUM` = `p`.`ActENUM`) and (`es`.`RecordDeleted` is null)))) left join `H_AAA_Scenarios` `sc` on(((`sc`.`Id` = `es`.`ScenarioId`) and (`sc`.`RecordDeleted` is null)))) left join `H_AAA_EntityProfile` `hub_ep` on((`hub_ep`.`Id` = `h`.`EntityId`))) left join `H_VehicleProfile` `v` on((`v`.`Id` = `p`.`VehicleId`))) left join `H_Drivers` `d` on((`d`.`Id` = `p`.`DriverId`))) left join `H_AAA_Synced_UserInfo` `ui` on((`ui`.`Id` = `d`.`UserId`))) where ((`p`.`HUBId` is not null) and (`p`.`RecordDeleted` is null)) */;
+/*!50001 VIEW `Vi_SPC_HUBPermits` AS select `j`.`Id` AS `Id`,`j`.`HUBId` AS `HUBId`,`j`.`DistributorId` AS `DistributorId`,`j`.`CVOId` AS `CVOId`,`j`.`VehicleId` AS `VehicleId`,`j`.`DriverId` AS `DriverId`,`j`.`ActENUM` AS `ActENUM`,`j`.`PermitIssuerId` AS `PermitIssuerId`,`j`.`PermitTypeId` AS `PermitTypeId`,`j`.`Code` AS `Code`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`RecordKey` AS `RecordKey`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h2e`.`Title` AS `HUBTitle`,`h3e`.`Title` AS `CVOTitle`,`h5e`.`Title` AS `DistributorTitle`,`h6`.`Title` AS `PermitTypeTitle`,`h7e`.`Title` AS `PermitIssuerTitle` from (((((((((`H_Permits` `j` left join `H_HUBs` `h2` on((`h2`.`Id` = `j`.`HUBId`))) left join `H_AAA_EntityProfile` `h2e` on((`h2e`.`Id` = `h2`.`EntityId`))) left join `H_CVOs` `h3` on((`h3`.`Id` = `j`.`CVOId`))) left join `H_AAA_EntityProfile` `h3e` on((`h3e`.`Id` = `h3`.`EntityId`))) left join `H_Distributors` `h5` on((`h5`.`Id` = `j`.`DistributorId`))) left join `H_AAA_EntityProfile` `h5e` on((`h5e`.`Id` = `h5`.`EntityId`))) left join `H_PermitTypes` `h6` on((`h6`.`Id` = `j`.`PermitTypeId`))) left join `H_PermitIssuers` `h7` on((`h7`.`Id` = `j`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `h7e` on((`h7e`.`Id` = `h7`.`EntityId`))) where (`j`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6681,7 +6810,79 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_HUBProfile` AS select `h`.`Id` AS `Id`,`h`.`EntityId` AS `EntityId`,`h`.`RecordKey` AS `RecordKey`,`h`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`h`.`CreatedBy` AS `CreatedBy`,`h`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`h`.`ModifiedBy` AS `ModifiedBy`,`h`.`RecordDeleted` AS `RecordDeleted`,`ep`.`PartyCode` AS `PartyCode`,`ep`.`Title` AS `EntityTitle`,`ep`.`Address_fsx` AS `Address_fsx`,`ep`.`City` AS `City`,`ep`.`Province` AS `Province`,`ep`.`Country` AS `Country`,`ep`.`PostalCode_fsx` AS `PostalCode_fsx`,`ep`.`Phone_fsx` AS `Phone_fsx`,`ep`.`FaxNumber_fsx` AS `FaxNumber_fsx`,`ep`.`Email_fsx` AS `Email_fsx`,`ep`.`Discriminator` AS `Discriminator`,(select count(0) from `H_HUBDistributors` `hd` where ((`hd`.`HUBId` = `h`.`Id`) and (`hd`.`RecordDeleted` is null))) AS `DistributorCount`,(select count(0) from `H_Permits` `p` where ((`p`.`HUBId` = `h`.`Id`) and (`p`.`RecordDeleted` is null))) AS `PermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`HUBId` = `h`.`Id`) and (`pls`.`IsCurrentlyValid` = true) and (`p`.`RecordDeleted` is null))) AS `ValidPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`HUBId` = `h`.`Id`) and (`pls`.`StatusCategory` = 'Expired') and (`p`.`RecordDeleted` is null))) AS `ExpiredPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`HUBId` = `h`.`Id`) and (`pls`.`StatusCategory` = 'Suspended') and (`p`.`RecordDeleted` is null))) AS `SuspendedPermitCount`,(select count(0) from (`H_Permits` `p` join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`HUBId` = `h`.`Id`) and (`pls`.`StatusCategory` = 'Revoked') and (`p`.`RecordDeleted` is null))) AS `RevokedPermitCount` from (`H_HUBs` `h` join `H_AAA_EntityProfile` `ep` on((`ep`.`Id` = `h`.`EntityId`))) where (`h`.`RecordDeleted` is null) */;
+/*!50001 VIEW `Vi_SPC_HUBProfile` AS select `m`.`Id` AS `Id`,`m`.`EntityId` AS `EntityId`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `EntityTitle` from (`H_HUBs` `m` left join `H_AAA_EntityProfile` `h0` on((`h0`.`Id` = `m`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_PermitIssuerListSummary`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_PermitIssuerListSummary`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_PermitIssuerListSummary` AS select `m`.`Id` AS `Id`,`m`.`EntityId` AS `EntityId`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `EntityTitle`,(select count(0) from `H_PermitTypeIssuers` `cc` where ((`cc`.`PermitIssuerId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `PermitTypeIssuersCount`,(select count(0) from `H_Permits` `cc` where ((`cc`.`PermitIssuerId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `PermitsCount` from (`H_PermitIssuers` `m` left join `H_AAA_EntityProfile` `h0` on((`h0`.`Id` = `m`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_PermitIssuerPermitTypeIssuers`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_PermitIssuerPermitTypeIssuers`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_PermitIssuerPermitTypeIssuers` AS select `j`.`Id` AS `Id`,`j`.`PermitIssuerId` AS `PermitIssuerId`,`j`.`PermitTypeId` AS `PermitTypeId`,`j`.`RecordKey` AS `RecordKey`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h0e`.`Title` AS `PermitIssuerTitle`,`h1`.`Title` AS `PermitTypeTitle` from (((`H_PermitTypeIssuers` `j` left join `H_PermitIssuers` `h0` on((`h0`.`Id` = `j`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `h0e` on((`h0e`.`Id` = `h0`.`EntityId`))) left join `H_PermitTypes` `h1` on((`h1`.`Id` = `j`.`PermitTypeId`))) where (`j`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_PermitIssuerPermits`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_PermitIssuerPermits`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_PermitIssuerPermits` AS select `j`.`Id` AS `Id`,`j`.`HUBId` AS `HUBId`,`j`.`DistributorId` AS `DistributorId`,`j`.`CVOId` AS `CVOId`,`j`.`VehicleId` AS `VehicleId`,`j`.`DriverId` AS `DriverId`,`j`.`ActENUM` AS `ActENUM`,`j`.`PermitIssuerId` AS `PermitIssuerId`,`j`.`PermitTypeId` AS `PermitTypeId`,`j`.`Code` AS `Code`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`RecordKey` AS `RecordKey`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h2e`.`Title` AS `HUBTitle`,`h3e`.`Title` AS `CVOTitle`,`h5e`.`Title` AS `DistributorTitle`,`h6`.`Title` AS `PermitTypeTitle`,`h7e`.`Title` AS `PermitIssuerTitle` from (((((((((`H_Permits` `j` left join `H_HUBs` `h2` on((`h2`.`Id` = `j`.`HUBId`))) left join `H_AAA_EntityProfile` `h2e` on((`h2e`.`Id` = `h2`.`EntityId`))) left join `H_CVOs` `h3` on((`h3`.`Id` = `j`.`CVOId`))) left join `H_AAA_EntityProfile` `h3e` on((`h3e`.`Id` = `h3`.`EntityId`))) left join `H_Distributors` `h5` on((`h5`.`Id` = `j`.`DistributorId`))) left join `H_AAA_EntityProfile` `h5e` on((`h5e`.`Id` = `h5`.`EntityId`))) left join `H_PermitTypes` `h6` on((`h6`.`Id` = `j`.`PermitTypeId`))) left join `H_PermitIssuers` `h7` on((`h7`.`Id` = `j`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `h7e` on((`h7e`.`Id` = `h7`.`EntityId`))) where (`j`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_PermitIssuerProfile`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_PermitIssuerProfile`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_PermitIssuerProfile` AS select `m`.`Id` AS `Id`,`m`.`EntityId` AS `EntityId`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `EntityTitle` from (`H_PermitIssuers` `m` left join `H_AAA_EntityProfile` `h0` on((`h0`.`Id` = `m`.`EntityId`))) where (`m`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6705,6 +6906,96 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `Vi_SPC_RequestsApprovalListSummary`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_RequestsApprovalListSummary`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_RequestsApprovalListSummary` AS select `m`.`Id` AS `Id`,`m`.`RequestId` AS `RequestId`,`m`.`RequesteeUserId` AS `RequesteeUserId`,`m`.`RequesteeEntityId` AS `RequesteeEntityId`,`m`.`RequesteeActENUM` AS `RequesteeActENUM`,`m`.`Status` AS `Status`,`m`.`StatusReason` AS `StatusReason`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `RequesteeEntityTitle`,`h1`.`Firstname_fsx` AS `Firstname_fsx`,`h1`.`Lastname_fsx` AS `Lastname_fsx`,`h1`.`Username` AS `Username`,`h1`.`Email_fsx` AS `Email_fsx`,`h1`.`CellPhone_fsx` AS `CellPhone_fsx`,`h2e`.`Title` AS `RequestTitle`,(select count(0) from `H_PermitStatusVerifications` `cc` where ((`cc`.`RequestStatusId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `PermitStatusVerificationsCount` from ((((`H_RequestStatuses` `m` left join `H_AAA_EntityProfile` `h0` on((`h0`.`Id` = `m`.`RequesteeEntityId`))) left join `H_AAA_Synced_UserInfo` `h1` on((`h1`.`Id` = `m`.`RequesteeUserId`))) left join `H_RequestBases` `h2` on((`h2`.`Id` = `m`.`RequestId`))) left join `H_AAA_EntityProfile` `h2e` on((`h2e`.`Id` = `h2`.`RequesterEntityId`))) where (`m`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_RequestsApprovalPermitStatusVerifications`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_RequestsApprovalPermitStatusVerifications`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_RequestsApprovalPermitStatusVerifications` AS select `j`.`Id` AS `Id`,`j`.`PermitStatusId` AS `PermitStatusId`,`j`.`RequestStatusId` AS `RequestStatusId`,`j`.`RecordKey` AS `RecordKey`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h1e`.`Title` AS `RequestStatusTitle` from ((`H_PermitStatusVerifications` `j` left join `H_RequestStatuses` `h1` on((`h1`.`Id` = `j`.`RequestStatusId`))) left join `H_AAA_EntityProfile` `h1e` on((`h1e`.`Id` = `h1`.`RequesteeEntityId`))) where (`j`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_RequestsApprovalProfile`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_RequestsApprovalProfile`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_RequestsApprovalProfile` AS select `m`.`Id` AS `Id`,`m`.`RequestId` AS `RequestId`,`m`.`RequesteeUserId` AS `RequesteeUserId`,`m`.`RequesteeEntityId` AS `RequesteeEntityId`,`m`.`RequesteeActENUM` AS `RequesteeActENUM`,`m`.`Status` AS `Status`,`m`.`StatusReason` AS `StatusReason`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `RequesteeEntityTitle`,`h1`.`Firstname_fsx` AS `Firstname_fsx`,`h1`.`Lastname_fsx` AS `Lastname_fsx`,`h1`.`Username` AS `Username`,`h1`.`Email_fsx` AS `Email_fsx`,`h1`.`CellPhone_fsx` AS `CellPhone_fsx`,`h2e`.`Title` AS `RequestTitle` from ((((`H_RequestStatuses` `m` left join `H_AAA_EntityProfile` `h0` on((`h0`.`Id` = `m`.`RequesteeEntityId`))) left join `H_AAA_Synced_UserInfo` `h1` on((`h1`.`Id` = `m`.`RequesteeUserId`))) left join `H_RequestBases` `h2` on((`h2`.`Id` = `m`.`RequestId`))) left join `H_AAA_EntityProfile` `h2e` on((`h2e`.`Id` = `h2`.`RequesterEntityId`))) where (`m`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_UserEntityRoles`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_UserEntityRoles`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_UserEntityRoles` AS select `j`.`Id` AS `Id`,`j`.`UserId` AS `UserId`,`j`.`EntityRoleId` AS `EntityRoleId`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `EntityRoleTitle`,`h1`.`Firstname_fsx` AS `Firstname_fsx`,`h1`.`Lastname_fsx` AS `Lastname_fsx`,`h1`.`Username` AS `Username`,`h1`.`Email_fsx` AS `Email_fsx`,`h1`.`CellPhone_fsx` AS `CellPhone_fsx` from ((`H_AAA_UserEntityRoles` `j` left join `H_AAA_EntityRoles` `h0` on((`h0`.`Id` = `j`.`EntityRoleId`))) left join `H_AAA_Synced_UserInfo` `h1` on((`h1`.`Id` = `j`.`UserId`))) where (`j`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SPC_UserListSummary`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SPC_UserListSummary`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SPC_UserListSummary` AS select `m`.`Id` AS `Id`,`m`.`Firstname_fsx` AS `Firstname_fsx`,`m`.`Lastname_fsx` AS `Lastname_fsx`,`m`.`Username` AS `Username`,`m`.`Email_fsx` AS `Email_fsx`,`m`.`EmailConfirmed` AS `EmailConfirmed`,`m`.`CellPhone_fsx` AS `CellPhone_fsx`,`m`.`CellPhoneConfirmed` AS `CellPhoneConfirmed`,`m`.`IssuedBy` AS `IssuedBy`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,(select count(0) from `H_AAA_UserEntityRoles` `cc` where ((`cc`.`UserId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `EntityRolesCount` from `H_AAA_Synced_UserInfo` `m` where (`m`.`RecordDeleted` is null) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `Vi_SPC_VehicleCVOs`
 --
 
@@ -6717,7 +7008,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_VehicleCVOs` AS select `cv`.`Id` AS `AssignmentId`,`cv`.`VehicleId` AS `VehicleId`,`cv`.`CVOId` AS `CVOId`,`cv`.`IssuedDate_UTC` AS `AssignmentStartDate`,`cv`.`ExpiryDate_UTC` AS `AssignmentEndDate`,`cv`.`RecordKey` AS `AssignmentRecordKey`,(case when (`cv`.`ExpiryDate_UTC` is null) then 'Active' when (`cv`.`ExpiryDate_UTC` < utc_timestamp()) then 'Expired' else 'Active' end) AS `AssignmentStatus`,`cvo`.`EntityId` AS `EntityId`,`ep`.`Title` AS `CVOTitle`,`ep`.`PartyCode` AS `CVOPartyCode`,`ep`.`City` AS `CVOCity`,`ep`.`Province` AS `CVOProvince`,`ep`.`Country` AS `CVOCountry`,`ep`.`Phone_fsx` AS `CVOPhone`,`ep`.`Email_fsx` AS `CVOEmail`,`cv`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`cv`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`cv`.`RecordDeleted` AS `RecordDeleted` from ((`H_CVOVehicles` `cv` join `H_CVOs` `cvo` on((`cvo`.`Id` = `cv`.`CVOId`))) join `H_AAA_EntityProfile` `ep` on((`ep`.`Id` = `cvo`.`EntityId`))) where (`cv`.`RecordDeleted` is null) */;
+/*!50001 VIEW `Vi_SPC_VehicleCVOs` AS select `j`.`Id` AS `LinkId`,`j`.`CVOId` AS `CVOId`,`j`.`VehicleId` AS `VehicleId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`EntityId` AS `EntityId`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted`,`rh0`.`Title` AS `EntityTitle` from ((`H_CVOVehicles` `j` join `H_CVOs` `rel` on((`rel`.`Id` = `j`.`CVOId`))) left join `H_AAA_EntityProfile` `rh0` on((`rh0`.`Id` = `rel`.`EntityId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6735,7 +7026,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_VehicleDrivers` AS select `vd`.`Id` AS `AssignmentId`,`vd`.`VehicleId` AS `VehicleId`,`vd`.`DriverId` AS `DriverId`,`vd`.`IssuedDate_UTC` AS `AssignmentStartDate`,`vd`.`ExpiryDate_UTC` AS `AssignmentEndDate`,`vd`.`RecordKey` AS `AssignmentRecordKey`,(case when (`vd`.`ExpiryDate_UTC` is null) then 'Active' when (`vd`.`ExpiryDate_UTC` < utc_timestamp()) then 'Expired' else 'Active' end) AS `AssignmentStatus`,`ui`.`Firstname_fsx` AS `Firstname`,`ui`.`Lastname_fsx` AS `Lastname`,concat_ws(' ',`ui`.`Firstname_fsx`,`ui`.`Lastname_fsx`) AS `FullName`,`ui`.`Username` AS `Username`,`ui`.`Email_fsx` AS `Email`,`ui`.`CellPhone_fsx` AS `CellPhone`,(select `p`.`Code` from `H_Permits` `p` where ((`p`.`DriverId` = `d`.`Id`) and (`p`.`PermitTypeId` = 5001) and (`p`.`RecordDeleted` is null)) order by `p`.`IssuedDate_UTC` desc,`p`.`Id` desc limit 1) AS `DriverLicense`,`d`.`UserId` AS `UserId`,concat_ws(' ',`ui`.`Firstname_fsx`,`ui`.`Lastname_fsx`) AS `UserFullName`,`ui`.`Email_fsx` AS `UserEmail`,`driver_cvo`.`Id` AS `DriverCVOId`,`driver_ep`.`Title` AS `DriverCVOTitle`,`driver_ep`.`City` AS `DriverCVOCity`,`vd`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`vd`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`vd`.`RecordDeleted` AS `RecordDeleted` from ((((`H_VehicleDrivers` `vd` join `H_Drivers` `d` on(((`d`.`Id` = `vd`.`DriverId`) and (`d`.`RecordDeleted` is null)))) left join `H_AAA_Synced_UserInfo` `ui` on((`ui`.`Id` = `d`.`UserId`))) left join `H_CVOs` `driver_cvo` on((`driver_cvo`.`Id` = `d`.`PersonCVOId`))) left join `H_AAA_EntityProfile` `driver_ep` on((`driver_ep`.`Id` = `driver_cvo`.`EntityId`))) where (`vd`.`RecordDeleted` is null) */;
+/*!50001 VIEW `Vi_SPC_VehicleDrivers` AS select `j`.`Id` AS `LinkId`,`j`.`VehicleId` AS `VehicleId`,`j`.`DriverId` AS `DriverId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `LinkRecordKey`,`rel`.`Id` AS `Id`,`rel`.`UserId` AS `UserId`,`rel`.`PersonCVOId` AS `PersonCVOId`,`rel`.`RecordKey` AS `RecordKey`,`rel`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`rel`.`CreatedBy` AS `CreatedBy`,`rel`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`rel`.`ModifiedBy` AS `ModifiedBy`,`rel`.`RecordDeleted` AS `RecordDeleted`,`rh0`.`Firstname_fsx` AS `Firstname_fsx`,`rh0`.`Lastname_fsx` AS `Lastname_fsx`,`rh0`.`Username` AS `Username`,`rh0`.`Email_fsx` AS `Email_fsx`,`rh0`.`CellPhone_fsx` AS `CellPhone_fsx`,`rh1e`.`Title` AS `PersonCVOTitle` from ((((`H_VehicleDrivers` `j` join `H_Drivers` `rel` on((`rel`.`Id` = `j`.`DriverId`))) left join `H_AAA_Synced_UserInfo` `rh0` on((`rh0`.`Id` = `rel`.`UserId`))) left join `H_CVOs` `rh1` on((`rh1`.`Id` = `rel`.`PersonCVOId`))) left join `H_AAA_EntityProfile` `rh1e` on((`rh1e`.`Id` = `rh1`.`EntityId`))) where ((`j`.`RecordDeleted` is null) and (`rel`.`RecordDeleted` is null)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6753,7 +7044,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_VehicleFeatures` AS select `vf`.`Id` AS `AssignmentId`,`vf`.`VehicleId` AS `VehicleId`,`vf`.`FeatureId` AS `FeatureId`,`f`.`Title` AS `FeatureTitle`,`f`.`RecordKey` AS `FeatureRecordKey`,`vf`.`IssuedDate_UTC` AS `AssignmentStartDate`,`vf`.`ExpiryDate_UTC` AS `AssignmentEndDate`,(case when (`vf`.`ExpiryDate_UTC` is null) then 'Active' when (`vf`.`ExpiryDate_UTC` < utc_timestamp()) then 'Expired' else 'Active' end) AS `AssignmentStatus`,`vf`.`RecordKey` AS `AssignmentRecordKey`,(select count(0) from `H_VehicleFeatures` `vf2` where ((`vf2`.`FeatureId` = `f`.`Id`) and (`vf2`.`RecordDeleted` is null))) AS `FeatureUsageCount`,`vf`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`vf`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`vf`.`RecordDeleted` AS `RecordDeleted` from (`H_VehicleFeatures` `vf` join `H_Features` `f` on((`f`.`Id` = `vf`.`FeatureId`))) where (`vf`.`RecordDeleted` is null) */;
+/*!50001 VIEW `Vi_SPC_VehicleFeatures` AS select `j`.`Id` AS `Id`,`j`.`FeatureId` AS `FeatureId`,`j`.`VehicleId` AS `VehicleId`,`j`.`HasRule` AS `HasRule`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`j`.`RecordKey` AS `RecordKey`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h0`.`Title` AS `FeatureTitle` from (`H_VehicleFeatures` `j` left join `H_Features` `h0` on((`h0`.`Id` = `j`.`FeatureId`))) where (`j`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6771,7 +7062,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_VehicleListSummary` AS select `vp`.`Id` AS `Id`,`vp`.`Plate` AS `Plate`,`vp`.`VIN` AS `VIN`,`vp`.`Make` AS `Make`,`vp`.`Model` AS `Model`,`vp`.`Year` AS `Year`,`vp`.`VehicleType` AS `VehicleType`,`vp`.`Color` AS `Color`,`vp`.`Province` AS `Province`,`vp`.`Cargo_Height` AS `Cargo_Height`,`vp`.`Cargo_Weight` AS `Cargo_Weight`,`vp`.`Cargo_Length` AS `Cargo_Length`,`vp`.`Cargo_Width` AS `Cargo_Width`,`vp`.`Capacity_Passengers` AS `Capacity_Passengers`,`vp`.`Capacity_Luggage` AS `Capacity_Luggage`,`cvo`.`Id` AS `CVOId`,`ep`.`Title` AS `CVOTitle`,`ep`.`City` AS `CVOCity`,`ep`.`Province` AS `CVOProvince`,count(distinct `vd`.`DriverId`) AS `DriverCount`,count(distinct (case when (`pls`.`StatusCategory` = 'Expired') then `p`.`Id` end)) AS `ExpiredPermitCount`,count(distinct (case when (`pls`.`IsCurrentlyValid` = true) then `p`.`Id` end)) AS `ValidPermitCount`,count(distinct `p`.`Id`) AS `TotalPermitCount`,(select json_arrayagg(`feature_badges`.`FeatureTitle`) from (select `f`.`Title` AS `FeatureTitle` from (`H_VehicleFeatures` `vf2` join `H_Features` `f` on((`f`.`Id` = `vf2`.`FeatureId`))) where ((`vf2`.`VehicleId` = `vp`.`Id`) and (`vf2`.`RecordDeleted` is null)) order by `f`.`Title`,`vf2`.`Id` limit 3) `feature_badges`) AS `FeatureBadgesTop3`,count(distinct `vf`.`FeatureId`) AS `FeatureCount`,NULL AS `InspectionStatus`,`vp`.`RecordKey` AS `RecordKey`,`vp`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`vp`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`vp`.`RecordDeleted` AS `RecordDeleted` from (((((((`H_VehicleProfile` `vp` left join `H_CVOVehicles` `cv` on(((`cv`.`VehicleId` = `vp`.`Id`) and (`cv`.`RecordDeleted` is null)))) left join `H_CVOs` `cvo` on((`cvo`.`Id` = `cv`.`CVOId`))) left join `H_AAA_EntityProfile` `ep` on((`ep`.`Id` = `cvo`.`EntityId`))) left join `H_VehicleDrivers` `vd` on(((`vd`.`VehicleId` = `vp`.`Id`) and (`vd`.`RecordDeleted` is null)))) left join `H_Permits` `p` on(((`p`.`VehicleId` = `vp`.`Id`) and (`p`.`RecordDeleted` is null)))) left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) left join `H_VehicleFeatures` `vf` on(((`vf`.`VehicleId` = `vp`.`Id`) and (`vf`.`RecordDeleted` is null)))) where (`vp`.`RecordDeleted` is null) group by `vp`.`Id`,`vp`.`Plate`,`vp`.`VIN`,`vp`.`Make`,`vp`.`Model`,`vp`.`Year`,`vp`.`VehicleType`,`vp`.`Color`,`vp`.`Province`,`vp`.`Cargo_Height`,`vp`.`Cargo_Weight`,`vp`.`Cargo_Length`,`vp`.`Cargo_Width`,`vp`.`Capacity_Passengers`,`vp`.`Capacity_Luggage`,`cvo`.`Id`,`ep`.`Title`,`ep`.`City`,`ep`.`Province`,`vp`.`RecordKey`,`vp`.`CreatedAt_UTC`,`vp`.`ModifiedAt_UTC`,`vp`.`RecordDeleted` */;
+/*!50001 VIEW `Vi_SPC_VehicleListSummary` AS select `m`.`Id` AS `Id`,`m`.`Plate` AS `Plate`,`m`.`VIN` AS `VIN`,`m`.`Make` AS `Make`,`m`.`Model` AS `Model`,`m`.`Province` AS `Province`,`m`.`Color` AS `Color`,`m`.`Year` AS `Year`,`m`.`TransportCategory` AS `TransportCategory`,`m`.`Cargo_Height` AS `Cargo_Height`,`m`.`Cargo_Weight` AS `Cargo_Weight`,`m`.`Cargo_Length` AS `Cargo_Length`,`m`.`Cargo_Width` AS `Cargo_Width`,`m`.`Capacity_Passengers` AS `Capacity_Passengers`,`m`.`Capacity_Luggage` AS `Capacity_Luggage`,`m`.`VehicleType` AS `VehicleType`,`m`.`RecordKey` AS `RecordKey`,`m`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`m`.`CreatedBy` AS `CreatedBy`,`m`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`m`.`ModifiedBy` AS `ModifiedBy`,`m`.`RecordDeleted` AS `RecordDeleted`,(select count(0) from `H_CVOVehicles` `cc` where ((`cc`.`VehicleId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `CVOsCount`,(select count(0) from `H_Permits` `cc` where ((`cc`.`VehicleId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `PermitsCount`,(select count(0) from `H_VehicleDrivers` `cc` where ((`cc`.`VehicleId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `DriversCount`,(select count(0) from `H_VehicleFeatures` `cc` where ((`cc`.`VehicleId` = `m`.`Id`) and (`cc`.`RecordDeleted` is null))) AS `FeaturesCount` from `H_VehicleProfile` `m` where (`m`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6789,25 +7080,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_VehiclePermits` AS select `p`.`Id` AS `Id`,`p`.`VehicleId` AS `VehicleId`,`p`.`PermitTypeId` AS `PermitTypeId`,`pt`.`Title` AS `PermitTypeTitle`,`pt`.`ActivityClassENUM` AS `ActivityClassENUM`,`pt`.`AllowedServiceCategories` AS `AllowedServiceCategories`,`pt`.`Extendable` AS `Extendable`,`pt`.`ProfileDependant` AS `ProfileDependant`,`p`.`PermitIssuerId` AS `PermitIssuerId`,`pi`.`EntityId` AS `PermitIssuerEntityId`,`issuer_ep`.`Title` AS `PermitIssuerTitle`,`pls`.`PermitStatusId` AS `PermitStatusId`,`pls`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`pls`.`ConditionENUM` AS `PermitConditionENUM`,`pls`.`ConditionEndDate_UTC` AS `PermitConditionEndDate`,coalesce(`pls`.`StatusCategory`,'Unknown') AS `StatusCategory`,coalesce(`pls`.`ConditionTitle`,'Normal') AS `ConditionTitle`,`pls`.`DaysUntilExpiry` AS `DaysUntilExpiry`,`pls`.`IsExpiringSoon` AS `IsExpiringSoon`,`p`.`Code` AS `PermitCode`,`p`.`RecordKey` AS `RecordKey`,`p`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`p`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`p`.`RecordDeleted` AS `RecordDeleted` from ((((`H_Permits` `p` join `H_PermitTypes` `pt` on((`pt`.`Id` = `p`.`PermitTypeId`))) left join `H_PermitIssuers` `pi` on((`pi`.`Id` = `p`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `issuer_ep` on((`issuer_ep`.`Id` = `pi`.`EntityId`))) left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where ((`p`.`VehicleId` is not null) and (`p`.`RecordDeleted` is null)) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `Vi_SPC_VehicleProfile`
---
-
-/*!50001 DROP VIEW IF EXISTS `Vi_SPC_VehicleProfile`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `Vi_SPC_VehicleProfile` AS select `vp`.`Id` AS `Id`,`vp`.`Plate` AS `Plate`,`vp`.`VIN` AS `VIN`,`vp`.`Make` AS `Make`,`vp`.`Model` AS `Model`,`vp`.`Province` AS `Province`,`vp`.`Color` AS `Color`,`vp`.`Year` AS `Year`,`vp`.`TransportCategory` AS `TransportCategory`,`vp`.`Cargo_Height` AS `Cargo_Height`,`vp`.`Cargo_Weight` AS `Cargo_Weight`,`vp`.`Cargo_Length` AS `Cargo_Length`,`vp`.`Cargo_Width` AS `Cargo_Width`,`vp`.`Capacity_Passengers` AS `Capacity_Passengers`,`vp`.`Capacity_Luggage` AS `Capacity_Luggage`,`vp`.`VehicleType` AS `VehicleType`,`vp`.`RecordKey` AS `RecordKey`,`vp`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`vp`.`CreatedBy` AS `CreatedBy`,`vp`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`vp`.`ModifiedBy` AS `ModifiedBy`,`vp`.`RecordDeleted` AS `RecordDeleted`,`cvo`.`Id` AS `PrimaryCVOId`,`ep`.`Title` AS `PrimaryCVOTitle`,`ep`.`RecordKey` AS `PrimaryCVORecordKey`,`cvo`.`EntityId` AS `CVOEntityId`,`ep_entity`.`Title` AS `CVOEntityTitle`,count(distinct (case when (`pls`.`StatusCategory` = 'Expired') then `p`.`Id` end)) AS `ExpiredPermitCount`,count(distinct (case when (`pls`.`IsCurrentlyValid` = true) then `p`.`Id` end)) AS `ValidPermitCount`,count(distinct `p`.`Id`) AS `TotalPermitCount`,max((case when (`pls`.`IsCurrentlyValid` = true) then `pls`.`ExpiryDate_UTC` end)) AS `NextPermitExpiry`,(select count(0) from `H_VehicleDrivers` `vd` where ((`vd`.`VehicleId` = `vp`.`Id`) and (`vd`.`RecordDeleted` is null))) AS `DriverCount`,(select count(0) from `H_VehicleFeatures` `vf` where ((`vf`.`VehicleId` = `vp`.`Id`) and (`vf`.`RecordDeleted` is null))) AS `FeatureCount` from ((((((`H_VehicleProfile` `vp` left join `H_CVOVehicles` `cv` on(((`cv`.`VehicleId` = `vp`.`Id`) and (`cv`.`RecordDeleted` is null)))) left join `H_CVOs` `cvo` on((`cvo`.`Id` = `cv`.`CVOId`))) left join `H_AAA_EntityProfile` `ep` on((`ep`.`Id` = `cvo`.`EntityId`))) left join `H_AAA_EntityProfile` `ep_entity` on((`ep_entity`.`Id` = `cvo`.`EntityId`))) left join `H_Permits` `p` on(((`p`.`VehicleId` = `vp`.`Id`) and (`p`.`RecordDeleted` is null)))) left join `Vi_SPC_PermitLatestStatus` `pls` on((`pls`.`PermitId` = `p`.`Id`))) where (`vp`.`RecordDeleted` is null) group by `vp`.`Id` */;
+/*!50001 VIEW `Vi_SPC_VehiclePermits` AS select `j`.`Id` AS `Id`,`j`.`HUBId` AS `HUBId`,`j`.`DistributorId` AS `DistributorId`,`j`.`CVOId` AS `CVOId`,`j`.`VehicleId` AS `VehicleId`,`j`.`DriverId` AS `DriverId`,`j`.`ActENUM` AS `ActENUM`,`j`.`PermitIssuerId` AS `PermitIssuerId`,`j`.`PermitTypeId` AS `PermitTypeId`,`j`.`Code` AS `Code`,`j`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`j`.`RecordKey` AS `RecordKey`,`j`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`j`.`CreatedBy` AS `CreatedBy`,`j`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`j`.`ModifiedBy` AS `ModifiedBy`,`j`.`RecordDeleted` AS `RecordDeleted`,`h2e`.`Title` AS `HUBTitle`,`h3e`.`Title` AS `CVOTitle`,`h5e`.`Title` AS `DistributorTitle`,`h6`.`Title` AS `PermitTypeTitle`,`h7e`.`Title` AS `PermitIssuerTitle` from (((((((((`H_Permits` `j` left join `H_HUBs` `h2` on((`h2`.`Id` = `j`.`HUBId`))) left join `H_AAA_EntityProfile` `h2e` on((`h2e`.`Id` = `h2`.`EntityId`))) left join `H_CVOs` `h3` on((`h3`.`Id` = `j`.`CVOId`))) left join `H_AAA_EntityProfile` `h3e` on((`h3e`.`Id` = `h3`.`EntityId`))) left join `H_Distributors` `h5` on((`h5`.`Id` = `j`.`DistributorId`))) left join `H_AAA_EntityProfile` `h5e` on((`h5e`.`Id` = `h5`.`EntityId`))) left join `H_PermitTypes` `h6` on((`h6`.`Id` = `j`.`PermitTypeId`))) left join `H_PermitIssuers` `h7` on((`h7`.`Id` = `j`.`PermitIssuerId`))) left join `H_AAA_EntityProfile` `h7e` on((`h7e`.`Id` = `h7`.`EntityId`))) where (`j`.`RecordDeleted` is null) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6826,6 +7099,78 @@ SET character_set_client = @saved_cs_client;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `Vi_SYNC_AAA_FullUserInfo` AS select `UI`.`Id` AS `Id`,`UI`.`Firstname_fsx` AS `Firstname_fsx`,`UI`.`Lastname_fsx` AS `Lastname_fsx`,`UI`.`Username` AS `Username`,`UI`.`Email_fsx` AS `Email_fsx`,`UI`.`Email_hash` AS `Email_hash`,`UI`.`EmailConfirmed` AS `EmailConfirmed`,`UI`.`CellPhone_fsx` AS `CellPhone_fsx`,`UI`.`CellPhone_hash` AS `CellPhone_hash`,`UI`.`CellPhoneConfirmed` AS `CellPhoneConfirmed`,`UI`.`IssuedBy` AS `IssuedBy`,`UI`.`RecordKey` AS `RecordKey`,`UI`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`UI`.`CreatedBy` AS `CreatedBy`,`UI`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`UI`.`ModifiedBy` AS `ModifiedBy`,`UI`.`RecordDeleted` AS `RecordDeleted`,`RUI`.`UserId` AS `UserId`,`RUI`.`PasswordHash` AS `PasswordHash`,`RUI`.`PasswordTemp` AS `PasswordTemp`,`RUI`.`PasswordTempExpires` AS `PasswordTempExpires`,`RUI`.`PasswordTempFor` AS `PasswordTempFor` from (`H_AAA_Synced_UserInfo` `UI` join `H_AAA_Synced_RestrictedUserInfo` `RUI` on((`UI`.`Id` = `RUI`.`UserId`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SYNC_ApprovedDrivers`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SYNC_ApprovedDrivers`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SYNC_ApprovedDrivers` AS select `AD`.`Id` AS `Id`,`AD`.`UserId` AS `UserId`,`AD`.`PersonCVOId` AS `PersonCVOId`,`AD`.`RecordKey` AS `RecordKey`,`AD`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`AD`.`CreatedBy` AS `CreatedBy`,`AD`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`AD`.`ModifiedBy` AS `ModifiedBy`,`AD`.`RecordDeleted` AS `RecordDeleted` from (`H_Drivers` `AD` join `Vi_SYNC_AAA_FullUserInfo` `FU` on((`AD`.`UserId` = `FU`.`Id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SYNC_ApprovedPermitStatusVerifications`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SYNC_ApprovedPermitStatusVerifications`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`HexaBloxdbAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SYNC_ApprovedPermitStatusVerifications` AS select `PSV`.`Id` AS `Id`,`PSV`.`PermitStatusId` AS `PermitStatusId`,`RS`.`RequesteeUserId` AS `ApproverUserId`,`RS`.`RequesteeEntityId` AS `ApproverEntityId`,`RS`.`RequesteeActENUM` AS `ApproverActENUM`,`RS`.`Status` AS `ApprovalStatus`,`RS`.`StatusReason` AS `ApprovalStatusReason`,`PSV`.`RecordKey` AS `RecordKey`,`PSV`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`PSV`.`CreatedBy` AS `CreatedBy`,`PSV`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`PSV`.`ModifiedBy` AS `ModifiedBy`,`PSV`.`RecordDeleted` AS `RecordDeleted` from (`H_PermitStatusVerifications` `PSV` join `H_RequestStatuses` `RS` on((`RS`.`Id` = `PSV`.`RequestStatusId`))) where (`RS`.`Status` = 5) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SYNC_ApprovedPermitStatuses`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SYNC_ApprovedPermitStatuses`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SYNC_ApprovedPermitStatuses` AS select `PS`.`Id` AS `Id`,`PS`.`PermitId` AS `PermitId`,`PS`.`ExpiryDate_UTC` AS `ExpiryDate_UTC`,`PS`.`ConditionENUM` AS `ConditionENUM`,`PS`.`ConditionEndDate_UTC` AS `ConditionEndDate_UTC`,`PS`.`MediaRecordKey` AS `MediaRecordKey`,`PS`.`RecordKey` AS `RecordKey`,`PS`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`PS`.`CreatedBy` AS `CreatedBy`,`PS`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`PS`.`ModifiedBy` AS `ModifiedBy`,`PS`.`RecordDeleted` AS `RecordDeleted` from (`H_PermitStatuses` `PS` join `Vi_SYNC_ApprovedPermits` `AP` on((`AP`.`Id` = `PS`.`PermitId`))) where exists(select 1 from (`H_PermitStatusVerifications` `PSV` join `H_RequestStatuses` `RS` on((`RS`.`Id` = `PSV`.`RequestStatusId`))) where ((`PSV`.`PermitStatusId` = `PS`.`Id`) and (`RS`.`Status` = 5))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `Vi_SYNC_ApprovedPermits`
+--
+
+/*!50001 DROP VIEW IF EXISTS `Vi_SYNC_ApprovedPermits`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`YYZdbPPCAdmin`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `Vi_SYNC_ApprovedPermits` AS select `P`.`Id` AS `Id`,`P`.`HUBId` AS `HUBId`,`P`.`DistributorId` AS `DistributorId`,`P`.`CVOId` AS `CVOId`,`P`.`VehicleId` AS `VehicleId`,`P`.`DriverId` AS `DriverId`,`P`.`ActENUM` AS `ActENUM`,`P`.`PermitIssuerId` AS `PermitIssuerId`,`P`.`PermitTypeId` AS `PermitTypeId`,`P`.`Code` AS `Code`,`P`.`IssuedDate_UTC` AS `IssuedDate_UTC`,`P`.`RecordKey` AS `RecordKey`,`P`.`CreatedAt_UTC` AS `CreatedAt_UTC`,`P`.`CreatedBy` AS `CreatedBy`,`P`.`ModifiedAt_UTC` AS `ModifiedAt_UTC`,`P`.`ModifiedBy` AS `ModifiedBy`,`P`.`RecordDeleted` AS `RecordDeleted` from `H_Permits` `P` where exists(select 1 from ((`H_PermitStatuses` `PS` join `H_PermitStatusVerifications` `PSV` on((`PSV`.`PermitStatusId` = `PS`.`Id`))) join `H_RequestStatuses` `RS` on((`RS`.`Id` = `PSV`.`RequestStatusId`))) where ((`PS`.`PermitId` = `P`.`Id`) and (`RS`.`Status` = 5))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -6857,4 +7202,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-13 13:55:57
+-- Dump completed on 2026-06-22 14:02:28
