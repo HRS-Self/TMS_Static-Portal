@@ -1078,7 +1078,7 @@ FROM H_VehicleFeatures j
 WHERE j.RecordDeleted IS NULL;
 
 -- ===== header.notifications (H_NotificationQueue) =====
--- TODO(tray): Vi_SPC_NotificationTray  (source H_NotificationQueue)
+-- Vi_SPC_NotificationTray: authored in spc-view-overlay.json (see "authored views" section).
 
 -- ===== system.app-registration.app-clients (H_AAA_AppClients) =====
 DROP VIEW IF EXISTS Vi_SPC_AppClientListSummary;
@@ -1968,4 +1968,9 @@ FROM H_TransportFareCalculations m
   LEFT JOIN H_Synced_CVOs h1 ON h1.Id = m.CVOId
   LEFT JOIN H_AAA_Synced_EntityProfile h1e ON h1e.Id = h1.EntityId
 WHERE m.RecordDeleted IS NULL;
+
+
+-- ========== authored views ==========
+DROP VIEW IF EXISTS Vi_SPC_NotificationTray;
+CREATE OR REPLACE VIEW Vi_SPC_NotificationTray AS SELECT q.Id, q.NotificationRequestId, q.UserId, q.EntityId, q.ChannelType, q.Status, q.Destination_fsx, q.BroadcastedAt_UTC, q.CreatedAt_UTC, q.CreatedBy, q.ModifiedAt_UTC, q.ModifiedBy, q.RecordDeleted, r.HasRule, r.Body, r.UserRecordKey, r.EntityRecordKey, r.RuleRecordKey FROM H_NotificationQueue q JOIN H_NotificationRequests r ON r.Id = q.NotificationRequestId WHERE q.ChannelType = 1 AND r.RecordDeleted IS NULL;
 

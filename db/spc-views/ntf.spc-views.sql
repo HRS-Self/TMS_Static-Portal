@@ -5,5 +5,10 @@
 
 
 -- ===== header.notifications (H_NotificationQueue) =====
--- TODO(tray): Vi_SPC_NotificationTray  (source H_NotificationQueue)
+-- Vi_SPC_NotificationTray: authored in spc-view-overlay.json (see "authored views" section).
+
+
+-- ========== authored views ==========
+DROP VIEW IF EXISTS Vi_SPC_NotificationTray;
+CREATE OR REPLACE VIEW Vi_SPC_NotificationTray AS SELECT q.Id, q.NotificationRequestId, q.UserId, q.EntityId, q.ChannelType, q.Status, q.Destination_fsx, q.BroadcastedAt_UTC, q.CreatedAt_UTC, q.CreatedBy, q.ModifiedAt_UTC, q.ModifiedBy, q.RecordDeleted, r.HasRule, r.Body, r.UserRecordKey, r.EntityRecordKey, r.RuleRecordKey FROM H_NotificationQueue q JOIN H_NotificationRequests r ON r.Id = q.NotificationRequestId WHERE q.ChannelType = 1 AND r.RecordDeleted IS NULL;
 

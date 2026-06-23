@@ -20,5 +20,11 @@
       ]
     }
   },
-  "views": []
+  "views": [
+    {
+      "name": "Vi_SPC_NotificationTray",
+      "dependsOn": ["H_NotificationQueue", "H_NotificationRequests"],
+      "sql": "CREATE OR REPLACE VIEW Vi_SPC_NotificationTray AS SELECT q.Id, q.NotificationRequestId, q.UserId, q.EntityId, q.ChannelType, q.Status, q.Destination_fsx, q.BroadcastedAt_UTC, q.CreatedAt_UTC, q.CreatedBy, q.ModifiedAt_UTC, q.ModifiedBy, q.RecordDeleted, r.HasRule, r.Body, r.UserRecordKey, r.EntityRecordKey, r.RuleRecordKey FROM H_NotificationQueue q JOIN H_NotificationRequests r ON r.Id = q.NotificationRequestId WHERE q.ChannelType = 1 AND r.RecordDeleted IS NULL;"
+    }
+  ]
 }
