@@ -2,7 +2,7 @@
 
 import { TMSHeader, TMSSidebar, useTMSUIViewportTier } from "@conitdev/tms-ui-kit";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ComponentProps, type ReactNode } from "react";
 
 import { getPortalSurfaceByRoute } from "@/src/portal/chrome/portal-chrom-surface-registry.config";
 import { logger } from "@/src/logger";
@@ -41,6 +41,28 @@ export function PortalShell({
   const shellRef = useRef<HTMLDivElement>(null);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [switchCompanyOpen, setSwitchCompanyOpen] = useState(false);
+
+  // In-app notification tray: the header renders the kit tray from this list. Fetched from the BFF
+  // (DataGateway → Vi_SPC_NotificationTray, scoped to the current user) on mount and whenever the
+  // active company changes. The tray is non-critical chrome — failures are swallowed (empty tray).
+  type HeaderNotifications = NonNullable<ComponentProps<typeof TMSHeader>["notifications"]>;
+  const [notifications, setNotifications] = useState<HeaderNotifications>([]);
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        const res = await fetch("/api/portal/notifications");
+        if (!res.ok) return;
+        const json = (await res.json()) as { notifications?: HeaderNotifications };
+        if (!cancelled) setNotifications(json.notifications ?? []);
+      } catch {
+        /* tray is non-critical; leave it empty on failure */
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [currentEntityId]);
 
   // Selecting a company (header switcher OR modal) runs the SAME flow as first login: GET
   // /api/entity/select → sets session.entityId → server redirect → full reload re-renders the app.
@@ -180,6 +202,13 @@ export function PortalShell({
       <div className={portalChromLocalUIOverrides.headerHostClassName}>
         <TMSHeader
           {...headerProps}
+          notifications={notifications}
+          onClickNotif={(notification) => {
+            // optimistic local mark-read; server-side persistence (NTF /Set Status=Read) is a follow-up
+            setNotifications((prev) =>
+              prev.map((n) => (n.id === notification.id ? { ...n, isRead: true } : n)),
+            );
+          }}
           signOutOnClick={() => {
             // full navigation so the /api/auth/logout route's redirect() to the IDP signout fires
             window.location.assign("/api/auth/logout");
