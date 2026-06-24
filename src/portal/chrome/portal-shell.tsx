@@ -42,19 +42,20 @@ export function PortalShell({
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [switchCompanyOpen, setSwitchCompanyOpen] = useState(false);
 
-  // In-app notification tray: the header renders the kit tray from this list. Fetched from the BFF
-  // (DataGateway → Vi_SPC_NotificationTray, scoped to the current user) on mount and whenever the
-  // active company changes. The tray is non-critical chrome — failures are swallowed (empty tray).
-  type HeaderNotifications = NonNullable<ComponentProps<typeof TMSHeader>["notifications"]>;
-  const [notifications, setNotifications] = useState<HeaderNotifications>([]);
+  // In-app notification tray: the header's notification dropdown is fed from this list. Fetched from
+  // the BFF (DataGateway → Vi_SPC_NotificationTray, scoped to the current user) on mount and whenever
+  // the active company changes. Kit-agnostic items here; mapped to the header shape below. The tray
+  // is non-critical chrome — failures are swallowed (empty tray).
+  type TrayItem = { id: string; title: string; body: string; isRead: boolean; timestamp: string };
+  const [trayItems, setTrayItems] = useState<TrayItem[]>([]);
   useEffect(() => {
     let cancelled = false;
     void (async () => {
       try {
         const res = await fetch("/api/portal/notifications");
         if (!res.ok) return;
-        const json = (await res.json()) as { notifications?: HeaderNotifications };
-        if (!cancelled) setNotifications(json.notifications ?? []);
+        const json = (await res.json()) as { notifications?: TrayItem[] };
+        if (!cancelled) setTrayItems(json.notifications ?? []);
       } catch {
         /* tray is non-critical; leave it empty on failure */
       }
@@ -63,6 +64,12 @@ export function PortalShell({
       cancelled = true;
     };
   }, [currentEntityId]);
+
+  // Map to the header's notification shape ({ id, text, date, reeded }); body has no slot in the
+  // header dropdown (kept in trayItems for a future full inbox page).
+  const headerNotifications: NonNullable<ComponentProps<typeof TMSHeader>["notifications"]> = trayItems.map(
+    (n) => ({ id: n.id, text: n.title, date: n.timestamp, reeded: n.isRead }),
+  );
 
   // Selecting a company (header switcher OR modal) runs the SAME flow as first login: GET
   // /api/entity/select → sets session.entityId → server redirect → full reload re-renders the app.
@@ -202,12 +209,21 @@ export function PortalShell({
       <div className={portalChromLocalUIOverrides.headerHostClassName}>
         <TMSHeader
           {...headerProps}
-          notifications={notifications}
+          notifications={headerNotifications}
           onClickNotif={(notification) => {
-            // optimistic local mark-read; server-side persistence (NTF /Set Status=Read) is a follow-up
-            setNotifications((prev) =>
+            // optimistic local mark-read, then persist Status=Read (5) on the NTF queue row.
+            const current = trayItems.find((n) => n.id === notification.id);
+            if (!current || current.isRead) return;
+            setTrayItems((prev) =>
               prev.map((n) => (n.id === notification.id ? { ...n, isRead: true } : n)),
             );
+            void fetch("/api/portal/notifications", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ id: notification.id }),
+            }).catch(() => {
+              /* non-critical; the optimistic state stands until next refetch */
+            });
           }}
           signOutOnClick={() => {
             // full navigation so the /api/auth/logout route's redirect() to the IDP signout fires
