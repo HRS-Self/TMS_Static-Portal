@@ -34,6 +34,11 @@ yarn-error.log*
 .env*
 !.env.example
 
+# DevOps config (real values + secrets) and base-URL DNS cache — keep only the sample committed
+/devops/app.config.json
+/devops/storage/base-urls.json
+/configs/
+
 # vercel
 .vercel
 

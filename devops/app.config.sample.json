@@ -1,0 +1,54 @@
+{
+    "_README": "DevOps-owned runtime config CONTRACT (redacted sample). Copy to ./devops/app.config.json for dev (gitignored) and to <deploy-root>/configs/app.config.json for prod. Loaded into process.env by the conitdev-next CLI before Next boots. Secrets are __SET_ME__. External base URLs resolve by EX_SERVICE_*_ID via the DNS resolver; _INTERNAL_URL overrides win (use for dev). See docs/stages/s6-composition-runtime/ruleset/2026-06-25-devops-config-and-recipe-segregation-policy.md and the 2026-06-25 DevOps-config roadmap.",
+
+    "PLATFORM_CLIENT_ID": "YYZ",
+    "PLATFORM_NODE_ID": "1",
+    "PLATFORM_ENV": "DEV",
+
+    "APP_ID": 413,
+    "APP_HOST": "0.0.0.0",
+    "APP_PORT": 3000,
+
+    "APP_BASE_URLS_DNS_DOMAIN": "fidaride.com",
+    "APP_BASE_URLS_DNS_RECHECK_TIME_AS_MILLIE_SECONDS": 300000,
+    "APP_STORAGE_PATH": "./devops/storage",
+
+    "APP_CLIENT_ID": "413-11",
+    "APP_CLIENT_SECRET": "__SET_ME__",
+
+    "SELF_URL": "https://vmgdev.fidaride.com",
+    "LANDING_PAGE": "/dashboard",
+
+    "SESSION_COOKIE_NAME": "tms_portal_sess",
+    "INACTIVITY_TIMEOUT_MINUTES": 2,
+    "IDP_RECHECK_TIMEOUT_MINUTES": 5,
+    "DEV_BYPASS_IDP": false,
+
+    "LOG_LEVEL": "VerbosDebug",
+    "CLIENT_LOG_LEVEL": "VerbosDebug",
+    "UI_KIT_DRIFT_VISIBILITY": "off",
+    "PORTAL_UI_PALETTE": "yellow",
+    "PORTAL_UI_DENSITY": "default",
+
+    "GD_BACKEND_PROFILE_PATH": "/api/v1/me",
+    "CORE_BACKEND_PROFILE_PATH": "/api/v1/me",
+    "NOTIFICATION_BACKEND_PROFILE_PATH": "/api/v1/me",
+
+    "EX_SERVICE_IDP_ID": 211,
+    "EX_SERVICE_IDP_INTERNAL_URL": "https://idpdev.fidaride.com/",
+
+    "EX_SERVICE_GLOBAL_DEFINITION_ID": 101,
+    "EX_SERVICE_GLOBAL_DEFINITION_INTERNAL_URL": "https://gdapidev.fidaride.com/",
+    "EX_SERVICE_GLOBAL_DEFINITION_DP_ID": 100,
+    "EX_SERVICE_GLOBAL_DEFINITION_DP_INTERNAL_URL": "https://tempgdpdev.fidaride.com/",
+
+    "EX_SERVICE_CORE_DEF_ID": 401,
+    "EX_SERVICE_CORE_DEF_INTERNAL_URL": "https://tmsapidev.fidaride.com/",
+    "EX_SERVICE_CORE_DP_ID": 400,
+    "EX_SERVICE_CORE_DP_INTERNAL_URL": "https://tempcdpdev.fidaride.com/",
+
+    "EX_SERVICE_NOTIFICATION_ID": 301,
+    "EX_SERVICE_NOTIFICATION_INTERNAL_URL": "https://ntfapidev.fidaride.com/",
+    "EX_SERVICE_NOTIFICATION_DP_ID": 300,
+    "EX_SERVICE_NOTIFICATION_DP_INTERNAL_URL": "http://localhost:5300/"
+}
